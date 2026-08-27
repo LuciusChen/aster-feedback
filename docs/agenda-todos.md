@@ -1,6 +1,6 @@
-# Agenda 与 TODOs
+<p align="right">🌐 <strong>简体中文</strong> · <a href="en/agenda-todos.md">English</a></p>
 
-[简体中文] · [English](en/agenda-todos.md)
+# Agenda 与 TODOs
 
 [返回首页](../README.md) · [查看 Org 分类总表](org-and-aster.md)
 

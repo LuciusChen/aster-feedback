@@ -1,6 +1,6 @@
-# 快速开始
+<p align="right">🌐 <strong>简体中文</strong> · <a href="en/quick-start.md">English</a></p>
 
-[简体中文] · [English](en/quick-start.md)
+# 快速开始
 
 [返回首页](../README.md)
 

@@ -1,12 +1,16 @@
-# Aster 文档与反馈 / Documentation & Feedback
+<p align="right">🌐 <strong>简体中文</strong> · <a href="README.en.md">English</a></p>
 
-**简体中文** · [English](README.en.md)
+<p align="center"><img src="assets/aster-logo.png" alt="Aster" width="128"></p>
+
+<h1 align="center">Aster 文档与反馈</h1>
+
+<p align="center">面向 iPhone 与 iPad 的原生 Org mode 工作区</p>
 
 Aster 是一款面向 iPhone 和 iPad 的原生 Org mode 工作区。它把用户已有的 `.org` 文件呈现为日程、待办、日志、文件、搜索、提醒与小组件，同时仍以原始 Org 文件和 Org Attach 目录为数据源。
 
 这个仓库用于两件事：
 
-- 提供与当前 TestFlight 版本一致的中文使用文档。
+- 提供与当前 TestFlight 版本一致的中英文使用文档。
 - 集中收集可复现的问题、兼容性反馈和功能建议。
 
 > Aster 仍处于测试阶段。测试重要数据前，请先备份 Org 文件和同目录下的 `data/` 附件目录。

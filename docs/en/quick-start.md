@@ -1,6 +1,6 @@
-# Quick Start
+<p align="right">🌐 <a href="../quick-start.md">简体中文</a> · <strong>English</strong></p>
 
-[简体中文](../quick-start.md) · **English**
+# Quick Start
 
 [Back to English home](../../README.en.md)
 

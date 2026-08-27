@@ -1,6 +1,6 @@
-# 同步、数据安全与冲突
+<p align="right">🌐 <strong>简体中文</strong> · <a href="en/sync-and-safety.md">English</a></p>
 
-[简体中文] · [English](en/sync-and-safety.md)
+# 同步、数据安全与冲突
 
 [返回首页](../README.md) · [快速开始](quick-start.md)
 

@@ -1,6 +1,6 @@
-# Submit Feedback
+<p align="right">🌐 <a href="../feedback.md">简体中文</a> · <strong>English</strong></p>
 
-[简体中文](../feedback.md) · **English**
+# Submit Feedback
 
 [Back to English home](../../README.en.md)
 

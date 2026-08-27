@@ -1,6 +1,6 @@
-# Journal 与 Capture
+<p align="right">🌐 <strong>简体中文</strong> · <a href="en/journal-capture.md">English</a></p>
 
-[简体中文] · [English](en/journal-capture.md)
+# Journal 与 Capture
 
 [返回首页](../README.md) · [快速开始](quick-start.md)
 

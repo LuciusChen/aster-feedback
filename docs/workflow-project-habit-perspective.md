@@ -1,6 +1,6 @@
-# Workflow、Project、Habit 与 Perspective
+<p align="right">🌐 <strong>简体中文</strong> · <a href="en/workflow-project-habit-perspective.md">English</a></p>
 
-[简体中文] · [English](en/workflow-project-habit-perspective.md)
+# Workflow、Project、Habit 与 Perspective
 
 [返回首页](../README.md) · [Org 分类总表](org-and-aster.md)
 

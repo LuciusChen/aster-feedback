@@ -1,6 +1,6 @@
-# Agenda and TODOs
+<p align="right">🌐 <a href="../agenda-todos.md">简体中文</a> · <strong>English</strong></p>
 
-[简体中文](../agenda-todos.md) · **English**
+# Agenda and TODOs
 
 [Back to English home](../../README.en.md) · [Org classification reference](org-and-aster.md)
 

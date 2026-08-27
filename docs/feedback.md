@@ -1,6 +1,6 @@
-# 提交反馈
+<p align="right">🌐 <strong>简体中文</strong> · <a href="en/feedback.md">English</a></p>
 
-[简体中文] · [English](en/feedback.md)
+# 提交反馈
 
 [返回首页](../README.md)
 

@@ -1,6 +1,6 @@
-# How Org Source Appears in Aster
+<p align="right">🌐 <a href="../org-and-aster.md">简体中文</a> · <strong>English</strong></p>
 
-[简体中文](../org-and-aster.md) · **English**
+# How Org Source Appears in Aster
 
 [Back to English home](../../README.en.md)
 

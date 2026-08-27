@@ -1,6 +1,6 @@
-# Files、预览、编辑与附件
+<p align="right">🌐 <strong>简体中文</strong> · <a href="en/files-preview-attachments.md">English</a></p>
 
-[简体中文] · [English](en/files-preview-attachments.md)
+# Files、预览、编辑与附件
 
 [返回首页](../README.md) · [Org 分类与写回](org-and-aster.md)
 

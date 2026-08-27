@@ -1,6 +1,6 @@
-# Sync, Data Safety, and Conflicts
+<p align="right">🌐 <a href="../sync-and-safety.md">简体中文</a> · <strong>English</strong></p>
 
-[简体中文](../sync-and-safety.md) · **English**
+# Sync, Data Safety, and Conflicts
 
 [Back to English home](../../README.en.md) · [Quick Start](quick-start.md)
 

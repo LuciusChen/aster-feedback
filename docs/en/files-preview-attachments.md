@@ -1,6 +1,6 @@
-# Files, Preview, Editing, and Attachments
+<p align="right">🌐 <a href="../files-preview-attachments.md">简体中文</a> · <strong>English</strong></p>
 
-[简体中文](../files-preview-attachments.md) · **English**
+# Files, Preview, Editing, and Attachments
 
 [Back to English home](../../README.en.md) · [Org classification and write-back](org-and-aster.md)
 

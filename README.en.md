@@ -1,6 +1,10 @@
-# Aster Documentation & Feedback
+<p align="right">🌐 <a href="README.md">简体中文</a> · <strong>English</strong></p>
 
-[简体中文](README.md) · **English**
+<p align="center"><img src="assets/aster-logo.png" alt="Aster" width="128"></p>
+
+<h1 align="center">Aster Documentation & Feedback</h1>
+
+<p align="center">A native Org mode workspace for iPhone and iPad</p>
 
 Aster is a native Org mode workspace for iPhone and iPad. It presents your existing `.org` files as an agenda, task list, journal, file browser, global search, reminders, and widgets—while keeping the original Org files and adjacent Org Attach directories as the source of truth.
 

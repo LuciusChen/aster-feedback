@@ -1,6 +1,6 @@
-# Journal and Capture
+<p align="right">🌐 <a href="../journal-capture.md">简体中文</a> · <strong>English</strong></p>
 
-[简体中文](../journal-capture.md) · **English**
+# Journal and Capture
 
 [Back to English home](../../README.en.md) · [Quick Start](quick-start.md)
 

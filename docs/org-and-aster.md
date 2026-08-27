@@ -1,6 +1,6 @@
-# Org 原文如何变成 Aster 界面
+<p align="right">🌐 <strong>简体中文</strong> · <a href="en/org-and-aster.md">English</a></p>
 
-[简体中文] · [English](en/org-and-aster.md)
+# Org 原文如何变成 Aster 界面
 
 [返回首页](../README.md)
 
