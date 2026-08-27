@@ -1,5 +1,7 @@
 # Org 原文如何变成 Aster 界面
 
+[简体中文] · [English](en/org-and-aster.md)
+
 [返回首页](../README.md)
 
 这页是 Aster 最核心的语义对照表。每个例子都包含可复制的 Org 原文、Aster 的实际分类、出现位置和适用场景。

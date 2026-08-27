@@ -1,5 +1,7 @@
 # Files、预览、编辑与附件
 
+[简体中文] · [English](en/files-preview-attachments.md)
+
 [返回首页](../README.md) · [Org 分类与写回](org-and-aster.md)
 
 Files 是工作区的源文件入口。Agenda、TODOs、Journal 和 Search 提供语义视图，Files 则让你检查目录、打开原文件、阅读 Preview，并在需要时直接编辑 Source。

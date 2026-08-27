@@ -1,5 +1,7 @@
 # Journal 与 Capture
 
+[简体中文] · [English](en/journal-capture.md)
+
 [返回首页](../README.md) · [快速开始](quick-start.md)
 
 Journal 是对每日 Org 文件的时间线阅读；Capture 是把一段结构化内容写入 Org 的通用入口。两者经常一起使用，但不是同一件事：Journal 决定“今天的文件和条目如何显示”，Capture Template 决定“每次写入什么、写到哪里”。

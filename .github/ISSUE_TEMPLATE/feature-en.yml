@@ -1,0 +1,62 @@
+name: Feature request (English)
+description: Discuss a new use case, Org capability, or interaction improvement
+title: "[Feature] "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please begin with the real use case and its Org semantics. Aster keeps user files authoritative, so an interface proposal should also explain the expected read or write-back behavior.
+
+  - type: textarea
+    id: scenario
+    attributes:
+      label: Use case
+      description: In what situation do you need this, and what are you trying to accomplish?
+    validations:
+      required: true
+
+  - type: textarea
+    id: friction
+    attributes:
+      label: Current difficulty
+      description: What steps are required today, and where does the workflow fail or become confusing?
+    validations:
+      required: true
+
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired result
+      description: Describe the completed behavior without assuming it must be a particular button or page.
+    validations:
+      required: true
+
+  - type: textarea
+    id: org
+    attributes:
+      label: Expected Org semantics or example
+      description: If this involves Event, Task, Project, Habit, Repeat, Diary, Capture, or attachments, include the desired source. Enter “Not applicable” when appropriate.
+      render: org
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Current workaround
+      description: How do you accomplish this today in Emacs, another app, or by editing source manually?
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Screenshots or additional context
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope confirmation
+      options:
+        - label: I described a real use case and removed private or sensitive information.
+          required: true

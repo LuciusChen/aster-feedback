@@ -1,4 +1,6 @@
-# Aster 中文文档与反馈
+# Aster 文档与反馈 / Documentation & Feedback
+
+**简体中文** · [English](README.en.md)
 
 Aster 是一款面向 iPhone 和 iPad 的原生 Org mode 工作区。它把用户已有的 `.org` 文件呈现为日程、待办、日志、文件、搜索、提醒与小组件，同时仍以原始 Org 文件和 Org Attach 目录为数据源。
 

@@ -1,0 +1,110 @@
+name: Bug report (English)
+description: Report a reproducible bug, crash, write-back, sync, or performance problem
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for the report. Include only the minimum data needed to reproduce it. Never post account credentials, tokens, passwords, private files, or a complete workspace.
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Agenda / TODOs / Perspective
+        - Journal / Capture
+        - Files / Preview / Attachments
+        - Search / Settings / Navigation
+        - Org parsing / write-back
+        - Sync / conflict
+        - Notification / Widget / Calendar
+        - Performance
+        - Crash
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: build
+    attributes:
+      label: Aster version
+      description: For example, 0.1 (1). Find it in TestFlight or Aster settings.
+      placeholder: 0.1 (1)
+    validations:
+      required: true
+
+  - type: input
+    id: device
+    attributes:
+      label: Device and operating system
+      placeholder: iPhone 17 Pro · iOS 26.0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: provider
+    attributes:
+      label: Workspace provider
+      options:
+        - Dropbox
+        - iCloud Drive
+        - Nutstore
+        - WebDAV
+        - Demo Workspace / Simulator
+        - Not related to workspace sync
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Start with the page you were on, then list each action in order.
+      placeholder: |
+        1. Open …
+        2. Tap or hold …
+        3. Change …
+        4. Return to …
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+    validations:
+      required: true
+
+  - type: textarea
+    id: org
+    attributes:
+      label: Minimal Org source
+      description: Keep only the structure that triggers the bug. Replace real titles, tags, paths, IDs, and text. Enter “Not applicable” when appropriate.
+      render: org
+    validations:
+      required: true
+
+  - type: textarea
+    id: attachments
+    attributes:
+      label: Screenshots, recording, or additional context
+      description: Drag files here. For sync or performance problems, include timing, when it occurs, and approximate workspace size.
+
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy confirmation
+      options:
+        - label: I removed accounts, passwords, tokens, private file contents, absolute paths, and other sensitive information.
+          required: true

@@ -1,5 +1,7 @@
 # 快速开始
 
+[简体中文] · [English](en/quick-start.md)
+
 [返回首页](../README.md)
 
 ## 1. 测试前准备

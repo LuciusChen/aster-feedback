@@ -1,5 +1,7 @@
 # Agenda 与 TODOs
 
+[简体中文] · [English](en/agenda-todos.md)
+
 [返回首页](../README.md) · [查看 Org 分类总表](org-and-aster.md)
 
 Agenda 和 TODOs 读取同一批 Org 文件，但回答不同问题：

@@ -1,5 +1,7 @@
 # Workflow、Project、Habit 与 Perspective
 
+[简体中文] · [English](en/workflow-project-habit-perspective.md)
+
 [返回首页](../README.md) · [Org 分类总表](org-and-aster.md)
 
 Aster 把“状态”“项目”“习惯”和“视图”拆成四层语义：Workflow 来自 Org，Project 是某些进行中状态的角色，Habit 是带重复计划的任务特征，Perspective 则只是一个已保存的筛选与排列方式。

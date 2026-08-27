@@ -1,5 +1,7 @@
 # 同步、数据安全与冲突
 
+[简体中文] · [English](en/sync-and-safety.md)
+
 [返回首页](../README.md) · [快速开始](quick-start.md)
 
 Aster 日常编辑的是应用本地工作区，再通过所选来源同步。Agenda、Journal、Files、Search、Widget 和通知索引都可以重建；真正需要保护的是 Org 源文件和 Org Attach 文件。

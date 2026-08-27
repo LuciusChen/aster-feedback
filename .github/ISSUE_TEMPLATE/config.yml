@@ -3,3 +3,6 @@ contact_links:
   - name: 中文使用文档
     url: https://github.com/LuciusChen/aster-feedback#从这里开始
     about: 提交反馈前先查看 Org 分类、写回、附件和同步说明。
+  - name: English documentation
+    url: https://github.com/LuciusChen/aster-feedback/blob/main/README.en.md
+    about: Review Org classification, write-back, attachments, and sync behavior before reporting an issue.
