@@ -1,0 +1,62 @@
+name: Feature request
+description: 讨论新的使用场景、Org 能力或交互改进
+title: "[Feature] "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请从实际场景和 Org 语义出发。Aster 以用户文件为事实来源，因此界面建议也需要说明期望如何读取或写回 Org。
+
+  - type: textarea
+    id: scenario
+    attributes:
+      label: 使用场景
+      description: 你在什么情况下、为了什么目标需要这个能力？
+    validations:
+      required: true
+
+  - type: textarea
+    id: friction
+    attributes:
+      label: 当前困难
+      description: 当前要经过哪些步骤，哪里容易出错或无法完成？
+    validations:
+      required: true
+
+  - type: textarea
+    id: outcome
+    attributes:
+      label: 期望结果
+      description: 描述完成后的行为，不必先限定为某个按钮或页面。
+    validations:
+      required: true
+
+  - type: textarea
+    id: org
+    attributes:
+      label: 对应的 Org 语义或示例
+      description: 如果涉及 Event、Task、Project、Habit、Repeat、Diary、Capture 或附件，请给出期望的源文本。不适用时写“不适用”。
+      render: org
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 目前的替代方法
+      description: Emacs、其他应用或手工编辑中现在如何完成？
+
+  - type: textarea
+    id: context
+    attributes:
+      label: 补充截图或说明
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: 范围确认
+      options:
+        - label: 我说明的是实际使用场景，并已移除私人内容和敏感信息。
+          required: true

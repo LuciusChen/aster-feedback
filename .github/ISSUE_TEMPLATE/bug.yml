@@ -1,0 +1,110 @@
+name: Bug report
+description: 报告可复现的错误、闪退、数据写回、同步或性能问题
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈。请只提供能够复现问题的最少信息，不要公开账号、Token、密码、私人文件或完整工作区。
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: 问题分类
+      options:
+        - Agenda / TODOs / Perspective
+        - Journal / Capture
+        - Files / Preview / Attachments
+        - Search / Settings / Navigation
+        - Org parsing / write-back
+        - Sync / conflict
+        - Notification / Widget / Calendar
+        - Performance
+        - Crash
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: build
+    attributes:
+      label: Aster 版本
+      description: 例如 0.1 (1)，可在 TestFlight 或设置中查看。
+      placeholder: 0.1 (1)
+    validations:
+      required: true
+
+  - type: input
+    id: device
+    attributes:
+      label: 设备与系统
+      placeholder: iPhone 17 Pro · iOS 26.0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: provider
+    attributes:
+      label: 工作区来源
+      options:
+        - Dropbox
+        - iCloud Drive
+        - Nutstore
+        - WebDAV
+        - Demo Workspace / Simulator
+        - Not related to workspace sync
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 从哪个页面开始，按顺序写出每一步。
+      placeholder: |
+        1. 打开 …
+        2. 轻点/长按 …
+        3. 修改 …
+        4. 返回 …
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期结果
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际结果
+    validations:
+      required: true
+
+  - type: textarea
+    id: org
+    attributes:
+      label: 最小 Org 源文本
+      description: 仅保留触发问题的结构；替换真实标题、标签、路径、ID 和正文。不适用时写“不适用”。
+      render: org
+    validations:
+      required: true
+
+  - type: textarea
+    id: attachments
+    attributes:
+      label: 截图、录屏或补充信息
+      description: 可以直接拖入文件。同步或性能问题请补充出现时机、等待时长和文件规模。
+
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: 隐私确认
+      options:
+        - label: 我已移除账号、密码、Token、私人文件内容、绝对路径和其他敏感信息。
+          required: true

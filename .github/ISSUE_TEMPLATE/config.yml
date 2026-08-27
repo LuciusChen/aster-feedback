@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 中文使用文档
+    url: https://github.com/LuciusChen/aster-feedback#从这里开始
+    about: 提交反馈前先查看 Org 分类、写回、附件和同步说明。
