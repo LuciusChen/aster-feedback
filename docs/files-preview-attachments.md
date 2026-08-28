@@ -38,6 +38,8 @@ Org Preview 按语法节点而不是简单正则扫描渲染，包括：
 - 动态块与相邻结果
 - 脚注和内联 LaTeX
 
+标题的标准 LOGBOOK 状态历史默认收在“历史”一行中，便于 Habit 文件一次浏览更多习惯；点击后可展开完整记录。Preview 不会再把同一批状态记录重复显示为普通正文，源文件内容不会因此改变。
+
 未知或暂不渲染的语法仍会保留在 Edit 源文本中。
 
 ### Dynamic Block
@@ -102,7 +104,7 @@ data/3d/94a625-be28-4144-8158-05fbf1288d5c/contract.pdf
 
 ## 从哪里添加附件
 
-- 新建 Event/Task：展开 **Show More → Attachments**。
+- 新建 Event/Task：直接使用新建页中的 **Attachments**。
 - Event/Task 详情：在 Content 之后的 **Attachments** 区域添加或打开。
 - Capture：运行生成标题的模板时选择媒体或文件。
 - Files：打开源文档可查看附件链接和对应文件。

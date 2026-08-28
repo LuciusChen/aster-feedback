@@ -29,6 +29,7 @@ Today I want to finish the release checklist.
 ## Where Capture Starts
 
 Tap the bottom `+` in Journal to choose a configured Capture Template. When none exist, Aster links to **Settings → Org & Capture → Templates → Capture templates**.
+Capture keeps the Emacs-compatible template-first order and presents templates as compact list rows; the inline Org preview has no extra card background. The runtime composer uses the same native density: input begins at one line, the live preview and pending attachments add no nested cards, and the photo, camera, and file actions retain full hit targets without oversized button plates.
 
 Holding the global `+` also exposes Capture from another page. Agenda's Event/Task composer is intentionally bounded and separate from general Capture templates.
 

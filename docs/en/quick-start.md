@@ -39,7 +39,7 @@ The workspace root answers “where are the files?” The following three settin
 | Journal folder | Location used to read and create daily Journal files | `denote/daily/` |
 | Capture Inbox | Default Org file for Agenda quick capture and TODO creation | `agenda/inbox.org` |
 
-These paths may belong to any connected workspace root. They do not require fixed directory names.
+These paths may belong to any connected workspace root. Agenda Sources can also select **Workspace root** directly: with **Include subfolders** off, only root-level Org files are indexed; turning it on indexes that root recursively. Fixed directory names are not required.
 
 ## 4. Confirm the Workflow
 
@@ -67,6 +67,8 @@ The root bar contains five positions: **Agenda · Journal · + · Files · Searc
 - Hold `+` to show all four creation entries.
 
 Hold Agenda to switch among **Agenda, TODOs, and saved Perspectives**. Hold Search to switch between **Search and Settings**.
+
+On iPhone, every scrollable surface can reveal its final row or action completely above the root bar so it remains tappable. The iPad root navigation stays at the top and adds no artificial bottom reservation.
 
 ## 6. Verify Write-Back
 

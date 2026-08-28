@@ -39,7 +39,7 @@
 | Journal folder | 每日 Journal 文件保存和读取的位置 | `denote/daily/` |
 | Capture Inbox | Agenda 快速新建与 TODOs 新建默认写入的 Org 文件 | `agenda/inbox.org` |
 
-路径可以位于任意已连接的工作区根目录下。它们不要求使用固定的文件夹名称。
+路径可以位于任意已连接的工作区根目录下。Agenda Sources 也可以直接选择“工作区根目录”：关闭“包含子文件夹”时只索引根目录中的 Org 文件，打开后才递归索引该根目录。它们不要求使用固定的文件夹名称。
 
 ## 4. 确认 Workflow
 
@@ -67,6 +67,8 @@
 - 长按 `+`：显示全部四种创建入口。
 
 长按 Agenda 可以切换 **Agenda、TODOs 和自定义 Perspective**；长按 Search 可以切换 **Search 和 Settings**。
+
+iPhone 上每个可滚动页面都能把最后一行或操作完整移到底栏上方，避免内容被遮挡而无法点击；iPad 的根导航位于顶部，不额外占用底部空间。
 
 ## 6. 验证写回
 

@@ -57,8 +57,18 @@ The Agenda `+` opens quick creation. The two-position control determines Org typ
 ### Event
 
 - No time: write an all-day active timestamp.
+- An Event exposes independent start and end dates. One day remains one active
+  timestamp; multiple days use the standard Org range:
+
+  ```org
+  * Trip
+  <2026-08-28 Fri>--<2026-08-30 Sun>
+  ```
+
 - Only `9:00`: default to `09:00-10:00`.
 - `9:00-10:15`: preserve the explicit range.
+- A timed multi-day Event likewise uses one standard active-timestamp range,
+  such as `<2026-08-28 Fri 09:00>--<2026-08-30 Sun 18:00>`.
 - An implicit time already in the past moves to the next day; an explicitly selected date remains unchanged.
 
 ### Task
@@ -68,13 +78,15 @@ The Agenda `+` opens quick creation. The two-position control determines Org typ
 - At a time on: write one exact time that appears in Agenda and alerts at that time.
 - A Task has no end time; it is not an Event interval.
 
-## What Show More Contains
+The horizontal timeline remains visible after switching to Task. A date-only Task spans the day in the creation preview, but that visual feedback does not change its Org meaning; only enabling At a time places it in Agenda at an exact point.
 
-The default creation surface keeps only the title, date, type, and necessary timeline visible. **Show More** exposes:
+## What the Creation Surface Exposes
+
+The same scrollable creation surface directly exposes:
 
 - Task Workflow state
 - Task-only planning type
-- Date and time
+- Event start/end dates and optional interval times, or one Task date and optional exact time
 - Priority
 - Tags
 - Standard Org Repeat or Weekday Diary
@@ -82,12 +94,13 @@ The default creation surface keeps only the title, date, type, and necessary tim
 - One Note written to LOGBOOK
 - The read-only Capture Inbox destination
 
-Collapsing Show More does not discard entered values. Tapping Add commits the headline, planning, properties, Note, links, and attachment copies as one transaction.
+The title and these fields now sit directly on one scroll surface without Show More/Show Less or extra custom card backgrounds. The timeline keeps only its faint flat field so its time range remains legible. Tapping Add still commits the headline, planning, properties, Note, links, and attachment copies as one transaction.
 
 ## Calendar and Timeline
 
 - Month is the first-launch default. After that, Aster restores the last selected Week, Month, or Year size even after the app is terminated and relaunched. The grabber moves only one adjacent step at a time.
 - The calendar remains fixed while the timeline scrolls independently and extends into both past and future.
+- Today remains aligned to the top initially, with past dates already above it, so the first drag is native scrolling rather than an unlock gesture.
 - As the timeline's leading day changes, calendar selection follows.
 - Crossing a week, month, or year uses directional animation; Reduce Motion reduces movement.
 - iPad landscape places the full timeline on the left and a synchronized month calendar on the right. TODOs and Perspectives do not retain an irrelevant large calendar.

@@ -38,6 +38,8 @@ Org Preview renders syntax nodes rather than scanning source with simple regular
 - Dynamic blocks and adjacent results
 - Footnotes and inline LaTeX
 
+Standard LOGBOOK state history starts collapsed behind each heading's **History** row, allowing a Habit file to show more habits at once. Tap the row to reveal the complete history. Preview does not repeat those same state records as ordinary body text, and the source remains unchanged.
+
 Unknown or not-yet-rendered syntax remains intact in Edit.
 
 ### Dynamic Blocks
@@ -102,7 +104,7 @@ The `attachment:` link, heading `ID`, `ATTACH` tag, and `data/` file must travel
 
 ## Where Attachments Can Be Added
 
-- New Event/Task: expand **Show More → Attachments**.
+- New Event/Task: use **Attachments** directly on the creation surface.
 - Event/Task detail: use **Attachments** after Content.
 - Capture: choose media or files while running a heading-producing template.
 - Files: open the source document to inspect attachment links and physical files.

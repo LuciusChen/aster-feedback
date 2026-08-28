@@ -28,6 +28,30 @@ A more complete example:
 
 Under **Settings → Tasks & Workflow → Workflow**, configure order, Process/Terminal role, symbol, color, shortcut, and state history. These native controls still map to standard Org declarations.
 
+### Parallel Task Flows and Direct Switching
+
+Org allows one file to define several distinct state sequences in parallel:
+
+```org
+#+TODO: TODO(t) | DONE(d)
+#+SEQ_TODO: REPORT(r) BUG(b) | FIXED(f)
+#+TODO: | CANCELED(c)
+
+* TODO Prepare release
+* BUG Crash when opening preview
+* CANCELED Retired experiment
+```
+
+- A keyword belongs to only one sequence; the keyword on a heading identifies the flow currently used by that heading.
+- Either side of `|` may be empty. `TODO |` is a Process-only flow and `| CANCELED` is a Terminal-only flow; both are standard Org syntax.
+- For these one-sided flows, the ordinary complete/reopen control leaves the source unchanged when the opposite side has no declared keyword. Aster never invents `DONE` or `TODO`; use the status picker to switch explicitly to another flow instead.
+- When one flow applies, Aster keeps the compact Process/Terminal picker. With multiple flows, the same picker groups them as **Task Flow 1 / 2 / 3**, so one tap can change `TODO` directly to `REPORT`, `FIXED`, or `CANCELED`.
+- A switch replaces only the current keyword on the headline—for example, `* TODO Title` becomes `* REPORT Title`. Aster neither deletes the former flow nor changes other headings, and it writes no private sequence ID.
+- Selecting a Terminal state from another flow still derives completion, `CLOSED:`, and entry/exit logging from the corresponding Org definitions.
+- For a repeating heading, completing `TODO` directly through another flow's `FIXED` advances the repeat date and returns to the original flow's `REPEAT_TO_STATE`, configured repeat target, or first Process state, matching `org-todo`; Aster does not silently change it to `REPORT`.
+
+File-local declarations affect only their file. In their absence, Aster uses the global Task Flows under **Settings → Tasks & Workflow → Workflow**. Advanced Org Syntax edits each complete definition token-for-token, while the structured editor covers common state, appearance, and logging changes.
+
 ## Project Is Not a Fixed English Keyword
 
 Enable **Treat as Project** on a Process state to give headings in that state Project semantics. The default `PROJECT` is only an initial convention; `PRO`, `ACTIVE`, or a non-English keyword can serve the same role.

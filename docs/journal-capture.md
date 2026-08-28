@@ -29,6 +29,7 @@ Today I want to finish the release checklist.
 ## Capture 从哪里进入
 
 在 Journal 轻点底部 `+`，会打开已经配置的 Capture Template；没有模板时，Aster 会引导到 **设置 → Org 与 Capture → Templates → Capture templates**。
+模板保持与 Emacs 一致的“先选择、再填写”顺序，并以紧凑列表行显示；行内 Org 预览没有额外卡片背景。选择模板后的填写页同样使用紧凑原生分区：输入默认从一行开始，实时预览和待上传附件不再嵌套卡片，照片、相机和文件入口保留完整点击范围但不使用大块按钮底。
 
 长按全局 `+` 也可以从其他页面直接选择 Capture。Agenda 的快速 Event/Task 新建是一个受限、专门的写入器，不会混入通用 Capture 模板。
 

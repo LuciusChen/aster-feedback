@@ -28,6 +28,30 @@ Aster 把“状态”“项目”“习惯”和“视图”拆成四层语义�
 
 在 **设置 → Tasks & Workflow → Workflow** 中可调整顺序、Process/Terminal、图标、颜色、快捷键和状态历史。界面配置仍应对应标准 Org 声明。
 
+### 多套并行 Task Flow 与切换
+
+Org 允许同一个文件并行定义多套互不相同的状态序列：
+
+```org
+#+TODO: TODO(t) | DONE(d)
+#+SEQ_TODO: REPORT(r) BUG(b) | FIXED(f)
+#+TODO: | CANCELED(c)
+
+* TODO Prepare release
+* BUG Crash when opening preview
+* CANCELED Retired experiment
+```
+
+- 每个关键字只能属于一套序列；当前标题上的关键字决定它正在使用哪套流程。
+- `|` 的一侧可以为空。`TODO |` 是只有 Process 的流程，`| CANCELED` 是只有 Terminal 的流程，二者都属于标准 Org 语法。
+- 对这类单侧流程使用普通完成/重开操作时，如果目标侧本来就没有关键字，Aster 会保持原文不变，绝不会补写未声明的 `DONE` 或 `TODO`；如需改变状态，应从状态选择器明确切到另一套流程。
+- 在 Aster 的状态选择器中，只有一套有效流程时继续显示紧凑的 Process/Terminal；存在多套时则按 **Task Flow 1 / 2 / 3** 分组，一次点击即可从 `TODO` 切到 `REPORT`、`FIXED` 或 `CANCELED`。
+- 切换只把标题行里的当前关键字替换掉，例如 `* TODO Title` 变成 `* REPORT Title`。Aster 不删除旧流程、不修改其他标题，也不会写入私有的 sequence ID。
+- 切到另一套流程的 Terminal 状态时，完成判断、`CLOSED:` 和进入/离开日志仍来自相应的 Org 状态定义。
+- 如果标题带 Repeater，从 `TODO` 直接完成为另一套流程的 `FIXED`，Aster 会像 `org-todo` 一样推进重复日期，并回到原流程的 `REPEAT_TO_STATE`、配置目标或第一个 Process 状态，而不是擅自改成 `REPORT`。
+
+文件内定义始终只影响该文件；没有文件内定义时才使用 **设置 → Tasks & Workflow → Workflow** 的全局 Task Flow。高级 Org Syntax 可直接编辑每一行的完整 token，结构化编辑器则用于常见的状态、样式与日志配置。
+
 ## Project 不是一个固定英文关键字
 
 在某个 Process 状态上开启 **Treat as Project** 后，该状态的标题才具有 Project 角色。默认的 `PROJECT` 只是方便开箱使用；`PRO`、`ACTIVE` 或中文关键字同样可以被配置为 Project。
