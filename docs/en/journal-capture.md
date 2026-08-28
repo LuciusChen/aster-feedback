@@ -76,6 +76,30 @@ Capture has two destination types:
 
 If the destination does not exist, Capture can reference an **Org File Template** to initialize it. A file template runs only once; the Capture body expands on every run. These are intentionally separate concepts.
 
+## Org File Templates and Placeholders
+
+An Org File Template generates the file header only when Aster first creates the target `.org` file. Create or edit one under **Settings → Org & Capture → Templates → File templates**, then select it as the Capture Template's **New file template**.
+
+| Placeholder | Expanded value |
+| --- | --- |
+| `{title}` | The single-line document title supplied when the file is created |
+| `{date}` | The current Gregorian date in `YYYY-MM-DD` format |
+| `{created}` | An inactive Org timestamp with the current time, such as `[2026-08-28 Fri 09:30]` |
+| `{identifier}` | A newly generated lowercase UUID |
+
+For example, this adapts an Emacs Denote Journal front matter definition into an Aster file template:
+
+```org
+#+title:      {title}
+#+date:       {created}
+#+filetags:
+#+identifier: {identifier}
+#+startup: indent
+#+ARCHIVE: journal.org::
+```
+
+Here, `#+filetags:` is an ordinary Org field left blank; Aster does not currently provide a `{filetags}` placeholder. Fixed tags may be written directly into the template. Emacs settings such as `org-download-image-dir`, `.dir-locals.el`, and Lisp expressions are not file-header content and cannot be placed in this template; media added by Aster uses Org Attach.
+
 ## Inline and Template File
 
 - **Inline**: stores the Capture body directly in Aster's device settings.

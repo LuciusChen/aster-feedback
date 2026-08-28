@@ -76,6 +76,30 @@ Capture 有两类目标：
 
 如果目标文件不存在，Capture 可以引用一个 **Org File Template** 先初始化文件。文件模板只运行一次；Capture 的正文模板每次运行都会展开。两者不要混淆。
 
+## Org File Template 与占位符
+
+Org File Template 只在 Aster 第一次创建目标 `.org` 文件时生成文件头。可在 **设置 → Org 与 Capture → Templates → File templates** 中新建和编辑，并在 Capture Template 的 **New file template** 中选择。
+
+| 占位符 | 展开结果 |
+| --- | --- |
+| `{title}` | 新建文件时提供的单行文档标题 |
+| `{date}` | 当前公历日期，格式为 `YYYY-MM-DD` |
+| `{created}` | 含当前时分的非活动 Org 时间戳，例如 `[2026-08-28 Fri 09:30]` |
+| `{identifier}` | 新生成的小写 UUID |
+
+例如，把 Emacs Denote 的 Journal 文件头改写为 Aster 文件模板：
+
+```org
+#+title:      {title}
+#+date:       {created}
+#+filetags:
+#+identifier: {identifier}
+#+startup: indent
+#+ARCHIVE: journal.org::
+```
+
+`#+filetags:` 在这里是一个留空的普通 Org 字段；Aster 当前没有 `{filetags}` 占位符。也可以直接在模板中填写固定标签。Emacs 的 `org-download-image-dir`、`.dir-locals.el` 和 Lisp 表达式不是文件头内容，不能放进该模板；Aster 添加的媒体使用 Org Attach 管理。
+
 ## Inline 与 Template File
 
 - **Inline**：模板正文直接保存在 Aster 的设备设置中。
