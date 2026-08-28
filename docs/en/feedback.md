@@ -68,9 +68,9 @@ Describe the use case and Org semantics before proposing the control:
 
 ```text
 Scenario: I have a date-only Task and want an alert at 09:00 that day.
-Current behavior: The Task stays in TODOs, but reminder configuration is hard to discover.
-Desired result: Turning on “Remind me on a day” in detail reveals the alert time.
-Org mapping: Keep the DEADLINE date and represent the alert with Aster reminder properties.
+Current behavior: The date-only Task remains in TODOs and creates no alert.
+Desired result: Enabling “At a time” in detail and selecting 09:00 moves it into Agenda and alerts at that time.
+Org mapping: Write 09:00 into the standard DEADLINE or SCHEDULED timestamp; do not write ASTER_REMINDER_TIME.
 ```
 
 This is easier to evaluate than “add a button,” because it exposes possible interactions with Event, Task, Repeat, Diary, and write-back rules.

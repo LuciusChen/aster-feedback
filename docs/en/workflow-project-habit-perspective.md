@@ -129,6 +129,6 @@ This works without requiring every user to spell the state `PROJECT`.
 ## What a Perspective Does Not Own
 
 - Org Repeat and Diary rules remain in source files.
-- Local notifications and persistent reminders are separate settings.
+- Notifications derive from each item's own standard timed planning; legacy persistent-reminder properties also remain outside Perspective ownership.
 - The Apple Reminders bridge is a separate integration.
 - A Perspective does not copy items, change Workflow, or create a proprietary project database.

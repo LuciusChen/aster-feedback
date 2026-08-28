@@ -68,9 +68,9 @@ SCHEDULED: <2026-09-03 Thu 09:15>
 
 ```text
 场景：我有一个无具体时间的日期型 Task，希望当天 09:00 提醒。
-当前：日期进入 TODOs，但提醒设置不容易发现。
-期望：在详情中开启“Remind me on a day”后再展开时间。
-Org：保留 DEADLINE 日期，并用 Aster reminder properties 表示提醒。
+当前：日期型 Task 留在 TODOs，不创建提醒。
+期望：在详情中打开“At a time”并选择 09:00 后，条目进入 Agenda 并按该时刻提醒。
+Org：把 09:00 写入标准 DEADLINE 或 SCHEDULED 时间戳，不写 ASTER_REMINDER_TIME。
 ```
 
 这种描述比“加一个按钮”更容易判断是否与 Event、Task、Repeat、Diary 和写回规则冲突。

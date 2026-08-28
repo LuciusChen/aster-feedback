@@ -96,7 +96,7 @@ DEADLINE: <2026-09-03 Thu>
 - 在条目元数据中显示 Deadline 日期。
 - 到期日过去且状态仍未完成时，显示 Overdue 状态。
 - 不会为了“有日期”就伪装成全天 Event。
-- 默认不创建通知；开启“Remind me on a day”后才写入 Aster 提醒属性和提醒时刻。
+- 不创建通知；需要在某个时刻提醒时，打开 `At a time`，把时刻写进标准 `SCHEDULED` 或 `DEADLINE` 后再保存。
 
 ### 适用场景
 
@@ -252,9 +252,9 @@ SCHEDULED: <%%(memq (calendar-day-of-week date) '(0 6))>
 - Diary 负责“哪几天”，标题中的时间负责“几点”。
 - 没有 Workflow 关键字时作为重复 Event；加上 Workflow 关键字后仍是 Task。
 
-## 12. Aster 提醒属性
+## 12. 兼容旧版 Aster 提醒属性
 
-提醒属性独立于 Org 的 `SCHEDULED`、`DEADLINE` 和 Repeater。
+当前版本的新建页和详情页只通过标准 Org 的 `SCHEDULED` 或 `DEADLINE` 具体时刻创建通知，不再新建私有提醒属性。下面的属性只用于兼容旧版本已经写入的文件：
 
 ```org
 * TODO Submit report
@@ -266,9 +266,9 @@ DEADLINE: <2026-09-03 Thu>
 :END:
 ```
 
-日期型 Task 需要显式开启“Remind me on a day”；有具体规划时刻的 Task 已经使用该时刻提醒，不再重复写 `ASTER_REMINDER_TIME`。
+旧版日期型 Task 的提醒仍可读取。打开含有效 `ASTER_REMINDER_TIME` 的日期型 Task 时，详情页会把该时刻带入普通的 `At a time` 编辑；保存后写成标准带时刻的规划时间，并移除过时的私有提醒属性。Aster 不会仅因加载工作区就在后台改写源文件。
 
-持续提醒还可写入：
+旧文件也可能包含持续提醒属性：
 
 ```org
 :ASTER_REMINDER: persistent

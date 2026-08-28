@@ -86,7 +86,7 @@ Collapsing Show More does not discard entered values. Tapping Add commits the he
 
 ## Calendar and Timeline
 
-- Month is the default view. The grabber moves only one adjacent step among Week, Month, and Year.
+- Month is the first-launch default. After that, Aster restores the last selected Week, Month, or Year size even after the app is terminated and relaunched. The grabber moves only one adjacent step at a time.
 - The calendar remains fixed while the timeline scrolls independently and extends into both past and future.
 - As the timeline's leading day changes, calendar selection follows.
 - Crossing a week, month, or year uses directional animation; Reduce Motion reduces movement.

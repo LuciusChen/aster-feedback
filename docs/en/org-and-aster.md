@@ -96,7 +96,7 @@ DEADLINE: <2026-09-03 Thu>
 - Its Deadline appears in item metadata.
 - Once the date passes while the state remains unfinished, it receives overdue styling.
 - It does not become an all-day Event merely because it has a date.
-- It creates no notification by default. Turning on “Remind me on a day” writes Aster reminder properties and an alert time.
+- It creates no notification. To alert at a specific time, enable `At a time`, write that time into the standard `SCHEDULED` or `DEADLINE` value, and save.
 
 ### Typical use
 
@@ -252,9 +252,9 @@ SCHEDULED: <%%(memq (calendar-day-of-week date) '(0 6))>
 - The Diary expression determines the days; the time at the end of the title determines the clock time.
 - Without a Workflow keyword, this is a repeating Event. Adding a Workflow keyword makes it a Task.
 
-## 12. Aster Reminder Properties
+## 12. Compatibility with Earlier Aster Reminder Properties
 
-Reminder properties are separate from Org `SCHEDULED`, `DEADLINE`, and Repeater syntax.
+Current New and Detail screens create notifications only from a concrete time in standard Org `SCHEDULED` or `DEADLINE` planning. They no longer create private reminder properties. The properties below are read only for compatibility with files written by earlier builds:
 
 ```org
 * TODO Submit report
@@ -266,9 +266,9 @@ DEADLINE: <2026-09-03 Thu>
 :END:
 ```
 
-A date-only Task requires “Remind me on a day” to be enabled explicitly. A Task whose planning already has a clock time uses that time and does not duplicate it in `ASTER_REMINDER_TIME`.
+Earlier date-only Task reminders remain readable. Opening a date-only Task with a valid `ASTER_REMINDER_TIME` places that clock in the ordinary `At a time` editor; saving writes standard timed planning and removes the obsolete private reminder properties. Loading a workspace alone never rewrites the source in the background.
 
-Persistent reminders may also write:
+Older files may also contain persistent-reminder properties:
 
 ```org
 :ASTER_REMINDER: persistent

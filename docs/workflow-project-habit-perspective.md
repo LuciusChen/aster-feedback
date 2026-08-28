@@ -129,6 +129,6 @@ Perspective 不修改 Org 文件，也不会创建新类型。它保存的是过
 ## 哪些东西不属于 Perspective
 
 - Org 的 Repeat/Diary 规则仍写在源文件中。
-- 本地通知与持续提醒是独立设置。
+- 通知由条目自身的标准带时刻规划派生；兼容旧版的持续提醒属性也不属于 Perspective。
 - Apple Reminders 桥接是独立集成。
 - Perspective 不复制条目、不改变 Workflow，也不是一个专有项目数据库。
