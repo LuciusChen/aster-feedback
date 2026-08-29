@@ -93,7 +93,7 @@ Agenda 的 `+` 打开快速新建。上方两段选择只决定 Org 类型，不
 - 一条写入 LOGBOOK 的 Note
 - 被动显示的 Capture Inbox 目标
 
-标题和这些字段都直接位于同一个滚动界面，不再藏在 Show More/Show Less 中，也不使用额外的自定义卡片背景。时间轴只保留帮助辨识时间范围的淡色平面底。点击 Add 后，标题、规划、属性、Note、链接和附件复制仍作为一次事务写入。
+标题和这些字段都直接位于同一个滚动界面，不再藏在 Show More/Show Less 中，也不使用额外的自定义卡片背景。长标题会按手机可用宽度自然换行，完整内容需要多少行就显示多少行，不设行数上限，也不会把展示换行写入 Org 标题；横向时间轴始终只显示一行，超出条带宽度时以省略号结尾，不会撑宽页面。WebDAV URL、文件与目录名、Journal 文件名规则、Capture 路径与提示回答、Agenda 标签和 Perspective 过滤器等长值编辑也遵循同一规则。时间轴只保留帮助辨识时间范围的淡色平面底。点击 Add 后，标题、规划、属性、Note、链接和附件复制仍作为一次事务写入。
 
 ## 日历与时间线
 
@@ -122,4 +122,4 @@ Agenda 的 `+` 打开快速新建。上方两段选择只决定 Org 类型，不
 - TODOs
 - 已保存 Perspective
 
-选择后，底部标签的名称和图标跟随当前视图。Aster 不提供固定 Projects 视图；不同用户可按 Workflow、Tags、来源、日期状态等组合 Perspective。
+选择后，底部标签的名称和图标跟随当前视图。Aster 不提供固定 Projects 页面；不同用户可按 Workflow、Tags、来源、日期状态等组合 Perspective。**设置 → Tasks & Workflow → Views** 里的 Projects 与 Anniversaries 是可选模板，开启后也只会创建普通、可编辑的 Perspective。

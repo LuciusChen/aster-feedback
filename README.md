@@ -22,7 +22,7 @@ Aster 是一款面向 iPhone 和 iPad 的原生 Org mode 工作区。它把用�
 3. [Agenda 与 TODOs](docs/agenda-todos.md)：日期、时间、Overdue、重复与提醒的显示规则。
 4. [Journal 与 Capture](docs/journal-capture.md)：每日文件、模板、媒体和写回规则。
 5. [Files、预览、编辑与附件](docs/files-preview-attachments.md)：原生文档阅读、源文本编辑和 Org Attach。
-6. [Workflow、Project、Habit 与 Perspective](docs/workflow-project-habit-perspective.md)：自定义关键字、项目进度、习惯和自定义视图。
+6. [Workflow、Project、Habit 与 Perspective](docs/workflow-project-habit-perspective.md)：自定义关键字、项目进度、习惯、可选 Projects/Anniversaries 模板和自定义视图。
 7. [同步、数据安全与冲突](docs/sync-and-safety.md)：Dropbox、iCloud Drive、Nutstore、WebDAV 与备份建议。
 8. [提交反馈](docs/feedback.md)：如何提供足够的信息，让问题可以被稳定复现。
 

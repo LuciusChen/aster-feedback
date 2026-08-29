@@ -94,7 +94,7 @@ The same scrollable creation surface directly exposes:
 - One Note written to LOGBOOK
 - The read-only Capture Inbox destination
 
-The title and these fields now sit directly on one scroll surface without Show More/Show Less or extra custom card backgrounds. The timeline keeps only its faint flat field so its time range remains legible. Tapping Add still commits the headline, planning, properties, Note, links, and attachment copies as one transaction.
+The title and these fields now sit directly on one scroll surface without Show More/Show Less or extra custom card backgrounds. A long title wraps to the available phone width and shows as many visual lines as the complete value requires, with no line-count cap and without storing a newline in the Org headline. Its horizontal timeline preview remains one line and tail-truncates inside the strip instead of widening the page. Long WebDAV URLs, file and folder names, Journal filename rules, Capture paths and prompt answers, Agenda tags, and Perspective filters follow the same editing rule. The timeline keeps only its faint flat field so its time range remains legible. Tapping Add still commits the headline, planning, properties, Note, links, and attachment copies as one transaction.
 
 ## Calendar and Timeline
 
@@ -123,4 +123,4 @@ Hold the bottom Agenda item to select:
 - TODOs
 - A saved Perspective
 
-The tab label and symbol follow the current view. Aster does not provide a hard-coded Projects screen because each workspace can use different Workflow keywords for projects.
+The tab label and symbol follow the current view. Aster does not provide a hard-coded Projects screen because each workspace can use different Workflow keywords for projects. Projects and Anniversaries under **Settings → Tasks & Workflow → Views** are optional templates that create ordinary editable Perspectives.

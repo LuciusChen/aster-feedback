@@ -15,6 +15,8 @@ This is the central semantic reference for Aster. Every example includes copyabl
 | Unfinished Workflow keyword, with a concrete clock time | Timed Task | Agenda |
 | Workflow keyword configured as Treat as Project | Project | TODOs and Perspectives, optionally with progress |
 | Unfinished Workflow + `STYLE=habit` + repeating `SCHEDULED` | Habit | Agenda/TODOs and Perspectives, with habit history |
+| Yearly `org-anniversary` Diary | Anniversary; an optional Property can select Day Counter presentation | Agenda and the optional Anniversaries Perspective |
+| `org-cyclic` / `diary-cyclic` Diary cycle | Cyclic Event | Agenda and optional Perspectives |
 | No Workflow or date, but visible body content | Note | Files and Search; Journal when stored in a Journal source |
 | No Workflow or direct body, only child headings | Container | Structural hierarchy, not a fabricated Task |
 
@@ -146,7 +148,7 @@ Project identity is not hard-coded to a filename or the literal word `PROJECT`. 
 - The main heading uses the Project identity configured for that keyword.
 - It displays `2/3 · 67%` and a progress bar.
 - Child Tasks keep their own Workflow states and open independent detail views.
-- A Project remains in TODOs or a matching Perspective. Aster has no hard-coded Projects destination.
+- A Project remains in TODOs or a matching Perspective. Aster has no hard-coded Projects destination; the optional Projects built-in template simply creates a normal Perspective from the Treat as Project role.
 
 ### Progress source
 
@@ -252,7 +254,34 @@ SCHEDULED: <%%(memq (calendar-day-of-week date) '(0 6))>
 - The Diary expression determines the days; the time at the end of the title determines the clock time.
 - Without a Workflow keyword, this is a repeating Event. Adding a Workflow keyword makes it a Task.
 
-## 12. Compatibility with Earlier Aster Reminder Properties
+## 12. Anniversary, Elapsed Days, and Cyclic Events
+
+Yearly anniversary:
+
+```org
+%%(org-anniversary 2020 8 22) Aster is %d years old
+```
+
+To show elapsed days in Aster's Anniversaries view, keep the standard Anniversary and add one optional Property:
+
+```org
+* Wedding anniversary
+:PROPERTIES:
+:ASTER_ANNIVERSARY_DISPLAY: elapsed-days
+:END:
+%%(org-anniversary 2022 11 2) Wedding anniversary
+```
+
+- `org-anniversary` takes `year month day`; `%d` is the occurrence year minus the source year.
+- `ASTER_ANNIVERSARY_DISPLAY` accepts `years` and `elapsed-days`; missing or unsupported values default to `years`. It changes only Aster's derived presentation and does not duplicate the date. `elapsed-days` shows “Elapsed N days” plus “Next anniversary in N days,” while Org Agenda still receives only the real annual occurrence.
+- Preferred `org-cyclic` takes `interval-days year month day`. It always represents a cyclic Event; interval `1` appears every day, and `%d` is the completed cycle count.
+- To appear only every 100 days, use `%%(org-cyclic 100 2023 8 28) Married for the %dth hundred days`. Here `%d` counts completed 100-day cycles.
+- Aster remains compatible with `diary-cyclic` in `interval-days month day year` order. Editing preserves the original function and its corresponding argument order, while new examples prefer `org-cyclic` because it is independent of `calendar-date-style`.
+- Both remain keyword-free source entries and never acquire a TODO state.
+- Enable **Settings → Tasks & Workflow → Views → Anniversaries** to collect the next annual occurrence together with completed years or elapsed days in an optional Perspective.
+- Aster never executes arbitrary Diary Lisp. Unsupported expressions remain lossless Org source.
+
+## 13. Compatibility with Earlier Aster Reminder Properties
 
 Current New and Detail screens create notifications only from a concrete time in standard Org `SCHEDULED` or `DEADLINE` planning. They no longer create private reminder properties. The properties below are read only for compatibility with files written by earlier builds:
 

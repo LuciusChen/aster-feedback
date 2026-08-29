@@ -66,7 +66,7 @@ Org 允许同一个文件并行定义多套互不相同的状态序列：
 ** NEXT Invite testers
 ```
 
-Project 仍是 Workflow 条目，因此默认出现在 TODOs 和匹配的 Perspective，而不是一个硬编码的 Projects 页面。
+Project 仍是 Workflow 条目，因此默认出现在 TODOs 和匹配的 Perspective，而不是一个硬编码的 Projects 页面。**设置 → Tasks & Workflow → Views** 中可以开启内置 Projects 模板；它只是按 Treat as Project 角色创建一条普通 Perspective，之后仍可编辑或关闭，不会改变 Org 原文。
 
 ### 进度由谁统计
 
@@ -118,7 +118,7 @@ SCHEDULED: <2026-09-03 Thu 07:30 .+1d>
 
 Perspective 不修改 Org 文件，也不会创建新类型。它保存的是过滤和展示规则：
 
-- 包含 Task、Project、Habit 中的一种或多种。
+- 包含 Task、Project、Habit、Event、Anniversary、Day Counter 中的一种或多种。
 - 匹配任一 Workflow 关键字。
 - 匹配标签。
 - 标签匹配模式。
@@ -127,7 +127,16 @@ Perspective 不修改 Org 文件，也不会创建新类型。它保存的是过
 - 排序方式。
 - 是否保留父子 Outline。
 
-在 **设置 → Tasks & Workflow → Perspectives** 新建；之后长按底部 Agenda，就能与 Agenda、TODOs 一起选择。标签名称和图标会跟随当前视图。
+在 **设置 → Tasks & Workflow → Views** 新建；之后长按底部 Agenda，就能与 Agenda、TODOs 一起选择。标签名称和图标会跟随当前视图。
+
+### 可选的内置模板
+
+Views 顶部提供两个开关。它们不是新的 Org 类型，也不是固定导航页面；开启后只会创建一条普通、可编辑的 Perspective：
+
+- **Projects**：匹配所有被标记为 Treat as Project 的进行中状态，保留 Outline。
+- **Anniversaries**：匹配标准 `org-anniversary` 年度日期，并按下一次日期排列；可选 Property 决定显示已完成年数或累计天数。
+
+关闭开关只删除对应模板创建的 Perspective，不会删除、移动或改写任何 Org 条目。自己新建的同名 Perspective 也不会被误删。
 
 ### 场景：我的项目
 
@@ -149,6 +158,26 @@ Perspective 不修改 Org 文件，也不会创建新类型。它保存的是过
 - Include：Task、Project
 - Workflow：`WAITING DELEGATED`
 - Preserve outline：按需要开启
+
+### 场景：纪念日与累计天数
+
+先在 Views 中开启 **Anniversaries**。年度纪念日使用：
+
+```org
+%%(org-anniversary 2020 8 22) Aster 已经 %d 年
+```
+
+如果 Aster 需要显示从源日期起累计经过的天数：
+
+```org
+* 结婚纪念日
+:PROPERTIES:
+:ASTER_ANNIVERSARY_DISPLAY: elapsed-days
+:END:
+%%(org-anniversary 2022 11 2) 结婚纪念日
+```
+
+`ASTER_ANNIVERSARY_DISPLAY` 可写 `years` 或 `elapsed-days`，省略时默认为 `years`。Aster 只根据同一条 `org-anniversary` 派生“已 N 天”和“距下次周年还有 N 天”，不会生成每天一条的 Agenda 数据；Org Agenda 仍只显示真正的周年日。`org-cyclic` 则始终是周期 Event：它使用稳定的 `间隔天数 年 月 日` 顺序，间隔 `1` 会每天出现，间隔 `100` 只会在百日边界出现，`%d` 是完成的周期数而不是总天数。Aster 不执行其他 Lisp，编辑时也只替换对应 Diary 原文。
 
 ## 哪些东西不属于 Perspective
 

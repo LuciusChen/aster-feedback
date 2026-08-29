@@ -66,7 +66,7 @@ Enable **Treat as Project** on a Process state to give headings in that state Pr
 ** NEXT Invite testers
 ```
 
-A Project remains a Workflow item, so it appears in TODOs and matching Perspectives rather than a hard-coded Projects screen.
+A Project remains a Workflow item, so it appears in TODOs and matching Perspectives rather than a hard-coded Projects screen. You can enable the built-in Projects template under **Settings → Tasks & Workflow → Views**; it only creates an ordinary Perspective based on the Treat as Project role, remains editable, and never changes Org source.
 
 ### Progress Source
 
@@ -118,7 +118,7 @@ On completion, Aster advances the timestamp according to the Org Repeater, retur
 
 A Perspective does not modify Org files or create a new item type. It stores filtering and presentation rules:
 
-- Include one or more of Task, Project, and Habit.
+- Include one or more of Task, Project, Habit, Event, Anniversary, and Day Counter.
 - Match any listed Workflow keyword.
 - Match tags.
 - Choose tag matching behavior.
@@ -127,7 +127,16 @@ A Perspective does not modify Org files or create a new item type. It stores fil
 - Choose sorting.
 - Preserve or flatten parent/child outline relationships.
 
-Create one under **Settings → Tasks & Workflow → Perspectives**. It then appears alongside Agenda and TODOs when you hold the bottom Agenda item. The visible tab label and symbol follow the selected view.
+Create one under **Settings → Tasks & Workflow → Views**. It then appears alongside Agenda and TODOs when you hold the bottom Agenda item. The visible tab label and symbol follow the selected view.
+
+### Optional Built-in Templates
+
+Views begins with two switches. They are neither new Org types nor fixed navigation destinations; enabling one creates an ordinary editable Perspective:
+
+- **Projects** matches every active state marked Treat as Project and preserves the outline.
+- **Anniversaries** matches standard yearly `org-anniversary` dates, sorted by their next date; an optional Property selects completed years or elapsed days.
+
+Turning a switch off removes only the Perspective created by that template. It never deletes, moves, or rewrites an Org entry, and a user-created Perspective with the same visible name is not removed.
 
 ### Scenario: My Projects
 
@@ -149,6 +158,26 @@ This works without requiring every user to spell the state `PROJECT`.
 - Include: Task and Project
 - Workflow: `WAITING DELEGATED`
 - Preserve outline: as needed
+
+### Scenario: Anniversaries and Elapsed Days
+
+First enable **Anniversaries** under Views. Use this for a yearly anniversary:
+
+```org
+%%(org-anniversary 2020 8 22) Aster is %d years old
+```
+
+To make Aster show the total days elapsed from the source date:
+
+```org
+* Wedding anniversary
+:PROPERTIES:
+:ASTER_ANNIVERSARY_DISPLAY: elapsed-days
+:END:
+%%(org-anniversary 2022 11 2) Wedding anniversary
+```
+
+`ASTER_ANNIVERSARY_DISPLAY` accepts `years` or `elapsed-days` and defaults to `years` when omitted. Aster derives “Elapsed N days” and “Next anniversary in N days” from the same `org-anniversary`; it does not generate daily Agenda data, and Org Agenda still shows only the real anniversary. `org-cyclic` always remains a cyclic Event. It uses the stable `interval-days year month day` order: `1` appears daily, `100` appears only on hundred-day boundaries, and `%d` is the completed cycle count rather than total days. Aster never executes other Lisp, and editing replaces only the corresponding Diary source line.
 
 ## What a Perspective Does Not Own
 

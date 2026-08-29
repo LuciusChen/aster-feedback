@@ -15,6 +15,8 @@
 | 有未完成 Workflow 关键字，并有具体钟点 | Timed Task | Agenda |
 | Workflow 关键字被配置为 Treat as Project | Project | TODOs、Perspective；可显示进度 |
 | 未完成 Workflow + `STYLE=habit` + 重复的 `SCHEDULED` | Habit | Agenda/TODOs、Perspective；显示习惯历史 |
+| `org-anniversary` 年度 Diary | Anniversary；可选 Property 可显示 Day Counter | Agenda；可选 Anniversaries Perspective |
+| `org-cyclic` / `diary-cyclic` 周期 Diary | Cyclic Event | Agenda；可选 Perspective |
 | 没有 Workflow 和日期，但有正文 | Note | Files、Search、Journal（若在 Journal 源中） |
 | 没有 Workflow 和直接正文，只有子标题 | Container | 作为结构层级，不伪装成 Task |
 
@@ -146,7 +148,7 @@ Project 不是由文件名或固定的 `PROJECT` 单词硬编码出来的。它�
 - 主标题使用该关键字配置的 Project 身份。
 - 显示 `2/3 · 67%` 进度和进度条。
 - 子任务保持各自的 Workflow 状态，并可打开独立详情。
-- Project 默认仍在 TODOs 或匹配的 Perspective 中，不存在硬编码 Projects 页面。
+- Project 默认仍在 TODOs 或匹配的 Perspective 中，不存在硬编码 Projects 页面。可选的 Projects 内置模板只是按 Treat as Project 角色生成普通 Perspective。
 
 ### 进度数据源
 
@@ -252,7 +254,34 @@ SCHEDULED: <%%(memq (calendar-day-of-week date) '(0 6))>
 - Diary 负责“哪几天”，标题中的时间负责“几点”。
 - 没有 Workflow 关键字时作为重复 Event；加上 Workflow 关键字后仍是 Task。
 
-## 12. 兼容旧版 Aster 提醒属性
+## 12. Anniversary、累计天数与周期事件
+
+年度纪念日：
+
+```org
+%%(org-anniversary 2020 8 22) Aster 已经 %d 年
+```
+
+如果希望 Aster 在 Anniversaries 中显示累计天数，用标准 Anniversary 加一个可选 Property：
+
+```org
+* 结婚纪念日
+:PROPERTIES:
+:ASTER_ANNIVERSARY_DISPLAY: elapsed-days
+:END:
+%%(org-anniversary 2022 11 2) 结婚纪念日
+```
+
+- `org-anniversary` 的参数是 `年 月 日`，`%d` 显示发生年份与源年份之差。
+- `ASTER_ANNIVERSARY_DISPLAY` 支持 `years` 与 `elapsed-days`；省略或写入不支持的值时默认为 `years`。它只控制 Aster 的派生显示，不复制日期。`elapsed-days` 会显示“已 N 天”和“距下次周年还有 N 天”，而 Org Agenda 仍只在真正的周年日显示一次。
+- 推荐的 `org-cyclic` 参数是 `间隔天数 年 月 日`。它始终表示周期 Event；间隔为 `1` 就是每天显示一次，`%d` 表示已经完成的周期数。
+- 如果只需要每 100 天显示一次，写作 `%%(org-cyclic 100 2023 8 28) 结婚第 %d 个百日`。此时 `%d` 表示完成了多少个 100 天周期。
+- Aster 兼容 `diary-cyclic` 的 `间隔天数 月 日 年` 顺序；编辑时会保留原函数和对应参数顺序，但新示例优先使用不受 `calendar-date-style` 影响的 `org-cyclic`。
+- 两者都是没有 Workflow 关键字的源条目，不会获得 TODO 状态。
+- 开启 **设置 → Tasks & Workflow → Views → Anniversaries** 后，可以在一个可选 Perspective 中集中查看下一次周年、已完成年数或累计天数。
+- Aster 不执行任意 Diary Lisp；不支持的表达式会原样保留在 Org 文件中。
+
+## 13. 兼容旧版 Aster 提醒属性
 
 当前版本的新建页和详情页只通过标准 Org 的 `SCHEDULED` 或 `DEADLINE` 具体时刻创建通知，不再新建私有提醒属性。下面的属性只用于兼容旧版本已经写入的文件：
 
