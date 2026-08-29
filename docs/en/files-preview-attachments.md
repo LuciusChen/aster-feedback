@@ -12,8 +12,8 @@ Files is the source-level entrance to the workspace. Agenda, TODOs, Journal, and
 
 Files displays the real hierarchy of connected workspaces, including local files and remote items known to the sync index.
 
-- Icons after a directory name only indicate an Agenda, Journal, or Capture Inbox role. They do not change the directory itself.
-- Configure those roles in Settings. Files context menus remain focused on file management.
+- Icons after a directory name only indicate an Agenda, Journal, or Event & Task Inbox role. They do not change the directory itself.
+- Configure those roles in Settings. A folder context menu may also add or remove that folder from the root Files secondary menu; this is only a navigation shortcut and does not change the folder's role.
 - A real empty directory stays visible without a meaningless disclosure action.
 - Dropbox-backed files can expose version history on hold. Other providers do not show an inert history entry.
 
@@ -106,7 +106,7 @@ The `attachment:` link, heading `ID`, `ATTACH` tag, and `data/` file must travel
 
 - New Event/Task: use **Attachments** directly on the creation surface.
 - Event/Task detail: use **Attachments** after Content.
-- Capture: choose media or files while running a heading-producing template.
+- Journal entry: choose media or files while running a heading-producing Journal Entry Template.
 - Files: open the source document to inspect attachment links and physical files.
 
 ## Delete, Move, and Sync
@@ -114,4 +114,4 @@ The `attachment:` link, heading `ID`, `ATTACH` tag, and `data/` file must travel
 - Deleting or moving a file or directory goes through the current provider rather than merely hiding it in the UI.
 - Deleting a nonempty directory requires explicit confirmation of the recursive scope.
 - The local tree and role settings update only after the remote operation succeeds.
-- After moving or deleting an Agenda, Journal, or Capture path, check its role in Settings.
+- After moving or deleting an Agenda, Journal, or Event & Task Inbox path, check its role in Settings.

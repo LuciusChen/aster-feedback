@@ -17,7 +17,7 @@ Aster normally edits its app-local workspace and synchronizes it through the sel
 
 Nutstore requires a third-party app password, not the account login password. For WebDAV, provide both username and password or leave both blank for an anonymous server. Credentials are stored in the system Keychain.
 
-Even when a WebDAV server lists a nested file such as `agenda/work/review.org` without separate records for every collection, Aster restores the proven `agenda/` and `agenda/work/` parents from that path. A directory visible in Files should therefore also be available to the Agenda Sources, Journal folder, and Capture Inbox path pickers.
+Even when a WebDAV server lists a nested file such as `agenda/work/review.org` without separate records for every collection, Aster restores the proven `agenda/` and `agenda/work/` parents from that path. A directory visible in Files should therefore also be available to the Agenda Sources, Journal folder, and Event & Task Inbox path pickers.
 
 ## How a Normal Save Flows
 
@@ -85,7 +85,7 @@ Backing up only `.org` files while omitting adjacent `data/` directories loses O
 ## Before Disconnecting a Workspace
 
 - Confirm that the latest changes exist in the cloud or an independent backup.
-- Record the relative paths for Agenda Sources, Journal folder, and Capture Inbox.
+- Record the relative paths for Agenda Sources, Journal folder, and Event & Task Inbox.
 - Distinguish “remove the local mirror” from “delete remote content,” and read confirmation text carefully.
 - After reconnecting, verify the role paths. Seeing some items on the home screen does not prove the complete directory is synchronized.
 

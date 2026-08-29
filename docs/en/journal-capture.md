@@ -1,10 +1,10 @@
 <p align="right">🌐 <a href="../journal-capture.md">简体中文</a> · <strong>English</strong></p>
 
-# Journal and Capture
+# Journal and Journal Entry Templates
 
 [Back to English home](../../README.en.md) · [Quick Start](quick-start.md)
 
-Journal is a timeline over daily Org files. Capture is the general mechanism for inserting structured content into Org. They are often used together, but they are not the same thing: Journal decides how today's file and entries are presented, while a Capture Template decides what each run inserts and where it goes.
+Journal is a calendar and timeline over daily Org files. A Journal Entry Template decides what one new entry inserts; its destination is always Today's Journal. Event and Task creation is a parallel flow that writes to the Event & Task Inbox, while Org Document creation writes a separately named file.
 
 ![Journal example](../../assets/screenshots/journal.png)
 
@@ -26,14 +26,16 @@ Today I want to finish the release checklist.
 - Journal year, month, and date use the Gregorian calendar in the current time zone. Lunar dates are an optional display annotation and do not change file identity.
 - Configure history range, entry count, and filename behavior under **Settings → Journal**.
 
-## Where Capture Starts
+The month calendar stays fixed above the independently scrolling timeline. Dates containing prepared Journal entries have a marker. Tap a date to move the timeline to it; scrolling the timeline keeps the selected date and animated month page synchronized. Week/Month/Year remains the history range in Settings, not a second control on the Journal page.
 
-Tap the bottom `+` in Journal to choose a configured Capture Template. When none exist, Aster links to **Settings → Org & Capture → Templates → Capture templates**.
-Capture keeps the Emacs-compatible template-first order and presents templates as compact list rows; the inline Org preview has no extra card background. The runtime composer uses the same native density: input begins at one line, the live preview and pending attachments add no nested cards, and the photo, camera, and file actions retain full hit targets without oversized button plates.
+## Where a Journal Entry Starts
 
-Holding the global `+` also exposes Capture from another page. Agenda's Event/Task composer is intentionally bounded and separate from general Capture templates.
+Tap Create in Journal to choose a configured Journal Entry Template. When none exist, Aster links to **Settings → Create & Storage → Journal Entry Templates**. The same template entrance also appears in Journal Settings.
+The chooser keeps the Emacs-compatible template-first order and compact rows. The runtime composer uses the same native density: input begins at one line, previews and pending attachments add no nested cards, and photo, camera, and file actions keep full hit targets.
 
-## A Minimal Capture Template
+Holding the root Create action exposes Journal from another page. Agenda's Event/Task composer is intentionally separate and never uses Journal templates.
+
+## A Minimal Journal Entry Template
 
 For a timestamped note in today's Journal:
 
@@ -46,7 +48,7 @@ Suggested configuration:
 | Field | Value |
 | --- | --- |
 | Type | Entry |
-| Destination | Today's Journal |
+| Destination | Today's Journal (fixed) |
 | Journal section | Blank, or `Notes` |
 | Source | Inline |
 | Prepend | Choose according to preferred reading order |
@@ -68,18 +70,13 @@ Entry creates a heading tree. If the source has no leading star, Aster adds a he
 
 Plain inserts expanded text directly into the destination body without wrapping it in a heading. A blank Plain source acts like an ordinary text Capture buffer and accepts the full content at runtime.
 
-## Destinations
+## Destination
 
-Capture has two destination types:
+A Journal Entry Template always resolves **Today's Journal**: the configured Journal folder, daily filename, date root, and optional Journal section. It does not expose a workspace target path. If the daily file does not exist, the template may reference an **Org Document Template** to initialize it. The initializer runs once; the entry body expands every run.
 
-- **Today's Journal**: resolves today's Journal file, date root, and optional Journal section at runtime.
-- **Workspace Org file**: writes to a workspace-relative path such as `agenda/inbox.org`, with an optional outline path.
+## Org Document Templates and Placeholders
 
-If the destination does not exist, Capture can reference an **Org File Template** to initialize it. A file template runs only once; the Capture body expands on every run. These are intentionally separate concepts.
-
-## Org File Templates and Placeholders
-
-An Org File Template generates the file header only when Aster first creates the target `.org` file. Create or edit one under **Settings → Org & Capture → Templates → File templates**, then select it as the Capture Template's **New file template**.
+An Org Document Template generates the file header only when Aster first creates a `.org` file. Create or edit one under **Settings → Create & Storage → Org Document Templates**, then select it as the Journal Entry Template's **New file template**.
 
 | Placeholder | Expanded value |
 | --- | --- |
@@ -103,8 +100,8 @@ Here, `#+filetags:` is an ordinary Org field left blank; Aster does not currentl
 
 ## Inline and Template File
 
-- **Inline**: stores the Capture body directly in Aster's device settings.
-- **Template File**: reads a workspace text template every time Capture runs, allowing Emacs and Aster to share the same insertion body.
+- **Inline**: stores the entry body directly in Aster's device settings.
+- **Template File**: reads a workspace text template every time the entry runs, allowing Emacs and Aster to share the same insertion body.
 
 A Template File defines “what to insert this time.” It does not replace the initializer for a missing destination file.
 
@@ -125,7 +122,7 @@ Aster does not execute `%(...)`, arbitrary Emacs Lisp, `.dir-locals.el`, or exte
 
 ## Media and Attachments
 
-Any Capture that produces a heading can include photos, videos, or files. Aster will:
+Any Journal Entry Template that produces a heading can include photos, videos, or files. Aster will:
 
 1. Write or reuse an `ID` for the heading.
 2. Preserve the `ATTACH` tag.
@@ -154,18 +151,9 @@ Source: %a
 
 Enter the book and source at runtime, and optionally attach a cover or screenshot.
 
-### Task Inbox
+## Write-Back and Consecutive Entries
 
-```org
-* TODO %? :inbox:
-%U
-```
-
-Choose `agenda/inbox.org` as the destination. This is general Capture; TODOs `+` remains the faster path for an ordinary Task.
-
-## Write-Back and Consecutive Capture
-
-- Capture commits one durable transaction to the target file.
-- After the first commit succeeds, an immediate second Capture appends to the latest saved text even if the UI index has not yet published it.
+- A Journal entry commits one durable transaction to the daily file.
+- After the first commit succeeds, an immediate second entry appends to the latest saved text even if the UI index has not yet published it.
 - One accepted submission cannot be submitted repeatedly while its save is still running.
 - Sync follows local write success. Journal, Files, and Search are projections over that same source file.

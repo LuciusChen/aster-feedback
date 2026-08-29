@@ -1,10 +1,10 @@
 <p align="right">🌐 <strong>简体中文</strong> · <a href="en/journal-capture.md">English</a></p>
 
-# Journal 与 Capture
+# Journal 与日志条目模板
 
 [返回首页](../README.md) · [快速开始](quick-start.md)
 
-Journal 是对每日 Org 文件的时间线阅读；Capture 是把一段结构化内容写入 Org 的通用入口。两者经常一起使用，但不是同一件事：Journal 决定“今天的文件和条目如何显示”，Capture Template 决定“每次写入什么、写到哪里”。
+Journal 是每日 Org 文件的日历和时间线；日志条目模板决定“一次新日志写入什么”，目标始终是 Today's Journal。Event/Task 是平级的新建流程，写入 Event & Task Inbox；Org 文档则写入单独命名的文件。
 
 ![Journal 示例](../assets/screenshots/journal.png)
 
@@ -26,14 +26,16 @@ Today I want to finish the release checklist.
 - Journal 的年份、月份和日期使用当前时区的公历；农历只是一种可选显示信息，不改变文件身份。
 - 日范围、条目数量和文件命名方式在 **设置 → Journal** 中配置。
 
-## Capture 从哪里进入
+月份日历固定在可独立滚动的时间线上方。有日志的日期会显示标记；点击日期可把时间线移动到当天，滚动时间线也会同步日历选中日期，并以动画切换月份。Week/Month/Year 仍只在设置中限制读取范围，不会成为 Journal 页面的第二套切换控件。
 
-在 Journal 轻点底部 `+`，会打开已经配置的 Capture Template；没有模板时，Aster 会引导到 **设置 → Org 与 Capture → Templates → Capture templates**。
+## 从哪里新建日志条目
+
+在 Journal 轻点“新建”，会打开已经配置的日志条目模板；没有模板时，Aster 会引导到 **设置 → 新建与存储 → 日志条目模板**。Journal 设置中也有同一入口。
 模板保持与 Emacs 一致的“先选择、再填写”顺序，并以紧凑列表行显示；行内 Org 预览没有额外卡片背景。选择模板后的填写页同样使用紧凑原生分区：输入默认从一行开始，实时预览和待上传附件不再嵌套卡片，照片、相机和文件入口保留完整点击范围但不使用大块按钮底。
 
-长按全局 `+` 也可以从其他页面直接选择 Capture。Agenda 的快速 Event/Task 新建是一个受限、专门的写入器，不会混入通用 Capture 模板。
+长按全局“新建”也可以从其他页面选择 Journal。Agenda 的 Event/Task 新建是独立写入器，不会混入日志模板。
 
-## 一个最小 Capture Template
+## 一个最小日志条目模板
 
 例如把一段带时间的笔记写入当天 Journal：
 
@@ -46,7 +48,7 @@ Today I want to finish the release checklist.
 | 字段 | 值 |
 | --- | --- |
 | Type | Entry |
-| Destination | Today's Journal |
+| Destination | Today's Journal（固定） |
 | Journal section | 留空，或填写 `Notes` |
 | Source | Inline |
 | Prepend | 按自己的阅读顺序选择 |
@@ -70,16 +72,11 @@ Plain 把展开后的文本直接插入目标正文，不自动包成标题。�
 
 ## 目标位置
 
-Capture 有两类目标：
+日志条目模板的目标始终是 **Today's Journal**：运行时解析配置的 Journal 文件夹、每日日志文件名、日期根标题和可选 Journal section，不提供任意工作区文件路径。如果每日日志文件不存在，模板可以引用 **Org Document Template** 初始化它。初始化只运行一次，条目正文每次都会展开。
 
-- **Today's Journal**：运行时解析当天 Journal 文件、日期根标题和可选 Journal section。
-- **Workspace Org file**：写入一个工作区相对路径，例如 `agenda/inbox.org`，并可指定 Outline 路径。
+## Org Document Template 与占位符
 
-如果目标文件不存在，Capture 可以引用一个 **Org File Template** 先初始化文件。文件模板只运行一次；Capture 的正文模板每次运行都会展开。两者不要混淆。
-
-## Org File Template 与占位符
-
-Org File Template 只在 Aster 第一次创建目标 `.org` 文件时生成文件头。可在 **设置 → Org 与 Capture → Templates → File templates** 中新建和编辑，并在 Capture Template 的 **New file template** 中选择。
+Org Document Template 只在 Aster 第一次创建 `.org` 文件时生成文件头。可在 **设置 → 新建与存储 → Org 文档模板** 中新建和编辑，并在日志条目模板的 **New file template** 中选择。
 
 | 占位符 | 展开结果 |
 | --- | --- |
@@ -103,8 +100,8 @@ Org File Template 只在 Aster 第一次创建目标 `.org` 文件时生成文�
 
 ## Inline 与 Template File
 
-- **Inline**：模板正文直接保存在 Aster 的设备设置中。
-- **Template File**：每次 Capture 时读取工作区中的文本模板文件，适合由 Emacs 和 Aster 共用模板正文。
+- **Inline**：条目正文直接保存在 Aster 的设备设置中。
+- **Template File**：每次新建日志条目时读取工作区中的文本模板文件，适合由 Emacs 和 Aster 共用模板正文。
 
 Template File 只提供“这一次插入什么”，不会替代新文件初始化模板。
 
@@ -125,7 +122,7 @@ Aster 不执行 `%(...)`、任意 Emacs Lisp、`.dir-locals.el` 或外部函数�
 
 ## 媒体与附件
 
-任何生成标题的 Capture 都可以同时添加照片、视频或文件。Aster 会：
+任何生成标题的日志条目模板都可以同时添加照片、视频或文件。Aster 会：
 
 1. 为新标题写入或复用 `ID`。
 2. 保留标题的 `ATTACH` 标签。
@@ -154,18 +151,9 @@ Source: %a
 
 运行时补书名和来源，可同时添加封面或截图。
 
-### 写入任务 Inbox
+## 写回与连续日志条目
 
-```org
-* TODO %? :inbox:
-%U
-```
-
-目标选 `agenda/inbox.org`。这属于通用 Capture；如果只是新建普通 Task，TODOs 的 `+` 更直接。
-
-## 写回与连续 Capture
-
-- Capture 以一次持久事务写入目标文件。
-- 第一次保存完成后，即使界面索引尚未刷新，立即进行第二次 Capture 也会基于最新已保存文本继续追加。
+- 日志条目以一次持久事务写入当日日志文件。
+- 第一次保存完成后，即使界面索引尚未刷新，立即新建第二条日志也会基于最新已保存文本继续追加。
 - 保存期间不会重复接受同一次提交。
 - 同步在本地写入成功后进行；Journal、Files 和 Search 都只是同一份源文件的不同投影。

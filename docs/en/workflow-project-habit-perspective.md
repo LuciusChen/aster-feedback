@@ -127,7 +127,7 @@ A Perspective does not modify Org files or create a new item type. It stores fil
 - Choose sorting.
 - Preserve or flatten parent/child outline relationships.
 
-Create one under **Settings → Tasks & Workflow → Views**. It then appears alongside Agenda and TODOs when you hold the bottom Agenda item. The visible tab label and symbol follow the selected view.
+Create one under **Settings → Tasks & Workflow → Views**. It then appears alongside Agenda, TODOs, and Journal in the three-line secondary menu immediately before the Views tab.
 
 ### Optional Built-in Templates
 

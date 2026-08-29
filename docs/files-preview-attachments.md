@@ -12,8 +12,8 @@ Files 是工作区的源文件入口。Agenda、TODOs、Journal 和 Search 提�
 
 Files 显示已连接工作区的真实目录层级，包括本地已有文件和同步索引中的远端项目。
 
-- 文件夹名称后的图标只标记 Agenda、Journal 或 Capture Inbox 角色，不改变目录本身。
-- 角色路径在 Settings 中配置；Files 的长按菜单只保留文件管理操作。
+- 文件夹名称后的图标只标记 Agenda、Journal 或 Event & Task Inbox 角色，不改变目录本身。
+- 角色路径在 Settings 中配置。文件夹长按菜单还可以把该文件夹添加到根 Files 二级菜单或从中移除；这只是导航快捷方式，不改变文件夹角色。
 - 空文件夹仍是一个真实文件夹，不会因为没有子项而显示无意义的展开动作。
 - Dropbox 可在文件长按菜单中查看版本历史；其他来源不会显示一个无法工作的占位入口。
 
@@ -106,7 +106,7 @@ data/3d/94a625-be28-4144-8158-05fbf1288d5c/contract.pdf
 
 - 新建 Event/Task：直接使用新建页中的 **Attachments**。
 - Event/Task 详情：在 Content 之后的 **Attachments** 区域添加或打开。
-- Capture：运行生成标题的模板时选择媒体或文件。
+- Journal 条目：运行生成标题的日志条目模板时选择媒体或文件。
 - Files：打开源文档可查看附件链接和对应文件。
 
 ## 删除、移动与同步
@@ -114,4 +114,4 @@ data/3d/94a625-be28-4144-8158-05fbf1288d5c/contract.pdf
 - 文件或文件夹的删除、移动会通过当前云端来源执行，而不是只在界面隐藏。
 - 删除非空文件夹前会明确确认递归范围。
 - 远端操作成功后才更新本地树和角色配置。
-- 如果一次移动或删除涉及 Agenda、Journal 或 Capture 路径，请随后在 Settings 检查相应角色是否仍有效。
+- 如果一次移动或删除涉及 Agenda、Journal 或 Event & Task Inbox 路径，请随后在 Settings 检查相应角色是否仍有效。

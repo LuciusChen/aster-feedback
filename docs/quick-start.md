@@ -37,7 +37,7 @@
 | --- | --- | --- |
 | Agenda Sources | 哪些 Org 文件参与日程、TODOs、Perspective 和提醒索引 | `agenda/` |
 | Journal folder | 每日 Journal 文件保存和读取的位置 | `denote/daily/` |
-| Capture Inbox | Agenda 快速新建与 TODOs 新建默认写入的 Org 文件 | `agenda/inbox.org` |
+| Event & Task Inbox | 新建 Event 与 Task 默认写入的 Org 文件 | `agenda/inbox.org` |
 
 路径可以位于任意已连接的工作区根目录下。Agenda Sources 也可以直接选择“工作区根目录”：关闭“包含子文件夹”时只索引根目录中的 Org 文件，打开后才递归索引该根目录。它们不要求使用固定的文件夹名称。
 
@@ -57,18 +57,14 @@
 
 ## 5. 创建第一个条目
 
-底部是五个位置：**Agenda · Journal · + · Files · Search**。
+根操作栏分为三部分：
 
-- 在 Agenda 中轻点 `+`：新建有日期的 Event 或 Task。
-- 在 TODOs 或 Perspective 中轻点 `+`：新建无日期 Task。
-- 在 Journal 中轻点 `+`：运行已配置的 Org Capture 模板。
-- 在 Files 中轻点 `+`：新建 Org 文档。
-- 在 Search 或 Settings 中轻点 `+`：不执行动作，因为当前页面没有唯一、明确的创建类型。
-- 长按 `+`：显示全部四种创建入口。
+- 一级 Tab 是 **Views、Files、Settings**。
+- 左侧三横线按钮切换当前二级内容。Views 中有 Agenda、TODOs、Journal 和自定义 Perspective；Files 中有 Workspace、角色文件夹和你从文件树固定的文件夹；Settings 没有二级按钮。
+- 右侧是“新建”和“搜索”。轻点新建会按当前内容创建：Agenda 新建 Event、TODOs/Perspective 新建 Task、Journal 新建日志条目、Files 新建 Org 文档；长按可查看全部四种类型。
+- 搜索打开后会自动聚焦；轻点 Cancel 会关闭搜索并回到进入前的页面。
 
-长按 Agenda 可以切换 **Agenda、TODOs 和自定义 Perspective**；长按 Search 可以切换 **Search 和 Settings**。
-
-iPhone 上每个可滚动页面都能把最后一行或操作完整移到底栏上方，避免内容被遮挡而无法点击；iPad 的根导航位于顶部，不额外占用底部空间。
+iPhone 上三组控件位于同一条底栏。iPad 上二级按钮和一级 Tab 横向留在左上方、并限制在左侧内容栏的范围内；新建和搜索位于整个窗口最右侧。这不会增加全局侧边栏。
 
 ## 6. 验证写回
 

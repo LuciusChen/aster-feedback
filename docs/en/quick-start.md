@@ -37,7 +37,7 @@ The workspace root answers “where are the files?” The following three settin
 | --- | --- | --- |
 | Agenda Sources | Org files included in Agenda, TODOs, Perspectives, and reminder indexing | `agenda/` |
 | Journal folder | Location used to read and create daily Journal files | `denote/daily/` |
-| Capture Inbox | Default Org file for Agenda quick capture and TODO creation | `agenda/inbox.org` |
+| Event & Task Inbox | Default Org file for new Events and Tasks | `agenda/inbox.org` |
 
 These paths may belong to any connected workspace root. Agenda Sources can also select **Workspace root** directly: with **Include subfolders** off, only root-level Org files are indexed; turning it on indexes that root recursively. Fixed directory names are not required.
 
@@ -57,18 +57,14 @@ If a file declares `#+TODO:` or `#+SEQ_TODO:`, the file-local declaration takes 
 
 ## 5. Create Your First Item
 
-The root bar contains five positions: **Agenda · Journal · + · Files · Search**.
+The root command bar has three parts:
 
-- In Agenda, tap `+` to create a dated Event or Task.
-- In TODOs or a Perspective, tap `+` to create an undated Task.
-- In Journal, tap `+` to run a configured Org Capture template.
-- In Files, tap `+` to create an Org document.
-- In Search or Settings, tapping `+` does nothing because the current surface has no single unambiguous creation type.
-- Hold `+` to show all four creation entries.
+- The primary tabs are **Views, Files, Settings**.
+- The leading three-line button changes the current child. Under Views it contains Agenda, TODOs, Journal, and saved Perspectives. Under Files it contains Workspace, role folders, and folders you pinned from the file tree. Settings has no secondary button.
+- The trailing actions are Create and Search. Create uses the current context: Event in Agenda, Task in TODOs/Perspectives, Journal entry in Journal, and Org Document in Files. Hold Create to show all four types.
+- Search focuses immediately. Cancel closes Search and returns to the page you came from.
 
-Hold Agenda to switch among **Agenda, TODOs, and saved Perspectives**. Hold Search to switch between **Search and Settings**.
-
-On iPhone, every scrollable surface can reveal its final row or action completely above the root bar so it remains tappable. The iPad root navigation stays at the top and adds no artificial bottom reservation.
+On iPhone these groups share the bottom row. On iPad the secondary button and primary tabs stay together at the top-left within the left content column, while Create and Search stay at the far right of the complete window. This does not add a global sidebar.
 
 ## 6. Verify Write-Back
 

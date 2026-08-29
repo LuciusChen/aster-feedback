@@ -20,7 +20,7 @@ This repository serves two purposes:
 1. [Quick Start](docs/en/quick-start.md): connect a workspace and configure Agenda, Journal, and Capture.
 2. [How Org Source Appears in Aster](docs/en/org-and-aster.md): classification and copyable examples for Events, Tasks, Projects, Habits, Notes, and Containers.
 3. [Agenda and TODOs](docs/en/agenda-todos.md): dates, times, overdue behavior, repeaters, and reminders.
-4. [Journal and Capture](docs/en/journal-capture.md): daily files, templates, media, and write-back rules.
+4. [Journal and Journal Entry Templates](docs/en/journal-capture.md): fixed calendar, daily files, templates, media, and write-back rules.
 5. [Files, Preview, Editing, and Attachments](docs/en/files-preview-attachments.md): native document reading, source editing, and Org Attach.
 6. [Workflow, Project, Habit, and Perspective](docs/en/workflow-project-habit-perspective.md): custom keywords, project progress, habits, optional Projects/Anniversaries templates, and saved views.
 7. [Sync, Data Safety, and Conflicts](docs/en/sync-and-safety.md): Dropbox, iCloud Drive, Nutstore, WebDAV, and backup guidance.

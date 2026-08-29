@@ -17,7 +17,7 @@ Aster 日常编辑的是应用本地工作区，再通过所选来源同步。Ag
 
 Nutstore 必须使用第三方应用密码，不要填写账户登录密码。WebDAV 的账号和密码必须同时填写，或同时留空连接匿名服务器。凭据保存在系统 Keychain 中。
 
-WebDAV 服务器即使只列出 `agenda/work/review.org` 这类嵌套文件、没有为每一级目录单独返回记录，Aster 也会从该路径恢复已经被证明存在的 `agenda/` 与 `agenda/work/`。因此 Files 中看到的目录也应能在 Agenda Sources、Journal folder 和 Capture Inbox 的路径选择器中使用。
+WebDAV 服务器即使只列出 `agenda/work/review.org` 这类嵌套文件、没有为每一级目录单独返回记录，Aster 也会从该路径恢复已经被证明存在的 `agenda/` 与 `agenda/work/`。因此 Files 中看到的目录也应能在 Agenda Sources、Journal folder 和 Event & Task Inbox 的路径选择器中使用。
 
 ## 一次正常保存如何流动
 
@@ -85,7 +85,7 @@ workspace/
 ## 断开工作区前
 
 - 确认最新修改已出现在云端或独立备份中。
-- 记录 Agenda Sources、Journal folder 和 Capture Inbox 的相对路径。
+- 记录 Agenda Sources、Journal folder 和 Event & Task Inbox 的相对路径。
 - 明白“清除本机镜像”和“删除云端内容”是不同操作，认真阅读确认文案。
 - 重新连接后检查路径角色；不要仅凭首页有条目就认为整个目录已同步。
 

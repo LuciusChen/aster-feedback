@@ -127,7 +127,7 @@ Perspective 不修改 Org 文件，也不会创建新类型。它保存的是过
 - 排序方式。
 - 是否保留父子 Outline。
 
-在 **设置 → Tasks & Workflow → Views** 新建；之后长按底部 Agenda，就能与 Agenda、TODOs 一起选择。标签名称和图标会跟随当前视图。
+在 **设置 → Tasks & Workflow → Views** 新建；之后打开 Views 左侧的三横线二级菜单，就能与 Agenda、TODOs、Journal 一起选择。
 
 ### 可选的内置模板
 
