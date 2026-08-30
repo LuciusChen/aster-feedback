@@ -273,12 +273,12 @@ To show elapsed days in Aster's Anniversaries view, keep the standard Anniversar
 ```
 
 - `org-anniversary` takes `year month day`; `%d` is the occurrence year minus the source year.
-- `ASTER_ANNIVERSARY_DISPLAY` accepts `years` and `elapsed-days`; missing or unsupported values default to `years`. It changes only Aster's derived presentation and does not duplicate the date. `elapsed-days` shows “Elapsed N days” plus “Next anniversary in N days,” while Org Agenda still receives only the real annual occurrence.
+- `ASTER_ANNIVERSARY_DISPLAY` accepts `years` and `elapsed-days`, and Aster enables derived calculation only when a supported value is written explicitly. `years` shows “Elapsed N years,” `elapsed-days` shows “Elapsed N days,” and both include “Next anniversary in N days.” A missing or unsupported Property keeps the ordinary annual Anniversary presentation. The Property does not duplicate the date, and Org Agenda still receives only the real annual occurrence.
 - Preferred `org-cyclic` takes `interval-days year month day`. It always represents a cyclic Event; interval `1` appears every day, and `%d` is the completed cycle count.
 - To appear only every 100 days, use `%%(org-cyclic 100 2023 8 28) Married for the %dth hundred days`. Here `%d` counts completed 100-day cycles.
 - Aster remains compatible with `diary-cyclic` in `interval-days month day year` order. Editing preserves the original function and its corresponding argument order, while new examples prefer `org-cyclic` because it is independent of `calendar-date-style`.
 - Both remain keyword-free source entries and never acquire a TODO state.
-- Enable **Settings → Tasks & Workflow → Views → Anniversaries** to collect the next annual occurrence together with completed years or elapsed days in an optional Perspective.
+- Enable **Settings → Tasks & Workflow → Views → Anniversaries** to collect annual anniversaries in an optional Perspective. Only entries with the explicit Property above add completed years or elapsed days and the next-anniversary countdown.
 - Aster never executes arbitrary Diary Lisp. Unsupported expressions remain lossless Org source.
 
 ## 13. Compatibility with Earlier Aster Reminder Properties

@@ -177,7 +177,7 @@ To make Aster show the total days elapsed from the source date:
 %%(org-anniversary 2022 11 2) Wedding anniversary
 ```
 
-`ASTER_ANNIVERSARY_DISPLAY` accepts `years` or `elapsed-days` and defaults to `years` when omitted. Aster derives “Elapsed N days” and “Next anniversary in N days” from the same `org-anniversary`; it does not generate daily Agenda data, and Org Agenda still shows only the real anniversary. `org-cyclic` always remains a cyclic Event. It uses the stable `interval-days year month day` order: `1` appears daily, `100` appears only on hundred-day boundaries, and `%d` is the completed cycle count rather than total days. Aster never executes other Lisp, and editing replaces only the corresponding Diary source line.
+Set `ASTER_ANNIVERSARY_DISPLAY` explicitly to `years` or `elapsed-days`. Only a supported explicit value enables Aster's derived summary: `years` shows completed years, `elapsed-days` shows total elapsed days, and both show the days until the next anniversary. A missing or unsupported Property keeps the ordinary annual Anniversary presentation instead of applying the calculation to every entry. Aster uses the same `org-anniversary`; it does not generate daily Agenda data, and Org Agenda still shows only the real anniversary. `org-cyclic` always remains a cyclic Event. It uses the stable `interval-days year month day` order: `1` appears daily, `100` appears only on hundred-day boundaries, and `%d` is the completed cycle count rather than total days. Aster never executes other Lisp, and editing replaces only the corresponding Diary source line.
 
 ## What a Perspective Does Not Own
 

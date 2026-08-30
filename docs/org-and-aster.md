@@ -273,12 +273,12 @@ SCHEDULED: <%%(memq (calendar-day-of-week date) '(0 6))>
 ```
 
 - `org-anniversary` 的参数是 `年 月 日`，`%d` 显示发生年份与源年份之差。
-- `ASTER_ANNIVERSARY_DISPLAY` 支持 `years` 与 `elapsed-days`；省略或写入不支持的值时默认为 `years`。它只控制 Aster 的派生显示，不复制日期。`elapsed-days` 会显示“已 N 天”和“距下次周年还有 N 天”，而 Org Agenda 仍只在真正的周年日显示一次。
+- `ASTER_ANNIVERSARY_DISPLAY` 支持 `years` 与 `elapsed-days`，而且必须显式写入受支持的值才会启用 Aster 的派生计算：`years` 显示“已 N 年”，`elapsed-days` 显示“已 N 天”，两者都会显示“距下次周年还有 N 天”。省略 Property 或写入不支持的值时，条目保持普通年度 Anniversary 显示；该 Property 不复制日期，Org Agenda 仍只在真正的周年日显示一次。
 - 推荐的 `org-cyclic` 参数是 `间隔天数 年 月 日`。它始终表示周期 Event；间隔为 `1` 就是每天显示一次，`%d` 表示已经完成的周期数。
 - 如果只需要每 100 天显示一次，写作 `%%(org-cyclic 100 2023 8 28) 结婚第 %d 个百日`。此时 `%d` 表示完成了多少个 100 天周期。
 - Aster 兼容 `diary-cyclic` 的 `间隔天数 月 日 年` 顺序；编辑时会保留原函数和对应参数顺序，但新示例优先使用不受 `calendar-date-style` 影响的 `org-cyclic`。
 - 两者都是没有 Workflow 关键字的源条目，不会获得 TODO 状态。
-- 开启 **设置 → Tasks & Workflow → Views → Anniversaries** 后，可以在一个可选 Perspective 中集中查看下一次周年、已完成年数或累计天数。
+- 开启 **设置 → Tasks & Workflow → Views → Anniversaries** 后，可以在一个可选 Perspective 中集中查看年度纪念日；只有带上述显式 Property 的条目才额外显示已完成年数或累计天数与下一周年倒计时。
 - Aster 不执行任意 Diary Lisp；不支持的表达式会原样保留在 Org 文件中。
 
 ## 13. 兼容旧版 Aster 提醒属性
