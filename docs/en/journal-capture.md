@@ -26,7 +26,7 @@ Today I want to finish the release checklist.
 - Journal year, month, and date use the Gregorian calendar in the current time zone. Lunar dates are an optional display annotation and do not change file identity.
 - Configure history range, entry count, and filename behavior under **Settings → Journal**.
 
-The month calendar stays fixed above the independently scrolling timeline. Dates containing prepared Journal entries have a marker. Tap a date to move the timeline to it; scrolling the timeline keeps the selected date and animated month page synchronized. Week/Month/Year remains the history range in Settings, not a second control on the Journal page.
+The month calendar stays fixed above the independently scrolling timeline. Dates containing prepared Journal entries have a marker. Tap a date to move the timeline to it; scrolling the timeline keeps the selected date and animated month page synchronized. The timeline uses Agenda's compact inline date headers and thin boundaries, then shows each time, title, and metadata directly; the daily filename no longer consumes a repeated row. Week/Month/Year remains the history range in Settings, not a second control on the Journal page.
 
 ## Where a Journal Entry Starts
 
