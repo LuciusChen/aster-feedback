@@ -102,7 +102,7 @@ The title and these fields now sit directly on one scroll surface without Show M
 - The calendar remains fixed while the timeline scrolls independently and extends into both past and future.
 - Today remains aligned to the top initially, with past dates already above it, so the first drag is native scrolling rather than an unlock gesture.
 - As the timeline's leading day changes, calendar selection follows.
-- On iPhone, the date header, calendar, and timeline share fixed 18-point margins on both sides. Custom fonts or a very long all-day item truncate inside the item's rounded chip instead of widening or shifting the page.
+- On iPhone, the date header, calendar, and timeline share fixed 18-point margins on both sides. Custom fonts or a very long all-day item truncate inside the item's rounded chip instead of widening or shifting the page. After visiting Files, Journal, Search, or Settings and returning to Agenda, retained background pages can no longer shift either Agenda or the root command bar.
 - Crossing a week, month, or year uses directional animation; Reduce Motion reduces movement.
 - iPad landscape places the full timeline on the left and a synchronized month calendar on the right. TODOs and Perspectives do not retain an irrelevant large calendar.
 
