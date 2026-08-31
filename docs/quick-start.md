@@ -60,11 +60,11 @@
 根操作栏分为三部分：
 
 - 一级 Tab 是 **Views、Files、Settings**。
-- 左侧三横线按钮切换当前二级内容。Views 中有 Agenda、TODOs、Journal 和自定义 Perspective；Files 中有 Workspace、角色文件夹和你从文件树固定的文件夹；Settings 没有二级按钮。
+- 左侧三横线按钮切换当前二级内容。Views 中有 Agenda、TODOs、Journal 和自定义 Perspective；Files 中有 Workspace、角色文件夹和你从文件树固定的文件夹；Settings 中有“工作区与同步”“外观”“日历与日程”“任务与工作流”“新建与存储”和“日志”六个常用分类。“关于 Aster”仍留在 Settings 首页。iPad 上选择分类会直接切换现有右侧详情，iPhone 上则直接进入该分类，不会连续叠加多层页面。
 - 右侧是“新建”和“搜索”。轻点新建会按当前内容创建：Agenda 新建 Event、TODOs/Perspective 新建 Task、Journal 新建日志条目、Files 新建 Org 文档；长按可查看全部四种类型。
 - 搜索打开后会自动聚焦；轻点 Cancel 会关闭搜索并回到进入前的页面。
 
-iPhone 上三组控件位于同一条底栏。iPad 上二级按钮和一级 Tab 横向留在左上方、并限制在左侧内容栏的范围内；新建和搜索位于整个窗口最右侧。这不会增加全局侧边栏。
+iPhone 上三组控件位于同一条底栏；一级 Tab 的可用空间足够宽时显示图标和文字，包括 iPhone 15 在内的较紧凑宽度会只显示图标，三个入口的选中状态和无障碍名称仍然独立可用，不会互相重叠。iPad 上二级按钮和一级 Tab 横向留在左上方、并限制在左侧内容栏的范围内；新建和搜索位于整个窗口最右侧。这不会增加全局侧边栏。
 
 ## 6. 验证写回
 

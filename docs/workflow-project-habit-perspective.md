@@ -177,7 +177,7 @@ Views 顶部提供两个开关。它们不是新的 Org 类型，也不是固定
 %%(org-anniversary 2022 11 2) 结婚纪念日
 ```
 
-`ASTER_ANNIVERSARY_DISPLAY` 可显式写 `years` 或 `elapsed-days`。只有显式受支持的值才启用 Aster 的派生摘要：`years` 显示已完成年数，`elapsed-days` 显示累计天数，两者都显示距下次周年还有多少天。省略 Property 或写入不支持的值时保持普通年度 Anniversary，不会统一套用计算摘要。Aster 只使用同一条 `org-anniversary`，不会生成每天一条的 Agenda 数据；Org Agenda 仍只显示真正的周年日。`org-cyclic` 则始终是周期 Event：它使用稳定的 `间隔天数 年 月 日` 顺序，间隔 `1` 会每天出现，间隔 `100` 只会在百日边界出现，`%d` 是完成的周期数而不是总天数。Aster 不执行其他 Lisp，编辑时也只替换对应 Diary 原文。
+`ASTER_ANNIVERSARY_DISPLAY` 可显式写 `years` 或 `elapsed-days`。只有显式受支持的值才启用 Aster 的派生摘要：`years` 计算已完成年数，`elapsed-days` 计算累计天数，两者都计算距下次周年还有多少天。Org Preview 与 Anniversaries 视图紧凑显示为 `N 天 · 下次 M 天后`，日期 Agenda 保留更完整的上下文提示。省略 Property 或写入不支持的值时保持普通年度 Anniversary，不会统一套用计算摘要。Aster 只使用同一条 `org-anniversary`，不会生成每天一条的 Agenda 数据；Org Agenda 仍只显示真正的周年日。`org-cyclic` 则始终是周期 Event：它使用稳定的 `间隔天数 年 月 日` 顺序，间隔 `1` 会每天出现，间隔 `100` 只会在百日边界出现，`%d` 是完成的周期数而不是总天数。Aster 不执行其他 Lisp，编辑时也只替换对应 Diary 原文。
 
 ## 哪些东西不属于 Perspective
 

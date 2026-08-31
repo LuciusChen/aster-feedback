@@ -60,11 +60,11 @@ If a file declares `#+TODO:` or `#+SEQ_TODO:`, the file-local declaration takes 
 The root command bar has three parts:
 
 - The primary tabs are **Views, Files, Settings**.
-- The leading three-line button changes the current child. Under Views it contains Agenda, TODOs, Journal, and saved Perspectives. Under Files it contains Workspace, role folders, and folders you pinned from the file tree. Settings has no secondary button.
+- The leading three-line button changes the current child. Under Views it contains Agenda, TODOs, Journal, and saved Perspectives. Under Files it contains Workspace, role folders, and folders you pinned from the file tree. Under Settings it contains Workspace & Sync, Appearance, Calendar & Agenda, Tasks & Workflow, Create & Storage, and Journal; About Aster remains on the Settings home. Choosing one switches the existing iPad detail or directly opens that category on iPhone without stacking repeated navigation layers.
 - The trailing actions are Create and Search. Create uses the current context: Event in Agenda, Task in TODOs/Perspectives, Journal entry in Journal, and Org Document in Files. Hold Create to show all four types.
 - Search focuses immediately. Cancel closes Search and returns to the page you came from.
 
-On iPhone these groups share the bottom row. On iPad the secondary button and primary tabs stay together at the top-left within the left content column, while Create and Search stay at the far right of the complete window. This does not add a global sidebar.
+On iPhone these groups share the bottom row. The primary tabs show symbols and titles only when their region is wide enough; tighter widths, including iPhone 15, show symbols only so the three destinations, selected state, and accessibility names remain separate instead of overlapping. On iPad the secondary button and primary tabs stay together at the top-left within the left content column, while Create and Search stay at the far right of the complete window. This does not add a global sidebar.
 
 ## 6. Verify Write-Back
 
