@@ -122,10 +122,13 @@ Perspective 不修改 Org 文件，也不会创建新类型。它保存的是过
 - 匹配任一 Workflow 关键字。
 - 匹配标签。
 - 标签匹配模式。
+- 匹配一个 Property：存在、等于或不等于。
 - Priority。
 - 日期状态。
 - 排序方式。
 - 是否保留父子 Outline。
+
+标签与 Property 规则会读取 Outline 中继承下来的有效值；子标题的同名 Property 覆盖父标题。条目在 Preview 与 Edit 中仍只显示和修改自己的直接标签与 Property。Property 名称留空就关闭该规则；“不等于”也会匹配没有该 Property 的条目。这个范围只是一条适合移动端的明确条件，不是第二套完整 Org 查询语言。
 
 在 **设置 → Tasks & Workflow → Views** 新建；之后打开 Views 左侧的三横线二级菜单，就能与 Agenda、TODOs、Journal 一起选择。
 
@@ -158,6 +161,20 @@ Views 顶部提供两个开关。它们不是新的 Org 类型，也不是固定
 - Include：Task、Project
 - Workflow：`WAITING DELEGATED`
 - Preserve outline：按需要开启
+
+### 场景：某位负责人拥有的工作
+
+父标题可以集中声明一次：
+
+```org
+* Release :team:
+:PROPERTIES:
+:OWNER: Alice
+:END:
+** TODO Prepare TestFlight notes
+```
+
+Perspective 选择标签 `team`，Property 名称写 `OWNER`，匹配方式选 Equals，值写 `Alice`，即可匹配子任务而不复制元数据。
 
 ### 场景：纪念日与累计天数
 

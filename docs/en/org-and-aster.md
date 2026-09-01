@@ -235,6 +235,38 @@ The standard headline order is Workflow, Priority, title, Diary-only time, then 
 - **Diary time**: ordinary times belong in a Timestamp. A Diary expression has no concrete time, so `HH:mm` or `HH:mm-HH:mm` may appear at the end of the title before tags.
 - **Tags**: editing preserves the `ATTACH` tag used by Org Attach.
 
+### Agenda Visibility and Planning Display Cookies
+
+The following subtrees remain available in Files, Org Preview, Edit, and Search, but are excluded from Agenda, TODOs, Perspectives, widgets, and local reminder planning by default:
+
+```org
+* TODO COMMENT Not part of the current plan
+** TODO This child is excluded too
+
+* Archived material :ARCHIVE:
+** TODO This child is excluded too
+```
+
+`COMMENT` is the standard headline marker after Workflow and Priority. `ARCHIVE` is the exact special tag. Aster neither deletes nor rewrites these subtrees.
+
+Standard Deadline warning and Scheduled delay cookies are preserved too:
+
+```org
+* TODO Submit release
+DEADLINE: <2026-09-10 Thu -5d>
+
+* TODO Prepare environment
+SCHEDULED: <2026-09-01 Tue -2d>
+
+* TODO First setup only
+SCHEDULED: <2026-09-01 Tue --2d>
+```
+
+- `DEADLINE ... -5d` begins compact due-status presentation five days before the deadline. `-0d` limits it to the due day; without an explicit cookie, Aster uses a 14-day warning window.
+- `SCHEDULED ... -2d` delays every derived Agenda appearance by two days. `--2d` delays only the first occurrence of a repeating Task and stops after a standard completed Workflow log records that first completion.
+- These cookies affect only derived Agenda presentation. They do not rewrite the Org date or postpone a local notification derived from a concrete clock time. Editing the date within the same planning kind preserves the cookie; changing to an incompatible planning kind removes it.
+- Category comes only from a parser-confirmed `CATEGORY` Property, file-level `#+CATEGORY`, or the filename fallback. The same text inside a code block or ordinary prose cannot become Agenda metadata.
+
 ## 10. Standard Repeaters
 
 ```org

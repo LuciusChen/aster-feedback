@@ -235,6 +235,38 @@ More notes.
 - Diary 时间：普通时间写在 Timestamp 中；只有 Diary 表达式没有具体时间，因此可把 `HH:mm` 或 `HH:mm-HH:mm` 放在标题末尾、标签之前。
 - Tags：编辑时自动保留 Org Attach 使用的 `ATTACH` 标签。
 
+### Agenda 可见性与规划显示 Cookie
+
+下面两棵子树会保留在 Files、Org Preview、Edit 和 Search 中，但默认不会进入 Agenda、TODOs、Perspective、小组件或本地提醒：
+
+```org
+* TODO COMMENT 暂时不参与计划
+** TODO 这个子任务也被排除
+
+* 已归档资料 :ARCHIVE:
+** TODO 这个子任务也被排除
+```
+
+`COMMENT` 是标题中位于 Workflow 与 Priority 之后的标准标记；`ARCHIVE` 是精确的特殊标签。Aster 不删除也不改写这些内容。
+
+标准的 Deadline warning 与 Scheduled delay cookie 也会保留：
+
+```org
+* TODO Submit release
+DEADLINE: <2026-09-10 Thu -5d>
+
+* TODO Prepare environment
+SCHEDULED: <2026-09-01 Tue -2d>
+
+* TODO First setup only
+SCHEDULED: <2026-09-01 Tue --2d>
+```
+
+- `DEADLINE ... -5d` 从截止日前 5 天开始显示简洁的到期提示；`-0d` 表示只在截止当天显示，没有显式 cookie 时 Aster 使用 14 天预警窗口。
+- `SCHEDULED ... -2d` 把每次派生的 Agenda 显示推迟 2 天；`--2d` 只推迟重复任务的第一次，第一次按标准 Workflow 完成并留下状态日志后不再推迟。
+- 这些 cookie 只改变 Agenda 的派生显示，不会改写 Org 原日期，也不会推迟由具体时刻产生的本地通知。编辑同一种规划的日期时会保留 cookie；切换为不兼容的规划类型时会移除它。
+- Category 只来自解析确认的 `CATEGORY` Property、文件级 `#+CATEGORY` 或文件名回退；代码块或普通正文里的同名字样不会被误当作 Agenda 元数据。
+
 ## 10. 标准重复
 
 ```org

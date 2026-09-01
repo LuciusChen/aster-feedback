@@ -122,10 +122,13 @@ A Perspective does not modify Org files or create a new item type. It stores fil
 - Match any listed Workflow keyword.
 - Match tags.
 - Choose tag matching behavior.
+- Match one Property by existence, equality, or inequality.
 - Filter by Priority.
 - Filter by date state.
 - Choose sorting.
 - Preserve or flatten parent/child outline relationships.
+
+Tag and Property rules use effective values inherited through the outline; a child's Property overrides the same Property on its parent. Preview and Edit still show and mutate only the heading's direct tags and Properties. Leave Property name blank to disable the rule. Does not equal also matches an item where that Property is missing. This is one deliberate mobile condition, not a second full Org query language.
 
 Create one under **Settings → Tasks & Workflow → Views**. It then appears alongside Agenda, TODOs, and Journal in the three-line secondary menu immediately before the Views tab.
 
@@ -158,6 +161,20 @@ This works without requiring every user to spell the state `PROJECT`.
 - Include: Task and Project
 - Workflow: `WAITING DELEGATED`
 - Preserve outline: as needed
+
+### Scenario: Work Owned by One Person
+
+Declare shared context once on a parent:
+
+```org
+* Release :team:
+:PROPERTIES:
+:OWNER: Alice
+:END:
+** TODO Prepare TestFlight notes
+```
+
+Set tag to `team`, Property name to `OWNER`, matching to Equals, and value to `Alice`. The child matches without duplicating inherited metadata.
 
 ### Scenario: Anniversaries and Elapsed Days
 
