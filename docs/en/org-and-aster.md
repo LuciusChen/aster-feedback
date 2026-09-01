@@ -22,6 +22,14 @@ This is the central semantic reference for Aster. Every example includes copyabl
 
 A filename, directory name, tag, or English word does not determine type on its own. `PROJECT`, for example, is only a default convention; a user can configure `PRO` as a Project instead.
 
+## Parsing and Source Fidelity
+
+For each file revision, Aster first builds a source-range-preserving Org syntax tree and then projects Preview, Agenda, Journal, and Search from that tree. The official default element and object families have distinct structure, including diary sexps, inline tasks, standard and special blocks, nested lists, inline and multiline footnotes, inline source/Babel calls, citation references, and regular, plain, and angle links.
+
+- Anonymous footnotes cannot become multiline definitions that consume following prose; continuation lines and child lists stay owned by their real list item.
+- `SCHEDULED`, `DEADLINE`, and Properties receive structural meaning only in a heading's metadata position. The same text in ordinary prose does not become Task planning.
+- Unknown extension syntax remains exact source text. Aster does not execute Babel or arbitrary Diary Lisp; Agenda interprets only the documented safe subset.
+
 ## 1. All-Day Event
 
 ### Org source

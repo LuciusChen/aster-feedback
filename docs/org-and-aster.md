@@ -22,6 +22,14 @@
 
 文件名、文件夹名、标签或英文单词本身不会单独决定类型。例如 `PROJECT` 只是默认约定；用户也可以把 `PRO` 配置为 Project。
 
+## 解析与原文保真
+
+Aster 会先为每次文件修订建立一棵保留原文范围的 Org 语法树，再从这棵树投影 Preview、Agenda、Journal 和 Search。官方默认的元素和对象类别都有明确结构，包括 Diary sexp、inline task、标准与自定义 block、嵌套列表、行内或多行脚注、inline source/Babel call、citation reference，以及 regular/plain/angle link。
+
+- 匿名脚注不会被误当成多行定义并吞掉后文；列表续行和子列表归属于真正的父项。
+- `SCHEDULED`、`DEADLINE` 和 Property 只有位于标题元数据位置时才取得对应结构语义；普通正文中的相同文字不会变成 Task planning。
+- 未识别的扩展语法仍按原字节保留。Aster 不执行 Babel，也不执行任意 Diary Lisp；Agenda 只解释文档中列出的安全子集。
+
 ## 1. 全天 Event
 
 ### Org 原文
