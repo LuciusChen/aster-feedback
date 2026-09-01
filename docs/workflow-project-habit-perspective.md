@@ -137,7 +137,7 @@ Perspective 不修改 Org 文件，也不会创建新类型。它保存的是过
 Views 顶部提供两个开关。它们不是新的 Org 类型，也不是固定导航页面；开启后只会创建一条普通、可编辑的 Perspective：
 
 - **Projects**：匹配所有被标记为 Treat as Project 的进行中状态，保留 Outline。
-- **Anniversaries**：匹配标准 `org-anniversary` 年度日期，并按下一次日期排列；可选 Property 决定显示已完成年数或累计天数。
+- **Anniversaries**：匹配标准 `org-anniversary` 年度日期和关键词为空的年度 Org 时间戳，并按下一次日期排列；可选 Property 只改变 `org-anniversary` 的已完成年数或累计天数显示。
 
 关闭开关只删除对应模板创建的 Perspective，不会删除、移动或改写任何 Org 条目。自己新建的同名 Perspective 也不会被误删。
 
@@ -194,7 +194,7 @@ Perspective 选择标签 `team`，Property 名称写 `OWNER`，匹配方式选 E
 %%(org-anniversary 2022 11 2) 结婚纪念日
 ```
 
-`ASTER_ANNIVERSARY_DISPLAY` 可显式写 `years` 或 `elapsed-days`。只有显式受支持的值才启用 Aster 的派生摘要：`years` 计算已完成年数，`elapsed-days` 计算累计天数，两者都计算距下次周年还有多少天。Org Preview 与 Anniversaries 视图紧凑显示为 `N 天 · 下次 M 天后`，日期 Agenda 保留更完整的上下文提示。省略 Property 或写入不支持的值时保持普通年度 Anniversary，不会统一套用计算摘要。Aster 只使用同一条 `org-anniversary`，不会生成每天一条的 Agenda 数据；Org Agenda 仍只显示真正的周年日。`org-cyclic` 则始终是周期 Event：它使用稳定的 `间隔天数 年 月 日` 顺序，间隔 `1` 会每天出现，间隔 `100` 只会在百日边界出现，`%d` 是完成的周期数而不是总天数。Aster 不执行其他 Lisp，编辑时也只替换对应 Diary 原文。
+`ASTER_ANNIVERSARY_DISPLAY` 可显式写 `years` 或 `elapsed-days`。只有显式受支持的值才启用 Aster 的派生摘要：`years` 计算已完成年数，`elapsed-days` 计算累计天数，两者都计算距下次周年还有多少天。Org Preview 继续紧凑显示为 `N 天 · 下次 M 天后`。在 Anniversaries 中，尚未到达的源日期显示 `N 天后开始 · 月日`，源日期当天显示 `今天开始`，不会写成“1 周年”；满一年后才显示编号周年与下一日期。显式模式保留选中的累计值，并说明同一个开始日期或下一编号周年。关键词为空的年度 Org 时间戳也使用这条无卡片日期轨，但只保留普通年度重复文案，不推造周年编号。省略 Property 或写入不支持的值时不会启用累计计算。Aster 只使用原来的日期源，不会生成每天一条的 Agenda 数据；Org Agenda 仍只显示真正的发生日。`org-cyclic` 则始终是周期 Event：它使用稳定的 `间隔天数 年 月 日` 顺序，间隔 `1` 会每天出现，间隔 `100` 只会在百日边界出现，`%d` 是完成的周期数而不是总天数。Aster 不执行其他 Lisp，编辑时也只替换对应 Diary 原文。
 
 ## 哪些东西不属于 Perspective
 

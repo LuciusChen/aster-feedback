@@ -137,7 +137,7 @@ Create one under **Settings → Tasks & Workflow → Views**. It then appears al
 Views begins with two switches. They are neither new Org types nor fixed navigation destinations; enabling one creates an ordinary editable Perspective:
 
 - **Projects** matches every active state marked Treat as Project and preserves the outline.
-- **Anniversaries** matches standard yearly `org-anniversary` dates, sorted by their next date; an optional Property selects completed years or elapsed days.
+- **Anniversaries** matches standard yearly `org-anniversary` dates and keyword-free yearly Org timestamp repeaters, sorted by their next date; the optional Property changes completed-years or elapsed-days presentation only for `org-anniversary`.
 
 Turning a switch off removes only the Perspective created by that template. It never deletes, moves, or rewrites an Org entry, and a user-created Perspective with the same visible name is not removed.
 
@@ -194,7 +194,7 @@ To make Aster show the total days elapsed from the source date:
 %%(org-anniversary 2022 11 2) Wedding anniversary
 ```
 
-Set `ASTER_ANNIVERSARY_DISPLAY` explicitly to `years` or `elapsed-days`. Only a supported explicit value enables Aster's derived summary: `years` calculates completed years, `elapsed-days` calculates total elapsed days, and both calculate the days until the next anniversary. Org Preview and the Anniversaries view condense that to `N days · Next in M days`, while dated Agenda keeps the fuller contextual wording. A missing or unsupported Property keeps the ordinary annual Anniversary presentation instead of applying the calculation to every entry. Aster uses the same `org-anniversary`; it does not generate daily Agenda data, and Org Agenda still shows only the real anniversary. `org-cyclic` always remains a cyclic Event. It uses the stable `interval-days year month day` order: `1` appears daily, `100` appears only on hundred-day boundaries, and `%d` is the completed cycle count rather than total days. Aster never executes other Lisp, and editing replaces only the corresponding Diary source line.
+Set `ASTER_ANNIVERSARY_DISPLAY` explicitly to `years` or `elapsed-days`. Only a supported explicit value enables Aster's derived summary: `years` calculates completed years, `elapsed-days` calculates total elapsed days, and both calculate the days until the next anniversary. Org Preview retains `N days · Next in M days`. In Anniversaries, a future source reads `Starts in N days · Month Day` and its source date reads `Starts today`; it does not become a first anniversary until a complete year has elapsed. Later occurrences use their numbered milestone and next date. An explicit mode retains its selected total and describes that same source or next numbered milestone. A keyword-free yearly Org timestamp uses the same continuous, unboxed date rail but keeps ordinary yearly-repeat meaning and receives no invented anniversary number. A missing or unsupported Property enables no elapsed calculation. Aster uses the original date source; it does not generate daily Agenda data, and Org Agenda still shows only the real occurrence. `org-cyclic` always remains a cyclic Event. It uses the stable `interval-days year month day` order: `1` appears daily, `100` appears only on hundred-day boundaries, and `%d` is the completed cycle count rather than total days. Aster never executes other Lisp, and editing replaces only the corresponding Diary source line.
 
 ## What a Perspective Does Not Own
 

@@ -314,7 +314,7 @@ SCHEDULED: <%%(memq (calendar-day-of-week date) '(0 6))>
 
 - `org-anniversary` 的参数是 `年 月 日`，`%d` 显示发生年份与源年份之差。
 - Aster 始终按当前时区的公历解释这三个数字，即使设备显示佛历、伊斯兰历等其他日历，也不会改变源日期或累计结果。
-- `ASTER_ANNIVERSARY_DISPLAY` 支持 `years` 与 `elapsed-days`，而且必须显式写入受支持的值才会启用 Aster 的派生计算：`years` 计算已完成年数，`elapsed-days` 计算累计天数，两者都会计算距下次周年的天数。Org Preview 与 Anniversaries 视图使用紧凑文案 `N 天 · 下次 M 天后`，日期 Agenda 则保留更完整的上下文提示。省略 Property 或写入不支持的值时，条目保持普通年度 Anniversary 显示；该 Property 不复制日期，Org Agenda 仍只在真正的周年日显示一次。
+- `ASTER_ANNIVERSARY_DISPLAY` 支持 `years` 与 `elapsed-days`，而且必须显式写入受支持的值才会启用 Aster 的派生计算：`years` 计算已完成年数，`elapsed-days` 计算累计天数，两者都会计算距下次周年的天数。Org Preview 仍使用紧凑文案 `N 天 · 下次 M 天后`。在 Anniversaries 中，源日期还没到时显示 `N 天后开始 · 月日`，源日期当天显示 `今天开始`，不会把它误称为“1 周年”；满一年以后才显示编号周年与下一日期，例如 `4 周年`、`还有 65 天 · 11 月 2 日`。显式累计天数会保留累计值，并在第二行说明同一个开始日期或下一编号周年。关键词为空的年度 Org 时间戳也进入同一套日期轨，但只显示普通的年度重复含义，不推造周年编号。全部条目使用同一套无卡片的日期轨与分隔线，第一条不会获得渐变或圆角背景。省略 Property 或写入不支持的值时不会启用累计计算；该 Property 不复制日期，Org Agenda 仍只在真正的周年日显示一次。
 - 推荐的 `org-cyclic` 参数是 `间隔天数 年 月 日`。它始终表示周期 Event；间隔为 `1` 就是每天显示一次，`%d` 表示已经完成的周期数。
 - 如果只需要每 100 天显示一次，写作 `%%(org-cyclic 100 2023 8 28) 结婚第 %d 个百日`。此时 `%d` 表示完成了多少个 100 天周期。
 - Aster 兼容 `diary-cyclic` 的 `间隔天数 月 日 年` 顺序；编辑时会保留原函数和对应参数顺序，但新示例优先使用不受 `calendar-date-style` 影响的 `org-cyclic`。
