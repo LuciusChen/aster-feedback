@@ -31,6 +31,10 @@ A successful UI update must not be an in-memory-only record. Conversely, a tempo
 
 After Files → Org source editor saves a document inside an Agenda source, Agenda, TODOs, Perspectives, Search, widgets, and reminders refresh incrementally from that local path. There is no need to wait for upload, switch workspaces, or relaunch. Cloud sync moves the saved source to other clients; it is not the trigger for refreshing local projections. Unsaved text entered while that refresh finishes is also preserved instead of being replaced by an earlier parsed revision.
 
+## Apple Reminders Interoperability File
+
+When Apple Reminders is enabled, Aster maps reminders through `apple-reminders.org` at the workspace root. The first synchronization may create the file when it is genuinely absent. If an existing file cannot be read, is not valid UTF-8, or has no readable modification time, synchronization stops with an error instead of treating it as empty or old and replacing it. A local edit made while synchronization is processing is also preserved; Aster reports that the source changed instead of replacing it with an earlier generated result.
+
 ## Conflicts Are Not Silently Overwritten
 
 If the same file changed locally and remotely since the last checkpoint, Aster preserves two copies and requires an explicit resolution instead of guessing which one is newer. New sync attempts and Dropbox version restoration may pause until conflicts are resolved.
