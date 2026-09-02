@@ -33,7 +33,7 @@ After Files → Org source editor saves a document inside an Agenda source, Agen
 
 ## Apple Reminders Interoperability File
 
-When Apple Reminders is enabled, Aster maps reminders through `apple-reminders.org` at the workspace root. The first synchronization may create the file when it is genuinely absent. If an existing file cannot be read, is not valid UTF-8, or has no readable modification time, synchronization stops with an error instead of treating it as empty or old and replacing it. A local edit made while synchronization is processing is also preserved; Aster reports that the source changed instead of replacing it with an earlier generated result.
+After Apple Reminders is explicitly enabled in Settings, Aster synchronizes once the workspace has been validated and again whenever the app returns to the foreground. These automatic triggers never request access by themselves, and Settings shows the current state beside the switch. Aster maps reminders through `apple-reminders.org` at the workspace root. The first synchronization may create the file when it is genuinely absent. If an existing file cannot be read, is not valid UTF-8, has no readable modification time, or EventKit returns no reminder list, synchronization stops with an error instead of treating the failure as empty or old and replacing the source. A local edit made while synchronization is processing is also preserved; Aster reports that the source changed instead of replacing it with an earlier generated result.
 
 ## Conflicts Are Not Silently Overwritten
 
