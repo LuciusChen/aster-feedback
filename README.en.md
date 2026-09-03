@@ -8,11 +8,11 @@
 
 Aster is a native Org mode workspace for iPhone and iPad. It presents your existing `.org` files as an agenda, task list, journal, file browser, global search, reminders, and widgets—while keeping the original Org files and adjacent Org Attach directories as the source of truth.
 
-These guides are aligned with TestFlight 0.1 (7) (2026-09-03).
+These guides are aligned with the main repository's Unreleased behavior for the next TestFlight build, based on 0.1 (7) from 3 September 2026.
 
 This repository serves two purposes:
 
-- Provide English and Chinese documentation aligned with the current TestFlight build.
+- Provide English and Chinese documentation aligned with the next TestFlight behavior in the main repository.
 - Collect reproducible bugs, compatibility reports, and feature requests in one public place.
 
 > Aster is still in beta. Before testing with important data, back up both your Org files and every adjacent `data/` attachment directory.

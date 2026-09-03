@@ -13,9 +13,9 @@ Aster normally edits its app-local workspace and synchronizes it through the sel
 | Dropbox | OAuth authorization and a selected remote directory | Includes file version history |
 | iCloud Drive | System directory picker | Uses security-scoped access to the selected directory |
 | Nutstore | Account, third-party app password, and workspace directory | Uses Nutstore WebDAV |
-| WebDAV | Server URL with optional credentials | Suitable for Nextcloud and other standard servers |
+| WebDAV | HTTPS server URL with optional credentials | Suitable for Nextcloud and other standard servers |
 
-Nutstore requires a third-party app password, not the account login password. For WebDAV, provide both username and password or leave both blank for an anonymous server. Credentials are stored in the system Keychain.
+Nutstore requires a third-party app password, not the account login password. Generic WebDAV accepts only an HTTPS workspace URL with a host and no embedded credentials; an HTTP URL is neither saved nor connected. Provide both username and password or leave both blank for an anonymous server. The password is stored in the system Keychain, and Basic Auth is sent only over TLS.
 
 Even when a WebDAV server lists a nested file such as `agenda/work/review.org` without separate records for every collection, Aster restores the proven `agenda/` and `agenda/work/` parents from that path. A directory visible in Files should therefore also be available to the Agenda Sources, Journal folder, and Event & Task Inbox path pickers.
 

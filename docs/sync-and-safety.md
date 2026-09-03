@@ -13,9 +13,9 @@ Aster 日常编辑的是应用本地工作区，再通过所选来源同步。Ag
 | Dropbox | OAuth 授权并选择远端文件夹 | 支持文件版本历史 |
 | iCloud Drive | 系统文件夹选择器 | 使用安全作用域访问选择的目录 |
 | Nutstore | 账号、第三方应用密码和工作区文件夹 | 使用 Nutstore 的 WebDAV 服务 |
-| WebDAV | 服务器 URL，可选账号与密码 | 适用于 Nextcloud 等标准服务器 |
+| WebDAV | HTTPS 服务器 URL，可选账号与密码 | 适用于 Nextcloud 等标准服务器 |
 
-Nutstore 必须使用第三方应用密码，不要填写账户登录密码。WebDAV 的账号和密码必须同时填写，或同时留空连接匿名服务器。凭据保存在系统 Keychain 中。
+Nutstore 必须使用第三方应用密码，不要填写账户登录密码。通用 WebDAV 只接受带主机名、且不内嵌账号密码的 HTTPS 工作区 URL；HTTP URL 不会保存或连接。WebDAV 的账号和密码必须同时填写，或同时留空连接匿名服务器。密码保存在系统 Keychain 中，Basic Auth 只通过 TLS 发送。
 
 WebDAV 服务器即使只列出 `agenda/work/review.org` 这类嵌套文件、没有为每一级目录单独返回记录，Aster 也会从该路径恢复已经被证明存在的 `agenda/` 与 `agenda/work/`。因此 Files 中看到的目录也应能在 Agenda Sources、Journal folder 和 Event & Task Inbox 的路径选择器中使用。
 
