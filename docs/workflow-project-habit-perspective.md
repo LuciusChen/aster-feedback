@@ -26,7 +26,7 @@ Aster 把“状态”“项目”“习惯”和“视图”拆成四层语义�
 - 文件内 `#+TODO:` 或 `#+SEQ_TODO:` 优先于应用的全局默认值。
 - `#+STARTUP:` 和最近子树的 `LOGGING` 属性可继续覆盖完成日志行为。
 
-在 **设置 → Tasks & Workflow → Workflow** 中可调整顺序、Process/Terminal、图标、颜色、快捷键和状态历史。界面配置仍应对应标准 Org 声明。
+在 **设置 → Tasks & Workflow → Workflow** 中可调整顺序、Process/Terminal、图标、颜色、快捷键和状态历史。修改已有状态时，每个有效改动会自动保存，返回时也会立即写入最后一个有效值，不需要再点 Done；只有新建状态需要点 **Add**。界面配置仍应对应标准 Org 声明。
 
 ### 多套并行 Task Flow 与切换
 

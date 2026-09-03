@@ -26,7 +26,7 @@ A more complete example:
 - A file-local `#+TODO:` or `#+SEQ_TODO:` takes precedence over the app default.
 - `#+STARTUP:` and the nearest subtree `LOGGING` property may further override completion logging.
 
-Under **Settings → Tasks & Workflow → Workflow**, configure order, Process/Terminal role, symbol, color, shortcut, and state history. These native controls still map to standard Org declarations.
+Under **Settings → Tasks & Workflow → Workflow**, configure order, Process/Terminal role, symbol, color, shortcut, and state history. Every valid change to an existing state saves automatically and Back flushes the latest valid value, so editing has no Done action; only a new state requires **Add**. These native controls still map to standard Org declarations.
 
 ### Parallel Task Flows and Direct Switching
 

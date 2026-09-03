@@ -64,7 +64,7 @@ The root command bar has three parts:
 - The trailing actions are Create and Search. Create uses the current context: Event in Agenda, Task in TODOs/Perspectives, Journal entry in Journal, and Org Document in Files. Hold Create to show all four types.
 - Search focuses immediately. Cancel closes Search and returns to the page you came from.
 
-On iPhone these groups share the bottom row. The primary tabs show symbols and titles only when their region is wide enough; tighter widths, including iPhone 15, show symbols only so the three destinations, selected state, and accessibility names remain separate instead of overlapping. On iPad the secondary button stays at the complete window's leading edge, the primary tabs are centered against the complete window, and Create/Search stays at the trailing edge. All three groups share one vertical center without adding a global sidebar.
+On iPhone these groups share the bottom row. The primary tabs show symbols and titles only when their region is wide enough; tighter widths, including iPhone 15, show symbols only so the three destinations, selected state, and accessibility names remain separate instead of overlapping. After entering a Settings subpage, item detail, or document reader, the final text and controls can always scroll completely above this row. On iPad the secondary button stays at the complete window's leading edge, the primary tabs are centered against the complete window, and Create/Search stays at the trailing edge. All three groups share one vertical center without adding a global sidebar.
 
 ## 6. Verify Write-Back
 
