@@ -14,7 +14,7 @@
 | 有未完成 Workflow 关键字，没有具体钟点 | Task | TODOs、Perspective |
 | 有未完成 Workflow 关键字，并有具体钟点 | Timed Task | Agenda |
 | Workflow 关键字被配置为 Treat as Project | Project | TODOs、Perspective；可显示进度 |
-| 未完成 Workflow + `STYLE=habit` + 重复的 `SCHEDULED` | Habit | Agenda/TODOs、Perspective；显示习惯历史 |
+| 未完成 Workflow + `STYLE=habit` + 重复的 `SCHEDULED` | Habit | 今天可执行时进入 Agenda 与 Perspective，不进入 TODOs；显示习惯历史 |
 | `org-anniversary` 年度 Diary | Anniversary；可选 Property 可显示 Day Counter | Agenda；可选 Anniversaries Perspective |
 | `org-cyclic` / `diary-cyclic` 周期 Diary | Cyclic Event | Agenda；可选 Perspective |
 | 没有 Workflow 和日期，但有正文 | Note | Files、Search、Journal（若在 Journal 源中） |

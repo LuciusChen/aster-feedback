@@ -14,7 +14,7 @@ This is the central semantic reference for Aster. Every example includes copyabl
 | Unfinished Workflow keyword, no concrete clock time | Task | TODOs and Perspectives |
 | Unfinished Workflow keyword, with a concrete clock time | Timed Task | Agenda |
 | Workflow keyword configured as Treat as Project | Project | TODOs and Perspectives, optionally with progress |
-| Unfinished Workflow + `STYLE=habit` + repeating `SCHEDULED` | Habit | Agenda/TODOs and Perspectives, with habit history |
+| Unfinished Workflow + `STYLE=habit` + repeating `SCHEDULED` | Habit | Agenda and Perspectives when eligible today, never TODOs, with habit history |
 | Yearly `org-anniversary` Diary | Anniversary; an optional Property can select Day Counter presentation | Agenda and the optional Anniversaries Perspective |
 | `org-cyclic` / `diary-cyclic` Diary cycle | Cyclic Event | Agenda and optional Perspectives |
 | No Workflow or date, but visible body content | Note | Files and Search; Journal when stored in a Journal source |

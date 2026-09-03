@@ -6,8 +6,8 @@
 
 Agenda and TODOs read the same Org files but answer different questions:
 
-- **Agenda**: When does it happen? It shows Events and unfinished Tasks with a concrete clock time.
-- **TODOs**: What remains unfinished? It shows Workflow items with no date or only a date, but no clock time.
+- **Agenda**: When does it happen? It shows Events, unfinished Tasks with a concrete clock time, and today's eligible Habits whether or not they have a clock time.
+- **TODOs**: What remains unfinished? It shows non-Habit Workflow items with no date or only a date, but no clock time.
 
 ![Agenda example](../../assets/screenshots/agenda.png)
 
@@ -26,13 +26,14 @@ Agenda and TODOs read the same Org files but answer different questions:
 
 ![TODOs example](../../assets/screenshots/todos.png)
 
-TODOs contains every unfinished Workflow item without a concrete clock time, including:
+TODOs contains every unfinished non-Habit Workflow item without a concrete clock time, including:
 
 - A completely undated Task.
 - A date-only `SCHEDULED` Task.
 - A date-only `DEADLINE` Task.
 - A Workflow item configured as a Project.
-- A Habit that does not currently need a timeline position.
+
+Habit is the exception: once it reaches its actionable window, it appears only in today's Agenda timeline even without a clock time. It is never moved into or duplicated in TODOs, and a Habit outside its actionable window appears in neither surface.
 
 The list follows real files and Org outline hierarchy. Visible child Tasks remain nested below a visible parent Task. Structural Containers are not misrepresented as Tasks.
 
@@ -99,12 +100,14 @@ The title and these fields now sit directly on one scroll surface without Show M
 ## Calendar and Timeline
 
 - Month is the first-launch default. After that, Aster restores the last selected Week, Month, or Year size even after the app is terminated and relaunched. The grabber moves only one adjacent step at a time.
+- Agenda and Journal Week reuse the same five-column represented-date rail rather than a conventional seven-day page. Agenda supplies its selected date, dates containing non-Habit Agenda items, and external all-day calendar dates; Journal supplies its selected date, prepared entry dates, and that same external overlay. When no content date exists in one direction, one adjacent empty date remains available, so either calendar can continue into the past or future beyond its earliest or latest record. An omitted gap uses one aligned torn edge, weekends retain calendar shading, and every ordinary boundary reaches the rail baseline. Single-day and cross-day source appears as unlabelled color ribbons; an Agenda Workflow day overlays its symbol beside the centered weekday without taking layout space. Releasing a horizontal drag snaps to the represented-date boundary matching its distance, up to four columns. Only during the drag, content inside the leading column receives one crisp, slight displacement beneath a clear, unblurred lens whose only exposed edge is its fixed trailing boundary, while the background, weekend shading, and date boundaries remain fixed. At rest there is no visible glass layer, tint, blur, gradient, edge, or duplicate.
+- A Week release performs one column-boundary settle with no second page transition or spring rebound. In iPad landscape, the left column uses the same five-column rail as iPhone while the synchronized month calendar remains on the right.
 - The calendar remains fixed while the timeline scrolls independently and extends into both past and future.
 - Today remains aligned to the top initially, with past dates already above it, so the first drag is native scrolling rather than an unlock gesture.
 - As the timeline's leading day changes, calendar selection follows.
 - On iPhone, the date header, calendar, and timeline share fixed 18-point margins on both sides. Custom fonts or a very long all-day item truncate inside the item's rounded chip instead of widening or shifting the page. After visiting Files, Journal, Search, or Settings and returning to Agenda, retained background pages can no longer shift either Agenda or the root command bar.
-- Crossing a week, month, or year uses directional animation; Reduce Motion reduces movement.
-- iPad landscape places the full timeline on the left and a synchronized month calendar on the right. TODOs and Perspectives do not retain an irrelevant large calendar.
+- Crossing a month or year uses directional animation; Week uses only its own column settle. Reduce Motion reduces movement.
+- iPad landscape places the full timeline and five-column Week rail on the left and a synchronized month calendar on the right. TODOs and Perspectives do not retain an irrelevant large calendar.
 
 ## Item Actions
 
