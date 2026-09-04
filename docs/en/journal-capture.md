@@ -37,7 +37,9 @@ The similarly named Week/Month/Year choice under **Settings → Journal** limits
 ## Where a Journal Entry Starts
 
 Tap Create in Journal to choose a configured Journal Entry Template. When none exist, Aster links to **Settings → Create & Storage → Journal Entry Templates**. The same template entrance also appears in Journal Settings.
-The chooser keeps the Emacs-compatible template-first order and compact rows. The runtime composer uses the same native density: input begins at one line, previews and pending attachments add no nested cards, and photo, camera, and file actions keep full hit targets.
+The chooser keeps the Emacs-compatible template-first order and compact rows. After selection, the page title stays **New Journal Entry**, while the template name and Today's Journal become one quiet context line. The main multiline editor expands through the available keyboard-safe writing area instead of leaving inactive space below a one-line input. The composer reserves no permanent Preview or empty Attachments section. Photos, camera, Files, Preview, and the valid-only Add action share one row above the software keyboard. Preview dismisses the keyboard, scrolls the expanded result into view, and hides again when any runtime field receives focus. A removable attachment list appears only after selection.
+
+Each time you select a template, Aster starts a new independent draft, so the same template can have several unfinished entries. Going back shows them in a separate **Drafts** section. If you close Journal Capture with unsaved changes, Aster asks whether to save the draft(s), discard the changes, or keep editing. Saved drafts retain their text, prompt answers, template/source snapshot, and private attachment copies after the sheet or app is reopened. Adding an entry removes only that draft. The on-screen Add action is the sole submission control on iPhone and iPad; `⌘ Return` and an external keyboard are never required.
 
 Holding the root Create action exposes Journal from another page. Agenda's Event/Task composer is intentionally separate and never uses Journal templates.
 
@@ -135,7 +137,7 @@ Any Journal Entry Template that produces a heading can include photos, videos, o
 3. Copy files into the standard Org Attach directory.
 4. Insert relative attachment links in the heading body.
 
-Attachments and source text are handled by the same accepted Capture. If the source commit fails, newly copied files from that attempt are not reported as a successful result.
+Attachments and source text are handled by the same accepted Add. If the source commit fails, newly copied files from that attempt are not reported as a successful result. Until something is selected, the composer keeps only the toolbar actions and shows no empty attachment block.
 
 ## Common Scenarios
 

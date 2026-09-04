@@ -26,7 +26,7 @@ Aster 把“状态”“项目”“习惯”和“视图”拆成四层语义�
 - 文件内 `#+TODO:` 或 `#+SEQ_TODO:` 优先于应用的全局默认值。
 - `#+STARTUP:` 和最近子树的 `LOGGING` 属性可继续覆盖完成日志行为。
 
-在 **设置 → Tasks & Workflow → Workflow** 中可调整顺序、Process/Terminal、图标、颜色、快捷键和状态历史。修改已有状态时，每个有效改动会自动保存，返回时也会立即写入最后一个有效值，不需要再点 Done；只有新建状态需要点 **Add**。界面配置仍应对应标准 Org 声明。
+在 **设置 → Tasks & Workflow → Workflow** 中可调整顺序、Process/Terminal、图标、颜色、快捷键和状态历史。颜色行使用系统圆形色盘，可以为每个状态自由选择完整 RGB 颜色而不是只能使用预设色块。修改已有状态时，每个有效改动会自动保存，返回时也会立即写入最后一个有效值，不需要再点 Done；只有新建状态需要点 **Add**。界面配置仍应对应标准 Org 声明。
 
 ### 多套并行 Task Flow 与切换
 
@@ -51,6 +51,15 @@ Org 允许同一个文件并行定义多套互不相同的状态序列：
 - 如果标题带 Repeater，从 `TODO` 直接完成为另一套流程的 `FIXED`，Aster 会像 `org-todo` 一样推进重复日期，并回到原流程的 `REPEAT_TO_STATE`、配置目标或第一个 Process 状态，而不是擅自改成 `REPORT`。
 
 文件内定义始终只影响该文件；没有文件内定义时才使用 **设置 → Tasks & Workflow → Workflow** 的全局 Task Flow。高级 Org Syntax 可直接编辑每一行的完整 token，结构化编辑器则用于常见的状态、样式与日志配置。
+
+### 时间线快捷交互
+
+时间线条目有两个紧凑的状态入口：点左侧 Workflow icon 或带下拉标志的关键字胶囊，都直接打开完整状态列表；点标题或其余区域进入详情。长按整行只保留 Schedule、Move/Archive、Note、Delete 等条目操作，不重复放置关键字列表；左右滑动不分配给 Workflow，以免与周视图横向移动冲突。
+
+- Workflow icon 表达当前精确状态，并作为完整状态列表的第二个明确入口；它不推断完成、重新打开或 Habit Check-in 的对应动作。需要哪个关键字就从状态列表中明确选择；Project 保护、Habit 当日保护、普通 Org Repeater 与 Apple Reminder 重复规则仍由原有写入路径负责。
+- 点关键字后，iPhone 使用紧凑底部面板，iPad 使用锚定在胶囊旁的 popover。选择后立即写入并关闭，不需要第二次点 Done；多套流程仍分组显示，当前完整关键字带选中标记。
+- 非重复条目成功切到 Terminal 后，源文件仍立即保存；列表只把新状态在原位置保留片刻作为视觉确认，然后淡出活动时间线。重复条目按其推进规则显示下一期，不制造一个假的完成副本。
+- 关键字点击范围紧贴可见胶囊，不向标题或其余详情区域扩张，也不抢走纵向滚动。VoiceOver 分别提供“打开详情”和“更改状态”。
 
 ## Project 不是一个固定英文关键字
 
@@ -200,5 +209,5 @@ Perspective 选择标签 `team`，Property 名称写 `OWNER`，匹配方式选 E
 
 - Org 的 Repeat/Diary 规则仍写在源文件中。
 - 通知由条目自身的标准带时刻规划派生；兼容旧版的持续提醒属性也不属于 Perspective。
-- Apple Reminders 桥接是独立集成。
+- Apple Reminders 桥接是独立的系统提醒事项来源，只通过托管的 `apple-reminders.org` 同步；普通 Org 任务不会导出。Aster 本地通知覆盖所有带具体时刻的 Agenda 条目，包括同步进来的系统 Reminder。
 - Perspective 不复制条目、不改变 Workflow，也不是一个专有项目数据库。

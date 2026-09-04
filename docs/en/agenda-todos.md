@@ -111,8 +111,9 @@ The title and these fields now sit directly on one scroll surface without Show M
 
 ## Item Actions
 
-- Tap any Task or Event row to open the shared detail view.
-- Hold a Task to open grouped Workflow and Actions choices.
+- Tap a Task's leading Workflow symbol or current keyword capsule to open the same complete state list directly. Neither guesses a Complete, Reopen, or Habit Check-in action; the user chooses the intended keyword explicitly.
+- Tap the title or any other remaining area to open the shared detail view. The keyword hit shape follows the visible capsule instead of expanding into title space. iPhone uses a bottom sheet and iPad anchors a popover beside the capsule; a choice writes immediately and dismisses without another Done action. After a non-repeating item enters a Terminal state, it stays in place briefly to confirm the new state and then leaves the active list.
+- Hold a Task to open only item actions such as Schedule, Move/Archive, Note, and Delete; the keyword list is not duplicated there.
 - Hold an Event to open its schedule, move/archive, Note, and delete actions.
 - Agenda and TODOs do not use horizontal swipes to change Workflow, avoiding conflicts with scrolling and system gestures.
 - Leaving detail writes the current valid draft back to source. There is no separate Save button.

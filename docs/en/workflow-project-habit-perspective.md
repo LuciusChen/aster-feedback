@@ -26,7 +26,7 @@ A more complete example:
 - A file-local `#+TODO:` or `#+SEQ_TODO:` takes precedence over the app default.
 - `#+STARTUP:` and the nearest subtree `LOGGING` property may further override completion logging.
 
-Under **Settings → Tasks & Workflow → Workflow**, configure order, Process/Terminal role, symbol, color, shortcut, and state history. Every valid change to an existing state saves automatically and Back flushes the latest valid value, so editing has no Done action; only a new state requires **Add**. These native controls still map to standard Org declarations.
+Under **Settings → Tasks & Workflow → Workflow**, configure order, Process/Terminal role, symbol, color, shortcut, and state history. The Color row uses the native circular color well, so each state can use any RGB color instead of a fixed set of swatches. Every valid change to an existing state saves automatically and Back flushes the latest valid value, so editing has no Done action; only a new state requires **Add**. These native controls still map to standard Org declarations.
 
 ### Parallel Task Flows and Direct Switching
 
@@ -51,6 +51,15 @@ Org allows one file to define several distinct state sequences in parallel:
 - For a repeating heading, completing `TODO` directly through another flow's `FIXED` advances the repeat date and returns to the original flow's `REPEAT_TO_STATE`, configured repeat target, or first Process state, matching `org-todo`; Aster does not silently change it to `REPORT`.
 
 File-local declarations affect only their file. In their absence, Aster uses the global Task Flows under **Settings → Tasks & Workflow → Workflow**. Advanced Org Syntax edits each complete definition token-for-token, while the structured editor covers common state, appearance, and logging changes.
+
+### Timeline Shortcuts
+
+Each timeline item has two compact status triggers: tap either the leading Workflow icon or the disclosed keyword capsule to open the complete state list; tap the title or remaining row to open detail. Touch and hold retains only item actions such as Schedule, Move/Archive, Note, and Delete, without duplicating the keyword list. Horizontal swipes remain unassigned to Workflow so they cannot conflict with Week navigation.
+
+- The Workflow icon identifies the exact current state and acts as a second explicit trigger for the complete state list; it does not guess a Complete, Reopen, or Habit Check-in action. Choose the intended keyword explicitly from that list; Project guards, Habit same-day protection, ordinary Org Repeaters, and repeating Apple Reminders retain their existing mutation ownership.
+- Tapping the keyword opens a compact bottom sheet on iPhone and a capsule-anchored popover on iPad. A choice writes immediately and dismisses without another Done action; multiple flows remain grouped and the complete current keyword stays checked.
+- After a non-repeating item successfully enters a Terminal state, its source is already saved while the row stays in place briefly to confirm the new state, then fades from the active timeline. A repeating item follows its normal advancement rule instead of showing a fabricated completed copy.
+- The keyword hit shape follows the visible capsule instead of expanding into the title or remaining detail area, and it does not steal vertical scrolling. VoiceOver exposes Open Details and Change Status separately.
 
 ## Project Is Not a Fixed English Keyword
 
@@ -200,5 +209,5 @@ Set `ASTER_ANNIVERSARY_DISPLAY` explicitly to `years` or `elapsed-days`. Only a 
 
 - Org Repeat and Diary rules remain in source files.
 - Notifications derive from each item's own standard timed planning; legacy persistent-reminder properties also remain outside Perspective ownership.
-- The Apple Reminders bridge is a separate integration.
+- The Apple Reminders bridge is a separate system-reminder source synchronized only through managed `apple-reminders.org`; ordinary Org tasks are not exported. Aster local notifications cover every concretely timed Agenda item, including an imported system Reminder.
 - A Perspective does not copy items, change Workflow, or create a proprietary project database.
