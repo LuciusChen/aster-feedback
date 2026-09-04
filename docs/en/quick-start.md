@@ -6,19 +6,22 @@
 
 ## 1. Before You Test
 
-- Use iOS or iPadOS 17 or later.
+- Use iOS or iPadOS 17 or later on iPhone/iPad, or Android 8.0 (API 26) or later on an Android phone/tablet.
+- The Android build is still being prepared for Google Play testing. Its installation source and availability differ from TestFlight; see [Platforms and Differences](platforms.md).
 - Back up the Org workspace you plan to connect.
 - If you use Org Attach, include the adjacent `data/` directories in that backup.
 - Start with a separate test folder. Connect your main workspace only after sync and write-back behave as expected.
 
 ## 2. Connect a Cloud Workspace
 
-Open **Settings → Cloud Workspace** and choose a provider:
+Open **Settings → Workspace & Sync → Cloud Workspace** and choose a provider supported on the current platform:
 
 - Dropbox
-- iCloud Drive
+- iCloud Drive (iOS/iPadOS only)
 - Nutstore
 - WebDAV
+
+Android has no iCloud Drive provider and does not expose the private app working copy or generic local Import as a workspace source.
 
 Choose a workspace root and whether nested directories are included. Aster mirrors the cloud content into its local workspace, then builds Agenda, TODOs, Journal, Files, and Search indexes from those real files.
 
@@ -57,14 +60,19 @@ If a file declares `#+TODO:` or `#+SEQ_TODO:`, the file-local declaration takes 
 
 ## 5. Create Your First Item
 
-The root command bar has three parts:
+Root navigation provides the same three primary destinations and global actions:
 
 - The primary tabs are **Views, Files, Settings**.
-- The leading three-line button changes the current child. Under Views it contains Agenda, TODOs, Journal, and saved Perspectives. Under Files it contains Workspace, role folders, and folders you pinned from the file tree. Under Settings it contains Workspace & Sync, Appearance, Calendar & Agenda, Tasks & Workflow, Create & Storage, and Journal; About Aster remains on the Settings home. Choosing one switches the existing iPad detail or directly opens that category on iPhone without stacking repeated navigation layers.
+- The secondary content menu changes the current child. Under Views it contains Agenda, TODOs, Journal, and saved Perspectives. Under Files it contains Workspace, role folders, and folders pinned from the file tree. Under Settings it contains Workspace & Sync, Appearance, Calendar & Agenda, Tasks & Workflow, Create & Storage, and Journal; About Aster remains on the Settings home.
 - The trailing actions are Create and Search. Create uses the current context: Event in Agenda, Task in TODOs/Perspectives, Journal entry in Journal, and Org Document in Files. Hold Create to show all four types.
 - Search focuses immediately. Cancel closes Search and returns to the page you came from.
 
-On iPhone these groups share the bottom row. The primary tabs show symbols and titles only when their region is wide enough; tighter widths, including iPhone 15, show symbols only so the three destinations, selected state, and accessibility names remain separate instead of overlapping. After entering a Settings subpage, item detail, or document reader, the final text and controls can always scroll completely above this row. On iPad the secondary button stays at the complete window's leading edge, the primary tabs are centered against the complete window, and Create/Search stays at the trailing edge. All three groups share one vertical center without adding a global sidebar.
+- iPhone: the three control groups share one bottom row. Compact widths may show symbols only, while each destination retains an independent selection state and accessibility name.
+- iPad: a horizontal root command bar accompanies master/detail content. Choosing a category replaces the existing detail instead of stacking duplicate pages.
+- Android phone: bottom navigation and Android-native transient surfaces preserve the same destinations and Create/Search outcomes as iPhone.
+- Android tablet or wide landscape window: a leading Navigation Rail owns root navigation. Agenda keeps its date header, calendar, and timeline in the left content pane, with a linked month grid or selected detail on the right.
+
+After entering a Settings subpage, item detail, or document reader, final content and controls should remain scrollable clear of the navigation area.
 
 ## 6. Verify Write-Back
 

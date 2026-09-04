@@ -8,14 +8,16 @@ Aster 日常编辑的是应用本地工作区，再通过所选来源同步。Ag
 
 ## 支持的工作区来源
 
-| 来源 | 连接方式 | 说明 |
-| --- | --- | --- |
-| Dropbox | OAuth 授权并选择远端文件夹 | 支持文件版本历史 |
-| iCloud Drive | 系统文件夹选择器 | 使用安全作用域访问选择的目录 |
-| Nutstore | 账号、第三方应用密码和工作区文件夹 | 使用 Nutstore 的 WebDAV 服务 |
-| WebDAV | HTTPS 服务器 URL，可选账号与密码 | 适用于 Nextcloud 等标准服务器 |
+| 来源 | iOS/iPadOS | Android | 连接方式与说明 |
+| --- | --- | --- | --- |
+| Dropbox | 支持 | 支持 | OAuth 授权并选择远端文件夹；支持文件版本历史 |
+| iCloud Drive | 支持 | 不支持 | Apple 平台使用系统文件夹选择器和安全作用域访问 |
+| Nutstore | 支持 | 支持 | 账号、第三方应用密码和工作区文件夹；使用 Nutstore WebDAV |
+| WebDAV | 支持 | 支持 | HTTPS 服务器 URL，可选账号与密码；适用于 Nextcloud 等标准服务器 |
 
-Nutstore 必须使用第三方应用密码，不要填写账户登录密码。通用 WebDAV 只接受带主机名、且不内嵌账号密码的 HTTPS 工作区 URL；HTTP URL 不会保存或连接。WebDAV 的账号和密码必须同时填写，或同时留空连接匿名服务器。密码保存在系统 Keychain 中，Basic Auth 只通过 TLS 发送。
+Android 不提供 iCloud Drive，也不把应用内部工作副本或通用本地 Import 暴露为另一个工作区来源。
+
+Nutstore 必须使用第三方应用密码，不要填写账户登录密码。通用 WebDAV 只接受带主机名、且不内嵌账号密码的 HTTPS 工作区 URL；HTTP URL 不会保存或连接。WebDAV 的账号和密码必须同时填写，或同时留空连接匿名服务器。密码在 iOS/iPadOS 保存在系统 Keychain，在 Android 由 Android Keystore 保护；Basic Auth 只通过 TLS 发送。
 
 WebDAV 服务器即使只列出 `agenda/work/review.org` 这类嵌套文件、没有为每一级目录单独返回记录，Aster 也会从该路径恢复已经被证明存在的 `agenda/` 与 `agenda/work/`。因此 Files 中看到的目录也应能在 Agenda Sources、Journal folder 和 Event & Task Inbox 的路径选择器中使用。
 
@@ -31,7 +33,7 @@ WebDAV 服务器即使只列出 `agenda/work/review.org` 这类嵌套文件、�
 
 在 Aster 的 Files → Org 源码编辑器里保存 Agenda 来源目录下的文件后，Agenda、TODOs、Perspective、Search、Widget 和提醒会直接根据这个本地文件增量刷新，不需要等待上传、切换工作区或重启应用。云同步负责把已经保存的内容传到其他客户端，不是本机视图刷新的触发条件。刷新完成前继续输入的未保存文字也不会被较早的解析结果覆盖。
 
-## Apple Reminders 互操作文件
+## Apple Reminders 互操作文件（仅 iOS/iPadOS）
 
 在设置中明确启用 Apple Reminders 后，Aster 会在工作区完成验证后同步，并在每次回到前台时继续同步；这些自动触发不会自行请求权限，当前状态会直接显示在设置开关旁。Aster 只通过工作区根目录中独立托管的 `apple-reminders.org` 映射系统提醒事项。这个托管文件会自动出现在 Agenda 和 TODOs 中，不需要再把工作区根目录设为 Agenda 来源。
 
@@ -40,6 +42,12 @@ WebDAV 服务器即使只列出 `agenda/work/review.org` 这类嵌套文件、�
 普通工作区 Org 任务不会导出到 Reminders App。不过，只要条目已经进入 Aster 并有具体时间——包括从 Apple Reminders 同步来的条目——Aster Notifications 都会继续发送提醒；通知副标题会显示本地化的到期日期和时刻。若 Reminders App 的系统通知也已开启，两个 App 都可能提醒，这是明确保留的行为。
 
 只有完全没有 Reminder 标识的托管 Org 标题才能创建新的系统提醒；EventKit 在完整系统同步后让旧本地标识失效时，Aster 会刷新托管文件，而不会再复制一条相同提醒。这个托管文件确实不存在时，首次同步可以创建它；如果已经存在但无法读取、不是有效 UTF-8、无法取得修改时间，或 EventKit 没有返回提醒列表，同步会停止并显示错误，不会把失败当成空文件或旧文件覆盖。同步处理期间发生的本地修改也会保留，Aster 会提示源文件已变化，而不是用稍早生成的结果替换它。
+
+## Android 通知边界
+
+Android 版不创建 `apple-reminders.org`，也不把普通 Org Task 导入或导出到某个假想的 Apple Reminders 等价服务。**Aster Notifications** 从当前 Agenda 来源中带具体时刻的条目重建本地提醒计划；Android 13 及以上只在用户从设置明确启用时请求通知权限。
+
+通知中的 Complete 和 Snooze 会回到同一个工作区写入边界，不能只改一份通知缓存。Android 使用系统允许的非精确闹钟能力，不要求用户授予精确闹钟权限。卸载、清除应用数据或断开工作区会影响本机通知计划，但不会改变云端 Org 文件。
 
 ## 冲突不会被静默覆盖
 

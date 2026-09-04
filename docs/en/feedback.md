@@ -16,12 +16,13 @@ Search existing issues first so evidence for one problem is not fragmented acros
 ## Minimum Information for a Bug
 
 1. Aster version and build, such as `0.1 (1)`.
-2. Device and operating system, such as `iPhone 17 Pro · iOS 26.0`.
-3. Workspace provider: Dropbox, iCloud Drive, Nutstore, or WebDAV.
-4. The starting page and exact sequence of actions.
-5. Expected and actual results.
-6. Minimal, redacted Org source.
-7. A screenshot or short recording when needed.
+2. Platform, device, and operating system, such as `iPhone 17 Pro · iOS 26.0` or `Pixel 10 · Android 17`.
+3. On Android, identify a physical device or emulator and a phone, tablet, or wide-landscape layout.
+4. Workspace provider: Dropbox, iCloud Drive (iOS/iPadOS only), Nutstore, or WebDAV.
+5. The starting page and exact sequence of actions.
+6. Expected and actual results.
+7. Minimal, redacted Org source.
+8. A screenshot or short recording when needed.
 
 ## Providing a Minimal Org Reproduction
 

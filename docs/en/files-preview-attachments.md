@@ -6,7 +6,9 @@
 
 Files is the source-level entrance to the workspace. Agenda, TODOs, Journal, and Search provide semantic views; Files lets you inspect directories, open original files, read Preview, and edit Source when necessary.
 
-![Org Preview example](../../assets/screenshots/org-preview.png)
+![iOS/iPadOS Org Preview example](../../assets/screenshots/org-preview.png)
+
+The screenshot comes from iOS/iPadOS. Android keeps the same Org semantic hierarchy with Android-native typography, navigation, and file-opening capabilities.
 
 ## File Tree
 
@@ -74,7 +76,7 @@ Aster can fold, color, and read Source and Results, but it never executes the co
 
 ## Non-Org Files
 
-Markdown uses an independent Markdown reader. Images, PDFs, media, and other document types supported by iOS use native preview capabilities. A remote file must finish downloading before it opens. If an iOS-supported type does not open, report its extension, provider, and a minimal test file.
+Markdown uses an independent Markdown reader. A remote file must finish downloading into the app workspace before preview: iOS/iPadOS uses native system document capabilities, while Android uses Aster's native readers and, when needed, a compatible system app. Files does not expose generic local Import as another workspace provider. If a supported type does not open, report the platform, extension, provider, and a minimal test file.
 
 ## Org Attach Mapping
 

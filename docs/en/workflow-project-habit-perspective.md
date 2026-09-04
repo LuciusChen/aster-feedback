@@ -56,17 +56,17 @@ File-local declarations affect only their file. In their absence, Aster uses the
 
 Each timeline item has two compact status triggers: tap either the leading Workflow icon or the disclosed keyword capsule to open the complete state list; tap the title or remaining row to open detail. Touch and hold retains only item actions such as Schedule, Move/Archive, Note, and Delete, without duplicating the keyword list. Horizontal swipes remain unassigned to Workflow so they cannot conflict with Week navigation.
 
-- The Workflow icon identifies the exact current state and acts as a second explicit trigger for the complete state list; it does not guess a Complete, Reopen, or Habit Check-in action. Choose the intended keyword explicitly from that list; Project guards, Habit same-day protection, ordinary Org Repeaters, and repeating Apple Reminders retain their existing mutation ownership.
-- Tapping the keyword opens a compact bottom sheet on iPhone and a capsule-anchored popover on iPad. A choice writes immediately and dismisses without another Done action; multiple flows remain grouped and the complete current keyword stays checked.
+- The Workflow icon identifies the exact current state and acts as a second explicit trigger for the complete state list; it does not guess a Complete, Reopen, or Habit Check-in action. Choose the intended keyword explicitly from that list. Project guards, Habit same-day protection, and ordinary Org Repeaters retain their shared mutation ownership; repeating Apple Reminders exist only in the separate iOS/iPadOS interoperability source.
+- Tapping the keyword opens a compact bottom sheet on iPhone, an anchored popover on iPad, or a scrollable native status sheet on Android. A choice writes immediately and dismisses without another Done action. Multiple flows remain grouped, while the current keyword is identified only by its own tint and fill, without an extra checkmark.
 - After a non-repeating item successfully enters a Terminal state, its source is already saved while the row stays in place briefly to confirm the new state, then fades from the active timeline. A repeating item follows its normal advancement rule instead of showing a fabricated completed copy.
-- The keyword hit shape follows the visible capsule instead of expanding into the title or remaining detail area, and it does not steal vertical scrolling. VoiceOver exposes Open Details and Change Status separately.
+- The keyword hit shape follows the visible capsule instead of expanding into the title or remaining detail area, and it does not steal vertical scrolling. VoiceOver and TalkBack expose Open Details and Change Status separately.
 
 ## Project Is Not a Fixed English Keyword
 
 Enable **Treat as Project** on a Process state to give headings in that state Project semantics. The default `PROJECT` is only an initial convention; `PRO`, `ACTIVE`, or a non-English keyword can serve the same role.
 
 ```org
-* PROJECT Ship TestFlight [2/3]
+* PROJECT Ship mobile beta [2/3]
 :PROPERTIES:
 :COOKIE_DATA: todo
 :END:
@@ -180,7 +180,7 @@ Declare shared context once on a parent:
 :PROPERTIES:
 :OWNER: Alice
 :END:
-** TODO Prepare TestFlight notes
+** TODO Prepare release notes
 ```
 
 Set tag to `team`, Property name to `OWNER`, matching to Equals, and value to `Alice`. The child matches without duplicating inherited metadata.
@@ -209,5 +209,5 @@ Set `ASTER_ANNIVERSARY_DISPLAY` explicitly to `years` or `elapsed-days`. Only a 
 
 - Org Repeat and Diary rules remain in source files.
 - Notifications derive from each item's own standard timed planning; legacy persistent-reminder properties also remain outside Perspective ownership.
-- The Apple Reminders bridge is a separate system-reminder source synchronized only through managed `apple-reminders.org`; ordinary Org tasks are not exported. Aster local notifications cover every concretely timed Agenda item, including an imported system Reminder.
+- The Apple Reminders bridge exists only on iOS/iPadOS as a separate system source synchronized through managed `apple-reminders.org`; ordinary Org tasks are not exported. Android creates no corresponding bridge. Aster local notifications on both platforms cover concretely timed items in the current Agenda sources.
 - A Perspective does not copy items, change Workflow, or create a proprietary project database.

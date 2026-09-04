@@ -32,8 +32,19 @@ body:
     id: build
     attributes:
       label: Aster 版本
-      description: 例如 0.1 (1)，可在 TestFlight 或设置中查看。
-      placeholder: 0.1 (1)
+      description: 例如 0.1 (9)，可在 TestFlight、Google Play 测试版本或 Aster 设置中查看。
+      placeholder: 0.1 (9)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: 平台
+      options:
+        - iOS / iPadOS
+        - Android 实体设备
+        - Android 模拟器
     validations:
       required: true
 
@@ -41,7 +52,7 @@ body:
     id: device
     attributes:
       label: 设备与系统
-      placeholder: iPhone 17 Pro · iOS 26.0
+      placeholder: iPhone 17 Pro · iOS 26.0，或 Pixel 10 · Android 17 · 手机/平板布局
     validations:
       required: true
 
@@ -51,10 +62,11 @@ body:
       label: 工作区来源
       options:
         - Dropbox
-        - iCloud Drive
+        - iCloud Drive (iOS/iPadOS only)
         - Nutstore
         - WebDAV
-        - Demo Workspace / Simulator
+        - iOS Demo Workspace
+        - Android test workspace
         - Not related to workspace sync
     validations:
       required: true

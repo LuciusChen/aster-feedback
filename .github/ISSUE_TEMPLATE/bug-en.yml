@@ -32,8 +32,19 @@ body:
     id: build
     attributes:
       label: Aster version
-      description: For example, 0.1 (1). Find it in TestFlight or Aster settings.
-      placeholder: 0.1 (1)
+      description: For example, 0.1 (9). Find it in TestFlight, a Google Play test build, or Aster settings.
+      placeholder: 0.1 (9)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options:
+        - iOS / iPadOS
+        - Physical Android device
+        - Android emulator
     validations:
       required: true
 
@@ -41,7 +52,7 @@ body:
     id: device
     attributes:
       label: Device and operating system
-      placeholder: iPhone 17 Pro · iOS 26.0
+      placeholder: iPhone 17 Pro · iOS 26.0, or Pixel 10 · Android 17 · phone/tablet layout
     validations:
       required: true
 
@@ -51,10 +62,11 @@ body:
       label: Workspace provider
       options:
         - Dropbox
-        - iCloud Drive
+        - iCloud Drive (iOS/iPadOS only)
         - Nutstore
         - WebDAV
-        - Demo Workspace / Simulator
+        - iOS Demo Workspace
+        - Android test workspace
         - Not related to workspace sync
     validations:
       required: true

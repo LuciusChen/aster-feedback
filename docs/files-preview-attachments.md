@@ -6,7 +6,9 @@
 
 Files 是工作区的源文件入口。Agenda、TODOs、Journal 和 Search 提供语义视图，Files 则让你检查目录、打开原文件、阅读 Preview，并在需要时直接编辑 Source。
 
-![Org Preview 示例](../assets/screenshots/org-preview.png)
+![iOS/iPadOS Org Preview 示例](../assets/screenshots/org-preview.png)
+
+截图来自 iOS/iPadOS；Android 保持相同的 Org 语义层级，但使用 Android 原生排版、导航和文件打开能力。
 
 ## 文件树
 
@@ -74,7 +76,7 @@ Aster 可以折叠、着色并阅读 Source 与 Results，但绝不执行代码�
 
 ## 非 Org 文件
 
-Markdown 使用独立的 Markdown 阅读器。图片、PDF、音视频和系统支持的文档类型交给 iOS 原生预览能力；远端文件需要先下载到本地。若某个系统支持的格式无法打开，请在反馈中提供扩展名、来源和最小测试文件。
+Markdown 使用独立的 Markdown 阅读器。远端文件需要先下载到应用工作区后才能预览：iOS/iPadOS 使用系统原生文档能力，Android 使用 Aster 的原生阅读器，并在需要时交给兼容的系统 App。Files 不会因此增加一个通用本地 Import 工作区来源。若某个系统支持的格式无法打开，请在反馈中提供平台、扩展名、来源和最小测试文件。
 
 ## Org Attach 对应关系
 

@@ -9,6 +9,18 @@ body:
       value: |
         请从实际场景和 Org 语义出发。Aster 以用户文件为事实来源，因此界面建议也需要说明期望如何读取或写回 Org。
 
+  - type: dropdown
+    id: platform
+    attributes:
+      label: 适用平台
+      options:
+        - iOS / iPadOS 与 Android
+        - 仅 iOS / iPadOS
+        - 仅 Android
+        - 尚不确定
+    validations:
+      required: true
+
   - type: textarea
     id: scenario
     attributes:

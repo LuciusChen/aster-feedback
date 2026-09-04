@@ -9,6 +9,18 @@ body:
       value: |
         Please begin with the real use case and its Org semantics. Aster keeps user files authoritative, so an interface proposal should also explain the expected read or write-back behavior.
 
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Applicable platform
+      options:
+        - iOS / iPadOS and Android
+        - iOS / iPadOS only
+        - Android only
+        - Not sure yet
+    validations:
+      required: true
+
   - type: textarea
     id: scenario
     attributes:

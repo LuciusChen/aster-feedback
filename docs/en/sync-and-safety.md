@@ -8,14 +8,16 @@ Aster normally edits its app-local workspace and synchronizes it through the sel
 
 ## Supported Workspace Providers
 
-| Provider | Connection | Notes |
-| --- | --- | --- |
-| Dropbox | OAuth authorization and a selected remote directory | Includes file version history |
-| iCloud Drive | System directory picker | Uses security-scoped access to the selected directory |
-| Nutstore | Account, third-party app password, and workspace directory | Uses Nutstore WebDAV |
-| WebDAV | HTTPS server URL with optional credentials | Suitable for Nextcloud and other standard servers |
+| Provider | iOS/iPadOS | Android | Connection and notes |
+| --- | --- | --- | --- |
+| Dropbox | Supported | Supported | OAuth authorization and remote directory selection; includes file version history |
+| iCloud Drive | Supported | Not supported | Apple platforms use the system directory picker and security-scoped access |
+| Nutstore | Supported | Supported | Account, third-party app password, and workspace directory through Nutstore WebDAV |
+| WebDAV | Supported | Supported | HTTPS server URL with optional credentials; suitable for Nextcloud and other standard servers |
 
-Nutstore requires a third-party app password, not the account login password. Generic WebDAV accepts only an HTTPS workspace URL with a host and no embedded credentials; an HTTP URL is neither saved nor connected. Provide both username and password or leave both blank for an anonymous server. The password is stored in the system Keychain, and Basic Auth is sent only over TLS.
+Android does not provide iCloud Drive and does not expose the private app working copy or generic local Import as another workspace provider.
+
+Nutstore requires a third-party app password, not the account login password. Generic WebDAV accepts only an HTTPS workspace URL with a host and no embedded credentials; an HTTP URL is neither saved nor connected. Provide both username and password or leave both blank for an anonymous server. Passwords are stored in the system Keychain on iOS/iPadOS and protected by Android Keystore on Android; Basic Auth is sent only over TLS.
 
 Even when a WebDAV server lists a nested file such as `agenda/work/review.org` without separate records for every collection, Aster restores the proven `agenda/` and `agenda/work/` parents from that path. A directory visible in Files should therefore also be available to the Agenda Sources, Journal folder, and Event & Task Inbox path pickers.
 
@@ -31,7 +33,7 @@ A successful UI update must not be an in-memory-only record. Conversely, a tempo
 
 After Files → Org source editor saves a document inside an Agenda source, Agenda, TODOs, Perspectives, Search, widgets, and reminders refresh incrementally from that local path. There is no need to wait for upload, switch workspaces, or relaunch. Cloud sync moves the saved source to other clients; it is not the trigger for refreshing local projections. Unsaved text entered while that refresh finishes is also preserved instead of being replaced by an earlier parsed revision.
 
-## Apple Reminders Interoperability File
+## Apple Reminders Interoperability File (iOS/iPadOS only)
 
 After Apple Reminders is explicitly enabled in Settings, Aster synchronizes once the workspace has been validated and again whenever the app returns to the foreground. These automatic triggers never request access by themselves, and Settings shows the current state beside the switch. Aster maps system reminders only through the separate managed `apple-reminders.org` file at the workspace root. This managed file appears automatically in Agenda and TODOs; you do not need to select the workspace root as an Agenda source.
 
@@ -40,6 +42,12 @@ A system Reminder's due value always maps to Org `DEADLINE`, not to `SCHEDULED`,
 Ordinary workspace Org tasks are never exported to the Reminders app. However, every concrete timed item available to Aster—including one imported from Apple Reminders—remains eligible for Aster Notifications. Its notification subtitle includes the localized due date and time. If system notifications for the Reminders app are also enabled, both apps may notify you; this is intentional.
 
 Only a managed Org heading with no Reminder identifier can create a new system Reminder; if EventKit invalidates an old local identifier during a full system sync, Aster refreshes the managed file instead of duplicating the item. The first synchronization may create the managed file when it is genuinely absent. If an existing file cannot be read, is not valid UTF-8, has no readable modification time, or EventKit returns no reminder list, synchronization stops with an error instead of treating the failure as empty or old and replacing the source. A local edit made while synchronization is processing is also preserved; Aster reports that the source changed instead of replacing it with an earlier generated result.
+
+## Android Notification Boundary
+
+The Android build does not create `apple-reminders.org` and does not import or export ordinary Org Tasks through an invented Apple Reminders equivalent. **Aster Notifications** rebuilds local reminder plans from concretely timed items in the current Agenda sources. On Android 13 and later, Aster requests notification permission only after the user explicitly enables notifications in Settings.
+
+Complete and Snooze actions return through the same workspace write boundary instead of changing a notification-only cache. Android uses the system's permitted inexact alarm capability and does not request exact-alarm access. Uninstalling, clearing app data, or disconnecting the workspace affects local notification plans but does not modify cloud Org files.
 
 ## Conflicts Are Not Silently Overwritten
 

@@ -227,7 +227,7 @@ More notes.
 标准标题顺序是：Workflow、Priority、标题、仅 Diary 使用的时间、标签。
 
 ```org
-* WAITING [#B] Weekend review 10:00-11:30 :review:ios:
+* WAITING [#B] Weekend review 10:00-11:30 :review:mobile:
 ```
 
 - Workflow：保留完整配置关键字。

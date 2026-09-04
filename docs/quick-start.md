@@ -6,19 +6,22 @@
 
 ## 1. 测试前准备
 
-- 使用 iOS 或 iPadOS 17 及以上版本。
+- iPhone/iPad 使用 iOS 或 iPadOS 17 及以上版本；Android 手机/平板使用 Android 8.0（API 26）及以上版本。
+- Android 版本仍处于 Google Play 测试准备阶段；安装来源和可用状态与 TestFlight 不同，详见[平台支持与差异](platforms.md)。
 - 先备份准备连接的 Org 工作区。
 - 如果使用 Org Attach，确认备份同时包含 Org 文件旁的 `data/` 目录。
 - 第一次测试建议使用单独的测试文件夹，确认同步和回写符合预期后再连接主要工作区。
 
 ## 2. 连接云端工作区
 
-打开 **设置 → Cloud Workspace**，选择一个来源：
+打开 **设置 → Workspace & Sync → Cloud Workspace**，选择当前平台支持的来源：
 
 - Dropbox
-- iCloud Drive
+- iCloud Drive（仅 iOS/iPadOS）
 - Nutstore
 - WebDAV
+
+Android 版没有 iCloud Drive，也不会把应用内部工作副本或通用本地 Import 显示成工作区来源。
 
 选择工作区根目录，并决定是否包含其子目录。Aster 会把云端内容同步到应用本地工作区，再从本地的真实文件建立 Agenda、TODOs、Journal、Files 和 Search 索引。
 
@@ -57,14 +60,19 @@
 
 ## 5. 创建第一个条目
 
-根操作栏分为三部分：
+根导航提供相同的三个主要目的地与全局操作：
 
 - 一级 Tab 是 **Views、Files、Settings**。
-- 左侧三横线按钮切换当前二级内容。Views 中有 Agenda、TODOs、Journal 和自定义 Perspective；Files 中有 Workspace、角色文件夹和你从文件树固定的文件夹；Settings 中有“工作区与同步”“外观”“日历与日程”“任务与工作流”“新建与存储”和“日志”六个常用分类。“关于 Aster”仍留在 Settings 首页。iPad 上选择分类会直接切换现有右侧详情，iPhone 上则直接进入该分类，不会连续叠加多层页面。
+- 二级内容菜单用于切换当前主要目的地的子页面。Views 中有 Agenda、TODOs、Journal 和自定义 Perspective；Files 中有 Workspace、角色文件夹和你从文件树固定的文件夹；Settings 中有“工作区与同步”“外观”“日历与日程”“任务与工作流”“新建与存储”和“日志”六个常用分类。“关于 Aster”仍留在 Settings 首页。
 - 右侧是“新建”和“搜索”。轻点新建会按当前内容创建：Agenda 新建 Event、TODOs/Perspective 新建 Task、Journal 新建日志条目、Files 新建 Org 文档；长按可查看全部四种类型。
 - 搜索打开后会自动聚焦；轻点 Cancel 会关闭搜索并回到进入前的页面。
 
-iPhone 上三组控件位于同一条底栏；一级 Tab 的可用空间足够宽时显示图标和文字，包括 iPhone 15 在内的较紧凑宽度会只显示图标，三个入口的选中状态和无障碍名称仍然独立可用，不会互相重叠。进入设置子页面、条目详情或文档阅读页后，页面最后一行文字和控件都能继续滚动到这条底栏上方。iPad 上二级按钮位于整个窗口左侧，一级 Tab 严格相对整个窗口居中，新建和搜索位于最右侧；三组控件共用同一个垂直中心，也不会增加全局侧边栏。
+- iPhone：三组控件位于同一条底栏；紧凑宽度可只显示图标，但各入口仍有独立选中状态和无障碍名称。
+- iPad：使用横向根操作栏和主从详情；选择分类会替换现有右侧详情，不连续叠加页面。
+- Android 手机：使用底部导航和 Android 原生弹层，目的地及创建/搜索结果与 iPhone 保持一致。
+- Android 平板或横向大屏：使用左侧 Navigation Rail。Agenda 的日期标题、日历和时间线在左侧内容栏，右侧显示联动月历或所选详情。
+
+进入设置子页面、条目详情或文档阅读页后，页面最后一行文字和控件都应能滚动到导航区域之外。
 
 ## 6. 验证写回
 

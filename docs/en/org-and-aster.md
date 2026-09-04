@@ -227,7 +227,7 @@ More notes.
 The standard headline order is Workflow, Priority, title, Diary-only time, then tags.
 
 ```org
-* WAITING [#B] Weekend review 10:00-11:30 :review:ios:
+* WAITING [#B] Weekend review 10:00-11:30 :review:mobile:
 ```
 
 - **Workflow**: the complete configured keyword is preserved.

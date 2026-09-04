@@ -56,17 +56,17 @@ Org 允许同一个文件并行定义多套互不相同的状态序列：
 
 时间线条目有两个紧凑的状态入口：点左侧 Workflow icon 或带下拉标志的关键字胶囊，都直接打开完整状态列表；点标题或其余区域进入详情。长按整行只保留 Schedule、Move/Archive、Note、Delete 等条目操作，不重复放置关键字列表；左右滑动不分配给 Workflow，以免与周视图横向移动冲突。
 
-- Workflow icon 表达当前精确状态，并作为完整状态列表的第二个明确入口；它不推断完成、重新打开或 Habit Check-in 的对应动作。需要哪个关键字就从状态列表中明确选择；Project 保护、Habit 当日保护、普通 Org Repeater 与 Apple Reminder 重复规则仍由原有写入路径负责。
-- 点关键字后，iPhone 使用紧凑底部面板，iPad 使用锚定在胶囊旁的 popover。选择后立即写入并关闭，不需要第二次点 Done；多套流程仍分组显示，当前完整关键字带选中标记。
+- Workflow icon 表达当前精确状态，并作为完整状态列表的第二个明确入口；它不推断完成、重新打开或 Habit Check-in 的对应动作。需要哪个关键字就从状态列表中明确选择；Project 保护、Habit 当日保护和普通 Org Repeater 仍由共用写入路径负责，Apple Reminder 重复规则仅存在于 iOS/iPadOS 的独立互操作来源。
+- 点关键字后，iPhone 使用紧凑底部面板，iPad 使用锚定 popover，Android 使用可滚动的原生状态面板。选择后立即写入并关闭，不需要第二次点 Done；多套流程仍分组显示，当前关键字只以自己的颜色和填充表达，不额外绘制勾选。
 - 非重复条目成功切到 Terminal 后，源文件仍立即保存；列表只把新状态在原位置保留片刻作为视觉确认，然后淡出活动时间线。重复条目按其推进规则显示下一期，不制造一个假的完成副本。
-- 关键字点击范围紧贴可见胶囊，不向标题或其余详情区域扩张，也不抢走纵向滚动。VoiceOver 分别提供“打开详情”和“更改状态”。
+- 关键字点击范围紧贴可见胶囊，不向标题或其余详情区域扩张，也不抢走纵向滚动。VoiceOver 与 TalkBack 分别提供“打开详情”和“更改状态”。
 
 ## Project 不是一个固定英文关键字
 
 在某个 Process 状态上开启 **Treat as Project** 后，该状态的标题才具有 Project 角色。默认的 `PROJECT` 只是方便开箱使用；`PRO`、`ACTIVE` 或中文关键字同样可以被配置为 Project。
 
 ```org
-* PROJECT Ship TestFlight [2/3]
+* PROJECT Ship mobile beta [2/3]
 :PROPERTIES:
 :COOKIE_DATA: todo
 :END:
@@ -180,7 +180,7 @@ Views 顶部提供两个开关。它们不是新的 Org 类型，也不是固定
 :PROPERTIES:
 :OWNER: Alice
 :END:
-** TODO Prepare TestFlight notes
+** TODO Prepare release notes
 ```
 
 Perspective 选择标签 `team`，Property 名称写 `OWNER`，匹配方式选 Equals，值写 `Alice`，即可匹配子任务而不复制元数据。
@@ -209,5 +209,5 @@ Perspective 选择标签 `team`，Property 名称写 `OWNER`，匹配方式选 E
 
 - Org 的 Repeat/Diary 规则仍写在源文件中。
 - 通知由条目自身的标准带时刻规划派生；兼容旧版的持续提醒属性也不属于 Perspective。
-- Apple Reminders 桥接是独立的系统提醒事项来源，只通过托管的 `apple-reminders.org` 同步；普通 Org 任务不会导出。Aster 本地通知覆盖所有带具体时刻的 Agenda 条目，包括同步进来的系统 Reminder。
+- Apple Reminders 桥接仅存在于 iOS/iPadOS，是通过托管 `apple-reminders.org` 同步的独立系统来源；普通 Org 任务不会导出。Android 不创建对应桥接。两个平台的 Aster 本地通知都覆盖当前 Agenda 来源中带具体时刻的条目。
 - Perspective 不复制条目、不改变 Workflow，也不是一个专有项目数据库。

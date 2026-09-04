@@ -16,12 +16,13 @@
 ## Bug 最小信息
 
 1. Aster 版本和 Build，例如 `0.1 (1)`。
-2. 设备和系统，例如 `iPhone 17 Pro · iOS 26.0`。
-3. 工作区来源，例如 Dropbox、iCloud Drive、Nutstore 或 WebDAV。
-4. 从哪个页面开始，依次做了什么。
-5. 预期结果和实际结果。
-6. 最小、脱敏的 Org 源文本。
-7. 必要时附截图或短视频。
+2. 平台、设备和系统，例如 `iPhone 17 Pro · iOS 26.0` 或 `Pixel 10 · Android 17`。
+3. Android 请注明实体设备/模拟器，以及手机/平板或横屏布局。
+4. 工作区来源，例如 Dropbox、iCloud Drive（仅 iOS/iPadOS）、Nutstore 或 WebDAV。
+5. 从哪个页面开始，依次做了什么。
+6. 预期结果和实际结果。
+7. 最小、脱敏的 Org 源文本。
+8. 必要时附截图或短视频。
 
 ## 如何提供 Org 最小复现
 
