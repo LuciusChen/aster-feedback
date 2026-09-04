@@ -40,8 +40,9 @@ The list follows real files and Org outline hierarchy. Visible child Tasks remai
 ## Overdue Rules
 
 - Only unfinished Workflow items can be overdue.
-- A date-only Task remains on its original date in TODOs and receives compact overdue metadata; Aster does not move it to today.
-- When a timed Task passes its time, the time line in Agenda turns red.
+- A date-only Task stays in TODOs and shows compact `1 day overdue` or `N days overdue` status; Aster does not move it to today.
+- After a timed Task passes its clock time, it shows `Overdue`; on later calendar days it shows the elapsed overdue-day count, and its Agenda time line also turns red.
+- `SCHEDULED` and `DEADLINE` use the same overdue-day rule. Presentation does not change according to whether Aster created the item or Apple Reminders synchronized it.
 - Today's header may summarize historical overdue items. Tapping the summary animates to the nearest overdue item on its original date.
 - Multiple overdue items stay on their respective dates so you can continue scrolling upward; Aster does not merge them into a fabricated task.
 - Events without Workflow keywords do not use Task overdue semantics.

@@ -139,6 +139,11 @@ Any Journal Entry Template that produces a heading can include photos, videos, o
 3. Copy files into the standard Org Attach directory.
 4. Insert relative attachment links in the heading body.
 
+If the heading was the final line of the file, Aster starts a new line before
+creating the `:PROPERTIES:` drawer. Org can then recognize the `ID`, Journal
+does not expose drawer syntax as body text, and the image resolves from its
+attachment directory.
+
 Attachments and source text are handled by the same accepted Add. If the source commit fails, newly copied files from that attempt are not reported as a successful result. Until something is selected, the composer keeps only the toolbar actions and shows no empty attachment block.
 
 ## Common Scenarios

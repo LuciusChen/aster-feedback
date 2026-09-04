@@ -40,8 +40,9 @@ Habit 是例外：到达可执行窗口后，它只在今天的 Agenda 时间线
 ## Overdue 的规则
 
 - 只有未完成的 Workflow 条目才会成为 Overdue。
-- 日期型 Task 过期后在 TODOs 显示日期和红色状态，但不会被搬到今天。
-- 定时 Task 在当天时刻已过时，Agenda 中的时间变红。
+- 日期型 Task 过期后留在 TODOs，并显示“逾期 1 天”或“逾期 N 天”的紧凑状态，不会被搬到今天。
+- 定时 Task 在当天时刻已过时会显示“已逾期”，之后按日历日显示过期天数；Agenda 中的时间也会变红。
+- `SCHEDULED` 与 `DEADLINE` 使用同一套过期天数。条目由 Aster 创建还是从 Apple Reminders 同步而来，不会改变显示规则。
 - 今天顶部可以显示历史 Overdue 数量；点击会以滚动动画前往最近的 Overdue 原日期。
 - 多条 Overdue 仍保留在各自日期，用户可继续向上查看，不合并成一条伪造任务。
 - 没有 Workflow 关键字的 Event 不使用 Task 的 Overdue 语义。

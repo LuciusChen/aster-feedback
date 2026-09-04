@@ -35,13 +35,27 @@ After Files → Org source editor saves a document inside an Agenda source, Agen
 
 ## Apple Reminders Interoperability File (iOS/iPadOS only)
 
-After Apple Reminders is explicitly enabled in Settings, Aster synchronizes once the workspace has been validated and again whenever the app returns to the foreground. These automatic triggers never request access by themselves, and Settings shows the current state beside the switch. Aster maps system reminders only through the separate managed `apple-reminders.org` file at the workspace root. This managed file appears automatically in Agenda and TODOs; you do not need to select the workspace root as an Agenda source.
+After Apple Reminders is explicitly enabled in Settings, Aster synchronizes once the workspace has been validated and again whenever the app returns to the foreground. These automatic triggers never request access by themselves. Settings shows the current state beside the switch.
 
-A system Reminder's due value always maps to Org `DEADLINE`, not to `SCHEDULED`, which retains its meaning as the date when work is planned to start. A timed Reminder preserves its exact clock time, while a date-only Reminder stays date-only. A simple unbounded daily, weekly, monthly, or yearly recurrence appears as a cadence-preserving Org `++` repeater. Recurrences with an end or more complex selectors remain system-owned instead of being reduced to an inaccurate Org rule. When you complete a synchronized repeating item, Apple Reminders advances the recurrence and Aster imports the next item, preventing both sides from advancing it independently.
+Aster maps system reminders only through the separate managed `apple-reminders.org` file at the workspace root. This file appears automatically in Agenda and TODOs; you do not need to select the workspace root as an Agenda source.
 
-Ordinary workspace Org tasks are never exported to the Reminders app. However, every concrete timed item available to Aster—including one imported from Apple Reminders—remains eligible for Aster Notifications. Its notification subtitle includes the localized due date and time. If system notifications for the Reminders app are also enabled, both apps may notify you; this is intentional.
+A system Reminder's due value always maps to Org `DEADLINE`. It never maps to `SCHEDULED`, which retains its meaning as the date when work is planned to start. A timed Reminder preserves its exact clock time, while a date-only Reminder stays date-only.
 
-Only a managed Org heading with no Reminder identifier can create a new system Reminder; if EventKit invalidates an old local identifier during a full system sync, Aster refreshes the managed file instead of duplicating the item. The first synchronization may create the managed file when it is genuinely absent. If an existing file cannot be read, is not valid UTF-8, has no readable modification time, or EventKit returns no reminder list, synchronization stops with an error instead of treating the failure as empty or old and replacing the source. A local edit made while synchronization is processing is also preserved; Aster reports that the source changed instead of replacing it with an earlier generated result.
+A simple unbounded daily, weekly, monthly, or yearly recurrence appears as a cadence-preserving Org `++` repeater. Recurrences with an end or more complex selectors remain system-owned instead of being reduced to an inaccurate Org rule.
+
+When you complete a synchronized repeating item, Apple Reminders advances the recurrence and Aster imports the next item. Both sides never advance it independently.
+
+Once synchronized, managed and ordinary Org items share Aster's presentation rules. Overdue `DEADLINE` and `SCHEDULED` items show the same `Overdue`, `1 day overdue`, or `N days overdue` status; the calculation does not change merely because Apple Reminders supplied the item.
+
+Ordinary workspace Org tasks are never exported to the Reminders app. However, every concretely timed item available to Aster remains eligible for Aster Notifications, including one imported from Apple Reminders. Its notification subtitle includes the localized due date and time.
+
+If system notifications for the Reminders app are also enabled, both apps may notify you. This is intentional.
+
+Only a managed Org heading with no Reminder identifier can create a new system Reminder. If EventKit invalidates an old identifier during a full system sync, Aster refreshes the managed file instead of duplicating the item.
+
+The first synchronization may create the managed file when it is genuinely absent. If an existing file cannot be read, is not valid UTF-8, has no readable modification time, or EventKit returns no reminder list, synchronization stops with an error. Aster never treats that failure as an empty or older source.
+
+A local edit made during synchronization is also preserved. Aster reports that the source changed instead of replacing it with an earlier generated result.
 
 ## Android Notification Boundary
 
