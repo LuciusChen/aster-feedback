@@ -100,6 +100,7 @@ The title and these fields now sit directly on one scroll surface without Show M
 ## Calendar and Timeline
 
 - Month is the first-launch default. After that, Aster restores the last selected Week, Month, or Year size even after the app is terminated and relaunched. The grabber moves only one adjacent step at a time.
+- Agenda and Journal Month use localized three-letter-equivalent weekday headers such as `Mon`, `Tue`, and `Wed` in both compact phone and wide iPad layouts instead of ambiguous single-letter labels.
 - Agenda and Journal Week reuse the same five-column represented-date rail rather than a conventional seven-day page. Agenda supplies its selected date, dates containing non-Habit Agenda items, and external all-day calendar dates; Journal supplies its selected date, prepared entry dates, and that same external overlay. When no content date exists in one direction, one adjacent empty date remains available, so either calendar can continue into the past or future beyond its earliest or latest record. A long-running source contributes only the dates needed near the current browsing position instead of expanding its complete range. An overlapping ribbon receives a row only when that row is free across its complete span; overflow beyond the fixed display cap is omitted rather than overdrawn. An omitted gap uses one aligned torn edge, weekends retain calendar shading, and every ordinary boundary reaches the rail baseline. Single-day and cross-day source appears as unlabelled color ribbons; an Agenda Workflow day overlays its symbol beside the centered weekday without taking layout space. Every committed horizontal release moves exactly five calendar days regardless of drag distance and uses the same directional full-page transition as Month and Year. Only during the drag, content inside the leading column receives one crisp copy that progressively magnifies by up to 6% and shifts slightly beneath a clear, unblurred lens. The scale remains inside that column's fixed mask; only the lens's trailing optical edge is exposed, while the background, weekend shading, and date boundaries remain fixed. At rest there is no visible glass layer, tint, blur, gradient, edge, or duplicate.
 - A Week release performs one five-day page transition with no second settle or spring rebound. In iPad landscape, the left column uses the same five-column rail as iPhone while the synchronized month calendar remains on the right. On a wide Android tablet, calendar and timeline likewise stay in the left content pane beside the Navigation Rail.
 - The calendar remains fixed while the timeline scrolls independently and extends into both past and future.
@@ -122,7 +123,7 @@ The main detail order is: Item/History → Schedule/Repeat/Reminder → Content 
 
 ## Saved View Entry
 
-Open the three-line secondary menu immediately before Views to select:
+Open the three-line secondary menu immediately before Views. Its visible top-to-bottom order is:
 
 - Agenda
 - TODOs

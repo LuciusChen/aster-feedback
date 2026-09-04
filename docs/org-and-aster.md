@@ -22,6 +22,8 @@
 
 文件名、文件夹名、标签或英文单词本身不会单独决定类型。例如 `PROJECT` 只是默认约定；用户也可以把 `PRO` 配置为 Project。
 
+这里的 Container 是 Agenda/TODO 等语义视图的分类，不会让 Journal 隐藏真实标题。Journal 会保留日期根标题下面的完整 Org 层级，以免日记的章节语义丢失。
+
 ## 解析与原文保真
 
 Aster 会先为每次文件修订建立一棵保留原文范围的 Org 语法树，再从这棵树投影 Preview、Agenda、Journal 和 Search。官方默认的元素和对象类别都有明确结构，包括 Diary sexp、inline task、标准与自定义 block、嵌套列表、行内或多行脚注、inline source/Babel call、citation reference，以及 regular/plain/angle link。

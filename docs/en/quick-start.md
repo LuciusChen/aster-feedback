@@ -63,7 +63,7 @@ If a file declares `#+TODO:` or `#+SEQ_TODO:`, the file-local declaration takes 
 Root navigation provides the same three primary destinations and global actions:
 
 - The primary tabs are **Views, Files, Settings**.
-- The secondary content menu changes the current child. Under Views it contains Agenda, TODOs, Journal, and saved Perspectives. Under Files it contains Workspace, role folders, and folders pinned from the file tree. Under Settings it contains Workspace & Sync, Appearance, Calendar & Agenda, Tasks & Workflow, Create & Storage, and Journal; About Aster remains on the Settings home.
+- The secondary content menu changes the current child and lists its destinations top-to-bottom in the logical order below. Under Views it contains Agenda, TODOs, Journal, and saved Perspectives. Under Files it contains Workspace, role folders, and folders pinned from the file tree. Under Settings it contains Workspace & Sync, Appearance, Calendar & Agenda, Tasks & Workflow, Create & Storage, and Journal; About Aster remains on the Settings home.
 - The trailing actions are Create and Search. Create uses the current context: Event in Agenda, Task in TODOs/Perspectives, Journal entry in Journal, and Org Document in Files. Hold Create to show all four types.
 - Search focuses immediately. Cancel closes Search and returns to the page you came from.
 

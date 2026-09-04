@@ -22,6 +22,8 @@ This is the central semantic reference for Aster. Every example includes copyabl
 
 A filename, directory name, tag, or English word does not determine type on its own. `PROJECT`, for example, is only a default convention; a user can configure `PRO` as a Project instead.
 
+Container is an Agenda/TODO semantic classification; it does not make Journal hide an authored heading. Journal preserves the complete Org hierarchy below its date root so a journal section never loses its meaning.
+
 ## Parsing and Source Fidelity
 
 For each file revision, Aster first builds a source-range-preserving Org syntax tree and then projects Preview, Agenda, Journal, and Search from that tree. The official default element and object families have distinct structure, including diary sexps, inline tasks, standard and special blocks, nested lists, inline and multiline footnotes, inline source/Babel calls, citation references, and regular, plain, and angle links.

@@ -63,7 +63,7 @@ Android 版没有 iCloud Drive，也不会把应用内部工作副本或通用�
 根导航提供相同的三个主要目的地与全局操作：
 
 - 一级 Tab 是 **Views、Files、Settings**。
-- 二级内容菜单用于切换当前主要目的地的子页面。Views 中有 Agenda、TODOs、Journal 和自定义 Perspective；Files 中有 Workspace、角色文件夹和你从文件树固定的文件夹；Settings 中有“工作区与同步”“外观”“日历与日程”“任务与工作流”“新建与存储”和“日志”六个常用分类。“关于 Aster”仍留在 Settings 首页。
+- 二级内容菜单用于切换当前主要目的地的子页面，并按下列逻辑顺序从上到下显示。Views 中有 Agenda、TODOs、Journal 和自定义 Perspective；Files 中有 Workspace、角色文件夹和你从文件树固定的文件夹；Settings 中有“工作区与同步”“外观”“日历与日程”“任务与工作流”“新建与存储”和“日志”六个常用分类。“关于 Aster”仍留在 Settings 首页。
 - 右侧是“新建”和“搜索”。轻点新建会按当前内容创建：Agenda 新建 Event、TODOs/Perspective 新建 Task、Journal 新建日志条目、Files 新建 Org 文档；长按可查看全部四种类型。
 - 搜索打开后会自动聚焦；轻点 Cancel 会关闭搜索并回到进入前的页面。
 
