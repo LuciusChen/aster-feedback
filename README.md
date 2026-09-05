@@ -8,7 +8,7 @@
 
 Aster 是一款面向 iPhone、iPad、Android 手机和平板的原生 Org mode 工作区。它把用户已有的 `.org` 文件呈现为日程、待办、日志、文件、搜索、提醒与小组件，同时仍以原始 Org 文件和 Org Attach 目录为数据源。
 
-iOS/iPadOS 当前文档与截图基线为 0.1 (10)（2026-09-05），通过 TestFlight 测试。Android 文档基线仍为 0.1 (9)，正在准备 Google Play 测试，尚未公开发布。
+iOS/iPadOS 当前文档与截图基线为 0.1 (11)（2026-09-05），通过 TestFlight 测试。Android 文档基线仍为 0.1 (9)，正在准备 Google Play 测试，尚未公开发布。
 
 共用的 Org 语义保持一致，系统集成和自适应界面按平台分别说明。尚未发布的修复会单独标注，不计入上述版本。
 

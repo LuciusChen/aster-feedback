@@ -10,7 +10,7 @@ Aster 在 Apple 与 Android 平台共享 Org 解析、分类、写回、同步�
 
 | 平台 | 最低系统 | 当前基线 | 分发状态 |
 | --- | --- | --- | --- |
-| iPhone / iPad | iOS / iPadOS 17 | 0.1 (10) | TestFlight 测试 |
+| iPhone / iPad | iOS / iPadOS 17 | 0.1 (11) | TestFlight 测试 |
 | Android 手机 / 平板 | Android 8.0（API 26） | 0.1 (9) | Google Play 测试准备中，尚未公开发布 |
 
 两个平台可以分别推进 Build/Version Code。反馈时请写明平台和完整版本；相同营销版本号不表示系统能力或修复进度完全相同。

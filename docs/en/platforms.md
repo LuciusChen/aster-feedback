@@ -10,7 +10,7 @@ Aster shares its Org parsing, classification, write-back, sync-conflict, Agenda,
 
 | Platform | Minimum OS | Current baseline | Distribution status |
 | --- | --- | --- | --- |
-| iPhone / iPad | iOS / iPadOS 17 | 0.1 (10) | TestFlight testing |
+| iPhone / iPad | iOS / iPadOS 17 | 0.1 (11) | TestFlight testing |
 | Android phone / tablet | Android 8.0 (API 26) | 0.1 (9) | Preparing Google Play testing; not publicly available yet |
 
 Build/Version Code may advance independently on each platform. Include the platform and complete version in reports; matching marketing versions do not imply identical system capabilities or fixes.
