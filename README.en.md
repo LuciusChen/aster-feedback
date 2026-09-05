@@ -8,7 +8,9 @@
 
 Aster is a native Org mode workspace for iPhone, iPad, Android phones, and Android tablets. It presents your existing `.org` files as an agenda, task list, journal, file browser, global search, reminders, and widgets—while keeping the original Org files and adjacent Org Attach directories as the source of truth.
 
-These guides use 0.1 (9) from 4 September 2026 as their baseline. The iOS/iPadOS build is tested through TestFlight. The Android build is being prepared for Google Play testing and is not publicly available yet. Shared Org semantics stay aligned, while system integrations and adaptive UI are documented per platform.
+The iOS/iPadOS documentation and screenshots use 0.1 (10), dated 5 September 2026, as their TestFlight baseline. Android documentation remains at 0.1 (9); its build is being prepared for Google Play testing and is not publicly available yet.
+
+Shared Org semantics stay aligned, while system integrations and adaptive UI are documented per platform. Unreleased fixes are explicitly labeled and are not included in those versions.
 
 This repository serves two purposes:
 
@@ -67,4 +69,4 @@ These screenshots come from the iOS/iPadOS build's anonymous built-in Demo Works
 
 ## Documentation Scope
 
-These pages describe behavior implemented in the current public beta. They do not present design ideas as shipped features. When the UI or Org write-back rules change, the corresponding examples and screenshots should change with them.
+These pages use the current test releases as their baseline. Implemented but unreleased changes are explicitly labeled with their platform and release status; design ideas are not presented as shipped features. When the UI or Org write-back rules change, the corresponding examples and screenshots should change with them.

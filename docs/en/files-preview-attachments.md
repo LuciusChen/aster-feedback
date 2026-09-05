@@ -78,6 +78,12 @@ Aster can fold, color, and read Source and Results, but it never executes the co
 
 Markdown uses an independent Markdown reader. A remote file must finish downloading into the app workspace before preview: iOS/iPadOS uses native system document capabilities, while Android uses Aster's native readers and, when needed, a compatible system app. Files does not expose generic local Import as another workspace provider. If a supported type does not open, report the platform, extension, provider, and a minimal test file.
 
+### Markdown Structure Corrections (Next iOS/iPadOS, Unreleased)
+
+Indented code stays literal instead of becoming a heading or list. Nested lists retain their depth, while Setext underlined headings and explicit hard breaks preserve the source structure.
+
+These reading changes do not rewrite Markdown. Opening Edit from Preview still targets the exact original block, including heading underlines and list indentation.
+
 ## Org Attach Mapping
 
 Attachments use the standard Org Attach directory layout:
