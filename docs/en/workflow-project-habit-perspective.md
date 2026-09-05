@@ -123,6 +123,8 @@ The Habit row therefore continues to show its real `NEXT`, `TODO`, or other keyw
 
 The timeline uses a compact seven-day rhythm for quick scanning. Detail keeps 28 days of history, but all 28 small cells occupy one row instead of expanding into a four-row panel. The legend, current streak, and 28-day completion rate remain visible.
 
+![Single-row 28-day history in Habit detail](../../assets/screenshots/habit-detail.png)
+
 Cells still follow Org's scheduling-window colors. `*` independently marks a LOGBOOK completion, while `!` identifies an unfinished today, so color is never the only signal.
 
 On completion, Aster advances the timestamp according to the Org Repeater, returns to `REPEAT_TO_STATE` or the configured active state, and writes standard LOGBOOK history.
