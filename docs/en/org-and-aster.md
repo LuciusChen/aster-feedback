@@ -356,7 +356,7 @@ Aster's semantic edits do not reformat the entire file. A state, date, priority,
 
 The Source entry at the bottom of item detail shows the complete saved Org subtree. Files → Edit shows and edits the complete source file.
 
-## 15. A Project Entry Point and Focused Reading (next iOS/iPadOS build, unreleased)
+## 15. A Project Entry Point and Focused Reading (iOS/iPadOS build 12)
 
 ### Org source
 

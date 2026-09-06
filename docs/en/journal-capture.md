@@ -34,13 +34,13 @@ The Year overview uses those same inputs: Journal dates, traditional festivals, 
 
 The similarly named Week/Month/Year choice under **Settings → Journal** limits only the Journal history window, prepared date markers, and Journal Search content. It does not change the visible calendar size or add a second range selector to the Journal page.
 
-In the next iOS/iPadOS build (unreleased), unrelated workspace updates reuse Journal's prepared reading and search content. Reopening Search does not prepare it again. Journal source, contributing-file, or history-window changes still refresh it, including when the date window advances to a new day.
+Since iOS/iPadOS build 11, unrelated workspace updates reuse Journal's prepared reading and search content. Reopening Search does not prepare it again. Journal source, contributing-file, or history-window changes still refresh it, including when the date window advances to a new day.
 
 Journal is a source-faithful reading view, not the same semantic projection as Agenda. Under a date heading, each direct child appears once as a timeline root and keeps its complete nested Org outline.
 
 For example, both `** What I Consume? :consume:` and its `*** 《好雨知时节》这个短剧不错！` child remain visible in their original hierarchy. Aster does not hide the parent as an Agenda Container or duplicate the child as another top-level timeline entry. In a marker/title/Denote-dated file without a date heading, each level-one heading becomes a timeline root.
 
-In the next iOS/iPadOS build (unreleased), a plain heading tap stays in the reader. Long-press the heading and choose the edit action to open its exact source location. This also applies to nested headings and Org Preview. Tag badges and the add-tag symbol remain directly tappable; the shared tag editor saves changes to the owning heading when it closes.
+In iOS/iPadOS build 12, a plain heading tap stays in the reader. Long-press the heading and choose the edit action to open its exact source location. This also applies to nested headings and Org Preview. Tag badges and the add-tag symbol remain directly tappable; the shared tag editor saves changes to the owning heading when it closes.
 
 ## Where a Journal Entry Starts
 

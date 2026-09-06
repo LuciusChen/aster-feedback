@@ -33,11 +33,11 @@ A successful UI update must not be an in-memory-only record. Conversely, a tempo
 
 After Files → Org source editor saves a document inside an Agenda source, Agenda, TODOs, Perspectives, Search, widgets, and reminders refresh incrementally from that local path. There is no need to wait for upload, switch workspaces, or relaunch. Cloud sync moves the saved source to other clients; it is not the trigger for refreshing local projections. Unsaved text entered while that refresh finishes is also preserved instead of being replaced by an earlier parsed revision.
 
-### Next iOS/iPadOS Sync Safeguards (Unreleased)
+### iOS/iPadOS Sync Safeguards (build 12)
 
 If a local directory cannot be read completely, synchronization stops. Files omitted by that failed read are not treated as deletions on the server. Restore access and retry; do not delete cloud files to resolve a local read failure.
 
-Source editors also check the opened version so unsaved text cannot overwrite a newly downloaded version. See [save conflict protection](files-preview-attachments.md#save-conflict-protection-next-iosipados-build-unreleased) for retaining edits and explicitly reloading saved content.
+Source editors also check the opened version so unsaved text cannot overwrite a newly downloaded version. See [save conflict protection](files-preview-attachments.md#save-conflict-protection-iosipados-build-12) for retaining edits and explicitly reloading saved content.
 
 WebDAV lists folders one level at a time instead of requiring unlimited-depth listing. This addresses services such as InfiniCLOUD that do not support infinite-depth requests. The failure and fix were exercised against a real local Apache WebDAV service; the customer's InfiniCLOUD account has not been tested.
 
@@ -89,7 +89,7 @@ The first synchronization may create the managed file when it is genuinely absen
 
 A local edit made during synchronization is also preserved. Aster reports that the source changed instead of replacing it with an earlier generated result.
 
-### Per-Item Comparison and Standard Org Output (Next iOS/iPadOS, Unreleased)
+### Per-Item Comparison and Standard Org Output (iOS/iPadOS build 11 and later)
 
 Aster compares each Reminder ID's local fields, system fields, and last successful baseline. It no longer treats the entire file's modification time as every item's edit time. Local-only changes export, system-only changes import, and unchanged content is not rewritten.
 

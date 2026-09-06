@@ -10,20 +10,20 @@ Aster 在 Apple 与 Android 平台共享 Org 解析、分类、写回、同步�
 
 | 平台 | 最低系统 | 当前基线 | 分发状态 |
 | --- | --- | --- | --- |
-| iPhone / iPad | iOS / iPadOS 17 | 0.1 (11) | TestFlight 测试 |
+| iPhone / iPad | iOS / iPadOS 17 | 0.1 (12) | 已上传，等待 TestFlight 处理 |
 | Android 手机 / 平板 | Android 8.0（API 26） | 0.1 (9) | Google Play 测试准备中，尚未公开发布 |
 
 两个平台可以分别推进 Build/Version Code。反馈时请写明平台和完整版本；相同营销版本号不表示系统能力或修复进度完全相同。
 
-### iPad Search 修正（下一版，未发布）
+### iPad Search 修正（iOS/iPadOS build 12）
 
 在宽屏搜索结果中连续选择不同任务，右侧详情会跟随当前选择刷新，不再保留第一个任务的表单。切换前的修改保存回原任务，不会带到下一个任务；搜索词和结果列表仍保留。
 
-文件夹排序也将加入下一版 iOS/iPadOS，操作和日期含义见[文件树排序](files-preview-attachments.md)。这些变更尚不代表已发布的 build 11 或 Android 版本已经包含相同行为。
+文件夹排序也包含在 iOS/iPadOS build 12 中，操作和日期含义见[文件树排序](files-preview-attachments.md)。这些变更不代表 Android 版本已包含相同行为。
 
-### 旧系统操作栏修正（下一版，未发布）
+### 旧系统操作栏修正（iOS/iPadOS build 12）
 
-下一版 iOS/iPadOS 将分别处理旧系统和 Liquid Glass 系统的根操作栏布局。iOS 17/18 使用材质胶囊并独立处理底部安全区，避免中间图标上浮；iOS 26 及以后保留系统原生玻璃效果。此项尚未发布，不改变按钮顺序或导航方式。
+build 12 分别处理旧系统和 Liquid Glass 系统的根操作栏布局。iOS 17/18 使用材质胶囊并独立处理底部安全区，避免中间图标上浮；iOS 26 及以后保留系统原生玻璃效果。此项不改变按钮顺序或导航方式。
 
 已在 iOS 18.6 的 iPhone 和 iPad 模拟器上检查浅色、深色布局及导航。用户报告中的 iOS 18.7.8 真机仍需要更新后确认。
 
@@ -36,7 +36,7 @@ Aster 在 Apple 与 Android 平台共享 Org 解析、分类、写回、同步�
 - 本地索引、提醒计划和小组件内容都可以从工作区重建，不成为第二份数据源。
 - Files 只呈现已连接的云端工作区，不把应用内部工作副本或通用本地 Import 暴露成另一种来源。
 
-下一版 iOS/iPadOS（未发布）的小组件会在跨日时移除旧的 Habit 当日记录，不再把它累计为普通逾期任务。普通未完成任务的逾期计数不受影响；新的 Habit 内容仍由 Aster 运行后按源文件刷新。
+iOS/iPadOS build 12 的小组件会在跨日时移除旧的 Habit 当日记录，不再把它累计为普通逾期任务。普通未完成任务的逾期计数不受影响；新的 Habit 内容仍由 Aster 运行后按源文件刷新。
 
 ## 平台差异
 

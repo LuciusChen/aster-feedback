@@ -19,7 +19,7 @@ Files displays the real hierarchy of connected workspaces, including local files
 - A real empty directory stays visible without a meaningless disclosure action.
 - Dropbox-backed files can expose version history on hold. Other providers do not show an inert history entry.
 
-### Apple Shortcuts (next iOS/iPadOS build, unreleased)
+### Apple Shortcuts (iOS/iPadOS build 12)
 
 Search for Aster in Shortcuts and choose **Open Org File** or **Open Org Heading**. File actions select a local Org file. Heading actions support title/path search and show the ancestor path. The heading action's **Focus** switch is off by default; enabling it opens the complete subtree.
 
@@ -29,7 +29,7 @@ If several headings in one file share a title and lack unique IDs, use Copy Aste
 
 Adding an ID preserves existing title-based or CUSTOM_ID shortcut selections: Aster resolves their original links again. Renaming a title or file still requires updating selections that depend on that name. A heading that cannot form a valid link does not prevent other headings from appearing in the picker.
 
-### Focus a heading (next iOS/iPadOS build, unreleased)
+### Focus a heading (iOS/iPadOS build 12)
 
 Long-press an Org Preview heading and choose **Focus** to read that heading and its complete subtree. The breadcrumb keeps the document and ancestors visible. Select an ancestor to widen the scope, or **Full Document** to restore the previous reading position and folding state.
 
@@ -37,7 +37,7 @@ Focus does not trim or rewrite the Org file. Edit still opens the complete sourc
 
 A plain heading tap does not enter editing; long-press and choose Edit Source instead. Disclosure arrows, tags and links retain their own tap actions. Returning from Edit to Preview preserves your current position within the subtree instead of returning to its top.
 
-### Open a specific file or heading (next iOS/iPadOS build, unreleased)
+### Open a specific file or heading (iOS/iPadOS build 12)
 
 Choose **Copy Aster Link** from a file's context menu or the Org document toolbar to open it from another app. Heading context menus provide the same action. Existing `ID` or `CUSTOM_ID` properties are reused; adding a missing standard Org `:ID:` asks for confirmation. Cancel leaves the source unchanged.
 
@@ -45,7 +45,7 @@ A file link looks like `aster://open?file=journal%2F2026-09-06.org`, relative to
 
 Handwritten links also support `file=<path>&custom-id=<CUSTOM_ID>` or `file=<path>&heading=<exact title>`. Title-based links need a unique match and must be updated after a rename. Missing, duplicate, and invalid targets produce an error rather than opening an approximate match.
 
-### File Sorting (next iOS/iPadOS release, unreleased)
+### File Sorting (iOS/iPadOS build 12)
 
 Expand a folder and tap the gray **⇅** at the far right of its name row to sort its files by name, document date, or modification time in either direction. No long press is needed. Buttons share the same trailing edge at every nesting level and disappear when a folder is collapsed. Empty folders have no sort button.
 
@@ -68,7 +68,7 @@ Preview never becomes a second content store. Edit writes to the original file. 
 
 Interface refreshes preserve newly typed text and active selections. Full-text replacement still writes the exact source you entered.
 
-### Save conflict protection (next iOS/iPadOS build, unreleased)
+### Save conflict protection (iOS/iPadOS build 12)
 
 Org and Markdown saves check the version originally opened. If sync or another operation has changed the file on disk, Aster keeps your edits instead of overwriting the newer version. A failed Org save blocks opening another Org file. Reopening a failed Markdown edit during the same app session restores its text.
 
@@ -124,7 +124,7 @@ Aster can fold, color, and read Source and Results, but it never executes the co
 
 Markdown uses an independent Markdown reader. A remote file must finish downloading into the app workspace before preview: iOS/iPadOS uses native system document capabilities, while Android uses Aster's native readers and, when needed, a compatible system app. Files does not expose generic local Import as another workspace provider. If a supported type does not open, report the platform, extension, provider, and a minimal test file.
 
-### Markdown Structure Corrections (Next iOS/iPadOS, Unreleased)
+### Markdown Structure Corrections (iOS/iPadOS build 11 and later)
 
 Indented code stays literal instead of becoming a heading or list. Nested lists retain their depth, while Setext underlined headings and explicit hard breaks preserve the source structure.
 
