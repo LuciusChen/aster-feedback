@@ -35,6 +35,26 @@ After Files → Org source editor saves a document inside an Agenda source, Agen
 
 ### Next iOS/iPadOS Sync Safeguards (Unreleased)
 
+If a local directory cannot be read completely, synchronization stops. Files omitted by that failed read are not treated as deletions on the server. Restore access and retry; do not delete cloud files to resolve a local read failure.
+
+Source editors also check the opened version so unsaved text cannot overwrite a newly downloaded version. See [save conflict protection](files-preview-attachments.md#save-conflict-protection-next-iosipados-build-unreleased) for retaining edits and explicitly reloading saved content.
+
+WebDAV lists folders one level at a time instead of requiring unlimited-depth listing. This addresses services such as InfiniCLOUD that do not support infinite-depth requests. The failure and fix were exercised against a real local Apache WebDAV service; the customer's InfiniCLOUD account has not been tested.
+
+HTTP 401 means the server rejected the credentials, including an incorrect password on the first connection. Check the connection URL, username, and app password in Settings, then use Save & Sync; you do not need to delete local files. HTTP 403 instead points to folder permissions and server restrictions, without repeatedly requesting authorization.
+
+Files keeps **Sync status** and **Last successful sync** beneath the provider name, including when the file tree is collapsed. Workspace & Sync shows the same information below the connection fields. An unavailable service shows paused/retry guidance; the green Configured label only means the connection details are saved.
+
+Changing the Journal or Inbox location and importing fonts do not replace sync status. Saved file changes show **Local edits pending sync**, unless a transfer or paused/error/conflict message needs to remain visible.
+
+The timestamp includes the full local date and time and survives relaunch. It advances after an entire conflict-free run succeeds, including a check with no file changes. Failure, interruption and conflicts leave the previous successful time intact. A connection without a successful run shows **Never synced**.
+
+Each connection has its own record, so a different account or folder cannot inherit another connection's time. Disconnecting clears that provider's history on this device; reconnecting starts without a time until the next successful run. This is not a server file-modification date or proof that every other device has received the files.
+
+WebDAV bypasses the system HTTP cache so an earlier read cannot interfere with deleting an opened or moved file. Sync still checks remote versions and never automatically overwrites a genuine conflict.
+
+For InfiniCLOUD, use the WebDAV endpoint and credentials provided by My Page after enabling external-app connections, not the website's login URL.
+
 Uploads and sync deletions check the remote version that was compared. A changed version stops the operation instead of being overwritten. WebDAV login pages, incomplete listings, and out-of-scope resources are errors, not evidence of an empty remote directory.
 
 Sync replacement or automatic deletion of an existing WebDAV file requires a strong ETag from the server. Missing reliable version information causes an explicit error, never an unconditional-write fallback. Explicit deletion from Files remains a separate user action. iCloud writes, moves, and deletions use system file coordination.
@@ -58,6 +78,8 @@ Once synchronized, managed and ordinary Org items share Aster's presentation rul
 Ordinary workspace Org tasks are never exported to the Reminders app. However, every concretely timed item available to Aster remains eligible for Aster Notifications, including one imported from Apple Reminders. Its notification subtitle includes the localized due date and time.
 
 On iPhone and iPad, **Reminder Badge** is enabled by default under Aster Notifications and can be turned off independently. It shows the number of unfinished timed tasks whose effective reminder time has arrived. Each task counts once; calendar events and repeated follow-up alerts do not inflate the number, and turning the option off clears the app-icon badge.
+
+An ordinary timed task remains counted after it becomes overdue, until it is completed. A timed Habit contributes only from its reminder time until midnight on that day, so yesterday's Habit does not remain on the badge. Aster recalculates the number when Agenda crosses midnight in the foreground or the app is reopened on a later day.
 
 If system notifications for the Reminders app are also enabled, both apps may notify you. This is intentional.
 

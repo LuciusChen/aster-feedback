@@ -350,8 +350,34 @@ Older files may also contain persistent-reminder properties:
 
 Supported repeated-alert intervals are `5m`, `10m`, `15m`, `30m`, and `60m`.
 
-## 13. Write-Back Boundaries
+## 14. Write-Back Boundaries
 
 Aster's semantic edits do not reformat the entire file. A state, date, priority, tag, reminder, Note, or attachment operation modifies only the headline, planning line, properties, LOGBOOK, or attachment links it owns. Unknown properties, body text, subtrees, and other source content remain unchanged.
 
 The Source entry at the bottom of item detail shows the complete saved Org subtree. Files → Edit shows and edits the complete source file.
+
+## 15. A Project Entry Point and Focused Reading (next iOS/iPadOS build, unreleased)
+
+### Org source
+
+```org
+* Writing project
+:PROPERTIES:
+:ID: writing-project-example
+:END:
+Project notes.
+** Draft
+Draft text.
+** References
+Reading notes.
+* Another project
+Unrelated material.
+```
+
+### Actual Aster behavior and typical use
+
+`aster://open?id=writing-project-example&focus=true` opens Writing project with its Draft and References children, excluding Another project from the reading scope. The standard ID survives renaming or moving within the current workspace. Do not reuse this example ID for several headings.
+
+In Apple Shortcuts, add Open Org Heading, select Writing project, enable Focus, and add the shortcut to your Home Screen. This introduces no date, TODO state, or private property and does not change Agenda classification.
+
+Full Document restores the complete reading scope. Edit always opens the whole file; it never removes the other project from source. See [file and heading links](files-preview-attachments.md) for the interaction guide.

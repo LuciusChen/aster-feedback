@@ -36,7 +36,11 @@ The similarly named Week/Month/Year choice under **Settings → Journal** limits
 
 In the next iOS/iPadOS build (unreleased), unrelated workspace updates reuse Journal's prepared reading and search content. Reopening Search does not prepare it again. Journal source, contributing-file, or history-window changes still refresh it, including when the date window advances to a new day.
 
-Journal is a source-faithful reading view, not the same semantic projection as Agenda. Under a date heading, each direct child appears once as a timeline root and keeps its complete nested Org outline. For example, both `** What I Consume? :consume:` and its `*** 《好雨知时节》这个短剧不错！` child remain visible in their original hierarchy; Aster does not hide the parent as an Agenda Container or duplicate the child as another top-level timeline entry. In a marker/title/Denote-dated file without a date heading, each level-one heading becomes a timeline root. Tap any visible Journal heading to open that exact source location. Tap an existing tag badge—or the add-tag symbol when the heading has no tags—to edit tags with workspace suggestions; changes are written back to that heading when the tag editor closes.
+Journal is a source-faithful reading view, not the same semantic projection as Agenda. Under a date heading, each direct child appears once as a timeline root and keeps its complete nested Org outline.
+
+For example, both `** What I Consume? :consume:` and its `*** 《好雨知时节》这个短剧不错！` child remain visible in their original hierarchy. Aster does not hide the parent as an Agenda Container or duplicate the child as another top-level timeline entry. In a marker/title/Denote-dated file without a date heading, each level-one heading becomes a timeline root.
+
+In the next iOS/iPadOS build (unreleased), a plain heading tap stays in the reader. Long-press the heading and choose the edit action to open its exact source location. This also applies to nested headings and Org Preview. Tag badges and the add-tag symbol remain directly tappable; the shared tag editor saves changes to the owning heading when it closes.
 
 ## Where a Journal Entry Starts
 

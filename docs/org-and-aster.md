@@ -350,8 +350,34 @@ DEADLINE: <2026-09-03 Thu>
 
 支持的重复提示间隔是 `5m`、`10m`、`15m`、`30m` 和 `60m`。
 
-## 13. 回写范围
+## 14. 回写范围
 
 Aster 的语义编辑不会重新格式化整个文件。一次状态、日期、优先级、标签、提醒、Note 或附件操作只修改自己拥有的标题行、规划行、属性、LOGBOOK 或附件链接；未知属性、正文、子树和其他源文本保持原样。
 
 详情页尾部的 Source 入口可以查看当前保存的完整 Org 子树；Files 中的 Edit 可以查看和编辑整个原文件。
+
+## 15. 项目入口与聚焦阅读（下一版 iOS/iPadOS，未发布）
+
+### Org 原文
+
+```org
+* Writing project
+:PROPERTIES:
+:ID: writing-project-example
+:END:
+Project notes.
+** Draft
+Draft text.
+** References
+Reading notes.
+* Another project
+Unrelated material.
+```
+
+### Aster 实际效果与场景
+
+`aster://open?id=writing-project-example&focus=true` 打开 Writing project 及其 Draft、References 子标题，不显示 Another project。标题改名或在当前工作区内移动后，标准 ID 仍可定位；请不要把这个示例 ID 复制给多个标题。
+
+可以在 Apple 快捷指令中添加 Open Org Heading，选择 Writing project 并打开 Focus，再把快捷指令放到主屏幕。这里没有新增日期、TODO 状态或私有属性，也不会改变 Agenda 分类。
+
+点击 Full Document 恢复完整阅读范围。点击 Edit 始终打开完整文件，不会把另一个项目从源码中移除。更多操作见[文件与标题链接](files-preview-attachments.md)。

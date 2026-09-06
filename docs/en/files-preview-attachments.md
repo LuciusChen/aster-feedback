@@ -19,6 +19,44 @@ Files displays the real hierarchy of connected workspaces, including local files
 - A real empty directory stays visible without a meaningless disclosure action.
 - Dropbox-backed files can expose version history on hold. Other providers do not show an inert history entry.
 
+### Apple Shortcuts (next iOS/iPadOS build, unreleased)
+
+Search for Aster in Shortcuts and choose **Open Org File** or **Open Org Heading**. File actions select a local Org file. Heading actions support title/path search and show the ancestor path. The heading action's **Focus** switch is off by default; enabling it opens the complete subtree.
+
+For example, create a focused shortcut to a project's top heading and add it to your Home Screen. It opens that project subtree; Full Document returns to the original file. Querying options requires no AI, does not start sync, and never changes Org source. Sync new files locally in Aster before selecting them.
+
+If several headings in one file share a title and lack unique IDs, use Copy Aster Link on the intended heading in Aster and confirm adding an ID first. Ambiguous headings are not offered as shortcut options, preventing an unintended match.
+
+Adding an ID preserves existing title-based or CUSTOM_ID shortcut selections: Aster resolves their original links again. Renaming a title or file still requires updating selections that depend on that name. A heading that cannot form a valid link does not prevent other headings from appearing in the picker.
+
+### Focus a heading (next iOS/iPadOS build, unreleased)
+
+Long-press an Org Preview heading and choose **Focus** to read that heading and its complete subtree. The breadcrumb keeps the document and ancestors visible. Select an ancestor to widen the scope, or **Full Document** to restore the previous reading position and folding state.
+
+Focus does not trim or rewrite the Org file. Edit still opens the complete source at the focused heading, and attachments and links retain the original document context. Add `&focus=true` to a heading link to open the same focused preview directly.
+
+A plain heading tap does not enter editing; long-press and choose Edit Source instead. Disclosure arrows, tags and links retain their own tap actions. Returning from Edit to Preview preserves your current position within the subtree instead of returning to its top.
+
+### Open a specific file or heading (next iOS/iPadOS build, unreleased)
+
+Choose **Copy Aster Link** from a file's context menu or the Org document toolbar to open it from another app. Heading context menus provide the same action. Existing `ID` or `CUSTOM_ID` properties are reused; adding a missing standard Org `:ID:` asks for confirmation. Cancel leaves the source unchanged.
+
+A file link looks like `aster://open?file=journal%2F2026-09-06.org`, relative to the current workspace. Heading links prefer `aster://open?id=your-heading-id`, which continues to locate a renamed heading or one moved within the workspace. Links do not upload content or grant another device access to files it does not have.
+
+Handwritten links also support `file=<path>&custom-id=<CUSTOM_ID>` or `file=<path>&heading=<exact title>`. Title-based links need a unique match and must be updated after a rename. Missing, duplicate, and invalid targets produce an error rather than opening an approximate match.
+
+### File Sorting (next iOS/iPadOS release, unreleased)
+
+Expand a folder and tap the gray **⇅** at the far right of its name row to sort its files by name, document date, or modification time in either direction. No long press is needed. Buttons share the same trailing edge at every nesting level and disappear when a folder is collapsed. Empty folders have no sort button.
+
+Expanded workspace roots have the same control: in the page header for a single root, or on each root's row when several roots are shown. Each folder remembers its own choice across app restarts; child folders keep their own settings.
+
+Folders stay ahead of files and remain in name order. Files with missing dates stay last in both directions, and equal dates use name order. Sorting never changes files, the Journal timeline, or the root folder-shortcut menu.
+
+For the `journal` folder in Files, choose **Document Date · Newest First**. This uses Journal's existing date rules, then an explicit Org `#+DATE` if no Journal date is available. For example, `#+DATE: [2026-09-03 Thu 09:00]` represents September 3; editing that file later does not move its document date to today. A file containing multiple Journal days uses its first dated root.
+
+**Modified** uses the available local file modification time, not a Journal day. Sorting does not download remote placeholders to obtain dates. Files move into date order when that information becomes available. Sort preferences stay on the current device.
+
 ## Preview and Edit
 
 After opening a supported text file:
@@ -27,6 +65,14 @@ After opening a supported text file:
 - **Edit** displays and edits the complete source text.
 
 Preview never becomes a second content store. Edit writes to the original file. When Search, item detail, or a preview block opens Source, Aster can navigate to the corresponding source line.
+
+Interface refreshes preserve newly typed text and active selections. Full-text replacement still writes the exact source you entered.
+
+### Save conflict protection (next iOS/iPadOS build, unreleased)
+
+Org and Markdown saves check the version originally opened. If sync or another operation has changed the file on disk, Aster keeps your edits instead of overwriting the newer version. A failed Org save blocks opening another Org file. Reopening a failed Markdown edit during the same app session restores its text.
+
+After a save failure, the toolbar offers **Reload Saved File**. It asks before discarding unsaved changes; canceling keeps your text. Save or copy anything important before reloading or quitting. These temporary recovery buffers are different from persistent Journal drafts.
 
 ## What Org Preview Supports
 

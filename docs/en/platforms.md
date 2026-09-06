@@ -15,6 +15,18 @@ Aster shares its Org parsing, classification, write-back, sync-conflict, Agenda,
 
 Build/Version Code may advance independently on each platform. Include the platform and complete version in reports; matching marketing versions do not imply identical system capabilities or fixes.
 
+### iPad Search Correction (next release, unreleased)
+
+Selecting a different task in wide Search results refreshes the detail pane instead of retaining the first task's form. Edits made before switching save to the previous task, not the next one. The query and result list stay in place.
+
+Per-folder sorting is also coming to the next iOS/iPadOS release; see [file tree sorting](files-preview-attachments.md) for the controls and date rules. These changes do not imply that released build 11 or the Android version already includes them.
+
+### Classic Root-Bar Correction (next release, unreleased)
+
+The next iOS/iPadOS release separates classic and Liquid Glass root-bar layout. iOS 17/18 uses a material capsule with its own bottom-safe-area handling to prevent the central icons from sitting too high. iOS 26 and later retains native Liquid Glass. This unreleased change does not alter button order or navigation.
+
+Light/dark layout and navigation were checked on iPhone and iPad simulators running iOS 18.6. The reported physical device running iOS 18.7.8 still needs confirmation after updating.
+
 ## Shared Product Boundaries
 
 - Org files and adjacent Org Attach `data/` directories remain authoritative.
@@ -23,6 +35,8 @@ Build/Version Code may advance independently on each platform. Include the platf
 - A status change writes only the complete keyword explicitly selected by the user. Agenda and TODOs do not assign horizontal swipes to Workflow.
 - Local indexes, reminder schedules, and widget content are rebuildable projections, never a second source of truth.
 - Files exposes only the connected cloud workspace. It does not present the private app working copy or generic local Import as another provider.
+
+In the next iOS/iPadOS build (unreleased), widgets expire an old Habit day instead of counting it as ordinary overdue work. Unfinished ordinary tasks keep their overdue count. Fresh Habit content still comes from Aster's source-derived refresh when the app runs.
 
 ## Platform Differences
 
