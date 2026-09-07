@@ -121,6 +121,14 @@ Agenda 的 `+` 打开快速新建。上方两段选择只决定 Org 类型，不
 
 详情页的主要顺序是：Item/History → Schedule/Repeat/Reminder → Content → Attachments → Notes → Subtasks → Delete。Delete 为红色，并在底部导航之上保留足够滚动空间。
 
+### 分别编辑计划和截止日期
+
+iPhone 和 iPad 的 Task 详情可以同时保留 `SCHEDULED` 和 `DEADLINE`。Scheduled / Deadline 分段只选择当前查看的字段，不会把计划日期转换成截止日期。
+
+每个字段分别保存自己的开关、日期、具体时刻和重复规则。切换时保留未保存的修改；关闭某个字段的开关只移除该字段，返回时一起写回源文件。只查看字段或修改标题、标签，不会改写未修改的日期。
+
+已有源文件如果包含多个同名日期字段，修改该日期会提示先检查 Org 源文件。Aster 不会自行猜测哪一个值应该删除。包含两个日期的用法见 [Org 示例](org-and-aster.md#同时有计划和截止日期)。
+
 ## 自定义视图入口
 
 打开 Views 左侧的三横线二级菜单可以选择；屏幕上从上到下依次是：

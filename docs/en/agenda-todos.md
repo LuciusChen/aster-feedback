@@ -122,6 +122,14 @@ The title and these fields now sit directly on one scroll surface without Show M
 
 The main detail order is: Item/History → Schedule/Repeat/Reminder → Content → Attachments → Notes → Subtasks → Delete. Delete is red and the page reserves enough bottom space above root navigation.
 
+### Independent Scheduled and Deadline fields
+
+Task detail on iPhone and iPad can retain both `SCHEDULED` and `DEADLINE`. The Scheduled / Deadline segment selects a field to inspect; it does not convert one into the other.
+
+Each field keeps its own enable switch, date, clock time, and repeat rule. Switching fields retains unsaved changes. Turning one off removes only that field, and leaving detail writes the changes together. Browsing fields or editing only the title or tags leaves unchanged dates untouched.
+
+If source already contains multiple fields of the same kind, editing that date asks you to review the Org source first. Aster does not guess which conflicting value to delete. See the [two-date Org example](org-and-aster.md#both-a-scheduled-date-and-a-deadline).
+
 ## Saved View Entry
 
 Open the three-line secondary menu immediately before Views. Its visible top-to-bottom order is:

@@ -114,6 +114,17 @@ DEADLINE: <2026-09-03 Thu>
 
 Work that should be completed by a date but does not occupy a specific time slot.
 
+### Both a scheduled date and a deadline
+
+```org
+* TODO Submit expense report :finance:
+SCHEDULED: <2026-09-07 Mon> DEADLINE: <2026-09-11 Fri -2d>
+```
+
+This Task is planned for September 7 and due on September 11. Neither field has a clock time, so it remains in TODOs. The `-2d` cookie starts due-status presentation two days before the deadline.
+
+Selecting Deadline in iPhone or iPad detail loads September 11 independently. Changing it to September 12 keeps `SCHEDULED: <2026-09-07 Mon>` and updates only Deadline to `<2026-09-12 Sat -2d>`. Turning Deadline off removes only that field, not Scheduled or the body.
+
 ## 5. Task at a Specific Time
 
 ### Org source
@@ -354,7 +365,17 @@ Supported repeated-alert intervals are `5m`, `10m`, `15m`, `30m`, and `60m`.
 
 Aster's semantic edits do not reformat the entire file. A state, date, priority, tag, reminder, Note, or attachment operation modifies only the headline, planning line, properties, LOGBOOK, or attachment links it owns. Unknown properties, body text, subtrees, and other source content remain unchanged.
 
-The Source entry at the bottom of item detail shows the complete saved Org subtree. Files → Edit shows and edits the complete source file.
+The Source button in the detail toolbar shows the complete saved Org subtree. Files → Edit shows and edits the complete source file.
+
+Adding a Note, completing a repeating task, or prepending plain-template content keeps planning and properties in the heading's metadata area. Literal examples of CLOSED, properties, or LOGBOOK inside code blocks are not edited as metadata. Date insertion supports LF, CRLF, and files without a final newline.
+
+Adding an Event date or converting a Task to an Event places the new active timestamp after planning and properties, before the body. Existing IDs, custom properties, and attachment references remain readable. Later date edits replace only the corresponding timestamp.
+
+Ordinary keyword-menu and detail state changes also update parent progress. Completing a repeating planning range advances both endpoints, not just its start. Moving an existing range's date in detail also preserves its duration; new Tasks still use point timestamps.
+
+Moving or archiving across folders copies the parent and child headings' ID attachments and adjusts relative file links to keep their original destinations. Original attachments remain available for other references. Missing downloads, differing destination files, or write failures stop the operation without removing the original subtree.
+
+Back leaves task detail only after a successful save. Failed saves retain input; reopening the same item after switching root pages also restores its failed edit within the running session. Canceling a completion note does not complete the task. This is not a persistent Journal draft: save or copy the content before quitting the app.
 
 ## 15. A Project Entry Point and Focused Reading (iOS/iPadOS build 12)
 

@@ -42,6 +42,18 @@ For example, both `** What I Consume? :consume:` and its `*** 《好雨知时节
 
 In iOS/iPadOS build 12, a plain heading tap stays in the reader. Long-press the heading and choose the edit action to open its exact source location. This also applies to nested headings and Org Preview. Tag badges and the add-tag symbol remain directly tappable; the shared tag editor saves changes to the owning heading when it closes.
 
+## Multiple images (next iOS/iPadOS build, unreleased)
+
+Consecutive images appear as fixed-width cards instead of a vertical stack or full-width pages. Several cards sit side by side when space permits. Swipe horizontally to see any overflow.
+
+Previews crop to fit their display area; tap a picture to see the complete original. The image file is never cropped. Short marks above the row show the count and current position, and each caption stays below its own picture.
+
+A single image keeps its existing inline layout. Text, headings, or a different quote/outline context separate galleries, so prose is never moved around the pictures. Org source, attachment paths, and Files → Org Preview stay unchanged.
+
+For example, consecutive `[[attachment:morning.jpg]]` and `[[attachment:evening.jpg]]` links become two horizontally arranged cards. Blank lines do not split them; inserting a paragraph between the links keeps each picture in its own position. Selecting a caption search result brings the matching picture into view.
+
+An image-only supplemental attachment area uses the same layout. Mixed image/video attachment strips retain their existing playback layout.
+
 ## Where a Journal Entry Starts
 
 Tap Create in Journal to choose a configured Journal Entry Template. When none exist, Aster links to **Settings → Create & Storage → Journal Entry Templates**. The same template entrance also appears in Journal Settings.
