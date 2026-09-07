@@ -122,7 +122,7 @@ The title and these fields now sit directly on one scroll surface without Show M
 
 The main detail order is: Item/History → Schedule/Repeat/Reminder → Content → Attachments → Notes → Subtasks → Delete. Delete is red and the page reserves enough bottom space above root navigation.
 
-### Independent Scheduled and Deadline fields
+### Independent Scheduled and Deadline fields (iOS/iPadOS build 13)
 
 Task detail on iPhone and iPad can retain both `SCHEDULED` and `DEADLINE`. The Scheduled / Deadline segment selects a field to inspect; it does not convert one into the other.
 

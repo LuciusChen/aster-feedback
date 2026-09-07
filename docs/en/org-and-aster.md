@@ -367,6 +367,8 @@ Aster's semantic edits do not reformat the entire file. A state, date, priority,
 
 The Source button in the detail toolbar shows the complete saved Org subtree. Files → Edit shows and edits the complete source file.
 
+The following metadata, date-range, attachment-move, and failed-edit corrections are included in iOS/iPadOS build 13. They do not imply the same coverage in Android build 9.
+
 Adding a Note, completing a repeating task, or prepending plain-template content keeps planning and properties in the heading's metadata area. Literal examples of CLOSED, properties, or LOGBOOK inside code blocks are not edited as metadata. Date insertion supports LF, CRLF, and files without a final newline.
 
 Adding an Event date or converting a Task to an Event places the new active timestamp after planning and properties, before the body. Existing IDs, custom properties, and attachment references remain readable. Later date edits replace only the corresponding timestamp.

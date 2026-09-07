@@ -121,7 +121,7 @@ Agenda 的 `+` 打开快速新建。上方两段选择只决定 Org 类型，不
 
 详情页的主要顺序是：Item/History → Schedule/Repeat/Reminder → Content → Attachments → Notes → Subtasks → Delete。Delete 为红色，并在底部导航之上保留足够滚动空间。
 
-### 分别编辑计划和截止日期
+### 分别编辑计划和截止日期（iOS/iPadOS build 13）
 
 iPhone 和 iPad 的 Task 详情可以同时保留 `SCHEDULED` 和 `DEADLINE`。Scheduled / Deadline 分段只选择当前查看的字段，不会把计划日期转换成截止日期。
 

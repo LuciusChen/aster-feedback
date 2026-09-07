@@ -10,10 +10,16 @@ Aster shares its Org parsing, classification, write-back, sync-conflict, Agenda,
 
 | Platform | Minimum OS | Current baseline | Distribution status |
 | --- | --- | --- | --- |
-| iPhone / iPad | iOS / iPadOS 17 | 0.1 (12) | Uploaded; awaiting TestFlight processing |
+| iPhone / iPad | iOS / iPadOS 17 | 0.1 (13) | Uploaded; awaiting TestFlight processing |
 | Android phone / tablet | Android 8.0 (API 26) | 0.1 (9) | Preparing Google Play testing; not publicly available yet |
 
 Build/Version Code may advance independently on each platform. Include the platform and complete version in reports; matching marketing versions do not imply identical system capabilities or fixes.
+
+### Date Editing and Journal Images (iOS/iPadOS build 13)
+
+Task Scheduled and Deadline fields now load and save independently without replacing each other. Failed saves retain input during the running session. Metadata, repeating date ranges, and attachment handling during moves and archives are also corrected; see [Org source and results](org-and-aster.md).
+
+Consecutive Journal images use fixed-width cards that sit side by side when space permits and scroll horizontally when needed. Position marks appear above them, and tapping opens the complete original. See [Journal and Capture](journal-capture.md). These fixes do not imply that Android build 9 includes the same behavior.
 
 ### iPad Search Correction (iOS/iPadOS build 12)
 

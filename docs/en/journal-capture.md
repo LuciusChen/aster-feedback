@@ -42,7 +42,7 @@ For example, both `** What I Consume? :consume:` and its `*** 《好雨知时节
 
 In iOS/iPadOS build 12, a plain heading tap stays in the reader. Long-press the heading and choose the edit action to open its exact source location. This also applies to nested headings and Org Preview. Tag badges and the add-tag symbol remain directly tappable; the shared tag editor saves changes to the owning heading when it closes.
 
-## Multiple images (next iOS/iPadOS build, unreleased)
+## Multiple images (iOS/iPadOS build 13)
 
 Consecutive images appear as fixed-width cards instead of a vertical stack or full-width pages. Several cards sit side by side when space permits. Swipe horizontally to see any overflow.
 
