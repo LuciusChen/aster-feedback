@@ -21,7 +21,7 @@ A daily file created by Aster contains a stable date marker and a level-one day 
 Today I want to finish the release checklist.
 ```
 
-- `#+ASTER_JOURNAL_DATE` identifies the date independently of display language.
+- `#+ASTER_JOURNAL_DATE` identifies the date independently of display language. In iOS/iPadOS build 14, Preview keeps this marker out of body text; Edit still shows the complete source.
 - Existing Journal files without that marker can still be recognized from their title, level-one date heading, or Denote filename.
 - Journal year, month, and date use the Gregorian calendar in the current time zone. Lunar dates are an optional display annotation and do not change file identity.
 - Configure history range, entry count, and filename behavior under **Settings → Journal**.
@@ -50,7 +50,7 @@ Previews crop to fit their display area; tap a picture to see the complete origi
 
 A single image keeps its existing inline layout. Text, headings, or a different quote/outline context separate galleries, so prose is never moved around the pictures. Org source, attachment paths, and Files → Org Preview stay unchanged.
 
-For example, consecutive `[[attachment:morning.jpg]]` and `[[attachment:evening.jpg]]` links become two horizontally arranged cards. Blank lines do not split them; inserting a paragraph between the links keeps each picture in its own position. Selecting a caption search result brings the matching picture into view.
+For example, write `[[attachment:morning.jpg]]` and `[[attachment:evening.jpg]]` on separate lines to produce two horizontally arranged cards. iOS/iPadOS build 14 removes the accidental requirement for a blank line between them: both forms work, while intervening prose separates the groups. Leading captions and display attributes belong to the first image, not every following image. Selecting a caption search result brings the matching picture into view.
 
 An image-only supplemental attachment area uses the same layout. Mixed image/video attachment strips retain their existing playback layout.
 

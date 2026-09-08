@@ -14,7 +14,7 @@
 | 有未完成 Workflow 关键字，没有具体钟点 | Task | TODOs、Perspective |
 | 有未完成 Workflow 关键字，并有具体钟点 | Timed Task | Agenda |
 | Workflow 关键字被配置为 Treat as Project | Project | TODOs、Perspective；可显示进度 |
-| 未完成 Workflow + `STYLE=habit` + 重复的 `SCHEDULED` | Habit | 今天可执行时进入 Agenda 与 Perspective，不进入 TODOs；显示习惯历史 |
+| 未完成 Workflow + `STYLE=habit` + 重复的 `SCHEDULED` | Habit | 默认今天可执行时进入 Agenda；Perspective 可回顾未到期习惯（iOS/iPadOS build 14），不进入 TODOs；显示习惯历史 |
 | `org-anniversary` 年度 Diary | Anniversary；可选 Property 可显示 Day Counter | Agenda；可选 Anniversaries Perspective |
 | `org-cyclic` / `diary-cyclic` 周期 Diary | Cyclic Event | Agenda；可选 Perspective |
 | 没有 Workflow 和日期，但有正文 | Note | Files、Search、Journal（若在 Journal 源中） |
@@ -31,6 +31,27 @@ Aster 会先为每次文件修订建立一棵保留原文范围的 Org 语法树
 - 匿名脚注不会被误当成多行定义并吞掉后文；列表续行和子列表归属于真正的父项。
 - `SCHEDULED`、`DEADLINE` 和 Property 只有位于标题元数据位置时才取得对应结构语义；普通正文中的相同文字不会变成 Task planning。
 - 未识别的扩展语法仍按原字节保留。Aster 不执行 Babel，也不执行任意 Diary Lisp；Agenda 只解释文档中列出的安全子集。
+
+### 阅读边界示例（iOS/iPadOS build 14）
+
+以下阅读示例得到修正，不会改变 Org 文件：
+
+```org
+* 阅读检查
+2 * 3 * 4
+
+1. [ ] 待完成
+  * [X] 已完成
+
+| 名称 | 数量
+| 苹果 | 2
+
+-----
+
+%%(org-calendar-holiday) 自定义提醒
+```
+
+Preview 保留算式符号，显示列表复选框、表格和分隔线。最后一行按原文显示，不会被执行，也不会因此生成 Agenda 提醒。
 
 ## 1. 全天 Event
 
@@ -185,6 +206,8 @@ Project 不是由文件名或固定的 `PROJECT` 单词硬编码出来的。它�
 ## 7. Habit
 
 标准 Habit 身份需要同时满足：未完成 Workflow、`STYLE=habit`、带 Repeater 的 `SCHEDULED`。
+
+iOS/iPadOS build 14提供未到期习惯的回顾方式，见[今天显示所有习惯与 Perspective](agenda-todos.md#查看尚未到期的习惯iosipados-build-14)。展示范围和真实计划日期是两回事；开关不会改变以下 Org 内容。
 
 ### Org 原文
 
@@ -404,3 +427,50 @@ Unrelated material.
 可以在 Apple 快捷指令中添加 Open Org Heading，选择 Writing project 并打开 Focus，再把快捷指令放到主屏幕。这里没有新增日期、TODO 状态或私有属性，也不会改变 Agenda 分类。
 
 点击 Full Document 恢复完整阅读范围。点击 Edit 始终打开完整文件，不会把另一个项目从源码中移除。更多操作见[文件与标题链接](files-preview-attachments.md)。
+
+## 16. 时区与跨地区提醒（iOS/iPadOS build 14）
+
+### 普通 Org 跟随当地时间
+
+```org
+* TODO Morning review
+SCHEDULED: <2026-09-08 Tue 09:00>
+```
+
+在上海是当地 09:00，换到纽约后仍是当地 09:00。重新解析不会修改这段原文；仅日期的值也保留原来的日历日期。旅行后可用它核对 Agenda、通知和角标是否已经刷新。
+
+### 系统提醒保留固定时刻
+
+下面是托管 `apple-reminders.org` 的结构示例。实际 ID 由系统提供，不应把示例 ID 当成一个可同步的新提醒。
+
+```org
+* TODO New York reminder
+DEADLINE: <2026-09-08 Tue 15:00>
+:PROPERTIES:
+:APPLE_REMINDER_ID: example-provider-id
+:APPLE_REMINDER_DEADLINE_TIME_ZONE: America/New_York
+:END:
+```
+
+Aster 在上海显示 9 月 9 日 03:00，在纽约显示 9 月 8 日 15:00。两者是同一个时刻；改标题或完成状态不会把提醒提前或推迟。独立的开始日期使用 `APPLE_REMINDER_SCHEDULED_TIME_ZONE`。
+
+这些属性只用于已标识的 Apple Reminders 条目，不是普通 Org 的通用时区语法。Emacs 等忽略这些属性的阅读器看到的是原文中的纽约 15:00，不会自动换算成上海时间。没有指定时区的系统提醒继续使用当地时间。
+
+即使尚未完成同步，删除日期后再添加，也会正确使用该字段保留的时区。例如保留上述纽约时区属性，在上海选 9 月 9 日 04:00，写回的是纽约 9 月 8 日 16:00，而不是把上海的钟点误当成纽约时间。
+
+仅日期的值及其范围始终按当地日历处理，保留的时区属性不会让 11 月 7–9 日变成 7–8 日。重新开启钟点时，写回仍使用保留的时区，但不会重新解释旧范围的日数。
+
+如果来源从固定时区改为跟随当地时间，或反过来，Aster 也会更新通知规则，即使更改当下的显示时间相同。
+
+### 夏令时前后的重复范围
+
+```org
+* TODO Two-day review
+SCHEDULED: <2026-03-07 Sat 09:00 +1w>--<2026-03-09 Mon 09:00>
+```
+
+在纽约完成一次后，范围推进为 3 月 14 日 09:00 到 3 月 16 日 09:00。跨越夏令时不会让结束日期少一天，或把结束时刻改成 08:00。
+
+短范围也遵循相同规则。例如 2026 年 3 月 8 日 01:30–03:30 的每周条目，下一次仍是 3 月 15 日 01:30–03:30，不会缩短为 01:30–02:30。手动修改日期也保留这段钟面时间差。
+
+按小时重复则保留实际经过的时长。同一标题中有多个时间戳时，各自使用自己的重复规则。旧版本已经写错的范围不会被猜测性修复。

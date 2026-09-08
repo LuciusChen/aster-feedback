@@ -88,7 +88,13 @@ Org Preview renders syntax nodes rather than scanning source with simple regular
 
 Standard LOGBOOK state history starts collapsed behind each heading's **History** row, allowing a Habit file to show more habits at once. Tap the row to reveal the complete history. Preview does not repeat those same state records as ordinary body text, and the source remains unchanged.
 
-Unknown or not-yet-rendered syntax remains intact in Edit.
+Unknown or not-yet-rendered syntax remains intact in Edit. iOS/iPadOS build 14 also keeps unsupported Diary expressions and unknown standalone directives visible verbatim in Preview. Metadata already presented by the interface, such as titles, dates, and tags, is not repeated.
+
+The `#+ASTER_JOURNAL_DATE:` marker written when Aster creates a Journal file is also date metadata, not body text. It remains available in Edit and still identifies the document's date. Other unknown `ASTER_` directives stay visible.
+
+iOS/iPadOS build 14 preserves operators in expressions such as `2 * 3 * 4`, renders emphasis spanning one line break, and displays horizontal rules. Numbered, indented asterisk, and `[@N]` list items share the same checkbox behavior. Tables remain tables when their rows omit the final `|`.
+
+Cross-folder file and image links also resolve correctly. For example, `[[file:../Journal/photo.png]]` in `Notes/index.org` opens `Journal/photo.png` inside the workspace. Resolving a link neither rewrites its source nor permits access above the workspace root.
 
 ### Dynamic Blocks
 

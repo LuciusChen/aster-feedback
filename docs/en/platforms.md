@@ -10,10 +10,16 @@ Aster shares its Org parsing, classification, write-back, sync-conflict, Agenda,
 
 | Platform | Minimum OS | Current baseline | Distribution status |
 | --- | --- | --- | --- |
-| iPhone / iPad | iOS / iPadOS 17 | 0.1 (13) | Uploaded; awaiting TestFlight processing |
+| iPhone / iPad | iOS / iPadOS 17 | 0.1 (14) | Preparing the TestFlight upload |
 | Android phone / tablet | Android 8.0 (API 26) | 0.1 (9) | Preparing Google Play testing; not publicly available yet |
 
 Build/Version Code may advance independently on each platform. Include the platform and complete version in reports; matching marketing versions do not imply identical system capabilities or fixes.
+
+### Habit Review, Org Reading, and Time Zones (iOS/iPadOS build 14)
+
+Settings → Calendar & Agenda adds the default-off **Show all habits today** option. Habit Perspectives also include future habits; these visibility changes do not alter schedules, notifications, or badges. iPad editors stay open as the keyboard appears and dismisses.
+
+Org reading fixes cover emphasis, checkboxes, tables, adjacent images, and cross-folder links. Time-zone changes refresh date caches, system reminders retain explicit provider zones, and ranges preserve their intended span across daylight saving. See [Agenda and TODOs](agenda-todos.md) and [Org source examples](org-and-aster.md). These changes do not imply the same behavior in Android build 9.
 
 ### Date Editing and Journal Images (iOS/iPadOS build 13)
 

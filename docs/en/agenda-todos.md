@@ -33,11 +33,25 @@ TODOs contains every unfinished non-Habit Workflow item without a concrete clock
 - A date-only `DEADLINE` Task.
 - A Workflow item configured as a Project.
 
-Habit is the exception: once it reaches its actionable window, it appears only in today's Agenda timeline even without a clock time. It is never moved into or duplicated in TODOs, and a Habit outside its actionable window appears in neither surface.
+Habit is the exception: by default, it appears in today's Agenda timeline only after reaching its actionable window, even without a clock time. It is never moved into or duplicated in TODOs.
 
 The list follows real files and Org outline hierarchy. Visible child Tasks remain nested below a visible parent Task. Structural Containers are not misrepresented as Tasks.
 
+### Reviewing Future Habits (iOS/iPadOS build 14)
+
+Settings → Calendar & Agenda offers **Show all habits today**, off by default. Enabling it also shows not-yet-scheduled habits in today's list, labeled **Not due · Next date**, with the time when present.
+
+This only changes visibility. It does not trigger early notifications, add badges or calendar markers, or edit Org dates and repeat rules. A habit completed today remains visible once, with the existing duplicate check-in guard.
+
+To review habits separately, create a normal Perspective and select only the Habit type. It includes future habits regardless of this switch, while respecting Agenda sources, archive exclusions, and your filters. There is no additional Habit module.
+
+iOS/iPadOS build 14 also fixes the iPad editor unexpectedly closing while entering a Perspective name. Showing or dismissing the keyboard no longer switches the page layout, and the active draft stays intact.
+
 ## Overdue Rules
+
+In iOS/iPadOS build 14, changing the device's time zone or reopening Aster in a new zone reparses dates and refreshes Agenda, Journal, reminders, and badges. An ordinary Org `09:00` stays nine in the morning locally instead of becoming yesterday through a stale cache. Unsaved editor text is preserved; widgets do not use previous-zone data while awaiting a fresh snapshot.
+
+A system reminder with an explicit zone keeps its original instant. See the [time-zone source examples](org-and-aster.md#16-time-zones-and-travel-iosipados-build-14).
 
 - Only unfinished Workflow items can be overdue.
 - A date-only Task stays in TODOs and shows compact `1 day overdue` or `N days overdue` status; Aster does not move it to today.

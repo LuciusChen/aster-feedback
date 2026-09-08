@@ -14,7 +14,7 @@ This is the central semantic reference for Aster. Every example includes copyabl
 | Unfinished Workflow keyword, no concrete clock time | Task | TODOs and Perspectives |
 | Unfinished Workflow keyword, with a concrete clock time | Timed Task | Agenda |
 | Workflow keyword configured as Treat as Project | Project | TODOs and Perspectives, optionally with progress |
-| Unfinished Workflow + `STYLE=habit` + repeating `SCHEDULED` | Habit | Agenda and Perspectives when eligible today, never TODOs, with habit history |
+| Unfinished Workflow + `STYLE=habit` + repeating `SCHEDULED` | Habit | Agenda when eligible today by default; Perspectives can review future habits (iOS/iPadOS build 14), never TODOs, with habit history |
 | Yearly `org-anniversary` Diary | Anniversary; an optional Property can select Day Counter presentation | Agenda and the optional Anniversaries Perspective |
 | `org-cyclic` / `diary-cyclic` Diary cycle | Cyclic Event | Agenda and optional Perspectives |
 | No Workflow or date, but visible body content | Note | Files and Search; Journal when stored in a Journal source |
@@ -31,6 +31,27 @@ For each file revision, Aster first builds a source-range-preserving Org syntax 
 - Anonymous footnotes cannot become multiline definitions that consume following prose; continuation lines and child lists stay owned by their real list item.
 - `SCHEDULED`, `DEADLINE`, and Properties receive structural meaning only in a heading's metadata position. The same text in ordinary prose does not become Task planning.
 - Unknown extension syntax remains exact source text. Aster does not execute Babel or arbitrary Diary Lisp; Agenda interprets only the documented safe subset.
+
+### Reading Boundaries (iOS/iPadOS build 14)
+
+The following reading example is corrected without changing its Org source:
+
+```org
+* Reader checks
+2 * 3 * 4
+
+1. [ ] Pending
+  * [X] Complete
+
+| Name | Count
+| Apples | 2
+
+-----
+
+%%(org-calendar-holiday) Custom reminder
+```
+
+Preview keeps the operators and displays the checkboxes, table, and separator. The final line remains visible as source text; it is not executed and does not create an Agenda reminder.
 
 ## 1. All-Day Event
 
@@ -183,6 +204,8 @@ Project identity is not hard-coded to a filename or the literal word `PROJECT`. 
 If both checkboxes and subtasks exist without an explicit source, Aster asks instead of guessing.
 
 ## 7. Habit
+
+iOS/iPadOS build 14 adds ways to [review future habits in today's list or a Perspective](agenda-todos.md#reviewing-future-habits-iosipados-build-14). Visibility is separate from the real schedule; the setting does not change the Org content below.
 
 A standard Habit requires all three: an unfinished Workflow keyword, `STYLE=habit`, and a repeating `SCHEDULED` timestamp.
 
@@ -404,3 +427,50 @@ Unrelated material.
 In Apple Shortcuts, add Open Org Heading, select Writing project, enable Focus, and add the shortcut to your Home Screen. This introduces no date, TODO state, or private property and does not change Agenda classification.
 
 Full Document restores the complete reading scope. Edit always opens the whole file; it never removes the other project from source. See [file and heading links](files-preview-attachments.md) for the interaction guide.
+
+## 16. Time Zones and Travel (iOS/iPadOS build 14)
+
+### Ordinary Org follows local time
+
+```org
+* TODO Morning review
+SCHEDULED: <2026-09-08 Tue 09:00>
+```
+
+This means 09:00 locally in Shanghai and remains 09:00 locally after moving to New York. Reparsing does not rewrite the source. Date-only values keep their calendar date as well. Use this example after travel to check refreshed Agenda, notification, and badge behavior.
+
+### System reminders retain fixed instants
+
+This shows the managed `apple-reminders.org` structure. Real IDs come from the system; the example ID is not a new reminder that can be synchronized.
+
+```org
+* TODO New York reminder
+DEADLINE: <2026-09-08 Tue 15:00>
+:PROPERTIES:
+:APPLE_REMINDER_ID: example-provider-id
+:APPLE_REMINDER_DEADLINE_TIME_ZONE: America/New_York
+:END:
+```
+
+Aster shows September 9 at 03:00 in Shanghai and September 8 at 15:00 in New York. These represent the same instant. A title or completion edit does not move the reminder earlier or later. An independent start date uses `APPLE_REMINDER_SCHEDULED_TIME_ZONE`.
+
+These properties apply only to identified Apple Reminders items, not to ordinary Org as general time-zone syntax. Readers such as Emacs that ignore them see the written New York clock, 15:00, without converting it to Shanghai time. System reminders without an explicit zone remain floating local times.
+
+Removing and re-adding a date uses any retained zone for that field, even before sync completes. With the New York property above, choosing September 9 at 04:00 in Shanghai writes September 8 at 16:00 in New York, not the Shanghai clock misinterpreted as New York time.
+
+Date-only values and range spans always follow the local calendar. Retained zone metadata cannot shorten November 7–9 to November 7–8. Restoring a clock uses the retained zone when saving, without reinterpreting the old range's day span.
+
+Changing the source between a fixed zone and floating local time also refreshes notification rules, even if the displayed time is currently the same.
+
+### Repeating ranges across daylight saving
+
+```org
+* TODO Two-day review
+SCHEDULED: <2026-03-07 Sat 09:00 +1w>--<2026-03-09 Mon 09:00>
+```
+
+Completing this once in New York advances the range to March 14 at 09:00 through March 16 at 09:00. Crossing DST does not remove a day or move the end clock to 08:00.
+
+Short ranges follow the same rule. A weekly 01:30–03:30 entry on March 8, 2026 repeats at 01:30–03:30 on March 15, not 01:30–02:30. Manually moving the date also preserves this wall-clock span.
+
+Hourly repeats instead preserve elapsed duration. Each timestamp keeps its own repeat rule when a heading contains several timestamps. Aster does not guess corrections for ranges already damaged by an older build.

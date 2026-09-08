@@ -69,6 +69,10 @@ Aster maps system reminders only through the separate managed `apple-reminders.o
 
 A system Reminder's due value always maps to Org `DEADLINE`. It never maps to `SCHEDULED`, which retains its meaning as the date when work is planned to start. A timed Reminder preserves its exact clock time, while a date-only Reminder stays date-only.
 
+iOS/iPadOS build 14 preserves a system reminder's explicit time zone. Managed Org stores the provider clock and zone properties, while Aster displays local time. Editing its title, completion state, or date exports the correct instant. Floating reminders stay local, and date-only values do not move to another day when the zone changes.
+
+For example, September 8, 2026 at 15:00 in New York displays as September 9 at 03:00 in Shanghai. See [Time Zones and Travel](org-and-aster.md#16-time-zones-and-travel-iosipados-build-14) for source examples and the limitation in other Org readers.
+
 A simple unbounded daily, weekly, monthly, or yearly recurrence appears as a cadence-preserving Org `++` repeater. Recurrences with an end or more complex selectors remain system-owned instead of being reduced to an inaccurate Org rule.
 
 When you complete a synchronized repeating item, Apple Reminders advances the recurrence and Aster imports the next item. Both sides never advance it independently.

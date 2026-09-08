@@ -10,10 +10,16 @@ Aster 在 Apple 与 Android 平台共享 Org 解析、分类、写回、同步�
 
 | 平台 | 最低系统 | 当前基线 | 分发状态 |
 | --- | --- | --- | --- |
-| iPhone / iPad | iOS / iPadOS 17 | 0.1 (13) | 已上传，等待 TestFlight 处理 |
+| iPhone / iPad | iOS / iPadOS 17 | 0.1 (14) | 正在准备 TestFlight 上传 |
 | Android 手机 / 平板 | Android 8.0（API 26） | 0.1 (9) | Google Play 测试准备中，尚未公开发布 |
 
 两个平台可以分别推进 Build/Version Code。反馈时请写明平台和完整版本；相同营销版本号不表示系统能力或修复进度完全相同。
+
+### 习惯回顾、Org 阅读与时区（iOS/iPadOS build 14）
+
+设置 → 日历与 Agenda 新增默认关闭的「今天显示所有习惯」。Habit Perspective 也可查看尚未到期的习惯；这些展示变化不修改真实计划、通知或角标。iPad 编辑器在键盘弹出和收起时保持打开。
+
+Org 阅读修正了强调、复选框、表格、相邻图片和跨文件夹链接。换时区后刷新日期缓存，保留系统提醒的明确时区，并修正跨夏令时的日期范围。详情见 [Agenda 与 TODOs](agenda-todos.md) 和 [Org 原文示例](org-and-aster.md)。这些变化不代表 Android build 9 已包含相同行为。
 
 ### 日期编辑与 Journal 图片（iOS/iPadOS build 13）
 
