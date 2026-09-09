@@ -149,6 +149,12 @@ WebDAV URL、文件与目录名、Journal 文件名规则、Capture 路径与提
 
 详情页的主要顺序是：Item/History → Schedule/Repeat/Reminder → Content → Attachments → Notes → Subtasks → Delete。Delete 为红色，并在底部导航之上保留足够滚动空间。
 
+下一版本的 iPhone/iPad 详情页会将顶部可编辑标题稍微放大并使用半粗字重，与下方设置项区分。短标题和长标题使用同样的层级，仍跟随所选字体和系统文字大小；字段顺序与保存方式不变。
+
+标题会按实际宽度自然换行，不再根据字符数量决定是否显示多行。浅色、深色和较大字号遵循同一规则，视觉换行不会改变 Org 标题原文。
+
+同一版本还会去掉详情中 Add Attachment 和 Delete 的图标。Add Attachment 文字左对齐；Delete 文字居中、加粗并保持红色，删除前仍需确认。
+
 iPad 横屏时，Agenda 详情在右侧显示源码按钮，不需要旋转屏幕。返回会先保存，再恢复右侧月历；保存失败时保留当前输入和详情页。
 
 ### 分别编辑计划和截止日期（下一版本）

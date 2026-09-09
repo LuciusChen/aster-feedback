@@ -150,6 +150,12 @@ Long WebDAV URLs, file and folder names, Journal filename rules, Capture paths a
 
 The main detail order is: Item/History → Schedule/Repeat/Reminder → Content → Attachments → Notes → Subtasks → Delete. Delete is red and the page reserves enough bottom space above root navigation.
 
+In the next iPhone/iPad build, the editable title uses a slightly larger semibold style to distinguish it from the settings below. Short and long titles share that hierarchy and follow the selected font and system Text Size; field order and saving are unchanged.
+
+Titles wrap to the available width rather than switching controls at a character-count threshold. Light mode, dark mode, and larger text follow the same rule; visual wrapping does not change the Org headline source.
+
+The same build removes the icons from Add Attachment and Delete in detail. Add Attachment stays left-aligned. Delete is centered, bold, and red, and still asks for confirmation.
+
 In iPad landscape, Agenda detail keeps its source button in the right pane without requiring rotation. Back saves before restoring the month calendar; a failed save keeps the input and detail open.
 
 ### Independent Scheduled and Deadline fields (next build)

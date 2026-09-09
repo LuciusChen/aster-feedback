@@ -105,7 +105,11 @@ Aster compares each Reminder ID's local fields, system fields, and last successf
 
 When the managed file is unchanged, that pass does not reload the workspace or schedule an extra cloud sync, including when only the device-local baseline changes. Normal foreground cloud checks still run.
 
-Completing, reopening, or otherwise editing a managed item in Aster requests an Apple Reminders pass immediately when Full Access is available. If a pass is already running, Aster keeps one follow-up request instead of making you leave and reopen the app.
+Completing, reopening, editing, or deleting a managed item in Aster requests an Apple Reminders pass immediately when Full Access is available. If a pass is already running, Aster keeps one follow-up request instead of making you leave and reopen the app.
+
+The next build fixes deleted items returning on import. Removing a synchronized heading from `apple-reminders.org` also removes its matching Apple Reminder, including completed or repeating reminders. Other reminders with the same title but different IDs are untouched. Ordinary Org files do not participate in this system sync.
+
+If the system copy changed during deletion, Aster asks you to review the conflict instead of erasing that edit. Failed syncs can be retried using the existing baseline; you do not need to delete the system copy separately. Do not delete the entire managed file to clear Reminders: an absent file or missing first-sync baseline never authorizes bulk system deletion.
 
 Divergent edits to the same item after the baseline exists stop sync and identify the reminder to review. Compare that item in `apple-reminders.org` and the Reminders app, make the fields you want to keep agree, and sync again; repeated retries alone cannot resolve it.
 
