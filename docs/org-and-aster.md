@@ -144,7 +144,11 @@ SCHEDULED: <2026-09-07 Mon> DEADLINE: <2026-09-11 Fri -2d>
 
 这个任务计划在 9 月 7 日处理，9 月 11 日截止。两个字段没有具体时刻，仍在 TODOs 中；`-2d` 表示截止前两天开始显示到期提示。
 
-在 iPhone 或 iPad 详情里选 Deadline，只会显示并修改 9 月 11 日。改成 9 月 12 日后，源文件保留 `SCHEDULED: <2026-09-07 Mon>`，只把 Deadline 更新为 `<2026-09-12 Sat -2d>`。关闭 Deadline 开关也只删除 Deadline，不删除 Scheduled 或正文。
+在 iPhone 或 iPad 详情里打开 Deadline 日期行，只会显示并修改 9 月 11 日。改成 9 月 12 日后，源文件保留 `SCHEDULED: <2026-09-07 Mon>`，只把 Deadline 更新为 `<2026-09-12 Sat -2d>`。
+
+关闭 Deadline 开关只删除截止日期，不影响 Scheduled 或正文。
+
+下一版本可在「＋」新建 Task 时，通过两个原页区块独立设置日期。两项开关可以同时打开，也可以设置不同时刻，例如 Scheduled 为 `09:00`，Deadline 为 `17:00`。保存后仍是一个任务；两个字段写在标题后同一条 planning line 中，不能拆成两行让 Emacs 漏读其中一项。
 
 ## 5. 有具体时刻的 Task
 

@@ -68,7 +68,7 @@ The Agenda `+` opens quick creation. The two-position control determines Org typ
 | Selection | Org meaning | Time precision |
 | --- | --- | --- |
 | Calendar icon | Event, no Workflow keyword | All-day or start–end range |
-| Checkmark icon | Task, selected Workflow keyword | Undated, date-only, or one exact time |
+| Checkmark icon | Task, selected Workflow keyword | Undated; each planning date can include a time |
 
 ### Event
 
@@ -89,28 +89,42 @@ The Agenda `+` opens quick creation. The two-position control determines Org typ
 
 ### Task
 
-- Schedule off: write an undated Task that appears in TODOs.
-- Date only: write a date-only `SCHEDULED` or `DEADLINE` value that remains in TODOs.
-- At a time on: write one exact time that appears in Agenda and alerts at that time.
+- Neither Scheduled nor Deadline set: write an undated Task that appears in TODOs.
+- Set `SCHEDULED`, `DEADLINE`, or both. Without a clock time, the Task remains in TODOs.
+- Enable At a time for the selected field to write its clock time, show it in Agenda, and alert at that time.
 - A Task has no end time; it is not an Event interval.
 
-The horizontal timeline remains visible after switching to Task. A date-only Task spans the day in the creation preview, but that visual feedback does not change its Org meaning; only enabling At a time places it in Agenda at an exact point.
+A date-only Task can preview a full day during creation without appearing in Agenda. An undated Task has no timeline preview; see [Independent Scheduled and Deadline fields](#independent-scheduled-and-deadline-fields-next-build) for what happens when a date is removed.
 
 ## What the Creation Surface Exposes
 
-The same scrollable creation surface directly exposes:
+Creation and detail keep shared fields in the same order. The title stays above the scrolling controls, followed by:
 
-- Task Workflow state
-- Task-only planning type
-- Event start/end dates and optional interval times, or one Task date and optional exact time
+- Item Type, then Task Workflow state and progress when applicable
 - Priority
 - Tags
-- Standard Org Repeat or Weekday Diary
+- Independent Task Scheduled and Deadline fields, edited through the same inline date, time, and repeat controls
+- Event start/end dates and optional interval times
+- Event and Task standard Org Repeat or Weekday Diary; each Task date retains its own rule
 - Pending attachments
 - One Note written to LOGBOOK
 - The read-only Event & Task Inbox destination
 
-The title and these fields now sit directly on one scroll surface without Show More/Show Less or extra custom card backgrounds. A long title wraps to the available phone width and shows as many visual lines as the complete value requires, with no line-count cap and without storing a newline in the Org headline. Its horizontal timeline preview remains one line and tail-truncates inside the strip instead of widening the page. Long WebDAV URLs, file and folder names, Journal filename rules, Capture paths and prompt answers, Agenda tags, and Perspective filters follow the same editing rule. The timeline keeps only its faint flat field so its time range remains legible. Tapping Add still commits the headline, planning, properties, Note, links, and attachment copies as one transaction.
+The title stays above one scrolling region for the setting entry points, without Show More/Show Less. Scheduled and Deadline are edited separately in that form, without entering date subpages.
+
+A long title wraps to the available phone width with no line-count cap and without storing a newline in the Org headline. The title inside the timeline preview stays on one line and tail-truncates within the strip instead of widening the page.
+
+The timeline reduces tick-label density to fit the actual font and localized time text, including AM/PM at larger sizes. Endpoint labels remain fully visible, and the Event interval or Task time stays in the same position.
+
+On daylight-saving transition days, automatic positioning follows the actual ticks, including in time zones with half-hour changes. Non-whole-hour ticks show their minutes, and a final segment shorter than an hour keeps its real width.
+
+The creation timeline sits in the date area alongside the highlighted draft. Creating an Event shows only that day's Events; creating a Task shows only timed Tasks. Switching type or date refreshes the context immediately. Events occupy their actual intervals, Tasks are time points, and you can scroll horizontally to see other hours.
+
+In Event capture, overnight Events show their overlap with that day and all-day Events use a separate compact strip. Task capture hides those Events; no-clock TODOs still do not occupy the time axis.
+
+Displayed clocks follow the system's 12/24-hour preference, without another Aster setting. Org timestamps still use `HH:mm`, and literal titles and template text are unchanged. Returning to Aster after changing the system format also refreshes pending notification text without moving the reminders.
+
+Long WebDAV URLs, file and folder names, Journal filename rules, Capture paths and prompt answers, Agenda tags, and Perspective filters follow the same wrapping rule. The timeline keeps its faint flat background to indicate the time range. Add still commits the headline, planning, properties, Note, links, and attachment copies as one transaction.
 
 ## Calendar and Timeline
 
@@ -136,11 +150,33 @@ The title and these fields now sit directly on one scroll surface without Show M
 
 The main detail order is: Item/History → Schedule/Repeat/Reminder → Content → Attachments → Notes → Subtasks → Delete. Delete is red and the page reserves enough bottom space above root navigation.
 
-### Independent Scheduled and Deadline fields (iOS/iPadOS build 13)
+In iPad landscape, Agenda detail keeps its source button in the right pane without requiring rotation. Back saves before restoring the month calendar; a failed save keeps the input and detail open.
 
-Task detail on iPhone and iPad can retain both `SCHEDULED` and `DEADLINE`. The Scheduled / Deadline segment selects a field to inspect; it does not convert one into the other.
+### Independent Scheduled and Deadline fields (next build)
 
-Each field keeps its own enable switch, date, clock time, and repeat rule. Switching fields retains unsaved changes. Turning one off removes only that field, and leaving detail writes the changes together. Browsing fields or editing only the title or tags leaves unchanged dates untouched.
+New and existing Tasks show Scheduled and Deadline as independent sections in the original form. Both switches can be on together, with each section displaying its own date, time, and repeat rule. There is no editing-mode selector.
+
+Each switch enables or removes only its own field. Both sections use the same controls but retain separate values. At a time places the clock immediately after the date in that section's Date row. Its own row contains only the toggle, with no duplicate time picker.
+
+During creation, enabling At a time defaults to the next whole hour: at 14:35, the selected day gets 15:00. Scheduled and Deadline apply this independently, matching Event creation. If Today crosses midnight at the next hour, the default is tomorrow at 00:00. Editing an existing clock does not round it again.
+
+Scheduled is when you plan to start working; Deadline is when the work should be finished. These are independent planning fields, not different task types. Neither requires a clock time; a date-only Task remains in TODOs.
+
+Dates use the system picker directly, without Scheduled or Deadline child pages. Add saves a new Task, and leaving detail saves an existing one.
+
+When creating an item, switching Event/Task retains the unsaved Task dates and Event interval separately.
+
+Repeat opens the shared rule sheet from the original form. Done or dismissing it returns to the same form without saving the Task.
+
+When choosing a weekly repeat, trying other weekdays and returning to the original keeps the original date. Closing Repeat resolves the final selection once; intermediate taps do not advance the task to later weeks.
+
+Weekdays, Weekends, and custom weekday combinations use a shared headline clock. If both fields use these rules, their times and all-day settings must agree. Conflicts show an explanation and retain your input without writing. Use ordinary timestamp repeaters or separate tasks when different clocks are needed.
+
+Removing one date preserves the other. Browsing dates or editing only the title or tags leaves unchanged timestamps untouched. Scheduled later than Deadline shows a quiet hint without changing either value.
+
+When creating a Task, the date summary and timeline follow the last edited enabled field. Removing it falls back to the remaining date, preserving its all-day or timed display. Merely viewing another section does not change the preview. The preview disappears only when both dates are removed.
+
+When adding both dates, Aster writes them on the same standard Org planning line immediately after the heading. A new CLOSED timestamp joins that line too, so Emacs recognizes all the fields.
 
 If source already contains multiple fields of the same kind, editing that date asks you to review the Org source first. Aster does not guess which conflicting value to delete. See the [two-date Org example](org-and-aster.md#both-a-scheduled-date-and-a-deadline).
 

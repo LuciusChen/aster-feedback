@@ -144,7 +144,11 @@ SCHEDULED: <2026-09-07 Mon> DEADLINE: <2026-09-11 Fri -2d>
 
 This Task is planned for September 7 and due on September 11. Neither field has a clock time, so it remains in TODOs. The `-2d` cookie starts due-status presentation two days before the deadline.
 
-Selecting Deadline in iPhone or iPad detail loads September 11 independently. Changing it to September 12 keeps `SCHEDULED: <2026-09-07 Mon>` and updates only Deadline to `<2026-09-12 Sat -2d>`. Turning Deadline off removes only that field, not Scheduled or the body.
+Opening the Deadline row in iPhone or iPad detail loads September 11 independently. Changing it to September 12 keeps `SCHEDULED: <2026-09-07 Mon>` and updates only Deadline to `<2026-09-12 Sat -2d>`.
+
+Turning off the Deadline switch removes only that date, leaving Scheduled and the body unchanged.
+
+The next build also shows both inline sections when creating a Task with +. Both switches can be enabled together, and their clocks may differ, such as Scheduled at `09:00` and Deadline at `17:00`. Saving writes one Task with both fields on the same planning line immediately after its heading. Splitting them across two lines would prevent Emacs from recognizing both.
 
 ## 5. Task at a Specific Time
 
