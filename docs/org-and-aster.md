@@ -148,7 +148,7 @@ SCHEDULED: <2026-09-07 Mon> DEADLINE: <2026-09-11 Fri -2d>
 
 关闭 Deadline 开关只删除截止日期，不影响 Scheduled 或正文。
 
-下一版本可在「＋」新建 Task 时，通过两个原页区块独立设置日期。两项开关可以同时打开，也可以设置不同时刻，例如 Scheduled 为 `09:00`，Deadline 为 `17:00`。保存后仍是一个任务；两个字段写在标题后同一条 planning line 中，不能拆成两行让 Emacs 漏读其中一项。
+iOS/iPadOS build 15 可在「＋」新建 Task 时，通过两个原页区块独立设置日期。两项开关可以同时打开，也可以设置不同时刻，例如 Scheduled 为 `09:00`，Deadline 为 `17:00`。保存后仍是一个任务；两个字段写在标题后同一条 planning line 中，不能拆成两行让 Emacs 漏读其中一项。
 
 ## 5. 有具体时刻的 Task
 

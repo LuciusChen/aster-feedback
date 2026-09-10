@@ -94,9 +94,9 @@ The Agenda `+` opens quick creation. The two-position control determines Org typ
 - Enable At a time for the selected field to write its clock time, show it in Agenda, and alert at that time.
 - A Task has no end time; it is not an Event interval.
 
-A date-only Task can preview a full day during creation without appearing in Agenda. An undated Task has no timeline preview; see [Independent Scheduled and Deadline fields](#independent-scheduled-and-deadline-fields-next-build) for what happens when a date is removed.
+A date-only Task can preview a full day during creation without appearing in Agenda. An undated Task has no timeline preview; see [Independent Scheduled and Deadline fields](#independent-scheduled-and-deadline-fields) for what happens when a date is removed.
 
-### Weekday-Rule Reminders (iOS/iPadOS, unreleased)
+### Weekday-Rule Reminders (iOS/iPadOS, build 15)
 
 An unfinished Task with a supported weekday, weekend, or custom weekday rule and a headline clock also alerts on matching days. Date-only Tasks, completed Tasks, and Events without a TODO state do not gain automatic alerts. Arbitrary Lisp expressions are never executed.
 
@@ -165,7 +165,7 @@ Long WebDAV URLs, file and folder names, Journal filename rules, Capture paths a
 
 The main detail order is: Item/History → Schedule/Repeat/Reminder → Content → Attachments → Notes → Subtasks → Delete. Delete is red and the page reserves enough bottom space above root navigation.
 
-In the next iPhone/iPad build, the editable title uses a slightly larger semibold style to distinguish it from the settings below. Short and long titles share that hierarchy and follow the selected font and system Text Size; field order and saving are unchanged.
+In iPhone/iPad build 15, the editable title uses a slightly larger semibold style to distinguish it from the settings below. Short and long titles share that hierarchy and follow the selected font and system Text Size; field order and saving are unchanged.
 
 Titles wrap to the available width rather than switching controls at a character-count threshold. Light mode, dark mode, and larger text follow the same rule; visual wrapping does not change the Org headline source.
 
@@ -173,7 +173,9 @@ The same build removes the icons from Add Attachment and Delete in detail. Add A
 
 In iPad landscape, Agenda detail keeps its source button in the right pane without requiring rotation. Back saves before restoring the month calendar; a failed save keeps the input and detail open.
 
-### Independent Scheduled and Deadline fields (next build)
+### Independent Scheduled and Deadline fields
+
+The following inline workflow is available in iOS/iPadOS build 15.
 
 New and existing Tasks show Scheduled and Deadline as independent sections in the original form. Both switches can be on together, with each section displaying its own date, time, and repeat rule. There is no editing-mode selector.
 

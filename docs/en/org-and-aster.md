@@ -148,7 +148,7 @@ Opening the Deadline row in iPhone or iPad detail loads September 11 independent
 
 Turning off the Deadline switch removes only that date, leaving Scheduled and the body unchanged.
 
-The next build also shows both inline sections when creating a Task with +. Both switches can be enabled together, and their clocks may differ, such as Scheduled at `09:00` and Deadline at `17:00`. Saving writes one Task with both fields on the same planning line immediately after its heading. Splitting them across two lines would prevent Emacs from recognizing both.
+iOS/iPadOS build 15 shows both inline sections when creating a Task with +. Both switches can be enabled together, and their clocks may differ, such as Scheduled at `09:00` and Deadline at `17:00`. Saving writes one Task with both fields on the same planning line immediately after its heading. Splitting them across two lines would prevent Emacs from recognizing both.
 
 ## 5. Task at a Specific Time
 

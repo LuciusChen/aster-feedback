@@ -61,7 +61,7 @@ Sync replacement or automatic deletion of an existing WebDAV file requires a str
 
 If local source changes after a conflict comparison opens, the old choice is rejected and the comparison refreshes to the latest local content. Review it again before choosing; an old snapshot must not overwrite later edits.
 
-### Verifying Upload Results (iOS/iPadOS, unreleased)
+### Verifying Upload Results (iOS/iPadOS, build 15)
 
 Some WebDAV servers omit the version header after a successful upload. Aster reads the file back, checks that the bytes match the upload exactly, and records the version associated with those bytes. If another client has already changed the file, synchronization stops instead of treating that client's version as Aster's upload.
 
@@ -107,7 +107,7 @@ When the managed file is unchanged, that pass does not reload the workspace or s
 
 Completing, reopening, editing, or deleting a managed item in Aster requests an Apple Reminders pass immediately when Full Access is available. If a pass is already running, Aster keeps one follow-up request instead of making you leave and reopen the app.
 
-The next build fixes deleted items returning on import. Removing a synchronized heading from `apple-reminders.org` also removes its matching Apple Reminder, including completed or repeating reminders. Other reminders with the same title but different IDs are untouched. Ordinary Org files do not participate in this system sync.
+iOS/iPadOS build 15 fixes deleted items returning on import. Removing a synchronized heading from `apple-reminders.org` also removes its matching Apple Reminder, including completed or repeating reminders. Other reminders with the same title but different IDs are untouched. Ordinary Org files do not participate in this system sync.
 
 If the system copy changed during deletion, Aster asks you to review the conflict instead of erasing that edit. Failed syncs can be retried using the existing baseline; you do not need to delete the system copy separately. Do not delete the entire managed file to clear Reminders: an absent file or missing first-sync baseline never authorizes bulk system deletion.
 
@@ -129,7 +129,7 @@ DEADLINE: <2026-09-05 15:00>
 :END:
 ```
 
-### Interrupted Creation and Literal Notes (iOS/iPadOS, unreleased)
+### Interrupted Creation and Literal Notes (iOS/iPadOS, build 15)
 
 Before creating a system reminder, Aster saves a standard Org `:ID:` and a comparison baseline for the pending creation. The new reminder's URL carries the matching Aster link. If system creation succeeds but a later read or local save fails, a retry finds that same reminder by ID instead of guessing from its title or creating a duplicate. Recovery also works after restarting Aster.
 
@@ -146,7 +146,7 @@ Trailing tags and progress text in titles, along with CRLF line endings in notes
 
 The system title excludes Org workflow and priority prefixes whether separated by spaces or tabs. Changing only those separators is not a reminder edit; text within the remaining title stays unchanged.
 
-Timestamped notes added through Add Note live in that item's Org `LOGBOOK`. Sync preserves those notes and state history by item ID, even after a system-side title edit; it does not merge them into Apple Reminders' ordinary notes field. This LOGBOOK preservation fix is unreleased.
+Timestamped notes added through Add Note live in that item's Org `LOGBOOK`. In iOS/iPadOS build 15, sync preserves those notes and state history by item ID, even after a system-side title edit; it does not merge them into Apple Reminders' ordinary notes field.
 
 ## Android Notification Boundary
 
