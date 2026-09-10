@@ -146,6 +146,8 @@ DEADLINE: <2026-09-05 15:00>
 
 同步到系统的标题不包含 Org 状态和优先级前缀，不论前缀之间用空格还是制表符分隔。仅调整这些分隔符不会被视为修改提醒；标题内部的原文不变。
 
+通过 Add Note 添加的时间戳笔记保存在该条目的 Org `LOGBOOK` 中。同步会按条目 ID 保留这些笔记和状态历史，即使系统侧修改了标题；它们不会合并进 Apple Reminders 的普通备注字段。这里的 LOGBOOK 保留修复尚未发布。
+
 ## Android 通知边界
 
 Android 版不创建 `apple-reminders.org`，也不把普通 Org Task 导入或导出到某个假想的 Apple Reminders 等价服务。**Aster Notifications** 从当前 Agenda 来源中带具体时刻的条目重建本地提醒计划；Android 13 及以上只在用户从设置明确启用时请求通知权限。

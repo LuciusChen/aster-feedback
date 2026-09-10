@@ -136,6 +136,10 @@ Indented code stays literal instead of becoming a heading or list. Nested lists 
 
 These reading changes do not rewrite Markdown. Opening Edit from Preview still targets the exact original block, including heading underlines and list indentation.
 
+Unreleased fixes also recognize tabs and closing `#` markers in Markdown headings. A plain line without a pipe inside a GFM table remains a body cell until a blank line or another block ends the table. Code immediately following a table stays separate, whether indented with tabs or equivalent spaces. Source text remains unchanged.
+
+Org text and regular-expression link searches also correct their CRLF line count. The same content with LF or CRLF line endings targets the same source line.
+
 ## Org Attach Mapping
 
 Attachments use the standard Org Attach directory layout:
@@ -161,6 +165,10 @@ data/3d/94a625-be28-4144-8158-05fbf1288d5c/contract.pdf
 ```
 
 The `attachment:` link, heading `ID`, `ATTACH` tag, and `data/` file must travel together. Org Attach is not an Aster-specific attachment format limited to `.txt` files.
+
+Before adding an attachment, Aster checks that the actual destination stays inside the workspace, including existing symlinked directories. An escaping destination produces an error before copying. This unreleased fix does not require UUIDs; safe custom Org IDs remain valid.
+
+Moving an entire Org file does not automatically relocate its adjacent attachments. A cross-directory file move still requires maintaining its relative paths and `data/` directory; it is distinct from moving an Org heading subtree in Aster.
 
 ## Where Attachments Can Be Added
 

@@ -96,6 +96,21 @@ The Agenda `+` opens quick creation. The two-position control determines Org typ
 
 A date-only Task can preview a full day during creation without appearing in Agenda. An undated Task has no timeline preview; see [Independent Scheduled and Deadline fields](#independent-scheduled-and-deadline-fields-next-build) for what happens when a date is removed.
 
+### Weekday-Rule Reminders (iOS/iPadOS, unreleased)
+
+An unfinished Task with a supported weekday, weekend, or custom weekday rule and a headline clock also alerts on matching days. Date-only Tasks, completed Tasks, and Events without a TODO state do not gain automatic alerts. Arbitrary Lisp expressions are never executed.
+
+This entry alerts at local 10:00 on Saturdays and Sundays, retaining that local clock across time-zone and daylight-saving changes:
+
+```org
+* TODO Weekend review 10:00
+SCHEDULED: <%%(memq (calendar-day-of-week date) '(0 6))>
+```
+
+Its badge expires at midnight, and the same Task counts only once per day. Complete in a notification never reopens an already-finished Task.
+
+Snooze retains the original occurrence across midnight and repeated snoozes. For example, snoozing Saturday's notification at 09:55 on Sunday until 10:05 leaves Sunday's regular 10:00 alert intact. An old notification without a valid original time reports that it is out of date without changing the item; open that item in Aster.
+
 ## What the Creation Surface Exposes
 
 Creation and detail keep shared fields in the same order. The title stays above the scrolling controls, followed by:

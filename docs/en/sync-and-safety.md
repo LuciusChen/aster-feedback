@@ -146,6 +146,8 @@ Trailing tags and progress text in titles, along with CRLF line endings in notes
 
 The system title excludes Org workflow and priority prefixes whether separated by spaces or tabs. Changing only those separators is not a reminder edit; text within the remaining title stays unchanged.
 
+Timestamped notes added through Add Note live in that item's Org `LOGBOOK`. Sync preserves those notes and state history by item ID, even after a system-side title edit; it does not merge them into Apple Reminders' ordinary notes field. This LOGBOOK preservation fix is unreleased.
+
 ## Android Notification Boundary
 
 The Android build does not create `apple-reminders.org` and does not import or export ordinary Org Tasks through an invented Apple Reminders equivalent. **Aster Notifications** rebuilds local reminder plans from concretely timed items in the current Agenda sources. On Android 13 and later, Aster requests notification permission only after the user explicitly enables notifications in Settings.
