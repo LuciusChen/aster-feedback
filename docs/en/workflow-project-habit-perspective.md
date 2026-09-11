@@ -28,7 +28,24 @@ A more complete example:
 
 Under **Settings → Tasks & Workflow → Workflow**, configure order, Process/Terminal role, symbol, color, and state history. The Color row uses the native circular color well for any RGB color, not just preset swatches. Existing states save valid changes automatically, including the latest value when navigating back; only a new state requires **Add**.
 
-**Unreleased iOS/iPadOS adjustment:** The state editor no longer shows Shortcut, and state rows omit Key hints. Letters such as `t` and `w` inside Org tokens are Emacs fast keys, not required mobile settings. Existing keys are preserved when changing names, roles, logging, or appearance; Advanced Org Syntax remains available for deliberate changes to complete declarations.
+**Unreleased iOS/iPadOS adjustment:** The state editor no longer shows Shortcut, and state rows omit Key hints. Letters such as `t` and `w` inside Org tokens are Emacs fast keys, not required mobile settings. Existing keys are preserved when changing names, roles, logging, or appearance.
+
+Already have an Emacs configuration? Open **Org syntax → Task Flow 1** directly on the Workflow page and paste the complete `(sequence ...)` list, including parentheses, quotes, and line breaks. Check the Process/Terminal preview and save. Plain `TODO(t) ... | DONE(d)` tokens still work, and file-local `#+TODO:` definitions retain precedence.
+
+For example, paste this directly:
+
+```elisp
+(sequence "TODO(t)" "PROJECT(p)" "WAITING(w@/!)" "DELEGATED(e!)" "HOLD(h@/!)"
+          "|" "DONE(d)" "CANCELLED(c@)")
+```
+
+It is saved as one standard Org sequence, preserving order, fast keys, and logging:
+
+```org
+TODO(t) PROJECT(p) WAITING(w@/!) DELEGATED(e!) HOLD(h@/!) | DONE(d) CANCELLED(c@)
+```
+
+This reads plain quoted tokens from one literal `sequence` list; it does not execute Lisp or import a surrounding `setq`, nested expressions, or escaped strings. Incomplete or duplicate input does not replace the existing configuration.
 
 ### Parallel Task Flows and Direct Switching
 
@@ -52,7 +69,7 @@ Org allows one file to define several distinct state sequences in parallel:
 - Selecting a Terminal state from another flow still derives completion, `CLOSED:`, and entry/exit logging from the corresponding Org definitions.
 - For a repeating heading, completing `TODO` directly through another flow's `FIXED` advances the repeat date and returns to the original flow's `REPEAT_TO_STATE`, configured repeat target, or first Process state, matching `org-todo`; Aster does not silently change it to `REPORT`.
 
-File-local declarations affect only their file. In their absence, Aster uses the global Task Flows under **Settings → Tasks & Workflow → Workflow**. Advanced Org Syntax edits each complete definition token-for-token, while the structured editor covers common state, appearance, and logging changes.
+File-local declarations affect only their file. In their absence, Aster uses the global Task Flows under **Settings → Tasks & Workflow → Workflow**. Org syntax edits each complete definition token-for-token, while the structured editor covers common state, appearance, and logging changes.
 
 ### Timeline Shortcuts
 

@@ -14,6 +14,8 @@ The screenshot comes from iOS/iPadOS. Android keeps the same Org semantic hierar
 
 Files displays the real hierarchy of connected workspaces, including local files and remote items known to the sync index.
 
+The unreleased iOS/iPadOS version supports [selective folder sync](sync-and-safety.md). Existing local files in excluded folders still open; cloud-only files ask you to re-enable their folder in Settings first. Explicitly confirmed cloud file operations in Files remain separate from automatic sync scope.
+
 - Icons after a directory name only indicate an Agenda, Journal, or Event & Task Inbox role. They do not change the directory itself.
 - Configure those roles in Settings. A folder context menu may also add or remove that folder from the root Files secondary menu; this is only a navigation shortcut and does not change the folder's role.
 - A real empty directory stays visible without a meaningless disclosure action.

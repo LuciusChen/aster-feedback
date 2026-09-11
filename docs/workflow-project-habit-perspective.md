@@ -28,7 +28,24 @@ Aster 把“状态”“项目”“习惯”和“视图”拆成四层语义�
 
 在 **设置 → Tasks & Workflow → Workflow** 中可调整顺序、Process/Terminal、图标、颜色和状态历史。颜色行使用系统圆形色盘，可以为每个状态选择完整 RGB 颜色，而不局限于预设色块。修改已有状态会自动保存，返回时也会写入最后一个有效值；只有新建状态需要点 **Add**。
 
-**iOS/iPadOS 未发布调整：** 状态编辑页不再显示 Shortcut，状态列表也不再显示 Key 提示。括号里的 `t`、`w` 等是 Emacs 快捷键，不需要在手机上填写。已有快捷键仍会随状态配置保留，修改名称、类型、日志或外观不会清除它们；如需直接调整完整 Org 声明，可使用 Advanced Org Syntax。
+**iOS/iPadOS 未发布调整：** 状态编辑页不再显示 Shortcut，状态列表也不再显示 Key 提示。括号里的 `t`、`w` 等是 Emacs 快捷键，不需要在手机上填写。已有快捷键仍会随状态配置保留，修改名称、类型、日志或外观不会清除它们。
+
+如果已有 Emacs 配置，可以在 Workflow 首页的 **Org 语法 → 任务流程 1** 直接粘贴整条 `(sequence ...)`，包括括号、引号和换行，确认 Process/Terminal 预览后保存，不必逐个填写状态。原来的 `TODO(t) ... | DONE(d)` 简写也继续支持。文件里的 `#+TODO:` 仍优先于全局设置。
+
+例如可直接粘贴：
+
+```elisp
+(sequence "TODO(t)" "PROJECT(p)" "WAITING(w@/!)" "DELEGATED(e!)" "HOLD(h@/!)"
+          "|" "DONE(d)" "CANCELLED(c@)")
+```
+
+保存后会成为一条标准 Org 序列，顺序、快捷键和日志规则不变：
+
+```org
+TODO(t) PROJECT(p) WAITING(w@/!) DELEGATED(e!) HOLD(h@/!) | DONE(d) CANCELLED(c@)
+```
+
+这里只读取单条 `sequence` 中的普通引号字符串，不执行 Lisp，也不导入整段 `setq`、嵌套表达式或转义字符串。输入不完整或关键字重复时不会覆盖现有配置。
 
 ### 多套并行 Task Flow 与切换
 
@@ -52,7 +69,7 @@ Org 允许同一个文件并行定义多套互不相同的状态序列：
 - 切到另一套流程的 Terminal 状态时，完成判断、`CLOSED:` 和进入/离开日志仍来自相应的 Org 状态定义。
 - 如果标题带 Repeater，从 `TODO` 直接完成为另一套流程的 `FIXED`，Aster 会像 `org-todo` 一样推进重复日期，并回到原流程的 `REPEAT_TO_STATE`、配置目标或第一个 Process 状态，而不是擅自改成 `REPORT`。
 
-文件内定义始终只影响该文件；没有文件内定义时才使用 **设置 → Tasks & Workflow → Workflow** 的全局 Task Flow。高级 Org Syntax 可直接编辑每一行的完整 token，结构化编辑器则用于常见的状态、样式与日志配置。
+文件内定义始终只影响该文件；没有文件内定义时才使用 **设置 → Tasks & Workflow → Workflow** 的全局 Task Flow。Org syntax 可直接编辑每一行的完整 token，结构化编辑器则用于常见的状态、样式与日志配置。
 
 ### 时间线快捷交互
 

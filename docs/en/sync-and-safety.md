@@ -21,6 +21,22 @@ Nutstore requires a third-party app password, not the account login password. Ge
 
 Even when a WebDAV server lists a nested file such as `agenda/work/review.org` without separate records for every collection, Aster restores the proven `agenda/` and `agenda/work/` parents from that path. A directory visible in Files should therefore also be available to the Agenda Sources, Journal folder, and Event & Task Inbox path pickers.
 
+## Choose Subfolders to Sync (iOS/iPadOS, unreleased)
+
+Open **Settings → Workspace & Sync → Workspace root**. All four providers share the same browser: tap a folder to enter it, then use native Back or swipe back to its parent. Separate checkmarks choose what syncs. Browsing never changes the root, and there is no Parent Folder row.
+
+Everything starts selected; a dash means partial selection. Changing a parent applies to its subtree, with later child overrides. New folders inherit their parent's choice; root files always sync. Dropbox's Include subfolders is on this page and must be enabled for individual choices.
+
+Dropbox paths are case-insensitive, so `Journal` and `journal` appear as one choice and are excluded together. Other providers retain separate case-sensitive choices. This does not rename files.
+
+Save can stage folder choices for the next run while a transfer is in progress. Changing the root or Include subfolders waits for that transfer to finish. Root changes retain each provider's existing flow: the Dropbox account browser, iCloud system picker, or Nutstore/WebDAV connection settings.
+
+Save applies the selection to the next sync. Unchecking never deletes existing local or cloud files or changes Agenda and Journal sources. Existing local content remains available. Re-enabling compares against the retained sync checkpoints; edits made on both sides still produce a conflict instead of an overwrite.
+
+Choices belong to this device. First connection retains the default full sync. Browsing the selection tree reads metadata without downloading content. Keep `data/` and other required attachment directories selected alongside their Org files so images remain available on other devices.
+
+Explicitly confirmed create, move and delete actions in Files remain separate cloud operations, not protected by this automatic transfer policy. Re-enable an excluded cloud-only file's folder and sync before previewing it. Apple Reminders interoperability is configured separately.
+
 ## How a Normal Save Flows
 
 1. Aster writes a complete, valid Org edit to the local file.

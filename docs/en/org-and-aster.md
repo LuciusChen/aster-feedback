@@ -106,6 +106,23 @@ This is one active-timestamp range, not Scheduled through Deadline. Org Agenda i
 
 Detail retains both full dates and clocks. Editing only the title should leave this timestamp unchanged. Enabling All day should produce `<2026-09-10 Thu>--<2026-09-13 Sun>`. A point Event without an end remains valid and does not gain a fabricated endpoint.
 
+Creation and detail use the same localized format for both endpoint dates, including the full year. Tapping a date opens a calendar in place, not a child page. Each clock remains beside its date and follows the system's 12/24-hour preference.
+
+### Daily windows within a date range (unreleased)
+
+```org
+* Play CS2 with 周末侠
+<2026-09-11 Fri 19:00-22:00>--<2026-09-13 Sun 19:00-22:00>
+```
+
+This means 19:00–22:00 on September 11, 12 and 13, not uninterrupted occupancy. Agenda shows `(1/3)`, `(2/3)` and `(3/3)`, and the timeline draws only each evening's three hours. Detail still edits the single source heading and preserves both endpoint windows. Title-only edits leave the timestamp untouched.
+
+This follows Org's official [daily time range syntax](https://orgmode.org/manual/Timestamps.html). It does not require a repeater or three separate Events.
+
+For a daily window of `22:00-01:00`, Aster also shows the previous night's early-morning portion. Middle dates show both the morning and evening portions, and the final morning remains visible. A midnight endpoint does not add an empty segment.
+
+These display portions still belong to one Org heading. Progress counts the three written start dates, so the final morning still belongs to `(3/3)`. Saving a window with equal start and end clocks does not move its written ending date forward by another day.
+
 ## 3. Undated Task
 
 ### Org source
