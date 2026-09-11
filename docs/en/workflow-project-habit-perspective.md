@@ -26,7 +26,9 @@ A more complete example:
 - A file-local `#+TODO:` or `#+SEQ_TODO:` takes precedence over the app default.
 - `#+STARTUP:` and the nearest subtree `LOGGING` property may further override completion logging.
 
-Under **Settings → Tasks & Workflow → Workflow**, configure order, Process/Terminal role, symbol, color, shortcut, and state history. The Color row uses the native circular color well, so each state can use any RGB color instead of a fixed set of swatches. Every valid change to an existing state saves automatically and Back flushes the latest valid value, so editing has no Done action; only a new state requires **Add**. These native controls still map to standard Org declarations.
+Under **Settings → Tasks & Workflow → Workflow**, configure order, Process/Terminal role, symbol, color, and state history. The Color row uses the native circular color well for any RGB color, not just preset swatches. Existing states save valid changes automatically, including the latest value when navigating back; only a new state requires **Add**.
+
+**Unreleased iOS/iPadOS adjustment:** The state editor no longer shows Shortcut, and state rows omit Key hints. Letters such as `t` and `w` inside Org tokens are Emacs fast keys, not required mobile settings. Existing keys are preserved when changing names, roles, logging, or appearance; Advanced Org Syntax remains available for deliberate changes to complete declarations.
 
 ### Parallel Task Flows and Direct Switching
 

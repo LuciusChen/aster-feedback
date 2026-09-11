@@ -87,6 +87,10 @@ The Agenda `+` opens quick creation. The two-position control determines Org typ
   such as `<2026-08-28 Fri 09:00>--<2026-08-30 Sun 18:00>`.
 - An implicit time already in the past moves to the next day; an explicitly selected date remains unchanged.
 
+**Unreleased iOS/iPadOS fix:** creation and detail share All day, Starts, and Ends. Each clock sits beside its date; Events no longer use the Task At a time switch. An absent end reads None. Tap it to set an end, or hold the Ends row label to remove an existing end.
+
+A multi-day Event appears on its start, end, and every intervening date, including month/year markers. Opening any occurrence edits the same full source interval. Title edits, end-date changes, and all-day conversion preserve that span. Dates already truncated by an older build are not guessed back.
+
 ### Task
 
 - Neither Scheduled nor Deadline set: write an undated Task that appears in TODOs.
@@ -171,6 +175,14 @@ Titles wrap to the available width rather than switching controls at a character
 
 The same build removes the icons from Add Attachment and Delete in detail. Add Attachment stays left-aligned. Delete is centered, bold, and red, and still asks for confirmation.
 
+**Unreleased iOS/iPadOS adjustment:** Repeat and Progress in creation/detail share accent-colored text, a lightly tinted capsule, and a down chevron with fonts, week start, Journal range, Perspective choices, workflow options, and the cloud-provider chooser. Workflow status retains its configured color.
+
+Navigation to another page, such as file-template configuration, keeps a right chevron and normal text. Date pickers, switches, segmented choices, and ordinary actions keep their own presentation; menu depth and saving behavior do not change.
+
+Empty Tags, attachment/note entry points, and font import use an accent color; explanations and read-only information stay secondary. Journal media actions retain their theme color, while an unavailable camera stays gray and disabled. The Files sort control remains intentionally gray.
+
+Unselected search filters, Journal Capture choices, and workflow symbols also use normal foreground text; checkmarks and highlights still identify the selection. Capture's Show/Hide Preview button keeps its accent color in either state.
+
 In iPad landscape, Agenda detail keeps its source button in the right pane without requiring rotation. Back saves before restoring the month calendar; a failed save keeps the input and detail open.
 
 ### Independent Scheduled and Deadline fields
@@ -202,6 +214,22 @@ When creating a Task, the date summary and timeline follow the last edited enabl
 When adding both dates, Aster writes them on the same standard Org planning line immediately after the heading. A new CLOSED timestamp joins that line too, so Emacs recognizes all the fields.
 
 If source already contains multiple fields of the same kind, editing that date asks you to review the Org source first. Aster does not guess which conflicting value to delete. See the [two-date Org example](org-and-aster.md#both-a-scheduled-date-and-a-deadline).
+
+### Editing repeating items (unreleased)
+
+Repeating Event detail shows the next or ongoing occurrence with editable full start/end dates and clocks. An overnight end explicitly shows the following date.
+
+An all-day occurrence stays current until its day ends; an all-day range includes its final date. Moving the start after choosing weekday repeats shifts the selected weekdays equally in creation and detail. Clock-only changes leave them alone. Choosing Repeat afterwards applies the newly selected weekdays instead.
+
+Changing dates or Repeat saves directly to the original Org entry when you leave detail. Switching primary tabs instead retains the editor and its draft without saving immediately. There is no single-occurrence choice, scope prompt, or automatic split.
+
+Opening and closing Repeat without changing an option leaves the Org source untouched. Title/tag-only edits also retain the stored repeat anchor; Habit edits preserve identity, notes, attachments, and completion history.
+
+If a title/tag-only save fails, reopening on a later day in the same app session still keeps the stored anchor. Explicit date edits remain available for retry, and you can continue changing dates after recovery.
+
+See [standard repeaters](org-and-aster.md#10-standard-repeaters) for date calculations. Weekday combinations support same-day or overnight ranges. Use a day/week/month/year interval for a longer range; saving must not silently drop its end date.
+
+An invalid range leaves the Org file untouched. If you have already swiped back out of detail, reopening the item in the same app session restores the title and complete date draft for correction. This recovery does not persist after the app session ends.
 
 ## Saved View Entry
 

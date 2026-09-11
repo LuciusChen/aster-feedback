@@ -15,6 +15,10 @@ Aster shares its Org parsing, classification, write-back, sync-conflict, Agenda,
 
 Build/Version Code may advance independently on each platform. Include the platform and complete version in reports; matching marketing versions do not imply identical system capabilities or fixes.
 
+### Navigation Text Size Fix (iOS/iPadOS, unreleased)
+
+The iPad primary tabs widen with Text Size while staying centered and clear of the side actions. When space is insufficient, they keep symbols and complete accessibility labels instead of squeezed titles. Button order and navigation behavior do not change.
+
 ### Habit Review, Org Reading, and Time Zones (iOS/iPadOS build 14)
 
 Settings → Calendar & Agenda adds the default-off **Show all habits today** option. Habit Perspectives also include future habits; these visibility changes do not alter schedules, notifications, or badges. iPad editors stay open as the keyboard appears and dismisses.

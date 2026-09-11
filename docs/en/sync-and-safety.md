@@ -67,6 +67,16 @@ Some WebDAV servers omit the version header after a successful upload. Aster rea
 
 This verification does not relax overwrite protection. A weak ETag can identify a read snapshot but cannot authorize replacement or automatic deletion.
 
+### Nutstore Repeated Saves and Deletion Protection (iOS/iPadOS, Unreleased)
+
+Saving again after the first upload no longer produces a false version conflict. Existing files still use version checks. New files are published from private staging with a no-overwrite move, protecting same-named files created concurrently by another device. This has been exercised against a real Nutstore account; other WebDAV services keep their standard requests.
+
+Nutstore does not enforce version conditions on deletion. When sync detects a missing local file, Aster keeps the remote copy and shows **Deletion needs confirmation**, without recording a successful deletion. Inspect its contents on Nutstore, then delete it there or long-press its Files row and confirm Delete File. Cloud-only files need no download before this explicit deletion; Cancel leaves the file intact, and repeated sync attempts do not force deletion.
+
+Private staging is excluded from Files and document synchronization. An interrupted upload can leave temporary data; Aster does not sweep directories belonging to other attempts. This limitation concerns file-sync deletion, not edits to Org headings or deletion of individual Apple Reminders.
+
+After a new file is published, failure to clean up its empty staging directory does not invalidate the upload. Aster still checks the final content and version before recording success, so cleanup failure does not turn the next edit into a false conflict.
+
 ## Apple Reminders Interoperability File (iOS/iPadOS only)
 
 After Apple Reminders is explicitly enabled in Settings, Aster synchronizes once the workspace has been validated and again whenever the app returns to the foreground. These automatic triggers never request access by themselves. Settings shows the current state beside the switch.

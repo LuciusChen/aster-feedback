@@ -95,6 +95,17 @@ Meetings, classes, appointments, travel intervals, or any event with a start and
 
 > Compatibility: existing keyword-free headings that use a date in `SCHEDULED:` or `DEADLINE:` remain readable as Events. Events created by Aster use an active timestamp so they do not acquire Task-planning semantics.
 
+### Multi-day Events (iOS/iPadOS display/edit fix is unreleased)
+
+```org
+* Trip
+<2026-09-10 Thu 10:00>--<2026-09-13 Sun 11:00>
+```
+
+This is one active-timestamp range, not Scheduled through Deadline. Org Agenda includes it on September 10, 11, 12, and 13; the Aster fix follows the same date coverage. The hour-based timeline clips actual occupancy to each day, so a midnight endpoint does not invent occupied time on its last date.
+
+Detail retains both full dates and clocks. Editing only the title should leave this timestamp unchanged. Enabling All day should produce `<2026-09-10 Thu>--<2026-09-13 Sun>`. A point Event without an end remains valid and does not gain a fabricated endpoint.
+
 ## 3. Undated Task
 
 ### Org source
@@ -321,6 +332,10 @@ SCHEDULED: <2026-09-03 Thu 08:00 ++1d>
 | `.+1d` | Recalculate the next date from completion time |
 
 Units are `h`, `d`, `w`, `m`, and `y`, and intervals must be positive. Completing a Task or Habit advances the source timestamp. A repeating Event produces virtual future occurrences without rewriting its original active timestamp.
+
+The unreleased version follows Org's date overflow rather than clamping to month end. January 31, 2027 plus one month is March 3. Agenda expands each occurrence from the original anchor, so the next projected occurrence can still be March 31. Completion changes the stored anchor according to the repeat mode.
+
+Date and Repeat edits change the original Org entry directly. They do not create a one-off or automatically advance the repeat by an extra interval. Habit edits preserve completion history, and explicit completion still follows the normal logging workflow.
 
 ## 11. Weekday Diary
 
