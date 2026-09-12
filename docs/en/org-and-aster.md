@@ -95,7 +95,7 @@ Meetings, classes, appointments, travel intervals, or any event with a start and
 
 > Compatibility: existing keyword-free headings that use a date in `SCHEDULED:` or `DEADLINE:` remain readable as Events. Events created by Aster use an active timestamp so they do not acquire Task-planning semantics.
 
-### Multi-day Events (iOS/iPadOS display/edit fix is unreleased)
+### Multi-day Events (iOS/iPadOS display/edit fix in build 16)
 
 ```org
 * Trip
@@ -108,7 +108,7 @@ Detail retains both full dates and clocks. Editing only the title should leave t
 
 Creation and detail use the same localized format for both endpoint dates, including the full year. Tapping a date opens a calendar in place, not a child page. Each clock remains beside its date and follows the system's 12/24-hour preference.
 
-### Daily windows within a date range (unreleased)
+### Daily windows within a date range (iOS/iPadOS, build 16)
 
 ```org
 * Play CS2 with 周末侠
@@ -350,7 +350,7 @@ SCHEDULED: <2026-09-03 Thu 08:00 ++1d>
 
 Units are `h`, `d`, `w`, `m`, and `y`, and intervals must be positive. Completing a Task or Habit advances the source timestamp. A repeating Event produces virtual future occurrences without rewriting its original active timestamp.
 
-The unreleased version follows Org's date overflow rather than clamping to month end. January 31, 2027 plus one month is March 3. Agenda expands each occurrence from the original anchor, so the next projected occurrence can still be March 31. Completion changes the stored anchor according to the repeat mode.
+iOS/iPadOS build 16 follows Org's date overflow rather than clamping to month end. January 31, 2027 plus one month is March 3. Agenda expands each occurrence from the original anchor, so the next projected occurrence can still be March 31. Completion changes the stored anchor according to the repeat mode.
 
 Date and Repeat edits change the original Org entry directly. They do not create a one-off or automatically advance the repeat by an extra interval. Habit edits preserve completion history, and explicit completion still follows the normal logging workflow.
 

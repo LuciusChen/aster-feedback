@@ -21,7 +21,7 @@ Nutstore requires a third-party app password, not the account login password. Ge
 
 Even when a WebDAV server lists a nested file such as `agenda/work/review.org` without separate records for every collection, Aster restores the proven `agenda/` and `agenda/work/` parents from that path. A directory visible in Files should therefore also be available to the Agenda Sources, Journal folder, and Event & Task Inbox path pickers.
 
-## Choose Subfolders to Sync (iOS/iPadOS, unreleased)
+## Choose Subfolders to Sync (iOS/iPadOS, build 16)
 
 Open **Settings → Workspace & Sync → Workspace root**. All four providers share the same browser: tap a folder to enter it, then use native Back or swipe back to its parent. Separate checkmarks choose what syncs. Browsing never changes the root, and there is no Parent Folder row.
 
@@ -83,7 +83,7 @@ Some WebDAV servers omit the version header after a successful upload. Aster rea
 
 This verification does not relax overwrite protection. A weak ETag can identify a read snapshot but cannot authorize replacement or automatic deletion.
 
-### Nutstore Repeated Saves and Deletion Protection (iOS/iPadOS, Unreleased)
+### Nutstore Repeated Saves and Deletion Protection (iOS/iPadOS, build 16)
 
 Saving again after the first upload no longer produces a false version conflict. Existing files still use version checks. New files are published from private staging with a no-overwrite move, protecting same-named files created concurrently by another device. This has been exercised against a real Nutstore account; other WebDAV services keep their standard requests.
 

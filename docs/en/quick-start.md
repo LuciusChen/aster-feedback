@@ -25,7 +25,7 @@ Android has no iCloud Drive provider and does not expose the private app working
 
 Choose a workspace root and whether nested directories are included. Aster mirrors the cloud content into its local workspace, then builds Agenda, TODOs, Journal, Files, and Search indexes from those real files.
 
-The unreleased iOS/iPadOS version offers subfolder choices inside **Workspace & Sync → Workspace root**. Tap folders to enter and swipe back to their parent. Everything starts selected, and unchecking keeps existing files; see [sync scope and safety](sync-and-safety.md).
+iOS/iPadOS build 16 offers subfolder choices inside **Workspace & Sync → Workspace root**. Tap folders to enter and swipe back to their parent. Everything starts selected, and unchecking keeps existing files; see [sync scope and safety](sync-and-safety.md).
 
 After connecting, open **Files** and verify:
 

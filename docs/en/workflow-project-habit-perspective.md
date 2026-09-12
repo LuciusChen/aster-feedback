@@ -28,7 +28,9 @@ A more complete example:
 
 Under **Settings → Tasks & Workflow → Workflow**, configure order, Process/Terminal role, symbol, color, and state history. The Color row uses the native circular color well for any RGB color, not just preset swatches. Existing states save valid changes automatically, including the latest value when navigating back; only a new state requires **Add**.
 
-**Unreleased iOS/iPadOS adjustment:** The state editor no longer shows Shortcut, and state rows omit Key hints. Letters such as `t` and `w` inside Org tokens are Emacs fast keys, not required mobile settings. Existing keys are preserved when changing names, roles, logging, or appearance.
+**iOS/iPadOS build 16:** The state editor no longer shows Shortcut, and state rows omit Key hints. Letters such as `t` and `w` inside Org tokens are Emacs fast keys, not required mobile settings. Existing keys are preserved when changing names, roles, logging, or appearance.
+
+The Workflow overview wraps long Process and Terminal sequences onto more rows. Each keyword stays on one line, in the configured order; tap the card to edit as before.
 
 Already have an Emacs configuration? Open **Org syntax → Task Flow 1** directly on the Workflow page and paste the complete `(sequence ...)` list, including parentheses, quotes, and line breaks. Check the Process/Terminal preview and save. Plain `TODO(t) ... | DONE(d)` tokens still work, and file-local `#+TODO:` definitions retain precedence.
 

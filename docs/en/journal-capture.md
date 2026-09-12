@@ -65,7 +65,7 @@ Holding the root Create action exposes Journal from another page. Agenda's Event
 
 ## A Minimal Journal Entry Template
 
-**Unreleased iOS/iPadOS adjustment:** First configuration includes a ready-to-use **Quick note** with the time-prefixed source below. Saved templates are preserved; deliberately deleting every template does not recreate it on relaunch.
+**iOS/iPadOS build 16:** First configuration includes a ready-to-use **Quick note** with the time-prefixed source below. Saved templates are preserved; deliberately deleting every template does not recreate it on relaunch.
 
 A custom template starts with an empty name and an “e.g. Reading notes” placeholder. Name, body, and a sample expanded Org preview appear first. **More options** expands in place for Entry/Plain, body source, Journal section, and file initialization. Existing non-default choices start expanded and are retained when collapsed.
 

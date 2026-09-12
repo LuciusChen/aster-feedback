@@ -10,12 +10,12 @@ Aster shares its Org parsing, classification, write-back, sync-conflict, Agenda,
 
 | Platform | Minimum OS | Current baseline | Distribution status |
 | --- | --- | --- | --- |
-| iPhone / iPad | iOS / iPadOS 17 | 0.1 (15) | Uploaded; awaiting TestFlight processing |
+| iPhone / iPad | iOS / iPadOS 17 | 0.1 (16) | Release candidate; TestFlight upload pending |
 | Android phone / tablet | Android 8.0 (API 26) | 0.1 (9) | Preparing Google Play testing; not publicly available yet |
 
 Build/Version Code may advance independently on each platform. Include the platform and complete version in reports; matching marketing versions do not imply identical system capabilities or fixes.
 
-### Navigation Text Size Fix (iOS/iPadOS, unreleased)
+### Navigation Text Size Fix (iOS/iPadOS, build 16)
 
 The iPad primary tabs widen with Text Size while staying centered and clear of the side actions. When space is insufficient, they keep symbols and complete accessibility labels instead of squeezed titles. Button order and navigation behavior do not change.
 

@@ -87,7 +87,7 @@ The Agenda `+` opens quick creation. The two-position control determines Org typ
   such as `<2026-08-28 Fri 09:00>--<2026-08-30 Sun 18:00>`.
 - An implicit time already in the past moves to the next day; an explicitly selected date remains unchanged.
 
-**Unreleased iOS/iPadOS fix:** creation and detail share All day, Starts, and Ends. Each clock sits beside its date; Events no longer use the Task At a time switch. An absent end reads None. Tap it to set an end, or hold the Ends row label to remove an existing end.
+**iOS/iPadOS build 16:** creation and detail share All day, Starts, and Ends. Each clock sits beside its date; Events no longer use the Task At a time switch. An absent end reads None. Tap it to set an end, or hold the Ends row label to remove an existing end.
 
 A multi-day Event appears on its start, end, and every intervening date, including month/year markers. Opening any occurrence edits the same full source interval. Title edits, end-date changes, and all-day conversion preserve that span. Dates already truncated by an older build are not guessed back.
 
@@ -175,7 +175,7 @@ Titles wrap to the available width rather than switching controls at a character
 
 The same build removes the icons from Add Attachment and Delete in detail. Add Attachment stays left-aligned. Delete is centered, bold, and red, and still asks for confirmation.
 
-**Unreleased iOS/iPadOS adjustment:** Repeat and Progress in creation/detail share accent-colored text, a lightly tinted capsule, and a down chevron with fonts, week start, Journal range, Perspective choices, workflow options, and the cloud-provider chooser. Workflow status retains its configured color.
+**iOS/iPadOS build 16:** Repeat and Progress in creation/detail share accent-colored text, a lightly tinted capsule, and a down chevron with fonts, week start, Journal range, Perspective choices, workflow options, and the cloud-provider chooser. Workflow status retains its configured color.
 
 Navigation to another page, such as file-template configuration, keeps a right chevron and normal text. Date pickers, switches, segmented choices, and ordinary actions keep their own presentation; menu depth and saving behavior do not change.
 
@@ -215,7 +215,7 @@ When adding both dates, Aster writes them on the same standard Org planning line
 
 If source already contains multiple fields of the same kind, editing that date asks you to review the Org source first. Aster does not guess which conflicting value to delete. See the [two-date Org example](org-and-aster.md#both-a-scheduled-date-and-a-deadline).
 
-### Editing repeating items (unreleased)
+### Editing repeating items (iOS/iPadOS, build 16)
 
 Repeating Event detail shows the next or ongoing occurrence with editable full start/end dates and clocks. An overnight end explicitly shows the following date.
 
