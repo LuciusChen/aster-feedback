@@ -6,7 +6,7 @@
 
 Journal is a calendar and timeline over daily Org files. A Journal Entry Template decides what one new entry inserts; its destination is always the selected date's Journal. Event and Task creation is a parallel flow that writes to the Event & Task Inbox, while Org Document creation writes a separately named file.
 
-## Write for Another Date (iOS/iPadOS, Unreleased)
+## Write for Another Date (iOS/iPadOS, build 17)
 
 The calendar initially selects today, so tapping `+` creates today's entry. To backfill another day, select that date on the Journal calendar before tapping `+`, including a day with no entries. The composer keeps its existing layout, without extra date or time controls.
 
@@ -14,7 +14,7 @@ After scrolling the timeline or opening a search result on another day, new entr
 
 The same date drives the template preview, destination file and dated section. Existing daily files or sections in an annual journal receive an append; other content is preserved. A missing day creates a daily file. After saving, the selected day is shown even outside the normal Week/Month/Year history range.
 
-Saved drafts retain the selected date when reopened or when the device changes time zones. Older drafts without a date field use their creation date. Actual draft creation/update metadata is separate from the Journal date. This feature is not in TestFlight build 16 and does not imply Android support for date selection.
+Saved drafts retain the selected date when reopened or when the device changes time zones. Older drafts without a date field use their creation date. Actual draft creation/update metadata is separate from the Journal date. This feature starts in TestFlight build 17 and does not imply Android support for date selection.
 
 ![Journal example](../../assets/screenshots/journal.png)
 
@@ -40,9 +40,9 @@ Journal and Agenda share one persisted Week/Month/Year calendar size and the sam
 
 Week is not a conventional seven-day page; it is the five-column represented-date rail shared with Agenda. It follows prepared Journal dates and external all-day calendar dates, retains an adjacent empty date beyond either content boundary, and moves exactly five calendar days per committed release. That release uses the same single directional page transition as Month and Year without a second settle or spring rebound.
 
-In the unreleased iOS/iPadOS version described above, selecting an empty Week date also sets the date for a new entry. The iPad detail shows that day's empty state instead of another day's entries. Released build 16 and Android retain the earlier behavior: empty dates move the browsing position while the detail keeps the last source-backed selection.
+In iOS/iPadOS build 17, selecting an empty Week date also sets the date for a new entry. The iPad detail shows that day's empty state instead of another day's entries. Build 16 and earlier, along with the current Android build, retain the earlier behavior: empty dates move the browsing position while the detail keeps the last source-backed selection.
 
-In the unreleased iOS/iPadOS version, tapping a date with entries moves to that day's header and expands a collapsed day. Explicitly selecting an older date also reveals it outside the configured history window. This navigation does not change the Org source or add date controls to the composer.
+In iOS/iPadOS build 17, tapping a date with entries moves to that day's header and expands a collapsed day. Explicitly selecting an older date also reveals it outside the configured history window. This navigation does not change the Org source or add date controls to the composer.
 
 The Year overview uses those same inputs: Journal dates, traditional festivals, and selected read-only system holidays contribute density instead of losing lunar/holiday meaning outside Week or Month.
 

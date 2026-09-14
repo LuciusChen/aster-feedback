@@ -6,7 +6,7 @@
 
 ## 1. Before You Test
 
-**Unreleased iOS/iPadOS feature:** Drag Agenda, TODOs and Journal into your preferred order under **Settings → Appearance → Home View Order**. The first is the cold-launch default. Foreground return keeps the current page; links and Shortcuts still open their requested destination. This preference is device-local and is not available in TestFlight build 16.
+**iOS/iPadOS build 17:** Drag Agenda, TODOs and Journal into your preferred order under **Settings → Appearance → Home View Order**. The first is the cold-launch default. Foreground return keeps the current page; links and Shortcuts still open their requested destination. This preference is device-local and is not available in build 16 or earlier.
 
 - Use iOS or iPadOS 17 or later on iPhone/iPad, or Android 8.0 (API 26) or later on an Android phone/tablet.
 - The Android build is still being prepared for Google Play testing. Its installation source and availability differ from TestFlight; see [Platforms and Differences](platforms.md).
