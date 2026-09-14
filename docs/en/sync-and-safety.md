@@ -21,6 +21,14 @@ Nutstore requires a third-party app password, not the account login password. Ge
 
 Even when a WebDAV server lists a nested file such as `agenda/work/review.org` without separate records for every collection, Aster restores the proven `agenda/` and `agenda/work/` parents from that path. A directory visible in Files should therefore also be available to the Agenda Sources, Journal folder, and Event & Task Inbox path pickers.
 
+## Switching Workspaces (iOS/iPadOS, unreleased)
+
+Each provider, account and root keeps its own local files and sync checkpoints. Switching does not upload the previous workspace's files to the new destination; returning restores the original files. Password changes and subfolder selections do not create another workspace.
+
+Agenda sources, the Journal folder, the task inbox, Files shortcuts and sorting, and Journal drafts also follow the workspace. Configure content paths separately for a new workspace; Apple Reminders interoperability starts disabled and can be enabled when needed. Finish pending edits, resolve failed saves, and let active sync or file operations complete before switching.
+
+Upgrading preserves the current local tree in place. It does not identify or automatically remove files already mixed by an older build. Disconnecting with Keep Local Files retains offline access; reconnecting the same account and root returns to that workspace. This fix is not included in build 16.
+
 ## Choose Subfolders to Sync (iOS/iPadOS, build 16)
 
 Open **Settings → Workspace & Sync → Workspace root**. All four providers share the same browser: tap a folder to enter it, then use native Back or swipe back to its parent. Separate checkmarks choose what syncs. Browsing never changes the root, and there is no Parent Folder row.

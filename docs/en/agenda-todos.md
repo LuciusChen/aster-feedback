@@ -61,6 +61,8 @@ A system reminder with an explicit zone keeps its original instant. See the [tim
 - Multiple overdue items stay on their respective dates so you can continue scrolling upward; Aster does not merge them into a fabricated task.
 - Events without Workflow keywords do not use Task overdue semantics.
 
+Unreleased update: a Task/Project with both fields remains one row, with independent “Scheduled · N days ago” and “Deadline · N days overdue / N days until due / Due today” labels, also read by VoiceOver. Before a warning applies, a future field displays a neutral date instead of an early alert. Habit rhythm is unchanged.
+
 ## Choosing Event or Task When Creating
 
 The Agenda `+` opens quick creation. The two-position control determines Org type and does not switch automatically merely because a date or time was entered:

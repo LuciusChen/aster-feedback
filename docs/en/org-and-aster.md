@@ -172,6 +172,8 @@ SCHEDULED: <2026-09-07 Mon> DEADLINE: <2026-09-11 Fri -2d>
 
 This Task is planned for September 7 and due on September 11. Neither field has a clock time, so it remains in TODOs. The `-2d` cookie starts due-status presentation two days before the deadline.
 
+Unreleased update: on September 10, the same row shows both “Scheduled · 3 days ago” and “Deadline · 1 day until due”, rather than hiding the deadline behind the planned-start age.
+
 Opening the Deadline row in iPhone or iPad detail loads September 11 independently. Changing it to September 12 keeps `SCHEDULED: <2026-09-07 Mon>` and updates only Deadline to `<2026-09-12 Sat -2d>`.
 
 Turning off the Deadline switch removes only that date, leaving Scheduled and the body unchanged.
