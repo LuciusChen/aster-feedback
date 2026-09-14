@@ -83,6 +83,14 @@ Some WebDAV servers omit the version header after a successful upload. Aster rea
 
 This verification does not relax overwrite protection. A weak ETag can identify a read snapshot but cannot authorize replacement or automatic deletion.
 
+### Matching Synced Content to Its Version (iOS/iPadOS, unreleased)
+
+iCloud now refreshes file metadata after a successful write, preventing an old upload receipt from turning the next edit into a false conflict. All four providers also record downloaded content with its actual version. A cloud update between listing and download no longer pairs new bytes with an old version.
+
+If a WebDAV content response omits its version, Aster obtains a strong file validator and checks it with another conditional read. An unverifiable version stops that download without replacing local content or its checkpoint; there is no unconditional-overwrite fallback.
+
+Upgrading does not clear existing conflicts or choose a copy for you. Back up and compare the preserved copies before explicitly selecting or merging them. Genuine two-sided edits still require review. These fixes are not included in build 16.
+
 ### Nutstore Repeated Saves and Deletion Protection (iOS/iPadOS, build 16)
 
 Saving again after the first upload no longer produces a false version conflict. Existing files still use version checks. New files are published from private staging with a no-overwrite move, protecting same-named files created concurrently by another device. This has been exercised against a real Nutstore account; other WebDAV services keep their standard requests.

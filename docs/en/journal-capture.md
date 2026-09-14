@@ -4,7 +4,17 @@
 
 [Back to English home](../../README.en.md) · [Quick Start](quick-start.md)
 
-Journal is a calendar and timeline over daily Org files. A Journal Entry Template decides what one new entry inserts; its destination is always Today's Journal. Event and Task creation is a parallel flow that writes to the Event & Task Inbox, while Org Document creation writes a separately named file.
+Journal is a calendar and timeline over daily Org files. A Journal Entry Template decides what one new entry inserts; its destination is always the selected date's Journal. Event and Task creation is a parallel flow that writes to the Event & Task Inbox, while Org Document creation writes a separately named file.
+
+## Write for Another Date (iOS/iPadOS, Unreleased)
+
+The calendar initially selects today, so tapping `+` creates today's entry. To backfill another day, select that date on the Journal calendar before tapping `+`, including a day with no entries. The composer keeps its existing layout, without extra date or time controls.
+
+After scrolling the timeline or opening a search result on another day, new entries follow the calendar's current selection, not an earlier tap. The iPad day list also lets you open each same-day file independently.
+
+The same date drives the template preview, destination file and dated section. Existing daily files or sections in an annual journal receive an append; other content is preserved. A missing day creates a daily file. After saving, the selected day is shown even outside the normal Week/Month/Year history range.
+
+Saved drafts retain the selected date when reopened or when the device changes time zones. Older drafts without a date field use their creation date. Actual draft creation/update metadata is separate from the Journal date. This feature is not in TestFlight build 16 and does not imply Android support for date selection.
 
 ![Journal example](../../assets/screenshots/journal.png)
 
@@ -26,9 +36,13 @@ Today I want to finish the release checklist.
 - Journal year, month, and date use the Gregorian calendar in the current time zone. Lunar dates are an optional display annotation and do not change file identity.
 - Configure history range, entry count, and filename behavior under **Settings → Journal**.
 
-Journal and Agenda share one persisted Week/Month/Year calendar size and the same **Settings → Calendar & Agenda → Lunar calendar** switch. Turning that switch on or off adds or removes the same compact lunar annotations in both calendars; read-only holiday overlays also remain shared. The calendar stays fixed above the independently scrolling timeline. Each completed drag of the grabber moves only one adjacent size, while continued travel becomes progressively more resisted instead of stopping abruptly. Each committed Week swipe moves five calendar days, Month moves one month, and Year moves one year; all three use the same directional full-page transition. iOS Reduce Motion or Android's system animation accessibility setting reduces spatial movement without changing the result. Journal initially highlights Today just like Agenda even when the newest entry is older; the timeline and wide-screen detail still begin at that newest real entry. Dates containing prepared Journal entries have a marker. Tap a marked date to move the timeline to and select it; an unmarked date remains browse-only and never replaces the selected source-backed Journal day. After explicit selection or further timeline navigation, the selected date and visible calendar period stay synchronized, while a background refresh preserves a separately browsed period when the selected day is still available. The timeline uses Agenda's compact inline date headers and thin boundaries, then shows each time, title, and metadata directly; the daily filename no longer consumes a repeated row.
+Journal and Agenda share one persisted Week/Month/Year calendar size and the same **Settings → Calendar & Agenda → Lunar calendar** switch. Turning that switch on or off adds or removes the same compact lunar annotations in both calendars; read-only holiday overlays also remain shared. The calendar stays fixed above the independently scrolling timeline. Each completed drag of the grabber moves only one adjacent size, while continued travel becomes progressively more resisted instead of stopping abruptly. Each committed Week swipe moves five calendar days, Month moves one month, and Year moves one year; all three use the same directional full-page transition. iOS Reduce Motion or Android's system animation accessibility setting reduces spatial movement without changing the result. Journal initially highlights Today just like Agenda even when the newest entry is older; the timeline and wide-screen detail still begin at that newest real entry. Dates containing prepared Journal entries have a marker. Tap a marked date to move the timeline to and select it; an unmarked date can also be selected for backfilling, without creating a file just by selecting it. After explicit selection or further timeline navigation, the selected date and visible calendar period stay synchronized, while a background refresh preserves a separately browsed period when the selected day is still available. The timeline uses Agenda's compact inline date headers and thin boundaries, then shows each time, title, and metadata directly; the daily filename no longer consumes a repeated row.
 
-Week is not a conventional seven-day page; it is the five-column represented-date rail shared with Agenda. It follows prepared Journal dates and external all-day calendar dates, retains an adjacent empty date beyond either content boundary, and moves exactly five calendar days per committed release. That release uses the same single directional page transition as Month and Year without a second settle or spring rebound. An empty Week date also moves only the browsing position and never clears the last source-backed Journal selection. The iPad landscape left column and the Android tablet Journal pane beside its Navigation Rail use this same rail; the right side continues to show the previously selected day's real Journal content after browsing an empty date.
+Week is not a conventional seven-day page; it is the five-column represented-date rail shared with Agenda. It follows prepared Journal dates and external all-day calendar dates, retains an adjacent empty date beyond either content boundary, and moves exactly five calendar days per committed release. That release uses the same single directional page transition as Month and Year without a second settle or spring rebound.
+
+In the unreleased iOS/iPadOS version described above, selecting an empty Week date also sets the date for a new entry. The iPad detail shows that day's empty state instead of another day's entries. Released build 16 and Android retain the earlier behavior: empty dates move the browsing position while the detail keeps the last source-backed selection.
+
+In the unreleased iOS/iPadOS version, tapping a date with entries moves to that day's header and expands a collapsed day. Explicitly selecting an older date also reveals it outside the configured history window. This navigation does not change the Org source or add date controls to the composer.
 
 The Year overview uses those same inputs: Journal dates, traditional festivals, and selected read-only system holidays contribute density instead of losing lunar/holiday meaning outside Week or Month.
 
@@ -57,7 +71,7 @@ An image-only supplemental attachment area uses the same layout. Mixed image/vid
 ## Where a Journal Entry Starts
 
 Tap Create in Journal to choose a configured Journal Entry Template. When none exist, Aster links to **Settings → Create & Storage → Journal Entry Templates**. The same template entrance also appears in Journal Settings.
-The chooser keeps the Emacs-compatible template-first order and compact rows. After selection, the page title stays **New Journal Entry**, while the template name and Today's Journal become one quiet context line. The main multiline editor expands through the available keyboard-safe writing area instead of leaving inactive space below a one-line input. The composer reserves no permanent Preview or empty Attachments section. Photos, camera, Files, Preview, and the valid-only Add action share one row above the software keyboard. Preview dismisses the keyboard, scrolls the expanded result into view, and hides again when any runtime field receives focus. A removable attachment list appears only after selection.
+The chooser keeps the Emacs-compatible template-first order and compact rows. After selection, the page title stays **New Journal Entry**, while the template name and the selected date's Journal become one quiet context line. The main multiline editor expands through the available keyboard-safe writing area instead of leaving inactive space below a one-line input. The composer reserves no permanent Preview or empty Attachments section. Photos, camera, Files, Preview, and the valid-only Add action share one row above the software keyboard. Preview dismisses the keyboard, scrolls the expanded result into view, and hides again when any runtime field receives focus. A removable attachment list appears only after selection.
 
 Each time you select a template, Aster starts a new independent draft, so the same template can have several unfinished entries. Going back shows them in a separate **Drafts** section. If you close Journal Capture with unsaved changes, Aster asks whether to save the draft(s), discard the changes, or keep editing. Saved drafts retain their text, prompt answers, template/source snapshot, and private attachment copies after the sheet or app is reopened. Adding an entry removes only that draft. The on-screen Add action is the sole submission control on iPhone, iPad, and Android; a keyboard shortcut or external keyboard is never required.
 
@@ -69,7 +83,7 @@ Holding the root Create action exposes Journal from another page. Agenda's Event
 
 A custom template starts with an empty name and an “e.g. Reading notes” placeholder. Name, body, and a sample expanded Org preview appear first. **More options** expands in place for Entry/Plain, body source, Journal section, and file initialization. Existing non-default choices start expanded and are retained when collapsed.
 
-For a timestamped note in today's Journal:
+For a timestamped Journal note:
 
 ```org
 ** %<%H:%M> %?
@@ -80,12 +94,12 @@ Suggested configuration:
 | Field | Value |
 | --- | --- |
 | Type | Entry |
-| Destination | Today's Journal (fixed) |
+| Destination | Journal (choose the date when creating an entry) |
 | Journal section | Blank, or `Notes` |
 | Source | Inline |
 | Prepend | Choose according to preferred reading order |
 
-At runtime, `%?` is the main input position and `%<%H:%M>` expands to the current time. The result is ordinary Org source, never an Aster-only shadow record.
+At runtime, `%?` is the main input position and `%<%H:%M>` expands to the entry time, initially the clock when the draft was created. The result is ordinary Org source, never an Aster-only shadow record.
 
 ## Template Types
 
@@ -104,7 +118,7 @@ Plain inserts expanded text directly into the destination body without wrapping 
 
 ## Destination
 
-A Journal Entry Template always resolves **Today's Journal**: the configured Journal folder, daily filename, date root, and optional Journal section. It does not expose a workspace target path. If the daily file does not exist, the template may reference an **Org Document Template** to initialize it. The initializer runs once; the entry body expands every run.
+A Journal Entry Template resolves **the selected date's Journal**: the configured Journal folder, daily filename, date root, and optional Journal section. It does not expose a workspace target path. If the daily file does not exist, the template may reference an **Org Document Template** to initialize it. The initializer runs once; the entry body expands every run.
 
 ## Org Document Templates and Placeholders
 
@@ -116,6 +130,8 @@ An Org Document Template generates the file header only when Aster first creates
 | `{date}` | The current Gregorian date in `YYYY-MM-DD` format |
 | `{created}` | An inactive Org timestamp with the current time, such as `[2026-08-28 Fri 09:30]` |
 | `{identifier}` | A newly generated lowercase UUID |
+
+When backfilling a Journal day, `{date}` and `{created}` use the selected Journal date and entry clock. They do not insert today's date into an older day's file.
 
 For example, this adapts an Emacs Denote Journal front matter definition into an Aster file template:
 
@@ -150,7 +166,7 @@ A Template File defines “what to insert this time.” It does not replace the 
 | `%^{Prompt\|default\|choice}` | Runtime question with an optional default and choices |
 | `%%` | A literal percent sign |
 
-Aster does not execute `%(...)`, arbitrary Emacs Lisp, `.dir-locals.el`, or external functions. Common dynamic behavior such as “Today's Journal” is implemented as a safe native destination instead.
+Aster does not execute `%(...)`, arbitrary Emacs Lisp, `.dir-locals.el`, or external functions. Common dynamic behavior such as “the selected date's Journal” is implemented as a safe native destination instead.
 
 ## Media and Attachments
 
@@ -176,7 +192,7 @@ Attachments and source text are handled by the same accepted Add. If the source 
 ** %<%H:%M> %?
 ```
 
-Choose Today's Journal for ordinary chronological notes.
+Choose the selected date's Journal for ordinary chronological notes.
 
 ### Reading excerpt
 

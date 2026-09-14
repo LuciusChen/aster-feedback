@@ -6,6 +6,8 @@
 
 ## 1. 测试前准备
 
+**iOS/iPadOS 尚未发布的新功能：** 在「设置 → 外观 → 首页视图顺序」拖动排列 Agenda、TODOs、Journal，第一项为启动默认页。从后台返回时保留当前页面，链接和快捷指令仍打开指定目标。此配置仅保存在当前设备，TestFlight build 16 尚不支持。
+
 - iPhone/iPad 使用 iOS 或 iPadOS 17 及以上版本；Android 手机/平板使用 Android 8.0（API 26）及以上版本。
 - Android 版本仍处于 Google Play 测试准备阶段；安装来源和可用状态与 TestFlight 不同，详见[平台支持与差异](platforms.md)。
 - 先备份准备连接的 Org 工作区。
