@@ -26,7 +26,7 @@ Agenda and TODOs read the same Org files but answer different questions:
 
 Each cell stacks the date numeral, lunar text, then at most four markers. Turning lunar display off removes its row without leaving a gap. Any number of Reminders (non-Habit tasks with a clock time) shares one checkmark-square icon, matching the creation timeline, alongside up to three Event-color dots. Without Reminders, up to four color dots appear.
 
-The light blue selection background and Today outline wrap the whole stack. A numeral-only circle grows into a rounded rectangle when lunar text or markers are present, with enough width for all four markers.
+The light blue selection background and Today outline wrap the whole stack. Their height adapts to the visible content, keeping a circular or rounded-rectangle shape with enough width for all four markers.
 
 Events and holidays keep their Timeline colors, with matching colors combined and holidays first. Selected dates retain these colors too. The dots represent displayed color groups, not item counts. Habits and date-only TODOs do not add a Reminder icon. Week ribbons, Year density and Org source are unchanged. This change is not included in build 17.
 
