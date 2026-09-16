@@ -170,7 +170,7 @@ Long WebDAV URLs, file and folder names, Journal filename rules, Capture paths a
 
 ## Item Actions
 
-### Completion History, Batch Edit, and Properties (iOS/iPadOS, unreleased)
+### Completion History, Batch Edit, and Properties (iOS/iPadOS build 19)
 
 Tap … beside the TODOs or Perspective title to open Completion History or Batch Edit. The title itself is plain text; switch views from the leading root menu. Both task actions use tasks from the selected Agenda files, not just a saved Perspective's filtered results.
 
@@ -202,7 +202,7 @@ Changing the Scheduled date to September 17 preserves 10:00 and the September 18
 - Agenda and TODOs do not use horizontal swipes to change Workflow, avoiding conflicts with scrolling and system gestures.
 - Leaving detail writes the current valid draft back to source. There is no separate Save button.
 
-The main detail order is: Item/History → Schedule/Repeat/Reminder → Properties (unreleased on iOS/iPadOS) → Content → Attachments → Notes → Subtasks → Delete. Delete is red and the page reserves enough bottom space above root navigation.
+The main detail order is: Item/History → Schedule/Repeat/Reminder → Properties (iOS/iPadOS build 19) → Content → Attachments → Notes → Subtasks → Delete. Delete is red and the page reserves enough bottom space above root navigation.
 
 In iPhone/iPad build 15, the editable title uses a slightly larger semibold style to distinguish it from the settings below. Short and long titles share that hierarchy and follow the selected font and system Text Size; field order and saving are unchanged.
 

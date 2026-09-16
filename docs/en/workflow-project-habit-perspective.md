@@ -164,7 +164,7 @@ A Perspective does not modify Org files or create a new item type. It stores fil
 - Choose sorting.
 - Preserve or flatten parent/child outline relationships.
 
-**Unreleased:** Tag filters combine in-file `#+FILETAGS`, ancestor tags, and direct tags. Ordinary Property filters follow Org's default: only the current entry's own value counts, replacing Aster's earlier automatic parent inheritance. `CATEGORY` keeps its separate inheritance rules. If an existing view relied on a parent's `OWNER`, for example, put that Property on each matching task. Aster does not rewrite files automatically.
+**iOS/iPadOS build 19:** Tag filters combine in-file `#+FILETAGS`, ancestor tags, and direct tags. Ordinary Property filters follow Org's default: only the current entry's own value counts, replacing Aster's earlier automatic parent inheritance. `CATEGORY` keeps its separate inheritance rules. If an existing view relied on a parent's `OWNER`, for example, put that Property on each matching task. Aster does not rewrite files automatically.
 
 Lowercase `nil` means unset; uppercase `NIL` and an empty string remain present values. Preview and Edit still show and mutate only the heading's direct tags and Properties. Leave Property name blank to disable the rule. Does not equal also matches a missing Property. This is one mobile filter condition, not the full Org query language; external `#+SETUPFILE` declarations are not loaded.
 
@@ -213,7 +213,7 @@ Use file and ancestor tags for shared context, and put the owner on the task its
 :END:
 ```
 
-Set tag to `team`, Property name to `OWNER`, matching to Equals, and value to `Alice`. This task matches. In the unreleased version, the file tag `work` also matches; an `OWNER` set only on the parent no longer qualifies the child.
+Set tag to `team`, Property name to `OWNER`, matching to Equals, and value to `Alice`. This task matches. From iOS/iPadOS build 19, the file tag `work` also matches; an `OWNER` set only on the parent no longer qualifies the child.
 
 ### Scenario: Anniversaries and Elapsed Days
 

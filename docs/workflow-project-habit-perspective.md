@@ -164,7 +164,7 @@ Perspective 不修改 Org 文件，也不会创建新类型。它保存的是过
 - 排序方式。
 - 是否保留父子 Outline。
 
-**待发布：** 标签筛选会合并文件内 `#+FILETAGS`、父标题标签和当前标题标签。普通 Property 则按 Org 默认设置，只读取当前条目自己的属性，不再自动继承父标题的值。`CATEGORY` 仍按它独立的规则继承。旧版依靠父级 `OWNER` 等属性筛选子任务的视图，需要在任务自身填写该属性；Aster 不会自动改写文件。
+**iOS/iPadOS build 19：** 标签筛选会合并文件内 `#+FILETAGS`、父标题标签和当前标题标签。普通 Property 则按 Org 默认设置，只读取当前条目自己的属性，不再自动继承父标题的值。`CATEGORY` 仍按它独立的规则继承。旧版依靠父级 `OWNER` 等属性筛选子任务的视图，需要在任务自身填写该属性；Aster 不会自动改写文件。
 
 小写 `nil` 表示未设置；大写 `NIL` 和空字符串仍是存在的值。条目在 Preview 与 Edit 中仍只显示和修改自己的直接标签与 Property。Property 名称留空就关闭该规则；“不等于”也会匹配没有该 Property 的条目。这是一条适合移动端的筛选条件，不是完整 Org 查询语言；Aster 也不会加载外部 `#+SETUPFILE`。
 
@@ -213,7 +213,7 @@ Views 顶部提供两个开关。它们不是新的 Org 类型，也不是固定
 :END:
 ```
 
-Perspective 选择标签 `team`，Property 名称写 `OWNER`，匹配方式选 Equals，值写 `Alice`，即可匹配这个子任务。待发布版本中，选择文件标签 `work` 也能匹配。只有父标题设置 `OWNER`、任务自身没有时，不再匹配。
+Perspective 选择标签 `team`，Property 名称写 `OWNER`，匹配方式选 Equals，值写 `Alice`，即可匹配这个子任务。从 iOS/iPadOS build 19 起，选择文件标签 `work` 也能匹配。只有父标题设置 `OWNER`、任务自身没有时，不再匹配。
 
 ### 场景：纪念日与累计天数
 

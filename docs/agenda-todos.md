@@ -169,7 +169,7 @@ WebDAV URL、文件与目录名、Journal 文件名规则、Capture 路径与提
 
 ## 条目操作
 
-### 完成记录、批量编辑和属性（iOS/iPadOS，尚未发布）
+### 完成记录、批量编辑和属性（iOS/iPadOS build 19）
 
 点击 TODOs 或自定义视图标题右侧的「…」，选择 Completion History（完成记录）或 Batch Edit（批量编辑）。标题本身不再打开菜单；切换视图使用主导航最左侧的菜单。完成记录和批量编辑使用所选 Agenda 文件中的任务，不局限于某个 Perspective 的筛选结果。
 
@@ -201,7 +201,7 @@ SCHEDULED: <2026-09-16 Wed 10:00> DEADLINE: <2026-09-18 Fri>
 - Agenda 和 TODOs 不使用左右滑动改变 Workflow，避免与滚动和系统手势冲突。
 - 详情页关闭时把当前有效草稿一次写回源文件；没有额外 Save 按钮。
 
-详情页的主要顺序是：Item/History → Schedule/Repeat/Reminder → Properties（iOS/iPadOS 尚未发布）→ Content → Attachments → Notes → Subtasks → Delete。Delete 为红色，并在底部导航之上保留足够滚动空间。
+详情页的主要顺序是：Item/History → Schedule/Repeat/Reminder → Properties（iOS/iPadOS build 19）→ Content → Attachments → Notes → Subtasks → Delete。Delete 为红色，并在底部导航之上保留足够滚动空间。
 
 iPhone/iPad build 15 的详情页将顶部可编辑标题稍微放大并使用半粗字重，与下方设置项区分。短标题和长标题使用同样的层级，仍跟随所选字体和系统文字大小；字段顺序与保存方式不变。
 
