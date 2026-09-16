@@ -164,7 +164,9 @@ A Perspective does not modify Org files or create a new item type. It stores fil
 - Choose sorting.
 - Preserve or flatten parent/child outline relationships.
 
-Tag and Property rules use effective values inherited through the outline; a child's Property overrides the same Property on its parent. Preview and Edit still show and mutate only the heading's direct tags and Properties. Leave Property name blank to disable the rule. Does not equal also matches an item where that Property is missing. This is one deliberate mobile condition, not a second full Org query language.
+**Unreleased:** Tag filters combine in-file `#+FILETAGS`, ancestor tags, and direct tags. Ordinary Property filters follow Org's default: only the current entry's own value counts, replacing Aster's earlier automatic parent inheritance. `CATEGORY` keeps its separate inheritance rules. If an existing view relied on a parent's `OWNER`, for example, put that Property on each matching task. Aster does not rewrite files automatically.
+
+Lowercase `nil` means unset; uppercase `NIL` and an empty string remain present values. Preview and Edit still show and mutate only the heading's direct tags and Properties. Leave Property name blank to disable the rule. Does not equal also matches a missing Property. This is one mobile filter condition, not the full Org query language; external `#+SETUPFILE` declarations are not loaded.
 
 Create one under **Settings → Tasks & Workflow → Views**. It then appears alongside Agenda, TODOs, and Journal in the three-line secondary menu immediately before the Views tab.
 
@@ -200,17 +202,18 @@ This works without requiring every user to spell the state `PROJECT`.
 
 ### Scenario: Work Owned by One Person
 
-Declare shared context once on a parent:
+Use file and ancestor tags for shared context, and put the owner on the task itself:
 
 ```org
+#+FILETAGS: :work:
 * Release :team:
+** TODO Prepare release notes
 :PROPERTIES:
 :OWNER: Alice
 :END:
-** TODO Prepare release notes
 ```
 
-Set tag to `team`, Property name to `OWNER`, matching to Equals, and value to `Alice`. The child matches without duplicating inherited metadata.
+Set tag to `team`, Property name to `OWNER`, matching to Equals, and value to `Alice`. This task matches. In the unreleased version, the file tag `work` also matches; an `OWNER` set only on the parent no longer qualifies the child.
 
 ### Scenario: Anniversaries and Elapsed Days
 

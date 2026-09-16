@@ -26,9 +26,9 @@ Agenda and TODOs read the same Org files but answer different questions:
 
 Each cell stacks the date numeral, lunar text, then at most four markers. Turning lunar display off removes its row without leaving a gap. Any number of Reminders (non-Habit tasks with a clock time) shares one checkmark-square icon, matching the creation timeline, alongside up to three Event-color dots. Without Reminders, up to four color dots appear.
 
-The light blue selection background and Today outline wrap the whole stack. Their height changes only when lunar display is turned on or off. The marker row stays reserved, so dates with zero, one or four markers share the same background size and shape, with enough width for all four markers.
+Selected dates retain a solid blue background, with contrasting numerals, lunar text and Reminder icons; Event dots keep their source colors. The selection background and Today outline wrap the whole stack. Their height changes only when lunar display is turned on or off. The marker row stays reserved, so dates with zero, one or four markers share the same background size and shape, with enough width for all four markers.
 
-Events and holidays keep their Timeline colors, with matching colors combined and holidays first. Selected dates retain these colors too. The dots represent displayed color groups, not item counts. Habits and date-only TODOs do not add a Reminder icon. Week ribbons, Year density and Org source are unchanged. This change is not included in build 17.
+Events and holidays keep their Timeline colors, with matching colors combined and holidays first. Selected dates retain these colors too. The dots represent displayed color groups, not item counts. Habits and date-only TODOs do not add a Reminder icon. Week ribbons, Year density and Org source are unchanged. This change starts in build 18.
 
 ## What Appears in TODOs
 
@@ -170,6 +170,31 @@ Long WebDAV URLs, file and folder names, Journal filename rules, Capture paths a
 
 ## Item Actions
 
+### Completion History, Batch Edit, and Properties (iOS/iPadOS, unreleased)
+
+Tap … beside the TODOs or Perspective title to open Completion History or Batch Edit. The title itself is plain text; switch views from the leading root menu. Both task actions use tasks from the selected Agenda files, not just a saved Perspective's filtered results.
+
+Completion History groups actual CLOSED and terminal-state log timestamps, including earlier completions of repeating tasks. Terminal tasks without a recorded date appear separately. Scheduled dates are never substituted for completion dates. Opening a record shows the current item, not an older version of its file.
+
+Batch Edit changes a shared workflow state or the Scheduled/Deadline date independently. Other planning fields, clocks and repeaters are preserved; a missing field becomes a date-only value. Required status notes must be supplied. Diary dates need individual editing. Any changed source file stops the entire batch.
+
+After saving, Undo Batch Change is available until the sheet closes. It refuses to overwrite files that have since been edited or updated by sync.
+
+Properties in detail edits values such as OWNER and AREA as part of the existing detail draft and exit save. The heading menus in Files and Journal also offer Properties. Ordinary properties belong only to the current heading. The following fields appear as separate editor rows; empty values and literal nil remain intact.
+
+```org
+* TODO Prepare report
+SCHEDULED: <2026-09-16 Wed 10:00> DEADLINE: <2026-09-18 Fri>
+:PROPERTIES:
+:OWNER: Alice
+:AREA: work
+:END:
+```
+
+Changing the Scheduled date to September 17 preserves 10:00 and the September 18 deadline. Changing OWNER to Bob writes only `:OWNER: Bob`, without copying it to child tasks. IDs, progress sources, repeat history and Apple Reminders identity retain their existing editing owners.
+
+### Individual Actions
+
 - Tap a Task's leading Workflow symbol or current keyword capsule to open the same complete state list directly. Neither guesses a Complete, Reopen, or Habit Check-in action; the user chooses the intended keyword explicitly.
 - Tap the title or any other remaining area to open the shared detail view. The keyword hit shape follows the visible capsule instead of expanding into title space. iPhone uses a bottom sheet, iPad anchors a popover, and Android uses a scrollable native status sheet. A choice writes immediately and dismisses without another Done action. The current state is indicated by its own tint and fill, with no extra checkmark. After a non-repeating item enters a Terminal state, it stays in place briefly to confirm the new state and then leaves the active list.
 - Hold a Task to open only compact item actions such as Schedule, Move/Archive, Note, and Delete; the keyword list is not duplicated there. Android anchors its native popup near the pressed row.
@@ -177,7 +202,7 @@ Long WebDAV URLs, file and folder names, Journal filename rules, Capture paths a
 - Agenda and TODOs do not use horizontal swipes to change Workflow, avoiding conflicts with scrolling and system gestures.
 - Leaving detail writes the current valid draft back to source. There is no separate Save button.
 
-The main detail order is: Item/History → Schedule/Repeat/Reminder → Content → Attachments → Notes → Subtasks → Delete. Delete is red and the page reserves enough bottom space above root navigation.
+The main detail order is: Item/History → Schedule/Repeat/Reminder → Properties (unreleased on iOS/iPadOS) → Content → Attachments → Notes → Subtasks → Delete. Delete is red and the page reserves enough bottom space above root navigation.
 
 In iPhone/iPad build 15, the editable title uses a slightly larger semibold style to distinguish it from the settings below. Short and long titles share that hierarchy and follow the selected font and system Text Size; field order and saving are unchanged.
 

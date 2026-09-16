@@ -99,6 +99,10 @@ If a WebDAV content response omits its version, Aster obtains a strong file vali
 
 Upgrading does not clear existing conflicts or choose a copy for you. Back up and compare the preserved copies before explicitly selecting or merging them. Genuine two-sided edits still require review. These fixes start in build 17.
 
+### Editing Immediately After a Download (build 18)
+
+An edit saved just after a download stays pending and is uploaded on the next sync. This applies to both newly downloaded files and replacements of existing files. Later edits are not mistaken for already-synchronized content, and genuine two-sided changes still retain conflict protection.
+
 ### Nutstore Repeated Saves and Deletion Protection (iOS/iPadOS, build 16)
 
 Saving again after the first upload no longer produces a false version conflict. Existing files still use version checks. New files are published from private staging with a no-overwrite move, protecting same-named files created concurrently by another device. This has been exercised against a real Nutstore account; other WebDAV services keep their standard requests.
