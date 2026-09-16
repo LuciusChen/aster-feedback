@@ -58,7 +58,7 @@ In iOS/iPadOS build 12, a plain heading tap stays in the reader. Long-press the 
 
 ## Multiple images (iOS/iPadOS build 13)
 
-Consecutive images appear as fixed-width cards instead of a vertical stack or full-width pages. Several cards sit side by side when space permits. Swipe horizontally to see any overflow.
+Consecutive images appear as fixed-width cards instead of a vertical stack or full-width pages. Several cards sit side by side when space permits. Swipe horizontally to see any overflow; each reached card rests with its right edge at the Journal timeline's right edge on iPhone and iPad.
 
 Previews crop to fit their display area; tap a picture to see the complete original. The image file is never cropped. Short marks above the row show the count and current position, and each caption stays below its own picture.
 
