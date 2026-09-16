@@ -194,6 +194,10 @@ The system title excludes Org workflow and priority prefixes whether separated b
 
 Timestamped notes added through Add Note live in that item's Org `LOGBOOK`. In iOS/iPadOS build 15, sync preserves those notes and state history by item ID, even after a system-side title edit; it does not merge them into Apple Reminders' ordinary notes field.
 
+**iOS/iPadOS, unreleased:** Custom Org properties on managed items are also preserved, including edits saved through Properties. Another sync, a system-side rename, or a retry after failure does not remove those properties or export them as system notes. Sync still matches item identities, never guessed titles.
+
+**iOS/iPadOS, unreleased:** Notification Complete and Snooze appear only for items with a stable identity: an Org `ID`, `CUSTOM_ID`, or an imported Apple Reminder's `APPLE_REMINDER_ID`. Other items without a stable ID still alert, but you must open Aster to edit them. Actions read the latest file and verify the original plan; a deleted, rescheduled, or ambiguous item is not changed. Older notifications that identify an item only by title or line also require opening the app. Editing an ordinary date in the body does not invalidate an unchanged reminder, and a file read failure reports the read error rather than incorrectly calling the notification outdated.
+
 ## Android Notification Boundary
 
 The Android build does not create `apple-reminders.org` and does not import or export ordinary Org Tasks through an invented Apple Reminders equivalent. **Aster Notifications** rebuilds local reminder plans from concretely timed items in the current Agenda sources. On Android 13 and later, Aster requests notification permission only after the user explicitly enables notifications in Settings.

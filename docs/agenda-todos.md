@@ -22,7 +22,7 @@ Agenda 和 TODOs 读取同一批 Org 文件，但回答不同问题：
 | Habit 到达可执行窗口 | 是 | Workflow + Habit 节奏和历史 |
 | 普通 Note/Container | 否 | 留在 Files/Search |
 
-## 月历日期标记（iOS/iPadOS，尚未发布）
+## 月历日期标记（iOS/iPadOS build 18）
 
 单元格从上到下是日期数字、农历、最多四个标记；关闭农历后不保留空行。有 Reminder（带具体时刻的非 Habit 任务）时，无论多少条，都合并成一个与新建时间轴相同的勾选框图标，另显示最多三种颜色的点；没有 Reminder 时，最多显示四种颜色的点。
 

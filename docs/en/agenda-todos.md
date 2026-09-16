@@ -22,7 +22,7 @@ Agenda and TODOs read the same Org files but answer different questions:
 | Habit inside its actionable window | Yes | Workflow, Habit cadence, and history |
 | Ordinary Note or Container | No | Available in Files and Search |
 
-## Month Date Markers (iOS/iPadOS, Unreleased)
+## Month Date Markers (iOS/iPadOS build 18)
 
 Each cell stacks the date numeral, lunar text, then at most four markers. Turning lunar display off removes its row without leaving a gap. Any number of Reminders (non-Habit tasks with a clock time) shares one checkmark-square icon, matching the creation timeline, alongside up to three Event-color dots. Without Reminders, up to four color dots appear.
 
