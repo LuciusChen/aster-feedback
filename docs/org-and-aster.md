@@ -11,10 +11,10 @@
 | Org 特征 | Aster 分类 | 主要出现位置 |
 | --- | --- | --- |
 | 没有 Workflow 关键字，有活动时间戳或可识别日期规划 | Event | Agenda |
-| 有未完成 Workflow 关键字，没有具体钟点 | Task | TODOs、Perspective |
-| 有未完成 Workflow 关键字，并有具体钟点 | Timed Task | Agenda |
+| 有未完成 Workflow 关键字，没有具体钟点 | Task | TODOs、匹配的 Perspective |
+| 有未完成 Workflow 关键字，并有具体钟点 | Timed Task | Agenda 时间线、TODOs |
 | Workflow 关键字被配置为 Treat as Project | Project | TODOs、Perspective；可显示进度 |
-| 未完成 Workflow + `STYLE=habit` + 重复的 `SCHEDULED` | Habit | 默认今天可执行时进入 Agenda；Perspective 可回顾未到期习惯（iOS/iPadOS build 14），不进入 TODOs；显示习惯历史 |
+| 未完成 Workflow + `STYLE=habit` + Org Habit 接受的重复 `SCHEDULED` | Habit | TODOs；今天可执行时默认进入 Agenda；Perspective 可筛选习惯；显示习惯历史 |
 | `org-anniversary` 年度 Diary | Anniversary；可选 Property 可显示 Day Counter | Agenda；可选 Anniversaries Perspective |
 | `org-cyclic` / `diary-cyclic` 周期 Diary | Cyclic Event | Agenda；可选 Perspective |
 | 没有 Workflow 和日期，但有正文 | Note | Files、Search、Journal（若在 Journal 源中） |
@@ -153,7 +153,7 @@ DEADLINE: <2026-09-03 Thu>
 
 ### Aster 实际效果
 
-- 仍然属于 TODOs，因为没有具体钟点。
+- 作为进行中的 Task 显示在 TODOs；没有具体钟点，所以不占用 Agenda 的定时时间线。
 - 在条目元数据中显示 Deadline 日期。
 - 到期日过去且状态仍未完成时，显示 Overdue 状态。
 - 不会为了“有日期”就伪装成全天 Event。
@@ -192,7 +192,7 @@ SCHEDULED: <2026-09-03 Thu 09:15>
 ### Aster 实际效果
 
 - 因为有未完成 Workflow 关键字，所以仍是 Task。
-- 因为有具体钟点，所以显示在 Agenda 时间线，而不是 TODOs 列表。
+- 因为有具体钟点，所以显示在 Agenda 时间线；TODOs 也汇总这条进行中的 Task（iOS/iPadOS build 21）。
 - 时间是一个精确时刻 `09:15`，不是 Event 的开始—结束区间。
 - 未完成且时刻已过时，时间本身变红。
 - 保存这种条目时，Aster 会按标准 Org 规划时间创建一次本地提醒，不需要第二个 Notify 开关。
@@ -239,7 +239,7 @@ Project 不是由文件名或固定的 `PROJECT` 单词硬编码出来的。它�
 
 ## 7. Habit
 
-标准 Habit 身份需要同时满足：未完成 Workflow、`STYLE=habit`、带 Repeater 的 `SCHEDULED`。
+标准 Habit 身份需要同时满足：未完成 Workflow、`STYLE=habit`、Org Habit 接受的重复 `SCHEDULED`。基础间隔至少一天，可使用天、周、月或年；若带可识别的非小时最大间隔，它必须大于基础间隔。基础间隔为小时或非小时窗口反向时，Org 原文仍保留，但 Aster 不会显示虚构的 Habit 节奏图（iOS/iPadOS build 21）。
 
 iOS/iPadOS build 14提供未到期习惯的回顾方式，见[今天显示所有习惯与 Perspective](agenda-todos.md#查看尚未到期的习惯iosipados-build-14)。展示范围和真实计划日期是两回事；开关不会改变以下 Org 内容。
 

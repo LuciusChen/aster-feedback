@@ -7,7 +7,8 @@
 Agenda 和 TODOs 读取同一批 Org 文件，但回答不同问题：
 
 - **Agenda**：什么时候发生？显示 Event、有具体钟点的未完成 Task，以及今天可执行的 Habit（无论是否带具体钟点）。
-- **TODOs**：还有什么未完成？显示无日期或只有日期、没有具体钟点的非 Habit Workflow 条目。
+- **TODOs**：还有什么未完成？汇总所选 Agenda 文件中所有进行中的 Task、Project 和 Habit，不论是否有具体钟点。同一条定时任务也可以出现在 Agenda。
+- **Terminal**：哪些任务目前处于终结状态？按源文件中的 `DONE`、`CANCELLED` 等终结关键字显示当前条目，不是完成历史。
 
 ![Agenda 示例](../assets/screenshots/agenda.png)
 
@@ -17,9 +18,9 @@ Agenda 和 TODOs 读取同一批 Org 文件，但回答不同问题：
 | --- | --- | --- |
 | 无 Workflow 的全天 Event | 是 | 紧凑全天条 |
 | 无 Workflow 的时间范围 Event | 是 | 时间范围在上、标题在下 |
-| 有 Workflow 的日期型 Task | 否 | 留在 TODOs |
-| 有 Workflow 的定时 Task | 是 | 精确时刻在上、Workflow 条目在下 |
-| Habit 到达可执行窗口 | 是 | Workflow + Habit 节奏和历史 |
+| 有 Workflow 的日期型 Task | 否 | 在 TODOs 显示日期和规划状态 |
+| 有 Workflow 的定时 Task | 是 | 精确时刻在上、Workflow 条目在下；TODOs 也汇总此任务 |
+| Habit 到达可执行窗口 | 是 | Workflow + Habit 节奏和历史；TODOs 也汇总此任务 |
 | 普通 Note/Container | 否 | 留在 Files/Search |
 
 ## 月历日期标记（iOS/iPadOS build 18）
@@ -34,14 +35,16 @@ Event 与节假日沿用时间线颜色，同色合并成一个点，节假日�
 
 ![TODOs 示例](../assets/screenshots/todos.png)
 
-TODOs 保留所有未完成且没有具体钟点的非 Habit Workflow 条目，包括：
+从 iOS/iPadOS build 21 起，TODOs 为每个进行中的 Org 标题保留一行，包括：
 
 - 完全无日期的 Task。
 - 只有日期的 `SCHEDULED` Task。
 - 只有日期的 `DEADLINE` Task。
+- 有具体时刻、也会出现在 Agenda 时间线的 Task。
 - 配置为 Project 的 Workflow 条目。
+- 尚未到计划日期或已经进入可执行窗口的 Habit。
 
-Habit 是例外：默认到达可执行窗口后，才在今天的 Agenda 时间线出现。没有具体钟点时也不会被移入或重复显示在 TODOs。
+TODOs 是工作总览，不会替代按日期排列的 Agenda。Habit 是否出现在今天的 Agenda，仍由它的 Scheduled 日期和「今天显示所有习惯」开关决定；TODOs 始终保留这条进行中的源任务。
 
 列表按真实文件和 Org 层级组织。可见父 Task 下的可见子 Task 会保持嵌套；纯结构 Container 不会被错误显示为 Task。
 
@@ -103,7 +106,7 @@ Agenda 的 `+` 打开快速新建。上方两段选择只决定 Org 类型，不
 ### Task
 
 - 计划日期和截止日期均未设置：写入无日期 Task，进入 TODOs。
-- 可以单独设置 `SCHEDULED`、`DEADLINE`，也可以同时设置。没有具体时刻时，仍留在 TODOs。
+- 可以单独设置 `SCHEDULED`、`DEADLINE`，也可以同时设置。有无具体时刻都在 TODOs 汇总；定时任务另会进入 Agenda 时间线。
 - 为当前字段打开 At a time：写入该字段的具体时刻，进入 Agenda，并按该时刻提醒。
 - Task 不写结束时刻；它不是 Event 区间。
 
@@ -169,15 +172,11 @@ WebDAV URL、文件与目录名、Journal 文件名规则、Capture 路径与提
 
 ## 条目操作
 
-### 完成记录、批量编辑和属性（iOS/iPadOS build 19）
+### Terminal 与属性（iOS/iPadOS build 21）
 
-点击 TODOs 或自定义视图标题右侧的「…」，选择 Completion History（完成记录）或 Batch Edit（批量编辑）。标题本身不再打开菜单；切换视图使用主导航最左侧的菜单。完成记录和批量编辑使用所选 Agenda 文件中的任务，不局限于某个 Perspective 的筛选结果。
+从 Views 左侧菜单选择 **Terminal**，查看所选 Agenda 文件中当前处于终结状态的任务，例如 `DONE` 和 `CANCELLED`。它不按完成日期分组，也不包含重复任务过去每一次的完成记录；这些历史仍保留在 Org 的 `CLOSED:` 和 `LOGBOOK` 中。
 
-完成记录按照实际 `CLOSED` 或终态日志日期分组，也能看到重复任务以前的完成记录。没有记录日期的终态任务单独列出，不会把计划日期当成完成日期。点击记录打开当前条目的详情；这不是历史文件版本。
-
-批量编辑可以修改共同支持的状态，或单独修改 Scheduled、Deadline 的日期。其他日期字段、已有时刻和重复规则保持不变；原来没有对应日期的任务会新增一个不带时刻的日期。需要备注的状态变更必须填写备注。Diary 日期需逐条编辑。任一源文件发生变化时，整个批量操作会停止。
-
-保存后，本页关闭前可以点击 Undo Batch Change 撤销。若文件已被再次编辑或同步更新，撤销会拒绝覆盖新内容。
+TODOs 和自定义视图标题右侧不再有「…」。单条任务仍可打开详情修改状态、Scheduled、Deadline 和属性；本版本不提供批量编辑或单独的 Completion History 页面。
 
 详情中的 Properties 可以编辑 `OWNER`、`AREA` 等属性，返回详情后随详情退出保存；Files 和 Journal 的标题长按菜单也有 Properties。普通属性只属于当前标题。比如下面两个字段会分别成为属性编辑器里的两行，空值和字面值 `nil` 不会被偷偷删除。
 
@@ -190,7 +189,7 @@ SCHEDULED: <2026-09-16 Wed 10:00> DEADLINE: <2026-09-18 Fri>
 :END:
 ```
 
-例如把计划日期批量改为 9 月 17 日，时刻仍为 10:00，截止日期仍为 9 月 18 日。把 OWNER 改为 Bob，只会修改 `:OWNER: Bob`，不会给子任务复制属性。ID、进度、重复历史和 Apple Reminders 的受管理属性仍由原有操作维护。
+例如在详情中把计划日期改为 9 月 17 日，时刻仍为 10:00，截止日期仍为 9 月 18 日。把 OWNER 改为 Bob，只会修改 `:OWNER: Bob`，不会给子任务复制属性。ID、进度、重复历史和 Apple Reminders 的受管理属性仍由原有操作维护。
 
 ### 单条操作
 
@@ -271,6 +270,7 @@ Scheduled 表示计划开始处理的日期，Deadline 表示完成期限。它�
 
 - Agenda
 - TODOs
+- Terminal
 - Journal
 - 已保存 Perspective
 

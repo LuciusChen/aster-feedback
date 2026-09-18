@@ -137,7 +137,7 @@ SCHEDULED: <2026-09-03 Thu 07:30 .+1d>
 A standard Habit requires:
 
 1. An unfinished Workflow keyword.
-2. A repeating `SCHEDULED` timestamp.
+2. An Org Habit-compatible repeating `SCHEDULED` timestamp: a base interval of at least one day using days, weeks, months, or years, with any recognized non-hour maximum interval greater than the base interval.
 3. `:STYLE: habit`.
 
 The Habit row therefore continues to show its real `NEXT`, `TODO`, or other keyword. The consistency graph, cadence, and completion history are supplemental information; they do not replace Workflow with a fake Habit state.
@@ -147,6 +147,8 @@ The timeline uses a compact seven-day rhythm for quick scanning. Detail keeps 28
 ![Single-row 28-day history in Habit detail](../../assets/screenshots/habit-detail.png)
 
 Cells still follow Org's scheduling-window colors. `*` independently marks a LOGBOOK completion, while `!` identifies an unfinished today, so color is never the only signal.
+
+An hourly base interval or reversed non-hour window remains intact in source but does not display as a valid Habit. The Scheduled Repeat editor for an existing Habit does not offer Hourly or Diary choices; ordinary Task, Deadline, and Event options are unchanged (iOS/iPadOS build 21).
 
 On completion, Aster advances the timestamp according to the Org Repeater, returns to `REPEAT_TO_STATE` or the configured active state, and writes standard LOGBOOK history.
 
@@ -168,7 +170,7 @@ A Perspective does not modify Org files or create a new item type. It stores fil
 
 Lowercase `nil` means unset; uppercase `NIL` and an empty string remain present values. Preview and Edit still show and mutate only the heading's direct tags and Properties. Leave Property name blank to disable the rule. Does not equal also matches a missing Property. This is one mobile filter condition, not the full Org query language; external `#+SETUPFILE` declarations are not loaded.
 
-Create one under **Settings → Tasks & Workflow → Views**. It then appears alongside Agenda, TODOs, and Journal in the three-line secondary menu immediately before the Views tab.
+Create one under **Settings → Tasks & Workflow → Views**. It then appears alongside Agenda, TODOs, Terminal, and Journal in the three-line secondary menu immediately before the Views tab.
 
 ### Optional Built-in Templates
 

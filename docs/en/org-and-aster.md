@@ -11,10 +11,10 @@ This is the central semantic reference for Aster. Every example includes copyabl
 | Org feature | Aster classification | Primary location |
 | --- | --- | --- |
 | No Workflow keyword, with an active timestamp or recognizable date planning | Event | Agenda |
-| Unfinished Workflow keyword, no concrete clock time | Task | TODOs and Perspectives |
-| Unfinished Workflow keyword, with a concrete clock time | Timed Task | Agenda |
+| Unfinished Workflow keyword, no concrete clock time | Task | TODOs and matching Perspectives |
+| Unfinished Workflow keyword, with a concrete clock time | Timed Task | Agenda timeline and TODOs |
 | Workflow keyword configured as Treat as Project | Project | TODOs and Perspectives, optionally with progress |
-| Unfinished Workflow + `STYLE=habit` + repeating `SCHEDULED` | Habit | Agenda when eligible today by default; Perspectives can review future habits (iOS/iPadOS build 14), never TODOs, with habit history |
+| Unfinished Workflow + `STYLE=habit` + an Org Habit-compatible repeating `SCHEDULED` | Habit | TODOs; Agenda when eligible today by default; matching Perspectives; habit history |
 | Yearly `org-anniversary` Diary | Anniversary; an optional Property can select Day Counter presentation | Agenda and the optional Anniversaries Perspective |
 | `org-cyclic` / `diary-cyclic` Diary cycle | Cyclic Event | Agenda and optional Perspectives |
 | No Workflow or date, but visible body content | Note | Files and Search; Journal when stored in a Journal source |
@@ -153,7 +153,7 @@ DEADLINE: <2026-09-03 Thu>
 
 ### Actual Aster behavior
 
-- It remains in TODOs because there is no concrete clock time.
+- As an open Task, it appears in TODOs. Without a concrete clock time, it does not occupy the timed Agenda timeline.
 - Its Deadline appears in item metadata.
 - Once the date passes while the state remains unfinished, it receives overdue styling.
 - It does not become an all-day Event merely because it has a date.
@@ -193,6 +193,7 @@ SCHEDULED: <2026-09-03 Thu 09:15>
 
 - It remains a Task because it has an unfinished Workflow keyword.
 - It appears on the Agenda timeline because its planning contains a clock time.
+- TODOs also summarizes this open Task (iOS/iPadOS build 21).
 - `09:15` is one exact moment, not an Event start–end range.
 - If it remains unfinished after that moment, the time itself turns red.
 - Saving a timed Task schedules one local alert from the standard Org planning time; it does not require a second Notify switch.
@@ -241,7 +242,7 @@ If both checkboxes and subtasks exist without an explicit source, Aster asks ins
 
 iOS/iPadOS build 14 adds ways to [review future habits in today's list or a Perspective](agenda-todos.md#reviewing-future-habits-iosipados-build-14). Visibility is separate from the real schedule; the setting does not change the Org content below.
 
-A standard Habit requires all three: an unfinished Workflow keyword, `STYLE=habit`, and a repeating `SCHEDULED` timestamp.
+A standard Habit requires an unfinished Workflow keyword, `STYLE=habit`, and a repeating `SCHEDULED` timestamp accepted by Org Habit. Its base interval must be at least a day and may use days, weeks, months, or years; a recognized non-hour maximum interval must exceed the base interval. Source with an hourly base or a reversed non-hour window remains intact, but Aster no longer presents it as a Habit with an invented rhythm graph (iOS/iPadOS build 21).
 
 ### Org source
 

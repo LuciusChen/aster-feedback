@@ -7,7 +7,8 @@
 Agenda and TODOs read the same Org files but answer different questions:
 
 - **Agenda**: When does it happen? It shows Events, unfinished Tasks with a concrete clock time, and today's eligible Habits whether or not they have a clock time.
-- **TODOs**: What remains unfinished? It shows non-Habit Workflow items with no date or only a date, but no clock time.
+- **TODOs**: What remains unfinished? It summarizes every open Task, Project, and Habit from the selected Agenda files, with or without a clock time. A timed task can appear in Agenda too.
+- **Terminal**: Which tasks currently have a terminal keyword? It lists source-defined states such as `DONE` and `CANCELLED`, not a history of past completions.
 
 ![Agenda example](../../assets/screenshots/agenda.png)
 
@@ -17,9 +18,9 @@ Agenda and TODOs read the same Org files but answer different questions:
 | --- | --- | --- |
 | All-day Event without a Workflow keyword | Yes | Compact all-day strip |
 | Time-range Event without a Workflow keyword | Yes | Time range above, title below |
-| Date-only Task with a Workflow keyword | No | Remains in TODOs |
-| Timed Task with a Workflow keyword | Yes | Exact time above, Workflow item below |
-| Habit inside its actionable window | Yes | Workflow, Habit cadence, and history |
+| Date-only Task with a Workflow keyword | No | Date and planning status in TODOs |
+| Timed Task with a Workflow keyword | Yes | Exact time above, Workflow item below; also summarized in TODOs |
+| Habit inside its actionable window | Yes | Workflow, Habit cadence, and history; also summarized in TODOs |
 | Ordinary Note or Container | No | Available in Files and Search |
 
 ## Month Date Markers (iOS/iPadOS build 18)
@@ -34,14 +35,16 @@ Events and holidays keep their Timeline colors, with matching colors combined an
 
 ![TODOs example](../../assets/screenshots/todos.png)
 
-TODOs contains every unfinished non-Habit Workflow item without a concrete clock time, including:
+Starting with iOS/iPadOS build 21, TODOs keeps one row per open Org heading, including:
 
 - A completely undated Task.
 - A date-only `SCHEDULED` Task.
 - A date-only `DEADLINE` Task.
+- A timed Task that also appears on the Agenda timeline.
 - A Workflow item configured as a Project.
+- A Habit, whether or not its next Scheduled date has arrived.
 
-Habit is the exception: by default, it appears in today's Agenda timeline only after reaching its actionable window, even without a clock time. It is never moved into or duplicated in TODOs.
+TODOs is a work summary, not a replacement for dated Agenda. A Habit's Scheduled date and **Show all habits today** setting still determine whether it appears in today's Agenda; TODOs retains the one current open source task.
 
 The list follows real files and Org outline hierarchy. Visible child Tasks remain nested below a visible parent Task. Structural Containers are not misrepresented as Tasks.
 
@@ -104,7 +107,7 @@ A multi-day Event appears on its start, end, and every intervening date, includi
 ### Task
 
 - Neither Scheduled nor Deadline set: write an undated Task that appears in TODOs.
-- Set `SCHEDULED`, `DEADLINE`, or both. Without a clock time, the Task remains in TODOs.
+- Set `SCHEDULED`, `DEADLINE`, or both. TODOs summarizes the Task with or without a clock time; a timed Task also appears on the Agenda timeline.
 - Enable At a time for the selected field to write its clock time, show it in Agenda, and alert at that time.
 - A Task has no end time; it is not an Event interval.
 
@@ -170,15 +173,11 @@ Long WebDAV URLs, file and folder names, Journal filename rules, Capture paths a
 
 ## Item Actions
 
-### Completion History, Batch Edit, and Properties (iOS/iPadOS build 19)
+### Terminal and Properties (iOS/iPadOS build 21)
 
-Tap … beside the TODOs or Perspective title to open Completion History or Batch Edit. The title itself is plain text; switch views from the leading root menu. Both task actions use tasks from the selected Agenda files, not just a saved Perspective's filtered results.
+Choose **Terminal** from the leading Views menu to see tasks whose current source keyword is terminal, such as `DONE` or `CANCELLED`. It does not group by completion date or list each past completion of a repeating task; Org retains that history in `CLOSED:` and `LOGBOOK`.
 
-Completion History groups actual CLOSED and terminal-state log timestamps, including earlier completions of repeating tasks. Terminal tasks without a recorded date appear separately. Scheduled dates are never substituted for completion dates. Opening a record shows the current item, not an older version of its file.
-
-Batch Edit changes a shared workflow state or the Scheduled/Deadline date independently. Other planning fields, clocks and repeaters are preserved; a missing field becomes a date-only value. Required status notes must be supplied. Diary dates need individual editing. Any changed source file stops the entire batch.
-
-After saving, Undo Batch Change is available until the sheet closes. It refuses to overwrite files that have since been edited or updated by sync.
+There is no trailing … beside TODOs or Perspective titles. You can still edit one task's state, Scheduled and Deadline fields, and Properties from its detail view; this build has no Batch Edit or separate Completion History page.
 
 Properties in detail edits values such as OWNER and AREA as part of the existing detail draft and exit save. The heading menus in Files and Journal also offer Properties. Ordinary properties belong only to the current heading. The following fields appear as separate editor rows; empty values and literal nil remain intact.
 
@@ -191,7 +190,7 @@ SCHEDULED: <2026-09-16 Wed 10:00> DEADLINE: <2026-09-18 Fri>
 :END:
 ```
 
-Changing the Scheduled date to September 17 preserves 10:00 and the September 18 deadline. Changing OWNER to Bob writes only `:OWNER: Bob`, without copying it to child tasks. IDs, progress sources, repeat history and Apple Reminders identity retain their existing editing owners.
+Changing this task's Scheduled date in detail to September 17 preserves 10:00 and the September 18 deadline. Changing OWNER to Bob writes only `:OWNER: Bob`, without copying it to child tasks. IDs, progress sources, repeat history and Apple Reminders identity retain their existing editing owners.
 
 ### Individual Actions
 
@@ -272,6 +271,7 @@ Open the three-line secondary menu immediately before Views. Its visible top-to-
 
 - Agenda
 - TODOs
+- Terminal
 - Journal
 - A saved Perspective
 

@@ -137,7 +137,7 @@ SCHEDULED: <2026-09-03 Thu 07:30 .+1d>
 一个标准 Habit 需要：
 
 1. 未完成的 Workflow 关键字。
-2. 重复的 `SCHEDULED` 时间。
+2. Org Habit 接受的重复 `SCHEDULED` 时间：基础间隔至少一天，可按天、周、月或年重复；可识别的非小时最大间隔必须大于基础间隔。
 3. `:STYLE: habit`。
 
 因此 Habit 行仍显示真实的 `NEXT`、`TODO` 或其他关键字。Habit 图表、节奏和完成历史是附加信息，不会把关键字替换成一个假的 Habit 状态。
@@ -147,6 +147,8 @@ SCHEDULED: <2026-09-03 Thu 07:30 .+1d>
 ![Habit 详情中的单行 28 天历史](../assets/screenshots/habit-detail.png)
 
 色块仍按 Org 的计划窗口着色。`*` 独立表示当天已有 LOGBOOK 完成记录，`!` 独立标出尚未完成的今天，因此颜色不是唯一提示。
+
+小时基础间隔和反向的非小时窗口仍保留在源文件中，但不会显示成有效的 Habit。已有 Habit 的 Scheduled Repeat 编辑器不提供 Hourly 或 Diary 选项；普通 Task、Deadline 和 Event 的选项不受影响（iOS/iPadOS build 21）。
 
 完成时，Aster 根据 Org Repeater 推进日期、把状态恢复到 `REPEAT_TO_STATE` 或配置的进行中状态，并写入标准 LOGBOOK 历史。
 
@@ -168,7 +170,7 @@ Perspective 不修改 Org 文件，也不会创建新类型。它保存的是过
 
 小写 `nil` 表示未设置；大写 `NIL` 和空字符串仍是存在的值。条目在 Preview 与 Edit 中仍只显示和修改自己的直接标签与 Property。Property 名称留空就关闭该规则；“不等于”也会匹配没有该 Property 的条目。这是一条适合移动端的筛选条件，不是完整 Org 查询语言；Aster 也不会加载外部 `#+SETUPFILE`。
 
-在 **设置 → Tasks & Workflow → Views** 新建；之后打开 Views 左侧的三横线二级菜单，就能与 Agenda、TODOs、Journal 一起选择。
+在 **设置 → Tasks & Workflow → Views** 新建；之后打开 Views 左侧的三横线二级菜单，就能与 Agenda、TODOs、Terminal、Journal 一起选择。
 
 ### 可选的内置模板
 
