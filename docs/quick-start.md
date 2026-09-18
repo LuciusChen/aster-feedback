@@ -68,7 +68,7 @@ iOS/iPadOS build 16 可在“工作区与同步 → 工作区根目录”勾选�
 
 - 一级 Tab 是 **Views、Files、Settings**。
 - 二级内容菜单用于切换当前主要目的地的子页面，并按下列逻辑顺序从上到下显示。Views 中有 Agenda、TODOs、Terminal、Journal 和自定义 Perspective；Files 中有 Workspace、角色文件夹和你从文件树固定的文件夹；Settings 中有“工作区与同步”“外观”“日历与日程”“任务与工作流”“新建与存储”和“日志”六个常用分类。“关于 Aster”仍留在 Settings 首页。
-- 右侧是“新建”和“搜索”。轻点新建会按当前内容创建：Agenda 新建 Event、TODOs/Perspective 新建 Task、Journal 新建日志条目、Files 新建 Org 文档；长按可查看全部四种类型。
+- 右侧是“新建”和“搜索”。轻点新建会按当前内容创建：Agenda 新建 Event、TODOs/Perspective 新建 Task、Journal 新建日志条目、Files 新建 Org 文档；长按显示“Event & Task”“Journal”“Org Document”三个入口。Event & Task 打开 Agenda 的共用表单，在其中切换到 Task 会保留已开启的 Scheduled；在 TODOs 直接轻点新建仍是无日期 Task。
 - 搜索打开后会自动聚焦；轻点 Cancel 会关闭搜索并回到进入前的页面。
 
 - iPhone：三组控件位于同一条底栏；紧凑宽度可只显示图标，但各入口仍有独立选中状态和无障碍名称。

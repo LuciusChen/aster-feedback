@@ -68,7 +68,7 @@ Root navigation provides the same three primary destinations and global actions:
 
 - The primary tabs are **Views, Files, Settings**.
 - The secondary content menu changes the current child and lists its destinations top-to-bottom in the logical order below. Under Views it contains Agenda, TODOs, Terminal, Journal, and saved Perspectives. Under Files it contains Workspace, role folders, and folders pinned from the file tree. Under Settings it contains Workspace & Sync, Appearance, Calendar & Agenda, Tasks & Workflow, Create & Storage, and Journal; About Aster remains on the Settings home.
-- The trailing actions are Create and Search. Create uses the current context: Event in Agenda, Task in TODOs/Perspectives, Journal entry in Journal, and Org Document in Files. Hold Create to show all four types.
+- The trailing actions are Create and Search. Create uses the current context: Event in Agenda, Task in TODOs/Perspectives, Journal entry in Journal, and Org Document in Files. Hold Create for three choices: Event & Task, Journal, and Org Document. Event & Task opens Agenda's shared composer; switching it to Task retains Scheduled. A direct Create tap in TODOs still starts an undated Task.
 - Search focuses immediately. Cancel closes Search and returns to the page you came from.
 
 - iPhone: the three control groups share one bottom row. Compact widths may show symbols only, while each destination retains an independent selection state and accessibility name.
