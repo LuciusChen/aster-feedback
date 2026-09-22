@@ -13,11 +13,11 @@ Aster normally edits its app-local workspace and synchronizes it through the sel
 | Dropbox | Supported | Supported | OAuth authorization and remote directory selection; includes file version history |
 | iCloud Drive | Supported | Not supported | Apple platforms use the system directory picker and security-scoped access |
 | Nutstore | Supported | Supported | Account, third-party app password, and workspace directory through Nutstore WebDAV |
-| WebDAV | Supported | Supported | HTTPS server URL with optional credentials; suitable for Nextcloud and other standard servers |
+| WebDAV | Supported | Supported | HTTPS server URL with optional credentials; suitable for Nextcloud and other standard servers, and for a Tailscale Taildrive address |
 
 Android does not provide iCloud Drive and does not expose the private app working copy or generic local Import as another workspace provider.
 
-Nutstore requires a third-party app password, not the account login password. Generic WebDAV accepts only an HTTPS workspace URL with a host and no embedded credentials; an HTTP URL is neither saved nor connected. Provide both username and password or leave both blank for an anonymous server. Passwords are stored in the system Keychain on iOS/iPadOS and protected by Android Keystore on Android; Basic Auth is sent only over TLS.
+Nutstore requires a third-party app password, not the account login password. Generic WebDAV accepts only an HTTPS workspace URL with a host and no embedded credentials. The single exception is Tailscale's `http://100.100.100.100`: the Taildrive WebDAV server runs on this device's own Tailscale client, is reachable from nowhere else, and everything that leaves the device is already inside the WireGuard tunnel, so that address may use HTTP and needs no username or password — access is decided by your Tailscale identity and tailnet policy. An HTTP URL on any other host is still neither saved nor connected. Provide both username and password or leave both blank for an anonymous server. Passwords are stored in the system Keychain on iOS/iPadOS and protected by Android Keystore on Android; Basic Auth is sent only over TLS.
 
 Even when a WebDAV server lists a nested file such as `agenda/work/review.org` without separate records for every collection, Aster restores the proven `agenda/` and `agenda/work/` parents from that path. A directory visible in Files should therefore also be available to the Agenda Sources, Journal folder, and Event & Task Inbox path pickers.
 
@@ -80,6 +80,8 @@ WebDAV bypasses the system HTTP cache so an earlier read cannot interfere with d
 For InfiniCLOUD, use the WebDAV endpoint and credentials provided by My Page after enabling external-app connections, not the website's login URL.
 
 Uploads and sync deletions check the remote version that was compared. A changed version stops the operation instead of being overwritten. WebDAV login pages, incomplete listings, and out-of-scope resources are errors, not evidence of an empty remote directory.
+
+Taildrive publishes file versions but does not enforce them on a write, so Aster treats it the way it treats Nutstore: a new file is published from private staging with a no-overwrite move, and an automatic deletion that asked for a version guard is refused rather than performed without one. Replacing an existing file has no server-side protection there — if another device changes the same file in the seconds between Aster listing it and writing to it, that change is overwritten. Edits made on each side since the last sync are still compared before anything is uploaded, so an ordinary two-device conflict is still reported rather than overwritten.
 
 Sync replacement or automatic deletion of an existing WebDAV file requires a strong ETag from the server. Missing reliable version information causes an explicit error, never an unconditional-write fallback. Explicit deletion from Files remains a separate user action. iCloud writes, moves, and deletions use system file coordination.
 

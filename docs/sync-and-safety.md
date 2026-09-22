@@ -13,11 +13,11 @@ Aster 日常编辑的是应用本地工作区，再通过所选来源同步。Ag
 | Dropbox | 支持 | 支持 | OAuth 授权并选择远端文件夹；支持文件版本历史 |
 | iCloud Drive | 支持 | 不支持 | Apple 平台使用系统文件夹选择器和安全作用域访问 |
 | Nutstore | 支持 | 支持 | 账号、第三方应用密码和工作区文件夹；使用 Nutstore WebDAV |
-| WebDAV | 支持 | 支持 | HTTPS 服务器 URL，可选账号与密码；适用于 Nextcloud 等标准服务器 |
+| WebDAV | 支持 | 支持 | HTTPS 服务器 URL，可选账号与密码；适用于 Nextcloud 等标准服务器，也可填写 Tailscale Taildrive 地址 |
 
 Android 不提供 iCloud Drive，也不把应用内部工作副本或通用本地 Import 暴露为另一个工作区来源。
 
-Nutstore 必须使用第三方应用密码，不要填写账户登录密码。通用 WebDAV 只接受带主机名、且不内嵌账号密码的 HTTPS 工作区 URL；HTTP URL 不会保存或连接。WebDAV 的账号和密码必须同时填写，或同时留空连接匿名服务器。密码在 iOS/iPadOS 保存在系统 Keychain，在 Android 由 Android Keystore 保护；Basic Auth 只通过 TLS 发送。
+Nutstore 必须使用第三方应用密码，不要填写账户登录密码。通用 WebDAV 只接受带主机名、且不内嵌账号密码的 HTTPS 工作区 URL。唯一的例外是 Tailscale 的 `http://100.100.100.100`：Taildrive 的 WebDAV 服务运行在本机的 Tailscale 客户端上，其他设备无法访问，流量离开本机时已经在 WireGuard 隧道内，因此这个地址允许使用 HTTP，且不需要填写账号密码——访问权限由 Tailscale 身份和 tailnet 策略决定。其他任何主机的 HTTP URL 仍然不会保存或连接。WebDAV 的账号和密码必须同时填写，或同时留空连接匿名服务器。密码在 iOS/iPadOS 保存在系统 Keychain，在 Android 由 Android Keystore 保护；Basic Auth 只通过 TLS 发送。
 
 WebDAV 服务器即使只列出 `agenda/work/review.org` 这类嵌套文件、没有为每一级目录单独返回记录，Aster 也会从该路径恢复已经被证明存在的 `agenda/` 与 `agenda/work/`。因此 Files 中看到的目录也应能在 Agenda Sources、Journal folder 和 Event & Task Inbox 的路径选择器中使用。
 
@@ -80,6 +80,8 @@ WebDAV 不使用系统 HTTP 缓存来判断文件版本，避免打开或移动�
 InfiniCLOUD 请使用 My Page 中启用外部应用连接后提供的 WebDAV 地址及凭据，不要把网页登录地址当作工作区地址。
 
 上传和同步删除会检查刚才比较过的远端版本；版本已变化就停止，不强行覆盖。WebDAV 登录页、不完整或越界的目录结果也会报错，不再当成远端空目录处理。
+
+Taildrive 会给出文件版本，但写入时并不校验它们。因此 Aster 对它采用与坚果云相同的处理：新建文件通过私有暂存位置加禁止覆盖的移动发布，带版本条件的自动删除会被拒绝而不是无条件执行。替换已有文件在这个服务上没有服务器端保护——从 Aster 读取目录到写入之间的这几秒内，如果另一台设备改了同一个文件，改动会被覆盖。上次同步之后两边各自的修改仍会在上传前比对，因此常见的双设备冲突依然会被报出来而不是直接覆盖。
 
 WebDAV 同步替换或自动删除已有文件时，需要服务器提供强 ETag。缺少可靠版本信息时会明确报错，不降级为无条件写入。在 Files 中主动删除仍是独立的用户操作。iCloud 的写入、移动和删除通过系统文件协调器执行。
 
