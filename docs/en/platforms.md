@@ -10,7 +10,7 @@ Aster shares its Org parsing, classification, write-back, sync-conflict, Agenda,
 
 | Platform | Minimum OS | Current baseline | Distribution status |
 | --- | --- | --- | --- |
-| iPhone / iPad | iOS / iPadOS 17 | 0.1 (17) | Uploaded; awaiting TestFlight processing |
+| iPhone / iPad | iOS / iPadOS 17 | 0.1 (23) | Uploaded; awaiting TestFlight processing |
 | Android phone / tablet | Android 8.0 (API 26) | 0.1 (9) | Preparing Google Play testing; not publicly available yet |
 
 Build/Version Code may advance independently on each platform. Include the platform and complete version in reports; matching marketing versions do not imply identical system capabilities or fixes.
@@ -63,6 +63,7 @@ In iOS/iPadOS build 12, widgets expire an old Habit day instead of counting it a
 | Cloud providers | Dropbox, iCloud Drive, Nutstore, WebDAV | Dropbox, Nutstore, WebDAV; no iCloud Drive or generic local Import |
 | Notifications | Aster Notifications, with optional Apple Reminders interoperability | Aster Notifications use Android notification and alarm capabilities; there is no invented Apple Reminders equivalent |
 | System calendar | Reads user-approved system calendar overlays | Reads user-approved Android Calendar Provider overlays |
+| App language | Settings → Appearance → Language opens iOS per-app language settings, so the system can remain in Chinese while Aster alone uses English | Follows Android system or per-app language settings |
 | File preview | Uses native iOS/iPadOS document capabilities | Uses Android-native readers and, when needed, a compatible system app |
 | Credentials | System Keychain | Android Keystore |
 | Accessibility | VoiceOver, Dynamic Type, Reduce Motion | TalkBack, system font scaling, and system animation accessibility settings |

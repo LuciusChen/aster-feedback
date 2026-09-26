@@ -10,7 +10,7 @@ Aster 在 Apple 与 Android 平台共享 Org 解析、分类、写回、同步�
 
 | 平台 | 最低系统 | 当前基线 | 分发状态 |
 | --- | --- | --- | --- |
-| iPhone / iPad | iOS / iPadOS 17 | 0.1 (17) | 已上传，等待 TestFlight 处理 |
+| iPhone / iPad | iOS / iPadOS 17 | 0.1 (23) | 已上传，等待 TestFlight 处理 |
 | Android 手机 / 平板 | Android 8.0（API 26） | 0.1 (9) | Google Play 测试准备中，尚未公开发布 |
 
 两个平台可以分别推进 Build/Version Code。反馈时请写明平台和完整版本；相同营销版本号不表示系统能力或修复进度完全相同。
@@ -63,6 +63,7 @@ iOS/iPadOS build 12 的小组件会在跨日时移除旧的 Habit 当日记录�
 | 云端来源 | Dropbox、iCloud Drive、Nutstore、WebDAV | Dropbox、Nutstore、WebDAV；没有 iCloud Drive 或通用本地 Import |
 | 通知 | Aster Notifications；可另外启用 Apple Reminders 互操作 | Aster Notifications 使用 Android 通知与闹钟能力；不创建 Apple Reminders 等价桥接 |
 | 系统日历 | 读取用户允许的系统日历覆盖 | 读取用户允许的 Android Calendar Provider 覆盖 |
+| App 语言 | 在 Aster 的设置 → 外观 → 语言中进入 iOS 的单 App 语言设置；系统可保持中文而 Aster 单独使用 English | 跟随 Android 的系统或单 App 语言设置 |
 | 文件预览 | 使用 iOS/iPadOS 原生文档能力 | 使用 Android 原生阅读器；必要时交给兼容的系统 App |
 | 凭据 | 系统 Keychain | Android Keystore |
 | 无障碍 | VoiceOver、Dynamic Type、Reduce Motion | TalkBack、系统字体缩放和系统动画辅助设置 |

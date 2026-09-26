@@ -31,6 +31,12 @@ Selected dates retain a solid blue background, with contrasting numerals, lunar 
 
 Events and holidays keep their Timeline colors, with matching colors combined and holidays first. Selected dates retain these colors too. The dots represent displayed color groups, not item counts. Habits and date-only TODOs do not add a Reminder icon. Week ribbons, Year density and Org source are unchanged. This change starts in build 18.
 
+### Subscribed Holiday Calendars (iOS/iPadOS, unreleased)
+
+Aster reads only external calendars that you explicitly select in Settings. It does not subscribe to, create, or modify calendar events. External all-day entries can come from a subscribed calendar inside Apple Calendar or from a Google Calendar connected directly to Aster.
+
+A multi-day all-day holiday includes its final date. Aster accepts both source conventions: a final included day ending at `23:59:59`, and the following midnight used as an exclusive boundary. Source labels such as `（休）` and `（班）` (including their half-width forms) remain visible, so a rest day and an adjusted workday are not reduced to the same plain holiday name. If Aster also calculates the same traditional festival locally, the marked source label is shown once instead of displaying duplicate names.
+
 ## What Appears in TODOs
 
 ![TODOs example](../../assets/screenshots/todos.png)
