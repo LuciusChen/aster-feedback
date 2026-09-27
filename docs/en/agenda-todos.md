@@ -156,9 +156,9 @@ The timeline reduces tick-label density to fit the actual font and localized tim
 
 On daylight-saving transition days, automatic positioning follows the actual ticks, including in time zones with half-hour changes. Non-whole-hour ticks show their minutes, and a final segment shorter than an hour keeps its real width.
 
-The creation timeline sits in the date area alongside the highlighted draft. Creating an Event shows only that day's Events; creating a Task shows only timed Tasks. Switching type or date refreshes the context immediately. Events occupy their actual intervals, Tasks are time points, and you can scroll horizontally to see other hours.
+The creation timeline sits in the date area alongside the highlighted draft. Each digit, Latin letter, or visible punctuation mark falls and fades from its actual position in the input as it is typed. Marked IME text stays still; committed CJK glyphs fall from their final positions after candidate selection. Completing a date or time expression separately moves the preview to its parsed position. Reduce Motion fades characters in place. Creating an Event shows only that day's Events; creating a Task shows only timed Tasks. Switching type or date refreshes the context immediately. Events occupy their actual intervals, Tasks are time points, and you can scroll horizontally to see other hours.
 
-In Event capture, overnight Events show their overlap with that day and all-day Events use a separate compact strip. Task capture hides those Events; no-clock TODOs still do not occupy the time axis.
+In Event capture, overnight Events show their overlap with that day. All-day Events use separate compact all-day rows inside the same horizontal timeline, never an extra strip above it. Task capture hides those Events; no-clock TODOs still do not occupy the time axis.
 
 Displayed clocks follow the system's 12/24-hour preference, without another Aster setting. Org timestamps still use `HH:mm`, and literal titles and template text are unchanged. Returning to Aster after changing the system format also refreshes pending notification text without moving the reminders.
 
