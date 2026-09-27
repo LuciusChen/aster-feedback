@@ -233,7 +233,7 @@ New and existing Tasks show Scheduled and Deadline as independent sections in th
 
 Each switch enables or removes only its own field. Both sections use the same controls but retain separate values. At a time places the clock immediately after the date in that section's Date row. Its own row contains only the toggle, with no duplicate time picker.
 
-During creation, enabling At a time defaults to the next whole hour: at 14:35, the selected day gets 15:00. Scheduled and Deadline apply this independently, matching Event creation. If Today crosses midnight at the next hour, the default is tomorrow at 00:00. Editing an existing clock does not round it again.
+During creation, enabling At a time defaults to the next whole hour: at 14:35, the selected day gets 15:00. Scheduled and Deadline apply this independently, matching Event creation. If Today crosses midnight at the next hour, the default is tomorrow at 00:00. Every editable Event and Task clock uses five-minute selection increments. Merely opening an existing off-grid time does not rewrite its Org source; the new five-minute value applies only after you adjust it.
 
 Scheduled is when you plan to start working; Deadline is when the work should be finished. These are independent planning fields, not different task types. Neither requires a clock time; a date-only Task remains in TODOs.
 
