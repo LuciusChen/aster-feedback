@@ -69,8 +69,8 @@ SCHEDULED: <2026-09-03 Thu 09:15>
 
 ```text
 场景：我有一个无具体时间的日期型 Task，希望当天 09:00 提醒。
-当前：日期型 Task 留在 TODOs，不创建提醒。
-期望：在详情中打开“At a time”并选择 09:00 后，条目进入 Agenda 并按该时刻提醒。
+当前：日期型 Task 显示在原 Agenda 日期并留在 TODOs，但不创建提醒。
+期望：在详情中打开“At a time”并选择 09:00 后，条目显示具体时刻并按该时刻提醒。
 Org：把 09:00 写入标准 DEADLINE 或 SCHEDULED 时间戳，不写 ASTER_REMINDER_TIME。
 ```
 

@@ -6,8 +6,8 @@
 
 Agenda 和 TODOs 读取同一批 Org 文件，但回答不同问题：
 
-- **Agenda**：什么时候发生？显示 Event、有具体钟点的未完成 Task，以及今天可执行的 Habit（无论是否带具体钟点）。
-- **TODOs**：还有什么未完成？汇总所选 Agenda 文件中所有进行中的 Task、Project 和 Habit，不论是否有具体钟点。同一条定时任务也可以出现在 Agenda。
+- **Agenda**：什么时候发生？显示 Event、未完成 Task 的 `SCHEDULED`/`DEADLINE` 日期及正文中的独立活动时间戳，以及今天可执行的 Habit（无论是否带具体钟点）。
+- **TODOs**：还有什么未完成？汇总所选 Agenda 文件中所有进行中的 Task、Project 和 Habit，不论是否有日期或具体钟点。同一条有日期的任务也可以出现在 Agenda。
 - **Terminal**：哪些任务目前处于终结状态？按源文件中的 `DONE`、`CANCELLED` 等终结关键字显示当前条目，不是完成历史。
 
 ![Agenda 示例](../assets/screenshots/agenda.png)
@@ -18,8 +18,9 @@ Agenda 和 TODOs 读取同一批 Org 文件，但回答不同问题：
 | --- | --- | --- |
 | 无 Workflow 的全天 Event | 是 | 紧凑全天条 |
 | 无 Workflow 的时间范围 Event | 是 | 时间范围在上、标题在下 |
-| 有 Workflow 的日期型 Task | 否 | 在 TODOs 显示日期和规划状态 |
+| 有 Workflow 的日期型 Task | 是 | 在原规划日期显示 Workflow 条目；TODOs 也显示日期和规划状态 |
 | 有 Workflow 的定时 Task | 是 | 精确时刻在上、Workflow 条目在下；TODOs 也汇总此任务 |
+| Task 正文中的独立活动时间戳 | 是 | 时间戳作为独立 occurrence 显示；TODOs 仍汇总同一条源 Task |
 | Habit 到达可执行窗口 | 是 | Workflow + Habit 节奏和历史；TODOs 也汇总此任务 |
 | 普通 Note/Container | 否 | 留在 Files/Search |
 
@@ -46,7 +47,7 @@ Aster 只读取你在设置中明确选择的外部日历，不会替你订阅�
 - 完全无日期的 Task。
 - 只有日期的 `SCHEDULED` Task。
 - 只有日期的 `DEADLINE` Task。
-- 有具体时刻、也会出现在 Agenda 时间线的 Task。
+- 有日期、也会出现在 Agenda 原规划日期的 Task；具体时刻只进一步启用提醒和定时样式。
 - 配置为 Project 的 Workflow 条目。
 - 尚未到计划日期或已经进入可执行窗口的 Habit。
 
@@ -71,7 +72,7 @@ iOS/iPadOS build 14中，更换设备时区或在新时区重新打开 Aster，�
 系统提醒若明确指定了时区，则保持原来的真实时刻。详见[时区原文示例](org-and-aster.md#16-时区与跨地区提醒iosipados-build-14)。
 
 - 只有未完成的 Workflow 条目才会成为 Overdue。
-- 日期型 Task 过期后留在 TODOs，并显示“逾期 1 天”或“逾期 N 天”的紧凑状态，不会被搬到今天。
+- 日期型 Task 过期后保留在原 Agenda 日期并继续留在 TODOs，显示“逾期 1 天”或“逾期 N 天”的紧凑状态，不会被搬到今天。
 - 定时 Task 在当天时刻已过时会显示“已逾期”，之后按日历日显示过期天数；Agenda 中的时间也会变红。
 - `SCHEDULED` 与 `DEADLINE` 使用同一套过期天数。条目由 Aster 创建还是从 Apple Reminders 同步而来，不会改变显示规则。
 - 今天顶部可以显示历史 Overdue 数量；点击会以滚动动画前往最近的 Overdue 原日期。
@@ -112,11 +113,11 @@ Agenda 的 `+` 打开快速新建。上方两段选择只决定 Org 类型，不
 ### Task
 
 - 计划日期和截止日期均未设置：写入无日期 Task，进入 TODOs。
-- 可以单独设置 `SCHEDULED`、`DEADLINE`，也可以同时设置。有无具体时刻都在 TODOs 汇总；定时任务另会进入 Agenda 时间线。
-- 为当前字段打开 At a time：写入该字段的具体时刻，进入 Agenda，并按该时刻提醒。
+- 可以单独设置 `SCHEDULED`、`DEADLINE`，也可以同时设置。有日期的任务会出现在原 Agenda 日期，并且无论是否有具体时刻都在 TODOs 汇总。
+- 为当前字段打开 At a time：写入该字段的具体时刻，并按该时刻提醒；关闭时仍保留日期型 Agenda 条目。
 - Task 不写结束时刻；它不是 Event 区间。
 
-日期型 Task 可以在新建页中预览整天，但不会因此进入 Agenda。没有设置日期时不显示时间轴；移除日期后的预览规则见[分别编辑计划和截止日期](#分别编辑计划和截止日期)。
+日期型 Task 可以在新建页中预览整天，保存后进入原规划日期的 Agenda，但不会产生 Reminder 图标或通知。没有设置日期时不显示时间轴；移除日期后的预览规则见[分别编辑计划和截止日期](#分别编辑计划和截止日期)。
 
 ### 星期规则的提醒（iOS/iPadOS，build 15）
 
@@ -234,7 +235,7 @@ iPad 横屏时，Agenda 详情在右侧显示源码按钮，不需要旋转屏�
 
 新建时打开「At a time」，默认取下一个整点，例如现在 14:35，默认为所选日期的 15:00。Scheduled 和 Deadline 各自应用这一规则，与新建 Event 一致。若选择今天且下一个整点跨过午夜，则使用明天 00:00。Event 与 Task 的所有可编辑时刻都以 5 分钟为选择间隔；用户明确输入或 Org 中已有的 `18:01`、`18:34` 等非 5 分钟时刻会原样显示和保存，实际拨动后才采用新的 5 分钟刻度值。
 
-Scheduled 表示计划开始处理的日期，Deadline 表示完成期限。它们不是两种任务类型，也不要求有具体时刻；没有时刻的 Task 仍留在 TODOs。
+Scheduled 表示计划开始处理的日期，Deadline 表示完成期限。它们不是两种任务类型，也不要求有具体时刻；没有时刻的 Task 会显示在原 Agenda 日期，同时仍留在 TODOs。
 
 日期直接使用系统选择器，不再进入 Scheduled 或 Deadline 子页面。新任务最后点 Add，已有任务返回时保存。
 

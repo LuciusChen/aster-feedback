@@ -6,8 +6,8 @@
 
 Agenda and TODOs read the same Org files but answer different questions:
 
-- **Agenda**: When does it happen? It shows Events, unfinished Tasks with a concrete clock time, and today's eligible Habits whether or not they have a clock time.
-- **TODOs**: What remains unfinished? It summarizes every open Task, Project, and Habit from the selected Agenda files, with or without a clock time. A timed task can appear in Agenda too.
+- **Agenda**: When does it happen? It shows Events, unfinished Task occurrences from dated `SCHEDULED`/`DEADLINE` planning or independent active timestamps in the body, and today's eligible Habits whether or not they have a clock time.
+- **TODOs**: What remains unfinished? It summarizes every open Task, Project, and Habit from the selected Agenda files, with or without a date or clock time. The same dated Task can also appear in Agenda.
 - **Terminal**: Which tasks currently have a terminal keyword? It lists source-defined states such as `DONE` and `CANCELLED`, not a history of past completions.
 
 ![Agenda example](../../assets/screenshots/agenda.png)
@@ -18,8 +18,9 @@ Agenda and TODOs read the same Org files but answer different questions:
 | --- | --- | --- |
 | All-day Event without a Workflow keyword | Yes | Compact all-day strip |
 | Time-range Event without a Workflow keyword | Yes | Time range above, title below |
-| Date-only Task with a Workflow keyword | No | Date and planning status in TODOs |
+| Date-only Task with a Workflow keyword | Yes | Workflow row on its original planning date; date and planning status also remain in TODOs |
 | Timed Task with a Workflow keyword | Yes | Exact time above, Workflow item below; also summarized in TODOs |
+| Independent active timestamp in a Task body | Yes | The timestamp appears as an independent occurrence; TODOs still summarizes the same source Task |
 | Habit inside its actionable window | Yes | Workflow, Habit cadence, and history; also summarized in TODOs |
 | Ordinary Note or Container | No | Available in Files and Search |
 
@@ -46,7 +47,7 @@ Starting with iOS/iPadOS build 21, TODOs keeps one row per open Org heading, inc
 - A completely undated Task.
 - A date-only `SCHEDULED` Task.
 - A date-only `DEADLINE` Task.
-- A timed Task that also appears on the Agenda timeline.
+- A dated Task that also appears on its original Agenda date; a clock additionally enables reminder behavior and timed presentation.
 - A Workflow item configured as a Project.
 - A Habit, whether or not its next Scheduled date has arrived.
 
@@ -71,7 +72,7 @@ In iOS/iPadOS build 14, changing the device's time zone or reopening Aster in a 
 A system reminder with an explicit zone keeps its original instant. See the [time-zone source examples](org-and-aster.md#16-time-zones-and-travel-iosipados-build-14).
 
 - Only unfinished Workflow items can be overdue.
-- A date-only Task stays in TODOs and shows compact `1 day overdue` or `N days overdue` status; Aster does not move it to today.
+- A date-only Task stays on its original Agenda date and in TODOs, where it shows compact `1 day overdue` or `N days overdue` status; Aster does not move it to today.
 - After a timed Task passes its clock time, it shows `Overdue`; on later calendar days it shows the elapsed overdue-day count, and its Agenda time line also turns red.
 - `SCHEDULED` and `DEADLINE` use the same overdue-day rule. Presentation does not change according to whether Aster created the item or Apple Reminders synchronized it.
 - Today's header may summarize historical overdue items. Tapping the summary animates to the nearest overdue item on its original date.
@@ -113,11 +114,11 @@ A multi-day Event appears on its start, end, and every intervening date, includi
 ### Task
 
 - Neither Scheduled nor Deadline set: write an undated Task that appears in TODOs.
-- Set `SCHEDULED`, `DEADLINE`, or both. TODOs summarizes the Task with or without a clock time; a timed Task also appears on the Agenda timeline.
-- Enable At a time for the selected field to write its clock time, show it in Agenda, and alert at that time.
+- Set `SCHEDULED`, `DEADLINE`, or both. A dated Task appears on its original Agenda date, and TODOs summarizes it with or without a clock time.
+- Enable At a time for the selected field to write its clock time and alert at that time; disabling it retains the date-only Agenda row.
 - A Task has no end time; it is not an Event interval.
 
-A date-only Task can preview a full day during creation without appearing in Agenda. An undated Task has no timeline preview; see [Independent Scheduled and Deadline fields](#independent-scheduled-and-deadline-fields) for what happens when a date is removed.
+A date-only Task can preview a full day during creation and appears on its original Agenda date after saving, but it creates no Reminder marker or notification. An undated Task has no timeline preview; see [Independent Scheduled and Deadline fields](#independent-scheduled-and-deadline-fields) for what happens when a date is removed.
 
 ### Weekday-Rule Reminders (iOS/iPadOS, build 15)
 
@@ -235,7 +236,7 @@ Each switch enables or removes only its own field. Both sections use the same co
 
 During creation, enabling At a time defaults to the next whole hour: at 14:35, the selected day gets 15:00. Scheduled and Deadline apply this independently, matching Event creation. If Today crosses midnight at the next hour, the default is tomorrow at 00:00. Every editable Event and Task clock uses five-minute selection increments. An explicitly entered or existing off-grid time such as `18:01` or `18:34` remains displayed and stored exactly; the new five-minute value applies only after you adjust it.
 
-Scheduled is when you plan to start working; Deadline is when the work should be finished. These are independent planning fields, not different task types. Neither requires a clock time; a date-only Task remains in TODOs.
+Scheduled is when you plan to start working; Deadline is when the work should be finished. These are independent planning fields, not different task types. Neither requires a clock time; a date-only Task appears on its original Agenda date and remains in TODOs.
 
 Dates use the system picker directly, without Scheduled or Deadline child pages. Add saves a new Task, and leaving detail saves an existing one.
 

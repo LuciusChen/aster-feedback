@@ -11,8 +11,10 @@ This is the central semantic reference for Aster. Every example includes copyabl
 | Org feature | Aster classification | Primary location |
 | --- | --- | --- |
 | No Workflow keyword, with an active timestamp or recognizable date planning | Event | Agenda |
-| Unfinished Workflow keyword, no concrete clock time | Task | TODOs and matching Perspectives |
+| Unfinished Workflow keyword, no dated planning | Task | TODOs and matching Perspectives |
+| Unfinished Workflow keyword, with date-only `SCHEDULED` / `DEADLINE` | Task | Agenda on its original planning date, TODOs, and matching Perspectives |
 | Unfinished Workflow keyword, with a concrete clock time | Timed Task | Agenda timeline and TODOs |
+| Unfinished Workflow keyword, with an independent active timestamp in its body | Task; the timestamp is an independent Agenda occurrence | Agenda on the timestamp date, TODOs, and matching Perspectives |
 | Workflow keyword configured as Treat as Project | Project | TODOs and Perspectives, optionally with progress |
 | Unfinished Workflow + `STYLE=habit` + an Org Habit-compatible repeating `SCHEDULED` | Habit | TODOs; Agenda when eligible today by default; matching Perspectives; habit history |
 | Yearly `org-anniversary` Diary | Anniversary; an optional Property can select Day Counter presentation | Agenda and the optional Anniversaries Perspective |
@@ -153,7 +155,8 @@ DEADLINE: <2026-09-03 Thu>
 
 ### Actual Aster behavior
 
-- As an open Task, it appears in TODOs. Without a concrete clock time, it does not occupy the timed Agenda timeline.
+- As an open Task, it appears on its original planning date in Agenda and remains in TODOs.
+- Without a concrete clock time, it creates no local alert or month-calendar Reminder marker. Agenda presents it as a Workflow row, not as an Event.
 - Its Deadline appears in item metadata.
 - Once the date passes while the state remains unfinished, it receives overdue styling.
 - It does not become an all-day Event merely because it has a date.
@@ -170,7 +173,7 @@ Work that should be completed by a date but does not occupy a specific time slot
 SCHEDULED: <2026-09-07 Mon> DEADLINE: <2026-09-11 Fri -2d>
 ```
 
-This Task is planned for September 7 and due on September 11. Neither field has a clock time, so it remains in TODOs. The `-2d` cookie starts due-status presentation two days before the deadline.
+This Task is planned for September 7 and due on September 11. Both fields appear on their original Agenda dates, while the one source Task remains in TODOs. The `-2d` cookie starts due-status presentation two days before the deadline.
 
 iOS/iPadOS build 17: on September 10, the same row shows both “Scheduled · 3 days ago” and “Deadline · 1 day until due”, rather than hiding the deadline behind the planned-start age.
 
@@ -192,7 +195,7 @@ SCHEDULED: <2026-09-03 Thu 09:15>
 ### Actual Aster behavior
 
 - It remains a Task because it has an unfinished Workflow keyword.
-- It appears on the Agenda timeline because its planning contains a clock time.
+- A dated Task already appears in Agenda; the clock gives it timed presentation and reminder behavior.
 - TODOs also summarizes this open Task (iOS/iPadOS build 21).
 - `09:15` is one exact moment, not an Event start–end range.
 - If it remains unfinished after that moment, the time itself turns red.

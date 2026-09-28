@@ -11,8 +11,10 @@
 | Org 特征 | Aster 分类 | 主要出现位置 |
 | --- | --- | --- |
 | 没有 Workflow 关键字，有活动时间戳或可识别日期规划 | Event | Agenda |
-| 有未完成 Workflow 关键字，没有具体钟点 | Task | TODOs、匹配的 Perspective |
+| 有未完成 Workflow 关键字，没有日期规划 | Task | TODOs、匹配的 Perspective |
+| 有未完成 Workflow 关键字，并有日期型 `SCHEDULED` / `DEADLINE` | Task | 原规划日期的 Agenda、TODOs、匹配的 Perspective |
 | 有未完成 Workflow 关键字，并有具体钟点 | Timed Task | Agenda 时间线、TODOs |
+| 有未完成 Workflow 关键字，正文有独立活动时间戳 | Task；时间戳是独立 Agenda occurrence | 时间戳日期的 Agenda、TODOs、匹配的 Perspective |
 | Workflow 关键字被配置为 Treat as Project | Project | TODOs、Perspective；可显示进度 |
 | 未完成 Workflow + `STYLE=habit` + Org Habit 接受的重复 `SCHEDULED` | Habit | TODOs；今天可执行时默认进入 Agenda；Perspective 可筛选习惯；显示习惯历史 |
 | `org-anniversary` 年度 Diary | Anniversary；可选 Property 可显示 Day Counter | Agenda；可选 Anniversaries Perspective |
@@ -153,7 +155,8 @@ DEADLINE: <2026-09-03 Thu>
 
 ### Aster 实际效果
 
-- 作为进行中的 Task 显示在 TODOs；没有具体钟点，所以不占用 Agenda 的定时时间线。
+- 作为进行中的 Task 显示在原规划日期的 Agenda，同时保留在 TODOs。
+- 没有具体钟点，所以不创建本地提醒或月历 Reminder 图标；Agenda 中显示的是 Workflow 条目，不会伪装成 Event。
 - 在条目元数据中显示 Deadline 日期。
 - 到期日过去且状态仍未完成时，显示 Overdue 状态。
 - 不会为了“有日期”就伪装成全天 Event。
@@ -170,7 +173,7 @@ DEADLINE: <2026-09-03 Thu>
 SCHEDULED: <2026-09-07 Mon> DEADLINE: <2026-09-11 Fri -2d>
 ```
 
-这个任务计划在 9 月 7 日处理，9 月 11 日截止。两个字段没有具体时刻，仍在 TODOs 中；`-2d` 表示截止前两天开始显示到期提示。
+这个任务计划在 9 月 7 日处理，9 月 11 日截止。两个字段都会出现在各自的 Agenda 原日期，同时这条源任务仍在 TODOs 中；`-2d` 表示截止前两天开始显示到期提示。
 
 iOS/iPadOS build 17：以 9 月 10 日为例，同一行会同时显示「计划已过 3 天」和「截止 · 距到期 1 天」，而不是用计划日期的过期状态遮住截止日期。
 
@@ -192,7 +195,7 @@ SCHEDULED: <2026-09-03 Thu 09:15>
 ### Aster 实际效果
 
 - 因为有未完成 Workflow 关键字，所以仍是 Task。
-- 因为有具体钟点，所以显示在 Agenda 时间线；TODOs 也汇总这条进行中的 Task（iOS/iPadOS build 21）。
+- 带日期的 Task 本来就显示在 Agenda；具体钟点让它使用定时样式并创建提醒。TODOs 也汇总这条进行中的 Task（iOS/iPadOS build 21）。
 - 时间是一个精确时刻 `09:15`，不是 Event 的开始—结束区间。
 - 未完成且时刻已过时，时间本身变红。
 - 保存这种条目时，Aster 会按标准 Org 规划时间创建一次本地提醒，不需要第二个 Notify 开关。

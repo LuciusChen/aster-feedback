@@ -69,8 +69,8 @@ Describe the use case and Org semantics before proposing the control:
 
 ```text
 Scenario: I have a date-only Task and want an alert at 09:00 that day.
-Current behavior: The date-only Task remains in TODOs and creates no alert.
-Desired result: Enabling “At a time” in detail and selecting 09:00 moves it into Agenda and alerts at that time.
+Current behavior: The date-only Task appears on its original Agenda date and remains in TODOs, but creates no alert.
+Desired result: Enabling “At a time” in detail and selecting 09:00 gives it timed presentation and alerts at that time.
 Org mapping: Write 09:00 into the standard DEADLINE or SCHEDULED timestamp; do not write ASTER_REMINDER_TIME.
 ```
 
