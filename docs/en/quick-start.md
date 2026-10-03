@@ -71,7 +71,8 @@ Root navigation provides the same three primary destinations and global actions:
 - The trailing actions are Create and Search. Create uses the current context: Event in Agenda, Task in TODOs/Perspectives, Journal entry in Journal, and Org Document in Files. Hold Create for three choices: Event & Task, Journal, and Org Document. Event & Task opens Agenda's shared composer; switching it to Task retains Scheduled. A direct Create tap in TODOs still starts an undated Task.
 - Search focuses immediately. Cancel closes Search and returns to the page you came from.
 
-- iPhone: the three control groups share one bottom row. Compact widths may show symbols only, while each destination retains an independent selection state and accessibility name.
+- Ordinary iPhone: the three control groups share one bottom row. Compact widths may show symbols only, while each destination retains an independent selection state and accessibility name.
+- iPhone Duo (next version, iOS 27.1): the same commands use system toolbars. The outer display and inner landscape use the shared vertical bar region; inner portrait uses horizontal bars. Folding or rotating preserves the open page. This is not yet included in the published version.
 - iPad: a horizontal root command bar accompanies master/detail content. Choosing a category replaces the existing detail instead of stacking duplicate pages.
 - Android phone: bottom navigation and Android-native transient surfaces preserve the same destinations and Create/Search outcomes as iPhone.
 - Android tablet or wide landscape window: a leading Navigation Rail owns root navigation. Agenda keeps its date header, calendar, and timeline in the left content pane, with a linked month grid or selected detail on the right.

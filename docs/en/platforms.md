@@ -58,7 +58,7 @@ In iOS/iPadOS build 12, widgets expire an old Habit day instead of counting it a
 
 | Capability | iOS / iPadOS | Android |
 | --- | --- | --- |
-| Phone navigation | iPhone uses the bottom root command bar | Android phones use bottom navigation and platform-native transient surfaces |
+| Phone navigation | Ordinary iPhone uses the bottom root command bar; the next version's iPhone Duo support uses system toolbars whose axis follows the display pose | Android phones use bottom navigation and platform-native transient surfaces |
 | Large-screen navigation | iPad uses a horizontal root command bar and master/detail content | Android tablets and wide windows use a leading Navigation Rail; Agenda calendar and timeline remain in the left content pane |
 | Cloud providers | Dropbox, iCloud Drive, Nutstore, WebDAV | Dropbox, Nutstore, WebDAV; no iCloud Drive or generic local Import |
 | Notifications | Aster Notifications, with optional Apple Reminders interoperability | Aster Notifications use Android notification and alarm capabilities; there is no invented Apple Reminders equivalent |

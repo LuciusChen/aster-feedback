@@ -71,7 +71,8 @@ iOS/iPadOS build 16 可在“工作区与同步 → 工作区根目录”勾选�
 - 右侧是“新建”和“搜索”。轻点新建会按当前内容创建：Agenda 新建 Event、TODOs/Perspective 新建 Task、Journal 新建日志条目、Files 新建 Org 文档；长按显示“Event & Task”“Journal”“Org Document”三个入口。Event & Task 打开 Agenda 的共用表单，在其中切换到 Task 会保留已开启的 Scheduled；在 TODOs 直接轻点新建仍是无日期 Task。
 - 搜索打开后会自动聚焦；轻点 Cancel 会关闭搜索并回到进入前的页面。
 
-- iPhone：三组控件位于同一条底栏；紧凑宽度可只显示图标，但各入口仍有独立选中状态和无障碍名称。
+- 普通 iPhone：三组控件位于同一条底栏；紧凑宽度可只显示图标，但各入口仍有独立选中状态和无障碍名称。
+- iPhone Duo（下一版，iOS 27.1）：相同入口使用系统工具栏。外屏与内屏横向时位于系统侧边工具栏区域，内屏纵向时使用横栏；折叠或旋转不会重置已打开的页面。此项尚未随已发布版本提供。
 - iPad：使用横向根操作栏和主从详情；选择分类会替换现有右侧详情，不连续叠加页面。
 - Android 手机：使用底部导航和 Android 原生弹层，目的地及创建/搜索结果与 iPhone 保持一致。
 - Android 平板或横向大屏：使用左侧 Navigation Rail。Agenda 的日期标题、日历和时间线在左侧内容栏，右侧显示联动月历或所选详情。
