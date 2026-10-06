@@ -10,7 +10,7 @@ Aster 在 Apple 与 Android 平台共享 Org 解析、分类、写回、同步�
 
 | 平台 | 最低系统 | 当前基线 | 分发状态 |
 | --- | --- | --- | --- |
-| iPhone / iPad | iOS / iPadOS 17 | 0.1 (23) | 已上传，等待 TestFlight 处理 |
+| iPhone / iPad | iOS / iPadOS 17 | 0.1 (28) | 已上传，等待 TestFlight 处理 |
 | Android 手机 / 平板 | Android 8.0（API 26） | 0.1 (9) | Google Play 测试准备中，尚未公开发布 |
 
 两个平台可以分别推进 Build/Version Code。反馈时请写明平台和完整版本；相同营销版本号不表示系统能力或修复进度完全相同。
@@ -58,7 +58,7 @@ iOS/iPadOS build 12 的小组件会在跨日时移除旧的 Habit 当日记录�
 
 | 能力 | iOS / iPadOS | Android |
 | --- | --- | --- |
-| 手机导航 | 普通 iPhone 使用底部根操作栏；下一版的 iPhone Duo 适配使用系统工具栏，随屏幕姿态调整方向 | Android 手机使用底部导航与平台原生弹层 |
+| 手机导航 | 普通 iPhone 使用底部根操作栏；build 28 的 iPhone Duo 适配使用系统工具栏，随屏幕姿态调整方向 | Android 手机使用底部导航与平台原生弹层 |
 | 大屏导航 | iPad 使用横向根操作栏和主从详情 | Android 平板/横向大屏使用左侧 Navigation Rail；Agenda 的日历与时间线仍位于左侧内容栏 |
 | 云端来源 | Dropbox、iCloud Drive、Nutstore、WebDAV | Dropbox、Nutstore、WebDAV；没有 iCloud Drive 或通用本地 Import |
 | 通知 | Aster Notifications；可另外启用 Apple Reminders 互操作 | Aster Notifications 使用 Android 通知与闹钟能力；不创建 Apple Reminders 等价桥接 |

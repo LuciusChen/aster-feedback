@@ -10,7 +10,7 @@ Aster shares its Org parsing, classification, write-back, sync-conflict, Agenda,
 
 | Platform | Minimum OS | Current baseline | Distribution status |
 | --- | --- | --- | --- |
-| iPhone / iPad | iOS / iPadOS 17 | 0.1 (23) | Uploaded; awaiting TestFlight processing |
+| iPhone / iPad | iOS / iPadOS 17 | 0.1 (28) | Uploaded; awaiting TestFlight processing |
 | Android phone / tablet | Android 8.0 (API 26) | 0.1 (9) | Preparing Google Play testing; not publicly available yet |
 
 Build/Version Code may advance independently on each platform. Include the platform and complete version in reports; matching marketing versions do not imply identical system capabilities or fixes.
@@ -58,7 +58,7 @@ In iOS/iPadOS build 12, widgets expire an old Habit day instead of counting it a
 
 | Capability | iOS / iPadOS | Android |
 | --- | --- | --- |
-| Phone navigation | Ordinary iPhone uses the bottom root command bar; the next version's iPhone Duo support uses system toolbars whose axis follows the display pose | Android phones use bottom navigation and platform-native transient surfaces |
+| Phone navigation | Ordinary iPhone uses the bottom root command bar; build 28's iPhone Duo support uses system toolbars whose axis follows the display pose | Android phones use bottom navigation and platform-native transient surfaces |
 | Large-screen navigation | iPad uses a horizontal root command bar and master/detail content | Android tablets and wide windows use a leading Navigation Rail; Agenda calendar and timeline remain in the left content pane |
 | Cloud providers | Dropbox, iCloud Drive, Nutstore, WebDAV | Dropbox, Nutstore, WebDAV; no iCloud Drive or generic local Import |
 | Notifications | Aster Notifications, with optional Apple Reminders interoperability | Aster Notifications use Android notification and alarm capabilities; there is no invented Apple Reminders equivalent |

@@ -32,7 +32,7 @@ Selected dates retain a solid blue background, with contrasting numerals, lunar 
 
 Events and holidays keep their Timeline colors, with matching colors combined and holidays first. Selected dates retain these colors too. The dots represent displayed color groups, not item counts. Habits and date-only TODOs do not add a Reminder icon. Week ribbons, Year density and Org source are unchanged. This change starts in build 18.
 
-### Subscribed Holiday Calendars (iOS/iPadOS, unreleased)
+### Subscribed Holiday Calendars (iOS/iPadOS build 24)
 
 Aster reads only external calendars that you explicitly select in Settings. It does not subscribe to, create, or modify calendar events. External all-day entries can come from a subscribed calendar inside Apple Calendar or from a Google Calendar connected directly to Aster.
 
@@ -175,6 +175,7 @@ Long WebDAV URLs, file and folder names, Journal filename rules, Capture paths a
 - Calendar sizes share directional page transitions. Only during a drag, content in the leading column progressively magnifies by up to 6% and shifts slightly beneath a fixed clear lens. The background, weekend shading, and date boundaries stay fixed; at rest there is no visible glass layer or duplicate.
 - Releasing Week completes one directional transition without a second settle or spring rebound. The iPad landscape left column uses the same five-column rail as iPhone; Agenda retains its synchronized month calendar on the right. Android landscape tablets keep the calendar and timeline in the left content pane beside the Navigation Rail.
 - The calendar remains fixed while the timeline scrolls independently and extends into both past and future.
+- From iOS/iPadOS build 28, Agenda and Journal timeline day headers keep weekdays on the left and numeric dates on the right. Journal retains its adjacent day-collapse control, including at larger Text Size.
 - Today remains aligned to the top initially, with past dates already above it, so the first drag is native scrolling rather than an unlock gesture.
 - As the timeline's leading day changes, calendar selection follows.
 - On iPhone and Android phones, the date header, calendar, and timeline share fixed 18-point/18-dp margins on both sides. Custom fonts or a very long all-day item truncate inside the item's rounded chip instead of widening or shifting the page. After visiting Files, Journal, Search, or Settings and returning to Agenda, retained background pages can no longer shift either Agenda or root navigation.
