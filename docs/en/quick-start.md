@@ -29,6 +29,8 @@ Choose a workspace root and whether nested directories are included. Aster mirro
 
 iOS/iPadOS build 16 offers subfolder choices inside **Workspace & Sync → Workspace root**. Tap folders to enter and swipe back to their parent. Everything starts selected, and unchecking keeps existing files; see [sync scope and safety](sync-and-safety.md).
 
+In the next iOS/iPadOS release, new connections show this selection page first. Review the checkmarks and save to begin the first sync. Cancel leaves transfers paused, even after relaunch; resume setup from **Workspace root**.
+
 After connecting, open **Files** and verify:
 
 1. The directory hierarchy is complete.
