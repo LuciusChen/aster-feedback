@@ -41,7 +41,7 @@ Save can stage folder choices for the next run while a transfer is in progress. 
 
 Save applies the selection to the next sync. Unchecking never deletes existing local or cloud files or changes Agenda and Journal sources. Existing local content remains available. Re-enabling compares against the retained sync checkpoints; edits made on both sides still produce a conflict instead of an overwrite.
 
-Choices belong to this device. In the next iOS/iPadOS release, new connections open folder selection before their first sync. Save starts that sync; Cancel or relaunch keeps transfers paused. Existing connections continue syncing after upgrading without reconfiguration.
+Choices belong to this device. In iOS/iPadOS build 29, new connections open folder selection before their first sync. Save starts that sync; Cancel or relaunch keeps transfers paused. Existing connections continue syncing after upgrading without reconfiguration.
 
 An absent Nutstore workspace appears as an empty remote tree. Save confirms the selection before the first sync creates the directory. Authentication, server and child-listing failures still show errors instead of being treated as an empty tree.
 
