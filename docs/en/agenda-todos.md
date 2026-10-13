@@ -240,6 +240,8 @@ Each switch enables or removes only its own field. Both sections use the same co
 
 During creation, enabling At a time defaults to the next whole hour: at 14:35, the selected day gets 15:00. Scheduled and Deadline apply this independently, matching Event creation. If Today crosses midnight at the next hour, the default is tomorrow at 00:00. Every editable Event and Task clock uses five-minute selection increments. An explicitly entered or existing off-grid time such as `18:01` or `18:34` remains displayed and stored exactly; the new five-minute value applies only after you adjust it.
 
+**Unreleased fix:** The next-hour default applies only when first enabling a clock that has not been set. Turning Task's At a time off and back on, or Event's All day on and back off, retains the draft's exact clocks, including the Event end. Saving as all day still writes dates only; reopening does not restore old clocks that were not saved in the file.
+
 Scheduled is when you plan to start working; Deadline is when the work should be finished. These are independent planning fields, not different task types. Neither requires a clock time; a date-only Task appears on its original Agenda date and remains in TODOs.
 
 Dates use the system picker directly, without Scheduled or Deadline child pages. Add saves a new Task, and leaving detail saves an existing one.
