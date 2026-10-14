@@ -12,6 +12,8 @@ The iOS/iPadOS documentation uses 0.1 (30), dated 13 October 2026, as its baseli
 
 Shared Org semantics stay aligned, while system integrations and adaptive UI are documented per platform. Unreleased fixes are explicitly labeled and are not included in those versions.
 
+The iOS/iPadOS 1.0.0 monthly subscription and two-week trial are being prepared, not yet released. See [Subscriptions](docs/en/subscription.md) for access after expiration and the [Privacy Policy](PRIVACY.md) for data handling and support contact details.
+
 This repository serves two purposes:
 
 - Provide English and Chinese documentation aligned with current iOS/iPadOS and Android test behavior.

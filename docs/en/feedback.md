@@ -8,6 +8,8 @@ A useful report lets another device reproduce the same result without exposing y
 
 ## Choose an Entry
 
+For usage or subscription support, you can also email **chenyh572@gmail.com**. Do not send passwords, tokens, or a complete private workspace.
+
 - For rendering problems, crashes, missing write-back, sync failures, or severe slowness, use the [English Bug report](https://github.com/LuciusChen/aster-feedback/issues/new?template=bug-en.yml).
 - For a new use case, interaction improvement, or Org capability, use the [English Feature request](https://github.com/LuciusChen/aster-feedback/issues/new?template=feature-en.yml).
 

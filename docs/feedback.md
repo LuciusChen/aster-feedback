@@ -8,6 +8,8 @@
 
 ## 选择入口
 
+使用和订阅问题也可以发送邮件到 **chenyh572@gmail.com**。不要发送密码、令牌或完整的私人工作区。
+
 - 显示错误、闪退、数据未写回、同步异常或明显变慢：使用 [Bug report](https://github.com/LuciusChen/aster-feedback/issues/new?template=bug.yml)。
 - 新的使用场景、交互建议或 Org 能力建议：使用 [Feature request](https://github.com/LuciusChen/aster-feedback/issues/new?template=feature.yml)。
 
