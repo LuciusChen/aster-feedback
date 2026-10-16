@@ -12,7 +12,7 @@ The planned auto-renewable monthly subscription costs ¥6 in mainland China and 
 
 Eligible users receive a two-week free trial after confirming the subscription with Apple. It then renews monthly unless cancelled beforehand. Apple's confirmation screen describes billing and cancellation deadlines. Apple determines eligibility per subscription group; reinstalling does not restart the trial.
 
-Open Settings → Subscription to see local pricing, purchase, or restore purchases. Restore using the Apple Account used for the original purchase. Active subscribers can open Apple's subscription management from this page. Cancelling renewal preserves editing access until the current paid or trial period ends.
+Open Settings → Subscription to see local pricing, purchase, or restore purchases. Restore using the Apple Account used for the original purchase. Active subscribers see an information card with the current monthly plan and access deadline, rather than another purchase-looking button. Manage Subscription opens Apple's subscription management, and restoration remains available. Cancelling renewal preserves editing access until the current paid or trial period ends; the access deadline is not a promise of renewal.
 
 ## Files after expiration
 
