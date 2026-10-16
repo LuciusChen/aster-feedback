@@ -6,7 +6,9 @@
 
 This page describes the subscription plan being prepared for 1.0.0. It has not launched on the App Store and is not included in 0.1 (30). The current Android version is unaffected.
 
-The planned auto-renewable monthly subscription costs ¥6 in mainland China and $0.99 in the United States. Other storefronts use local-currency App Store prices. Apple's purchase screen is authoritative for the actual price, taxes, and trial eligibility; prices do not track exchange rates every month.
+The initial release excludes China mainland and the European Union. Plans for the other selected regions are unchanged.
+
+The planned auto-renewable monthly subscription costs $0.99 in the United States. Other available storefronts use local-currency App Store prices. Apple's purchase screen is authoritative for the actual price, taxes, and trial eligibility; prices do not track exchange rates every month.
 
 ## Trial, purchase, and restoration
 
