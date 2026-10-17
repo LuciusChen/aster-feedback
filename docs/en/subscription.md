@@ -4,7 +4,7 @@
 
 ## Release status
 
-This page describes the subscription plan being prepared for 1.0.0. It has not launched on the App Store and is not included in 0.1 (30). The current Android version is unaffected.
+Version 1.0.0 (34) and its first monthly subscription were submitted to App Review on October 17, 2026. They are waiting for review and have not launched on the App Store. This page describes that version's subscription plan, which is not included in 0.1 (30). The current Android version is unaffected.
 
 The initial release excludes China mainland and the European Union. Plans for the other selected regions are unchanged.
 
