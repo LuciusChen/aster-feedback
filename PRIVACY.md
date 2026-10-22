@@ -1,6 +1,6 @@
 # Aster Privacy Policy / 隐私政策
 
-Last updated / 更新日期：2026-10-14
+Last updated / 更新日期：2026-10-22
 
 ## English
 
@@ -17,6 +17,12 @@ Opening an external link or fetching its preview can contact the destination web
 ### Purchases and diagnostics
 
 Apple handles iOS/iPadOS subscriptions and payments. Aster uses Apple-verified transaction and subscription information on your device to determine editing access. Aster does not receive your payment-card details. Apple's privacy policy governs App Store purchases, system diagnostics, and TestFlight feedback.
+
+Android subscription support is being prepared for 1.0.0 (34) and is not in the published 0.1 (30) build. For that upcoming release, Google Play handles purchases and payments. Aster uses Google Play Billing on your device to query purchases and acknowledge completed subscriptions. Google processes purchases under its own policies.
+
+There is no developer-operated purchase-verification service or Aster account. Aster does not send your purchase token, Org files, attachments or cloud credentials to an Aster subscription server. Aster does not receive your payment-card details or Google password.
+
+The device keeps an encrypted, authenticated purchase-token hash representing the last confirmed editing access in app-private storage excluded from backups, not a raw token or an inferred expiry date. Offline or failed checks retain that access. It may continue beyond actual expiry or refund until the next successful Google Play check updates it. Aster does not intentionally log raw purchase tokens or purchase responses.
 
 Aster does not include advertising or cross-app tracking. It does not upload your workspace for developer analytics. If you email support or submit a GitHub issue, the information you voluntarily include is handled by the mail or issue-hosting service and used to respond to your request. Do not include passwords, tokens, or private workspace content in public issues.
 
@@ -41,6 +47,12 @@ Apple 日历、提醒事项、照片和相机权限仅用于对应功能。所�
 ### 购买与诊断
 
 iOS/iPadOS 订阅和付款由 Apple 处理。Aster 在设备上使用 Apple 验证的交易和订阅信息判断编辑权限，不会取得支付卡信息。App Store 购买、系统诊断和 TestFlight 反馈遵循 Apple 的隐私政策。
+
+Android 订阅功能正在为 1.0.0 (34) 准备中，尚未包含在已发布的 0.1 (30) 中。后续版本的购买和付款由 Google Play 处理。Aster 在设备上通过 Google Play Billing 查询购买状态并确认已完成的订阅。Google 按自身政策处理购买信息。
+
+Aster 不使用开发者运营的购买验证服务，也不需要 Aster 账号。Aster 不会向 Aster 订阅服务器发送购买令牌、Org 文件、附件或网盘凭据，也不会取得支付卡信息或 Google 密码。
+
+设备会在不参与备份的应用私有存储中，保留经过加密和认证的购买令牌摘要，表示上次确认的编辑权限，不保存原始令牌或推算的到期日期。离线或检查失败时保留该权限，因此实际到期或退款后，权限可能延续到下次成功的 Google Play 检查再更新。Aster 不会主动记录原始购买令牌或购买响应。
 
 Aster 不含广告或跨应用追踪，也不会为开发者分析上传工作区。如果你发送支持邮件或提交 GitHub issue，主动提供的信息会由邮件或 issue 托管服务处理，并用于回应请求。请不要在公开 issue 中附上密码、令牌或私人工作区内容。
 

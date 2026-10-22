@@ -1,5 +1,13 @@
 # iOS/iPadOS subscriptions
 
+## Android preparation (not released)
+
+Android 1.0.0 (34) is being prepared with the same free-reading and monthly-editing model, using Google Play rather than Apple. The intended US price is $0.99/month with a two-week trial for eligible users. Actual local prices and eligibility will come from Google Play. The published Android 0.1 (30) build does not include this change; product configuration and real purchase testing are still pending.
+
+The upcoming Android Settings → Subscription page supports purchase, Restore Subscription and Manage Subscription directly through Google Play Billing. It requires no Aster account or developer-operated verification service. Restore uses the Google Play account used to purchase. Apple and Google Play purchases are not shared across platforms.
+
+Offline or failed checks retain the last successfully confirmed editing access. Access may continue past actual expiry or refund until the next successful check, and the app does not display an inferred expiry date. Losing editing access preserves files and rejected drafts, while reading and ordinary cloud synchronization remain available. See the [privacy policy](../../PRIVACY.md) for the data boundary.
+
 [简体中文](../subscription.md) · [Home](../../README.en.md)
 
 ## Release status
